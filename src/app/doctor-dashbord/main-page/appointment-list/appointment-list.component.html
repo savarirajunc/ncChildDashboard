@@ -1,0 +1,16 @@
+
+  <p>
+      <br>
+    </p>
+    <h3>{{gettitle}} APPOINTMENTS LIST</h3>
+
+    <ng-container *ngIf="length <= 0" >
+        <h4>There are no appointments.</h4>
+    </ng-container>
+    <ng-container *ngIf="length > 0" >
+    <div *ngFor="let kids of visitList; let i = index; " class="kids-info">
+        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6"><a (click)="clickmove(kids)" ><img src="{{kids.child_photo}}" style="width: 100%"  class="img-circle child-photo" alt="no-image" /></a>
+          <h4 class="text-center">{{kids.first_name}}</h4>
+        </div>
+    </div>
+    </ng-container>

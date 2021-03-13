@@ -1,0 +1,120 @@
+<div class="row tab-pane fade in " id="child-development">
+  <form #coreframeworkform="ngForm" (ngSubmit)=coreframeworkSubmit(coreframeworkform)>
+    <div class="tbl-form-list clearfix">
+      <div class="form-fields">
+        <div class="col-md-12 col-lg-12">
+          <div class="col-md-4 col-lg-4">
+            <label for="">
+              Select Core Framework Grade
+            </label>
+            <select #coreFrameGrede = "ngModel" name="coreFrameGrede" id="" [(ngModel)]="formData.guided_id" required>
+              <option *ngFor="let guidedlists of guidedlist" value="{{guidedlists.id}}">{{guidedlists.learning_model}}</option>
+            </select>
+            <div *ngIf="coreFrameGrede.invalid && (coreFrameGrede.dirty || coreFrameGrede.touched)">
+                <div *ngIf="coreFrameGrede.errors.required" class="bg-danger text-white error" >
+                  Primary Core Framework Grade field is required.
+                </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <label for="">
+              Select Core Type
+            </label>
+            <select #coreFrameType = "ngModel" name="coreFrameType" id="" [(ngModel)]="formData.coreframwor_id" required>
+              <option *ngFor="let coreframworks of coreframworklist" value="{{coreframworks.id}}">{{coreframworks.name}}</option>
+            </select>
+            <div *ngIf="coreFrameType.invalid && (coreFrameType.dirty || coreFrameType.touched)">
+              <div *ngIf="coreFrameType.errors.required" class="bg-danger text-white error">
+                  Primary Core Type field is required.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <label for="">
+            Select Core  Subject
+            </label>
+            <select #coreFrameSubject = "ngModel" name="coreFrameSubject" id="" [(ngModel)]="formData.subject_id" required>
+              <option *ngFor="let subject of subjects" value="{{subject.id}}">{{subject.subject_name}}</option>
+            </select>
+            <div *ngIf="coreFrameSubject.invalid && (coreFrameSubject.dirty || coreFrameSubject.touched)">
+              <div *ngIf="coreFrameSubject.errors.required" class="bg-danger text-white error">
+                  Primary Core  Subject is required.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-fields">
+        <div class="col-md-12 col-lg-12">
+          <div class="col-md-4 col-lg-4"><label for="">ADD STANDARD</label></div>
+          <div class="col-md-8 col-lg-8">
+            <input #coreFrameStandard = "ngModel" OnlyString="true"  name="coreFrameStandard" type="text" [(ngModel)]="formData.standard_name" required>
+            <div *ngIf="coreFrameStandard.invalid && (coreFrameStandard.dirty || coreFrameStandard.touched)">
+              <div *ngIf="coreFrameStandard.errors.required" class="bg-danger text-white error">
+                  Give Standard is required
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-fields">
+        <div class="col-md-12 col-lg-12">
+          <div class="col-md-4 col-lg-4"><label for="">ADD INDICATOR</label></div>
+          <div class="col-md-8 col-lg-8">
+            <input #coreFrameIndicator = "ngModel" name="coreFrameIndicator" [(ngModel)]="formData.indicator_name" type="text" required>
+            <div *ngIf="coreFrameIndicator.invalid && (coreFrameIndicator.dirty || coreFrameIndicator.touched)">
+              <div *ngIf="coreFrameIndicator.errors.required" class="bg-danger text-white error">
+                  Give Indicator is required
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-fields">
+        <div class="col-md-12 col-lg-12">
+          <div class="col-md-4 col-lg-4"><label for="">ADD SUB INDICATOR</label></div>
+          <div class="col-md-8 col-lg-8">
+            <input #coreFrameSubIndicator = "ngModel" name="coreFrameSubIndicator" [(ngModel)]="formData.indicator_name2" type="text" >
+            <div *ngIf="coreFrameSubIndicator.invalid && (coreFrameSubIndicator.dirty || coreFrameSubIndicator.touched)">
+              <div *ngIf="coreFrameSubIndicator.errors.required" class="bg-danger text-white error">
+                  Give Sub Indicator is required
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-fields">
+        <div class="col-md-12 col-lg-12">
+          <div class="col-md-4 col-lg-4"><label for="">ADD SUB SUB INDICATOR</label></div>
+          <div class="col-md-8 col-lg-8">
+            <input #coreFrameSubIndicator = "ngModel" name="coreFrameSubIndicator" [(ngModel)]="formData.indicator_name3" type="text" >
+            <div *ngIf="coreFrameSubIndicator.invalid && (coreFrameSubIndicator.dirty || coreFrameSubIndicator.touched)">
+              <div *ngIf="coreFrameSubIndicator.errors.required" class="bg-danger text-white error">
+                  Give Sub Indicator is required
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-fields">
+        <div class="col-md-12 col-lg-12">
+          <div class="col-md-4 col-lg-4"><label for="">ADD SUB SUB SUB INDICATOR</label></div>
+          <div class="col-md-8 col-lg-8">
+            <input #coreFrameSubIndicator = "ngModel" name="coreFrameSubIndicator" [(ngModel)]="formData.indicator_name4" type="text" >
+            <div *ngIf="coreFrameSubIndicator.invalid && (coreFrameSubIndicator.dirty || coreFrameSubIndicator.touched)">
+              <div *ngIf="coreFrameSubIndicator.errors.required" class="bg-danger text-white error">
+                  Give Sub Indicator is required
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12">
+        <input type="submit" class="btn-save" [disabled]="!coreframeworkform.form.valid" value="SAVE CHANGES">
+      </div>
+    </div>
+  </form>
+  <div class="col-md-12 col-lg-12">
+    <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+  </div>
+</div>

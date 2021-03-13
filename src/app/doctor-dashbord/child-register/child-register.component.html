@@ -1,0 +1,182 @@
+<div class="col-md-12 col-lg-12 page-header">
+    <h3>REGISTER NEW PATIENTS
+
+     <span class="child-tooltip">
+      <!-- <p class="tooltip-cont"><i>i</i></p> -->
+      <span class="tooltip-main" data-tip="Providing your child’s health information helps make sure that you get the right Nidara-Children experience for your child’s age and stage. If you want to change this, go to the My Settings in your dashboard. For more details, please visit our Terms of Use and Privacy Policy."><i>i</i></span>
+    </span></h3>
+  </div>
+  <ul  class="kids-info">
+    <ng-container *ngFor="let kids of _kidsInformations; let i = index; ">
+      <ng-template [ngIf]="kids.is_default_kid == 1">
+        <ng-container *ngIf ="i == 0">
+          <li id="kids{{kids.nidara_kid_profile_id}}" class="child_active" style="color:#83D0C9"  (click)="selectedKidInfo(kids,kidsTag)">CHILD {{i+1}}</li>
+        </ng-container>
+      </ng-template>
+      <ng-template [ngIf]="kids.is_default_kid == 0">
+        <li id="kids{{kids.nidara_kid_profile_id}}"  (click)="selectedKidInfo(kids,kidsTag)">CHILD {{i+1}}</li>
+      </ng-template>
+    </ng-container>
+  </ul>
+  <div id="alert-massage" class="alert alert-danger"> Please Check your child profile details</div>
+  <div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+  <div class="tooltip"></div>
+  <form #childProfileForm="ngForm" (ngSubmit)="childProfileSubmit(childProfileForm)">
+    <div class="form-response">
+      <div class="row form-fields">
+        <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 ">
+          <label>Child First Name <span style="color:#f00">*</span></label>
+          <input type="text" OnlyString="true" class="captailizse form-control" #first_name='ngModel' class="form-control" maxlength="30" minlength="3"
+            name="first_name" [(ngModel)]="formData.first_name" required>
+
+        </div>
+      </div>
+      <div class="row form-fields">
+        <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 ">
+          <label>Child Last Name <span style="color:#f00">*</span></label>
+          <input type="text" OnlyString="true" maxlength="30" minlength="3" class="form-control"  name="last_name" #last_name='ngModel'
+            [(ngModel)]="formData.last_name" required>
+
+        </div>
+      </div>
+      <div class="row form-fields">
+        <div class="col-md-12 col-md-12 col-sm-12 col-xs-12">
+          <div>
+            <label>Gender <span style="color:#f00">*</span></label>
+          </div>
+          <select class="form-control" name="gender" id="" [(ngModel)]="formData.gender" disabled>
+            <ng-container *ngIf="formData.gender == 'female'">
+              <option value="female">Girl</option>
+            </ng-container>
+            <ng-container *ngIf="formData.gender == 'male'">
+              <option value="male">Boy</option>
+            </ng-container>
+          </select>
+        </div>
+      </div>
+      <div class="row form-fields">
+        <div class="col-md-12 col-md-12 col-sm-12 col-xs-12">
+          <label><span style="color:#f00">*</span> Enter Birth Date</label>
+              <ul class="dob">
+                <li><select name="dates" id="" [(ngModel)]="formData.dob_date" required>
+                    <option value="">DD</option>
+                    <option *ngFor="let dateitem of date" value="{{dateitem.id}}" >{{dateitem.id}}</option>
+                  </select></li>
+                <li><select name="months" id="" [(ngModel)]="formData.dob_month" required>
+                    <option value="">MM</option>
+                    <option *ngFor="let monthitem of month" value="{{monthitem.id}}">{{monthitem.name}}</option>
+                  </select></li>
+                <li><select name="years" id="" [(ngModel)]="formData.dob_years" (ngModelChange)="calculateAge()" required>
+                    <option value="">YYYY</option>
+                    <option *ngFor="let yearsitem of years" value="{{yearsitem.id}}" >{{yearsitem.id}}</option>
+                  </select></li>
+              <div *ngIf="formData.dob_years % 4 == 0 && formData.dob_month == '2' && formData.dob_date >='30'" class="bg-danger text-white error">Please enter a valid date</div>
+              <div *ngIf="formData.dob_years % 4 != 0 && formData.dob_month == '2' && formData.dob_date >='29'" class="bg-danger text-white error">Please enter a valid date</div>
+              <div *ngIf="(formData.dob_month == '4' || formData.dob_month == '6' || formData.dob_month == '9' || formData.dob_month == '11') && formData.dob_date >30" class="bg-danger text-white error">Please enter a valid date</div>
+              </ul>
+        </div>
+        <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 hidden">
+          <label>Age</label>
+          <input type="text" name="age" [(ngModel)]="formData.age" disabled required>
+
+        </div>
+      </div>
+      <div class="row form-fields">
+        <div class="col-md-12 col-md-12 col-sm-12 col-xs-12">
+          <label>Age & Stage <span style="color:#f00">*</span></label>
+
+          <select class="form-control" name='grade' #grade='ngModel' [(ngModel)]="formData.grade" required placeholder="" disabled>
+            <option value="">-- Please Choose an Option --	</option>
+              <option value="1">Preschool (3 Years to 4 Years )</option>
+              <option value="2">Pre-Kindergarten (4 Years to 5 Years)</option>
+              <option value="3">Kindergarten (5 Years to 6 Years)</option>
+              <option value="4">Twos(2 Years to 3)</option>
+          </select>
+          <!-- <div *ngIf="formData.grade != 1 && formData.grade != 2 && formData.grade != 3" class="bg-danger text-white error">	Our system is not available for the age entered.</div>
+          <div *ngIf="grade.invalid && (grade.dirty || grade.touched)">
+            <div *ngIf="grade.errors.required" class="bg-danger text-white error">
+              Grade field is required.
+            </div>
+
+
+          </div> -->
+        </div>
+      </div>
+      <div class="row form-fields">
+        <div class="col-md-12 col-md-12 col-sm-12 col-xs-12">
+          <label for="height">Enter Height <span>(cm)</span> <span style="color:#f00">*</span>
+          </label>
+
+          <input type="text" name="height" #height='ngModel' OnlyNumber="true" [(ngModel)]="formData.height"  class="form-control" required>
+          <!-- <div *ngIf="formData.height < 30">
+            <div  class="bg-danger text-white error">
+              Please enter latest known height
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <div class="form-fields">
+        <div class="row">
+          <div class="col-md-12 col-md-12 col-sm-12 col-xs-12">
+            <label for="weight">Enter Weight <span>(kg)</span> <span style="color:#f00">*</span>
+            </label>
+            <input type="text" name="weight" #weight='ngModel' OnlyNumber="true" [(ngModel)]="formData.weight"  class="form-control" required>
+
+
+                <!-- <div *ngIf="formData.weight < 1">
+                <div  class="bg-danger text-white error">
+                  Please enter latest known weight
+                </div>
+                </div> -->
+          </div>
+        </div>
+      </div>
+        <div class="row form-fields">
+          <div class="col-md-12 col-lg-12">
+            <label>Head Circumference <span>(cm)</span> <span style="color:#f00">*</span></label>
+            <input class="form-control" type="text" OnlyNumber="true"  #doc_circum='ngModel' name="doc_circum" [(ngModel)]="formData.doc_circum" >
+          </div>
+        </div>
+      </div>
+
+
+
+    <div class="form-fields">
+      <div class="row clock-schedule">
+
+          <label>Choose Daily Session Time <span style="color:#f00">*</span></label>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 paddingless" >
+          <span>From Time</span>
+          <timepicker [(ngModel)]="set_time" name="set_time" (ngModelChange)="changeDate($event)" required [showMeridian]="ismeridian" [readonlyInput]="!isEnabled"></timepicker>
+
+          <!-- <ngb-timepicker [(ngModel)]="set_time"></ngb-timepicker> -->
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 rightpaddingless" >
+          <span style="float:left;width:100%">To Time</span>
+          <ul class="set_time_to">
+            <li>
+              <input type="text" name="totime" [(ngModel)]="get_time" disabled>
+            </li>
+            <li>:</li>
+            <li>
+              <input type="text" name="tominut" [(ngModel)]="get_minut" disabled>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="form-fields">
+      <div class="col-md-12 col-md-12">
+        <div class="col-md-4 col-lg-4">
+
+        </div>
+        <div class="col-md-8 col-lg-8">
+          <div class="center-col">
+            <!-- {{weight}} -->
+            <input type="submit"  [disabled]="(formData.dob_years % 4 == 0 && formData.dob_month == '2' && formData.dob_date >='30')||(formData.dob_years % 4 != 0 && formData.dob_month == '2' && formData.dob_date >='29')||((formData.dob_month == '4' || formData.dob_month == '6' || formData.dob_month == '9' || formData.dob_month == '11') && formData.dob_date >30)||!childProfileForm.form.valid"   value="SUBMIT">
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>

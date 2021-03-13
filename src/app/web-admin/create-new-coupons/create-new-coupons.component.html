@@ -1,0 +1,50 @@
+<div class="col-md-12 col-lg-12">
+  <h3>Create New Coupon</h3>
+</div>
+<div class="col-md-6 col-lg-6">
+  <form id=formId #coupon = ngForm (ngSubmit)="onSubmit(coupon)" >
+      <div class="form-group col-md-12 col-lg-12 paddingless">
+          <label><h4>Enter Coupon Name <span style="color:#f00">*</span></h4></label>
+        <input name="coupon_name" type="text" OnlyString = "true"  [(ngModel)]="formData.discount_coupon_name" class="from-control" required>
+      </div>
+    <div class="form-group col-md-12 col-lg-12 paddingless">
+        <label><h4>Enter Coupon Code <span style="color:#f00">*</span></h4></label>
+      <input name="coupon_code" type="text" minlength="0" maxlength="20" style="text-transform: uppercase" [(ngModel)]="formData.coupon_code" class="from-control" required>
+    </div>
+    <div class="form-group col-md-12 col-lg-12 paddingless">
+        <div class="form-group col-md-12 col-lg-12 paddingless">
+          <label><h4>Select The Date </h4></label>
+        </div>
+        <div class="col-md-6 col-lg-6">
+            <label><h4>Start Date <span style="color:#f00">*</span></h4></label>
+            <input type="date" name="dateBody" min="{{today | date:'yyyy-MM-dd'}}" style="text-transform: uppercase" [(ngModel)]="formData.discount_valid" class="from-control" required>
+        </div>
+        <div class="col-md-6 col-lg-6">
+            <label><h4>End Date <span style="color:#f00">*</span> </h4></label>
+            <input type="date" name="dateBody" min="{{formData.discount_valid | date:'yyyy-MM-dd'}}" style="text-transform: uppercase" [(ngModel)]="formData.discount_valid_end" class="from-control" required>
+        </div>
+    </div>
+    <div class="form-group col-md-12 col-lg-12 paddingless">
+        <label><h4>Select Discount Option <span style="color:#f00">*</span> </h4></label>
+      <select name="disopt" required id="" [(ngModel)]="formData.discount_type">
+        <option value="amount">Fixed Amount</option>
+        <option value="percentage">Percentage</option>
+      </select>
+    </div>
+    <div class="form-group col-md-12 col-lg-12 paddingless">
+        <label><h4>Enter The Value <span style="color:#f00">*</span> </h4></label>
+        <input name="amont" type="text" OnlyNumber="true" [(ngModel)]="formData.discount_value" class="from-control" required>
+    </div>
+    <div class="form-group col-md-12 col-lg-12 paddingless">
+        <label><h4>Enter The Coupon Limit <span style="color:#f00">*</span></h4></label>
+        <div class="col-md-12 col-lg-12 paddingless">
+        <div class="col-md-5 col-lg-5">Usage limit per user</div>
+        <div class="col-md-7 col-lg-7"><input name="limit" placeholder="Unlimited usage" type="text" OnlyNumber="true" [(ngModel)]="formData.discount_limit" class="from-control"></div>
+      </div>
+    </div>
+    <div class="col-lg-12 col-md-12">
+        <input type="submit" class="btn-save" [disabled]="!coupon.form.valid" value="SAVE">
+    </div>
+    <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+  </form>
+</div>

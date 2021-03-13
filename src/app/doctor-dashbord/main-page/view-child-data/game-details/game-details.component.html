@@ -1,0 +1,45 @@
+
+
+<div id="child-development" class="col-md-12 col-lg-12 col-sm-12 col-xs-12   paddingless">
+  <form id=formId  #refForm="ngForm">
+    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+        <h4>Aeg & Stage</h4>
+        <p class="age-stage">
+        <ng-container *ngIf="grade_id == 4" >Twos</ng-container>
+        <ng-container *ngIf="grade_id == 1" >Preschool</ng-container>
+        <ng-container *ngIf="grade_id == 2" >Pre-Kindergarten</ng-container>
+        <ng-container *ngIf="grade_id == 3" >Kindergarten</ng-container>
+      </p>
+
+    </div>
+    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+        <h4>CORE TYPE</h4>
+        <select name="core_fream" id="" (change) = "submitMethod2()" [(ngModel)]="formData.framework_id">
+            <ng-container *ngFor="let coreitem of core" >
+              <option value="{{coreitem.id}}">{{coreitem.name}}</option>
+            </ng-container>
+        </select>
+      </div>
+      <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+        <h4>CORE SUBJECT </h4>
+          <select name="subject" id="" (change) = "submitMethod()" [(ngModel)]="formData.subject_id">
+            <ng-container *ngFor="let subjectitem of subject" >
+              <ng-container *ngIf="subjectitem.core_type == formData.framework_id">
+                  <option value="{{subjectitem.id}}">{{subjectitem.subject_name}}</option>
+              </ng-container>
+            </ng-container>
+          </select>
+        </div>
+  </form>
+  <div id="game-lest" class="col-md-12 col-lg-12 col-xs-12 col-sm-12 paddingless">
+    <ng-container *ngFor="let game_infoitem of game_info" >
+      <a [routerLink]="['../../viewgames',game_infoitem.standard_ids,game_infoitem.subject]">
+      <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 report">
+        <div class="color" [style.background-color]="game_infoitem.color">
+        <span class="result-title">{{game_infoitem.standard_name}}</span>
+      </div>
+      </div>
+    </a>
+    </ng-container>
+  </div>
+  </div>

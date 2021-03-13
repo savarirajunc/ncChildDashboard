@@ -1,0 +1,237 @@
+<div class="container">
+  <div class="col-md-12 col-lg-12 paddingless" style=" margin-top: 25px;">
+    <ng-container *ngFor="let productitem of productData">
+      <div class="col-md-6 col-lg-6 paddingless">
+        <div [style.background-image]="'url(' + productitem.imageUpload + ')'" class="product_img" alt=""></div>
+      </div>
+      <div class="col-md-6 col-lg-6 ">
+        <ng-container *ngIf="country_code == 'IN'" >
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h4 >{{productitem.productName}}</h4>
+
+          <ng-container *ngFor="let productPriceingQtyitem of productitem.productPriceingQty; let i =index; " >
+              <ng-container *ngIf="i == 0" >
+                  <p><span class="itemPrice"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Price:   </span>{{productPriceingQtyitem.productPrice | currency:'₹ ':0}}</span></span>
+                    &nbsp; <span class="itemPrice">Per Year</span></p>
+                    <h5>Inclusive of all taxes </h5>
+                    <ng-container *ngIf="emidata == 1" >
+                      <p>EMI starts at {{emicost | currency:'₹ ':0}} <span id="option-1" class="option-but" (click)="optionsShow()" >Options <span class="caret"></span> </span><span class="option-but" id="option-2" (click)="optionsHid()" >Options <span class="caret"></span></span>
+                      </p>
+                    </ng-container>
+              </ng-container>
+          </ng-container>
+
+
+          <div id="emi-option">
+            <ul class="nav nav-tabs">
+              <ng-container *ngFor="let emiBankitem of emiBank; let n=index" >
+                <li ><a [ngClass]="{'active show': n === 0}"  data-toggle="tab" href="#{{emiBankitem.planId}}">{{emiBankitem.gtwName}}</a></li>
+              </ng-container>
+            </ul>
+            <div class="tab-content">
+              <ng-container *ngFor="let emiPlanitem of emiPlan; let i=index" >
+                <div id="{{emiPlanitem.planId}}" [ngClass]="{'in active' : i === 0}"  class="tab-pane">
+
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Months</th>
+                            <th>Percentage</th>
+                            <th>Monthly Installments</th>
+                            <th>Total Cost</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <ng-container *ngFor="let emiPlanitem2 of emiPlan">
+                            <ng-container *ngIf="emiPlanitem.planId === emiPlanitem2.planId" >
+                            <tr>
+                              <td>{{emiPlanitem2.tenureMonths}}</td>
+                              <td>{{emiPlanitem2.processingFeePercent | number}} <span>%</span> </td>
+                              <td>{{emiPlanitem2.emiAmount | currency: emiPlanitem2.currency}}</td>
+                              <td>{{emiPlanitem2.total | currency: emiPlanitem2.currency}}</td>
+                            </tr>
+                          </ng-container>
+                        </ng-container>
+                        </tbody>
+                      </table>
+
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <br><h4 id="productdes-title">DESCRIPTION</h4><hr>
+          <div innerHtml="{{productitem.productDescription}}"></div>
+          <br>
+          <span class="collapse-but" (click)="collapse()"><h4 id="productdes-title">DETAILED DESCRIPTION  <span _ngcontent-c9="" class="icon"></span> </h4></span>
+        </div>
+
+        <div class="col-md-12 paddingless">
+          <div class="" id="chid-cart">
+            <div class="col-md-12" id="selectbox">
+              <div class="col-md-8 paddingless" id="child1">
+                <h4> <span>*</span> AGE &amp; STAGE</h4>
+                  <form [formGroup]="productFrom"  class="cart" #cart = 'ngForm' (ngSubmit)="onSubmit(cart)" >
+                    <select formControlName="productItem" id="attribute1" class="" (change) = "selectValue()" name="attribute_framework">
+                      <option value="-- Please Choose an Option --	">-- Please Choose an Option --	</option>
+                      <option *ngFor="let item of  productitem.productPriceingQty"  value="{{item.type_id}}">
+                        <ng-container *ngFor="let getfreamworkitem of getfreamwork" >
+                          <ng-container *ngIf="item.productAgeStage == getfreamworkitem.id" >{{getfreamworkitem.grade_name}}</ng-container>
+                        </ng-container>
+                      </option>
+                    </select>
+                    <div *ngIf="!productFrom.get('productItem').valid && productFrom.get('productItem').touched" class="bg-danger text-white error">
+                        Please Select Age &amp; Stage
+                       </div>
+                    <div class="col-md-12 paddingless">
+                        <div id="quantity-error" class=" col-md-12  bg-danger text-white error">
+                          Please Select Age &amp; Stage
+                        </div>
+                    </div>
+                    <ng-container *ngIf="freetrialActive == 0" >
+                    <!-- <div class="free-trail-sec">
+
+                        <ng-container *ngIf="freetrialDis == 0">
+                          <div class="free-trial-checkbox">
+                            <input type="checkbox" disabled formControlName="freetrial" name="freetrial"  (change) = "freeTrialActive()" value="free"><span class="free-trial"> FREE TRIAL</span>
+                            <span class="child-tooltip">
+                                <span class="tooltip-main" data-tip="The free trial mode of this system is only available only one time per customer.  This cannot be clubbed with any other system."><i>i</i></span>
+                              </span>
+                          </div>
+                        </ng-container>
+                        <ng-container *ngIf="freetrialDis == 1">
+                            <div class="free-trial-checkbox">
+                              <input type="checkbox"  formControlName="freetrial" name="freetrial"  (change) = "freeTrialActive()" value="free"><span class="free-trial"> FREE TRIAL</span>
+                              <span class="child-tooltip">
+                                  <span class="tooltip-main" data-tip="The free trial mode of this system is only available only one time per customer.  This cannot be clubbed with any other system."><i>i</i></span>
+                                </span>
+                            </div>
+                          </ng-container>
+                    </div> -->
+                  </ng-container>
+                  <ng-container *ngIf="freetrialActive == 0" >
+
+                  </ng-container>
+                  <div *ngIf="freetrialselect == 1" class="alert alert-danger">You have already selected a free trial for one child. You are allowed only one free trial per account.</div>
+                    <input type="submit" id="submit-cart" [disabled] ="freetrialselect == 1" class="but" value="ADD TO BAG">
+                  </form>
+
+                </div>
+              </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="country_code == '0'" >
+                <div class="col-md-12 col-lg-12 pricing-notifyme-content">
+                        <h3 class="text-center">Nidara-Children is currently not available in your country.</h3>
+                <p>&nbsp;</p>
+                <h4>Be the first to know when we launch.</h4>
+                <div class="pricing-notifyme-form col-md-10 paddingless">
+                <form #notifyme = "ngForm" (ngSubmit)="notifymeSubmit(notifyme)" >
+                <div class="form-group">
+                    <label>Email <span>*</span></label>
+                  <input name="username" #username="ngModel" class="input-textbox" type="text" [(ngModel)]="formData.email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+
+                  <div *ngIf="username.invalid && (username.dirty || username.touched)" >
+                    <div *ngIf="username.errors.pattern" class="bg-danger text-white error">
+                      Please enter valid email.
+                    </div>
+                    <div *ngIf="username.errors.required" class="bg-danger text-white error">
+                      Email field is required.
+                    </div>
+
+
+                  </div>
+                </div>
+                <div class="form-group"><input class="go-to-get-now form-control" [disabled]="!notifyme.form.valid" name="submit" type="submit" value="NOTIFY ME"></div>
+                </form>
+                </div>
+                </div>
+          </ng-container>
+      </div>
+    </ng-container>
+  </div>
+
+
+<div id="demo">
+
+  <div class="col-md-12 col-lg-12 product-des">
+      <div class="col-md-12 col-lg-12 text-center">
+        <div class="header-product-des">
+          <h3>
+              EVERYTHING YOU NEED TO KNOW
+          </h3>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-12">
+        <div class="col-md-3 col-lg-3 product-des-cont text-center">
+          <img src="assets/web_img/product/1.jpg" alt="" class="product_ime_thum">
+          <h4>PEDIATRICIAN
+              APPROVED
+              </h4>
+        </div>
+        <div class="col-md-3 col-lg-3 product-des-cont text-center">
+          <img src="assets/web_img/product/2.jpg" alt="" class="product_ime_thum">
+          <h4>PERSONALIZED LEARNING
+              WITH MORE THAN 1000 MILESTONES
+              </h4>
+        </div>
+        <div class="col-md-3 col-lg-3 product-des-cont text-center">
+          <img src="assets/web_img/product/3.jpg" alt="" class="product_ime_thum">
+          <h4>HEALTH
+              &
+              WELL-BEING
+              WITH MORE THAN 1200 MILESTONES
+              </h4>
+        </div>
+        <div class="col-md-3 col-lg-3 product-des-cont text-center">
+          <img src="assets/web_img/product/4.jpg" alt="" class="product_ime_thum">
+          <h4>INTEREST
+              EXPLORATION
+              WITH THE OPPORTUNITY TO EXPLORE
+              </h4>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-12">
+        <div class="col-md-3 col-lg-3 product-des-cont text-center">
+          <img src="assets/web_img/product/5.jpg" alt="" class="product_ime_thum">
+          <h4>SET DAILY ROUTINES
+              WITH TIMED SESSIONS
+              60  MINUTES A DAY
+              </h4>
+        </div>
+        <div class="col-md-3 col-lg-3 product-des-cont text-center">
+          <img src="assets/web_img/product/6.jpg" alt="" class="product_ime_thum">
+          <h4>GUIDED LEARNING & DEVELOPMENT
+              AVAILABLE 7 DAYS A WEEK
+              </h4>
+        </div>
+        <div class="col-md-3 col-lg-3 product-des-cont text-center">
+          <img src="assets/web_img/product/7.jpg" alt="" class="product_ime_thum">
+          <h4>TRACK DEVELOPMENT
+              WITH OUR POWERFUL ANALYTICS
+              </h4>
+        </div>
+        <div class="col-md-3 col-lg-3 product-des-cont text-center">
+          <img src="assets/web_img/product/8.jpg" alt="" class="product_ime_thum">
+          <h4>SPEND QUALITY TIME WITH OUR PARENT TIPS
+            </h4>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-12">
+        <div class="col-md-3 col-lg-3 product-des-cont text-center">
+          <img src="assets/web_img/product/9.jpg" alt="" class="product_ime_thum">
+          <h4>CUSTOMER SERIVICE VIA CHAT OR EMAIL
+              MONDAY TO FRIDAY
+              </h4>
+        </div>
+        <div class="col-md-9 col-lg-9 product-main-des">
+          <h4>YOUR HEALTHCARE PROVIDERS
+            </h4>
+            <p>In addition to the Nidara-Children product you are selecting here on our website, your healthcare provider may recommend a supplemental Nidara-Children product for your child.  This is specifically designed to help your doctor track, monitor and give your child the best start in life.  This product is only available with healthcare providers.
+              </p>
+        </div>
+      </div>
+  </div>
+</div>

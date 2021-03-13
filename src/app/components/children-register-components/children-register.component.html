@@ -1,0 +1,294 @@
+<h2 id="daily-core-session">STEP 1. FILL UP CHILD PROFILE </h2>
+<div *ngIf="_response.status" class="alert alert-success">{{_response.message}}</div>
+<form name="manage" #childRegisterForm="ngForm" (ngSubmit)="childRegisterFormSubmit(childRegisterForm)">
+  <div class="form-response">
+    <div class="row form-fields">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="form-group">
+          <label>Child First Name <span>*</span></label>
+          <input type="text" name="first_name" #first_name='ngModel' [(ngModel)]="formData.first_name" required>
+       <div *ngIf="first_name.invalid">
+            <div *ngIf="first_name.errors.pattern" class="bg-danger text-white error">
+              Please enter valid firstName.
+            </div>
+            <div *ngIf="first_name.errors.required" class="bg-danger text-white error">
+              FirstName field is required.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="form-group">
+          <label>Child Last Name <span>*</span></label>
+          <input type="text" name="last_name" #last_name='ngModel' [(ngModel)]="formData.last_name" required>
+          <div *ngIf="last_name.invalid">
+            <div *ngIf="last_name.errors.pattern" class="bg-danger text-white error">
+              Please enter valid lastName.
+            </div>
+            <div *ngIf="last_name.errors.required" class="bg-danger text-white error">
+              LastName field is required.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-response">
+    <div class="row form-fields ">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+        <div class="form-group">
+          <label for="sel1">Gender <span>*</span></label>
+          <select class="form-control" id="sel1" name='gender' #gender='ngModel' [(ngModel)]="formData.gender" required>
+                            <option value="" selected>select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                      </select>
+          <div *ngIf="gender.invalid">
+            <div *ngIf="gender.errors.required" class="bg-danger text-white error">
+              Please select Gender.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+        <div class="form-group">
+          <label for="sel1">Board of School <span>*</span></label>
+          <select class="form-control" id="sel1" name='v' #board_of_education='ngModel' [(ngModel)]="formData.board_of_education" required>
+                        <option value="" selected="selected">select</option>
+                        <option *ngFor="let option of selectBoardOfSchool; let i = index" value="{{option.id}}">{{option.board_name}}</option>
+                      </select>
+          <div *ngIf="board_of_education.invalid">
+            <div *ngIf="board_of_education.errors.required" class="bg-danger text-white error">
+              Please select Board.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-response">
+    <div class="row form-fields ">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+        <div class="form-group">
+          <label for="sel1">Relationship to Child  <span>*</span></label>
+          <select class="form-control" id="sel1" name='relationship_to_child' #relationship_to_child='ngModel' [(ngModel)]="formData.relationship_to_child" required>
+                            <option value="" selected="selected">select</option>
+                            <option *ngFor="let option of selectRelationtoChild; let i = index" value="{{option.id}}">{{option.name}}</option>
+                          </select>
+          <div *ngIf="relationship_to_child.invalid">
+            <div *ngIf="relationship_to_child.errors.required" class="bg-danger text-white error">
+              Please select Board.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+        <div class="form-group">
+          <label>Parent Mobile <span>*</span></label>
+          <input type="text" name="parent_mobile" #parent_mobile='ngModel' [(ngModel)]="formData.parent_mobile" required="" required>
+          <div *ngIf="parent_mobile.invalid">
+            <div *ngIf="parent_mobile.errors.required" class="bg-danger text-white error">
+              Please enter mobilenumber.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-response">
+    <div class="row form-fields">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="form-group">
+          <label for="sel1">Grade <span>*</span></label>
+          <select class="form-control" id="sel1" name='grade' #grade='ngModel' [(ngModel)]="formData.grade" required>
+                            <option value="" selected="selected">select</option>
+                            <option *ngFor="let option of selectGrade; let i = index" value="{{option.id}}">{{option.grade_name}}</option>
+                          </select>
+          <div *ngIf="grade.invalid">
+            <div *ngIf="grade.errors.required" class="bg-danger text-white error">
+              Please Select Grade.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="form-group">
+          <label for="sel1">Programs<span>*</span></label>
+          <select class="form-control" id="sel1" name='guided_learning_id' #guided_learning_id='ngModel' [(ngModel)]="formData.guided_learning_id"
+            required>
+                            <option value="" selected="selected">select</option>
+                            <option *ngFor="let option of selectProgramoption; let i = index" value="{{option.package_id}}">{{option.package_name}}</option>
+                          </select>
+          <div *ngIf="grade.invalid">
+            <div *ngIf="grade.errors.required" class="bg-danger text-white error">
+              Please Select Grade.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row form-fields">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="form-group">
+        <label>Date Of Birth</label>
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 date">
+
+            <select class="form-control" name="day" [(ngModel)]="formData.day" id="dob">
+                <option> - Day - </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                                                            </select>
+
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 date">
+
+            <select class="form-control" name="month" [(ngModel)]="formData.month" id="dob">
+                <option> -Month- </option>
+                <option value="01">January</option>
+                <option value="02">Febuary</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+
+                                                        </select>
+
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 date">
+
+            <select class="form-control" name="year" [(ngModel)]="formData.year" id="dob">
+                <option> - Year - </option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+                <option value="2012">2012</option>
+                <option value="2011">2011</option>
+                <option value="2010">2010</option>
+                <option value="2009">2009</option>
+                <option value="2008">2008</option>
+                <option value="2007">2007</option>
+                <option value="2006">2006</option>
+                <option value="2005">2005</option>
+                <option value="2004">2004</option>
+                <option value="2003">2003</option>
+                <option value="2002">2002</option>
+                <option value="2001">2001</option>
+                <option value="2000">2000</option>
+                <option value="1999">1999</option>
+                <option value="1998">1998</option>
+                <option value="1997">1997</option>
+                <option value="1996">1996</option>
+                <option value="1995">1995</option>
+                <option value="1994">1994</option>
+                <option value="1993">1993</option>
+                <option value="1992">1992</option>
+                <option value="1991">1991</option>
+                <option value="1990">1990</option>
+                <option value="1989">1989</option>
+                <option value="1988">1988</option>
+                <option value="1987">1987</option>
+                <option value="1986">1986</option>
+                <option value="1985">1985</option>
+                <option value="1984">1984</option>
+                <option value="1983">1983</option>
+                <option value="1982">1982</option>
+                <option value="1981">1981</option>
+                                                    </select>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-response">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <label for="height">Height
+          <span>(cm)</span>
+        </label>
+
+        <input type="text" name="height" #height='ngModel' OnlyNumber="true" [(ngModel)]="formData.height" required>
+        <div *ngIf="height.invalid && (height.dirty || height.touched)">
+
+
+          <div *ngIf="height.errors.required" class="bg-danger text-white error">
+            Height field is required.
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <label for="weight">Weight
+          <span>(kg)</span>
+        </label>
+        <input type="text" name="weight" #weight='ngModel' OnlyNumber="true" [(ngModel)]="formData.weight" required>
+        <div *ngIf="weight.invalid && (weight.dirty || weight.touched)">
+
+
+          <div *ngIf="weight.errors.required" class="bg-danger text-white error">
+            Weight field is required.
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-response">
+    <div class="row form-fields">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="form-group">
+
+          <input type="submit" (click)="activateLater()" value="ACTIVATE LATER" id="active-later">
+        </div>
+
+
+
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="form-group">
+          <input  type="submit" [disabled]="!childRegisterForm.form.valid" class="btn-save" value="SAVE PROFILE">
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

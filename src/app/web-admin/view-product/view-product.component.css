@@ -1,0 +1,38 @@
+.pagination_nav {
+  margin-bottom: 20px;
+  user-select: none;
+}
+.pagenav.active {
+text-decoration: none;
+color:#83D0C9;
+}
+.pagenav{
+font-family: 'GillSansStd';
+font-size: 15px !important;
+color: #333333;
+padding: 3px 5px;
+margin: 2px;
+}
+.pagenav:hover{
+text-decoration: none;
+color:#83D0C9;
+}
+
+.add_new {
+  padding: 10px 15px;
+  float: left;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+span.but-delete {
+  outline: none;
+  cursor: pointer;
+}
+
+span.but {
+  outline: none;
+  cursor: pointer;
+}

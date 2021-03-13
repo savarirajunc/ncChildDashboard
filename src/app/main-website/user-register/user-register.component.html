@@ -1,0 +1,285 @@
+<div class="container">
+    <article id="post-46" class="post-46 page type-page status-publish hentry">
+       <div class="entry-content" id="main-cart">
+          <div class="woocommerce">
+             <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12" id="login-columns">
+               <div class="col-md-12 col-sm-12 col-xs-12">
+                 <div class="col-md-12 col-sm-12 col-xs-12">
+                    <span class="top-line"><span class="top-line-1">1</span><span class="top-line-2">2</span><span class="top-line-3">3</span></span>
+                 </div>
+               </div>
+
+                <div class="col-md-12 col-lg-12" style="margin-top:10px">
+                  <div class="col-md-12">
+                   <div class="col-md-5 col-sm-5 col-xs-12 col-lg-5">
+                      <h3 class="head2">2.  <span id="createshow">Create your account</span></h3>
+                   </div>
+                   <div class="col-md-2 col-sm-2 col-xs-12 col-lg-2">
+                      <h3 class="head2">or</h3>
+                   </div>
+                   <div class="col-md-5 col-sm-5 col-xs-12 col-lg-5">
+                      <h3 class="head2"><span style="color:#83D0C9" id="loginshow" routerLink="/signin">use an existing account</span></h3>
+                   </div>
+                  </div>
+                </div>
+                <div class="u-columns col2-set" id="customer_login">
+
+                   <div id="register-page" class="col-md-12 col-lg-12">
+                    <form id=formId [formGroup]="registerForm" (ngSubmit)="onSubmit(userReg)" #userReg="ngForm">
+                        <div>
+                            <div class="col-md-12 col-lg-12">
+                                <p class="form-row form-row-first">
+                                   <label for="reg_billing_first_name">First name <span class="required">*</span></label>
+                                   <input type="text" OnlyString="true" formControlName="first_name" class="input-text text-only" name="billing_first_name" id="reg_billing_first_name" value="">
+                                   <span *ngIf="!registerForm.get('first_name').valid && registerForm.get('first_name').touched" class="bg-danger text-white error">
+                                      Please Enter First Name (Minimum 2 Characters)
+                                     </span>
+                                </p>
+                                <p class="form-row form-row-last">
+                                   <label for="reg_billing_last_name">Last name <span class="required">*</span></label>
+                                   <input type="text" OnlyString="true" class="input-text text-only" formControlName="last_name" name="billing_last_name" id="reg_billing_last_name" value="">
+                                   <span *ngIf="!registerForm.get('last_name').valid && registerForm.get('last_name').touched" class="bg-danger text-white error">
+                                      Please Enter Last Name
+                                     </span>
+
+                                </p>
+                                <div class="clear"></div>
+                                <p class="form-row form-row-first">
+                                   <label for="reg_email">Email address <span class="required">*</span></label>
+                                   <input formControlName="email" (change) = "emailChack()" type="email" class="input-text" name="email" id="reg_email" value="">
+                                   <span style="bottom: unset;" *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched" class="bg-danger text-white error">
+                                      Please enter valid email address.
+                                  </span>
+                                </p>
+                                <p class="form-row form-row-last">
+                                   <label for="reg_email2">Confirm Email address <span class="required">*</span></label>
+                                   <input type="email" formControlName="re_enter_email" (change) = "emailChack()" class="input-text" name="email2" id="reg_email2" value="">
+                                   <span style="bottom: unset;" *ngIf="!registerForm.get('re_enter_email').valid && registerForm.get('re_enter_email').touched" class="bg-danger text-white error">
+                                      Please enter a matching email address.
+                                  </span>
+                                   <span id="email-val" class="bg-danger text-white error">
+                                    </span>
+                                </p>
+                                <p class="form-row form-row-first">
+                                   <label for="reg_password">Password <span class="required">*</span></label>
+                                   <input type="password" formControlName="password" (change) = "passwordChack()" class="input-text" name="password" id="reg_password">
+                                   <span style="bottom: unset;" *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched" class="bg-danger text-white error">
+                                      Please enter password. (Minimum 6 Characters)
+                                  </span>
+                                </p>
+                                <p class="form-row form-row-last">
+                                   <label for="reg_password2">Confirm Password <span class="required">*</span></label>
+                                   <input type="password" formControlName="confirmpassword" (change) = "passwordChack()" class="input-text" name="password2" id="reg_password2">
+                                   <span style="bottom: unset;" *ngIf="!registerForm.get('confirmpassword').valid && registerForm.get('confirmpassword').touched" class="bg-danger text-white error">
+                                      Please enter password.
+                                  </span>
+                                   <span id="password-val" class="bg-danger text-white error">incorrect password</span>
+                                </p>
+                                <p class="form-row form-row-first">
+                                    <label for="parent-types">Caregiver Type <span class="required">*</span></label>
+                                    <select (change) = "parentType()" id="parent-types" formControlName="parent_type" name="parent-type" class="age_select selectpicker">
+                                     <option value="-- Please Select --">-- Please Select --	</option>
+                                     <option value="father">Father</option>
+                                     <option value="mother">Mother</option>
+                                     <option value="grandfather">Grandfather</option>
+                                     <option value="grandmother">Grandmother</option>
+                                     <option value="others">Others</option>
+                                  </select>
+                                  <span style="bottom: unset;" *ngIf="!registerForm.get('parent_type').valid && registerForm.get('parent_type').value == '-- Please Select --' && registerForm.get('parent_type').touched" class="bg-danger text-white error">
+                                     Please Select the type
+                                 </span>
+                                 <span style="bottom: unset;" id="parentTypeEorr" class="bg-danger text-white error">
+                                   Please Select the type
+                                 </span>
+                                    <span id="parent-types-val" class="hidden error-column"></span>
+                                 </p>
+                                <p class="form-row form-row-last">
+                                   <label OnlyString="true"  for="reg_doctor_name">Enter Doctor Name <span class="required"></span></label>
+                                   <input type="text" (change) = "codeCheck()" class="input-text text-only" formControlName="doctor_name" OnlyString="true" name="reg_doctor_name" id="reg_doctor_name" value="">
+                                   <span style="bottom: unset;" *ngIf="!registerForm.get('doctor_name').valid && registerForm.get('doctor_name').touched" class="bg-danger text-white error">
+                                    Please Enter Doctor Name
+                                  </span>
+                                  <span style="bottom: unset;" *ngIf="doctor_error" class="bg-danger text-white error">
+                                      {{doctor_error}}
+                                    </span>
+                                  </p>
+                                  <p class="form-row form-row-first">
+                                      <label for="reg_password">Enter Code</label>
+                                      <input type="text" formControlName="offer_code" (change) = "codeCheck()" class="input-text" name="code">
+                                      <span class="child-tooltip">
+                                          <!-- <p class="tooltip-cont"><i>i</i></p> -->
+                                          <span class="tooltip-main" data-tip="Enter company code or doctor registration number"><i>i</i></span>
+                                        </span>
+                                    </p>
+                                    <div *ngIf="_response2.status" class="{{_response2.alert}}">{{_response2.message}}</div>
+                                <div class="clear"></div>
+                             </div>
+                             <!-- Spam Trap -->
+                             <div class="col-md-12 col-lg">
+                                <p class="form-row form-row-wide mailchimp-newsletter"><input class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" id="mailchimp_woocommerce_newsletter" type="checkbox" name="mailchimp_woocommerce_newsletter" value="1" checked="checked"> <label for="mailchimp_woocommerce_newsletter" class="woocommerce-form__label woocommerce-form__label-for-checkbox inline"><span>Subscribe to our newsletter</span></label></p>
+                                <div class="clear"></div>
+                                <div class="page-head">
+                                   <h3 class="head2">Enter billing information</h3>
+                                </div>
+                             </div>
+                             <div class="col-md-12 col-lg-12">
+                                <p class="form-row form-row-first">
+                                   <label for="reg_billing_address_1">Street Address <span class="required">*</span></label>
+                                   <input type="text" class="input-text" formControlName="address_1" name="billing_address_1" id="reg_billing_address_1" value="">
+                                   <span style="bottom: unset;" *ngIf="!registerForm.get('address_1').valid && registerForm.get('address_1').touched" class="bg-danger text-white error">
+                                      Please Enter Street Address
+                                  </span>
+                                </p>
+                                <p class="form-row form-row-last">
+                                   <label for="reg_billing_address_2">Street Address</label>
+                                   <input type="text" formControlName="address_2" class="input-text" name="billing_address_2" id="reg_billing_address_2" value="">
+                                </p>
+                                <p class="form-row form-row-first">
+                                   <label for="reg_billing_city">City <span class="required">*</span></label>
+                                   <input type="text" OnlyString="true" formControlName="city" class="input-text text-only" name="billing_city" id="reg_billing_city" value="">
+                                   <!-- <span id="city" class="hidden error-column">Please Enter City</span> -->
+                                   <span style="bottom: unset;" *ngIf="!registerForm.get('city').valid && registerForm.get('city').touched" class="bg-danger text-white error">
+                                      Please Enter City
+                                  </span>
+                                </p>
+                                <p class="form-row form-row-last">
+                                   <label for="reg_billing_state">State <span class="required">*</span></label>
+                                   <!-- <input type="text" class="input-text" name="billing_state" id="reg_billing_state" value="" /> -->
+                                   <select formControlName="state" class="input-text" name="billing_state" id="reg_billing_state" style="height: 37px;">
+                                      <option value="">Select a state…</option>
+                                      <option value="AP">Andhra Pradesh</option>
+                                      <option value="AR">Arunachal Pradesh</option>
+                                      <option value="AS">Assam</option>
+                                      <option value="BR">Bihar</option>
+                                      <option value="CT">Chhattisgarh</option>
+                                      <option value="GA">Goa</option>
+                                      <option value="GJ">Gujarat</option>
+                                      <option value="HR">Haryana</option>
+                                      <option value="HP">Himachal Pradesh</option>
+                                      <option value="JK">Jammu and Kashmir</option>
+                                      <option value="JH">Jharkhand</option>
+                                      <option value="KA">Karnataka</option>
+                                      <option value="KL">Kerala</option>
+                                      <option value="MP">Madhya Pradesh</option>
+                                      <option value="MH">Maharashtra</option>
+                                      <option value="MN">Manipur</option>
+                                      <option value="ML">Meghalaya</option>
+                                      <option value="MZ">Mizoram</option>
+                                      <option value="NL">Nagaland</option>
+                                      <option value="OR">Orissa</option>
+                                      <option value="PB">Punjab</option>
+                                      <option value="RJ">Rajasthan</option>
+                                      <option value="SK">Sikkim</option>
+                                      <option value="TN">Tamil Nadu</option>
+                                      <option value="TS">Telangana</option>
+                                      <option value="TR">Tripura</option>
+                                      <option value="UK">Uttarakhand</option>
+                                      <option value="UP">Uttar Pradesh</option>
+                                      <option value="WB">West Bengal</option>
+                                      <option value="AN">Andaman and Nicobar Islands</option>
+                                      <option value="CH">Chandigarh</option>
+                                      <option value="DN">Dadra and Nagar Haveli</option>
+                                      <option value="DD">Daman and Diu</option>
+                                      <option value="DL">Delhi</option>
+                                      <option value="LD">Lakshadeep</option>
+                                      <option value="PY">Pondicherry (Puducherry)</option>
+                                   </select>
+                                   <span style="bottom: unset;" *ngIf="!registerForm.get('state').valid && registerForm.get('state').touched" class="bg-danger text-white error">
+                                      Please Select State
+                                  </span>
+                                </p>
+                                <p class="form-row form-row-first">
+                                   <label for="reg_billing_country">Country  <span class="required">*</span></label>
+                                   <input type="text" formControlName="country" class="input-text" name="billing_country" id="reg_billing_country" value="">
+                                   <span style="bottom: unset;" *ngIf="!registerForm.get('country').valid && registerForm.get('country').touched" class="bg-danger text-white error">
+                                      Please Select country
+                                  </span>
+                                </p>
+                                <p class="form-row form-row-last">
+                                   <label for="reg_billing_postcode">Zip/Postcode <span class="required">*</span></label>
+                                   <input type="text" formControlName="postcode" OnlyNumber = "true" maxlength="6" class="input-text number-only" name="billing_postcode" id="reg_billing_postcode" value="">
+                                   <span style="bottom: unset;" *ngIf="!registerForm.get('postcode').valid && registerForm.get('postcode').touched" class="bg-danger text-white error">
+                                      Please give correct postcode exp("100000")
+                                  </span>
+                                </p>
+                                <p class="form-row form-row-wide">
+                                   <label for="reg_billing_phone">Mobile Number<span class="required">*</span></label>
+                                   <input type="text" formControlName="mobile" OnlyNumber = "true" maxlength="15" class="input-text number-only" name="billing_phone" id="reg_billing_phone" value="">
+                                   <span style="bottom: unset;" *ngIf="!registerForm.get('mobile').valid && registerForm.get('postcode').touched" class="bg-danger text-white error">
+                                      Please give correct Mobile No
+                                  </span>
+                                </p>
+                             </div>
+                              <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                      <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                    <p class="woocomerce-FormRow form-row form-row-last woocommerce-Button-2">
+                                      <input type="submit" class="woocommerce-Button button" id="register-but" name="register" value="MAKE PAYMENT">
+                                    </p>
+                              </div>
+                              </div>
+                            </div>
+                            <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+                        </div>
+                      </form>
+
+                   </div>
+
+                </div>
+             </div>
+             <div class="col-md-4 col-sm-12 col-xs-12" id="new-pricing-page">
+                <div class="col-md-12 col-lg-12 text-center">
+                  <h4 style="font-weight: bolder;">ORDER SUMMARY</h4>
+                </div>
+                 <ng-container *ngFor="let productListitem of productList" >
+                    <div class="cart">
+                       <div class="product-item">
+                          <h4 class="product-title" style="font-weight: bolder;">{{productListitem.product_name}}</h4>
+                          <h4>AGE & STAGE:
+                          <ng-container *ngFor="let gradeitem of grade" >
+                            <ng-container *ngIf="productListitem.product_type == gradeitem.id" >{{gradeitem.grade_name}}</ng-container>
+                          </ng-container>
+                          </h4>
+                          <h4>Number of Children:{{productListitem.qty}}</h4>
+                          <div class="product-subtotal" data-title="Total">
+                             <h4>PRICE (PER YEAR) <span class="woocommerce-Price-amount amount">{{productListitem.product_price | currency:'₹ ':0}}</span></h4>
+                             <!-- <p>You’ll be charged Rs. 129{{productItem.product_price}} monthly until you cancel your subscription. Previous charges won’t be refunded when you cancel unless it’s legally required. Your payment data is encrypted and secure. All amounts shown are in INR.</p> -->
+                          </div>
+                          <h4>ITEM SUBTOTAL    {{productListitem.subtotal | currency:'₹ ':0}}
+                            (excl. Taxes)
+                              <br>EMI options available during checkout
+                              </h4>
+                       </div>
+                    </div>
+                 </ng-container>
+                 <div class="col-md-12 col-lg-12 paddingless">
+                    <div class="col-md-12 col-lg-12 paddingless">
+                    <hr>
+                       <table cellspacing="0" class="table table-bordered">
+                          <tbody *ngFor="let productListitem of productList; let i = index;">
+                             <ng-container *ngIf="i == filterItem-1" >
+                                <tr class="cart-subtotal">
+                                   <th>ITEM SUB TOTAL</th>
+                                   <th>:</th>
+                                   <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span> {{productListitem.totale | currency:'₹ ':0}}</span></td>
+                                </tr>
+                                <tr class="tax-rate tax-rate-in-gst-1">
+                                   <th>GST</th>
+                                   <th>:</th>
+                                   <td data-title="GST"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span> {{productListitem.tax | currency:'₹ ':0}}</span></td>
+                                </tr>
+                                <tr class="order-total">
+                                   <th>TOTAL TO PAY</th>
+                                   <th>:</th>
+                                   <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span> {{productListitem.main_tolale | currency:'₹ ':0}}</span></strong> </td>
+                                </tr>
+                             </ng-container>
+                          </tbody>
+                       </table>
+                    </div>
+                 </div>
+              </div>
+          </div>
+       </div>
+    </article>
+ </div>

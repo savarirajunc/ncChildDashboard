@@ -1,0 +1,10 @@
+
+       <div class="col-md-12 col-lg-12 row tab-pane fade in active" id="cored-edu">
+        <div class="col-md-12">
+          <ng-container>
+           <ul class="nav sub-nav">
+             <li *ngFor="let guidedlistitem of guidedlist"><a [routerLink]="['../','gradedetails',guidedlistitem.id]"><span>{{guidedlistitem.learning_model}}</span></a></li>
+           </ul>
+         </ng-container>
+        </div>
+      </div>

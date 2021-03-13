@@ -1,0 +1,140 @@
+<div class="container">
+    <section id="primary" class="content-area col-sm-12">
+       <main id="main" class="site-main" role="main">
+          <article id="post-45" class="post-45 page type-page status-publish hentry">
+
+             <div class="entry-content" id="main-cart">
+                <div class="woocommerce">
+                   <div class="col-md-12">
+                      <div class="col-md-8" id="checkout-page">
+                          <div class="col-md-12">
+                              <div class="col-md-12">
+                                 <span class="top-line"><span class="top-line-1">1</span><span class="top-line-2">2</span><span class="top-line-3">3</span></span>
+                              </div>
+                            </div>
+                         <div class="checkout">
+                            <h3 class="head">3. Make payment</h3>
+                         </div>
+                         <div class="">
+                         </div>
+                         <div class="coupon">
+                            <h4>Coupon Code</h4>
+                            <p>If you have a coupon code, enter it here</p>
+                         </div>
+                         <form #coupon = "ngForm" (ngSubmit)="onSubmit(coupon)" >
+                            <div class="col-md-12 col-lg-12 paddingless">
+                               <p class="form-row form-row-first">
+                                  <input type="text" name="coupon_code" (change) ="couponCheck()" id="coupon_code" [(ngModel)]="fromData.coupon_code"  class="input-text" placeholder="Coupon code" value="" required>
+                               </p>
+                               <p class="form-row form-row-first">
+                                  <input id="coupon-but" type="submit" [disabled] ="!coupon.valid" class="button" name="apply_coupon" value="ADD">
+                               </p>
+                            </div>
+                            <p></p>
+                            <ng-container *ngIf="couponCheckValue == 2" >
+                              <div class="alert alert-danger" >
+                                  Please click the ADD button to apply your code entered.
+                              </div>
+                            </ng-container>
+                            <ng-container *ngIf="couponCheckValue == 0" >
+                                <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+                              </ng-container>
+                            <div class="clear"></div>
+                         </form>
+
+
+                         <form #cheuckOut = "ngForm" [formGroup]="checkoutForm" (ngSubmit)="paynew(cheuckOut)"  action="">
+                         <p class="form-row terms wc-terms-and-conditions">
+                            <label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
+                            <input formControlName="nidara_tc" value="1" name="check" (change) ="ncCheck()"  type="checkbox" class="woocommerce-form__input terms woocommerce-form__input-checkbox input-checkbox" id="wooc_terms"> <span>I’ve read and accept the <a href="terms-of-use" class="woocommerce-terms-and-conditions-link">terms &amp; conditions</a></span>
+                            <span style="color:#f00" class="required">*</span>
+                            </label>
+                            <span style="bottom: unset;" *ngIf="!checkoutForm.get('nidara_tc').valid && checkoutForm.get('nidara_tc').touched" class="alert alert-danger">
+                              Please Select terms and conditions
+                           </span>
+                           <ng-container *ngIf="nc_value == 1" >
+                            <span style="bottom: unset;"  class="alert alert-danger">
+                              Please Select terms and conditions
+                           </span>
+                           </ng-container>
+
+                         </p>
+
+                         <div class="buybutton">
+                            <p id="alert-check" class="text-left hidden error-column">Please Accept Terms &amp; Conditions</p>
+                            <input type="submit" id="place_order" value="BUY NOW">
+                         </div>
+                        </form>
+                      </div>
+                      <div class="col-md-4 col-sm-12 col-xs-12" id="new-pricing-page">
+                          <div class="col-md-12 col-lg-12 text-center">
+                            <h4 style="font-weight: bolder;">ORDER SUMMARY</h4>
+                          </div>
+                           <ng-container *ngFor="let productListitem of productList" >
+                              <div class="cart">
+                                 <div class="product-item">
+                                    <h4 class="product-title" style="font-weight: bolder;">{{productListitem.product_name}}</h4>
+                                    <h4>AGE & STAGE:
+                                        <ng-container *ngFor="let gradeitem of grade" >
+                                            <ng-container *ngIf="productListitem.product_type == gradeitem.id" >{{gradeitem.grade_name}}</ng-container>
+                                        </ng-container>
+                                    </h4>
+
+                                    <h4>Number of Children:{{productListitem.qty}}</h4>
+                                    <div class="product-subtotal" data-title="Total">
+                                       <h4>PRICE (PER YEAR) <span class="woocommerce-Price-amount amount">{{productListitem.product_price | currency:'₹ ':0}}</span></h4>
+                                       <!-- <p>You’ll be charged Rs. 129{{productItem.product_price}} monthly until you cancel your subscription. Previous charges won’t be refunded when you cancel unless it’s legally required. Your payment data is encrypted and secure. All amounts shown are in INR.</p> -->
+                                    </div>
+                                    <h4>ITEM SUBTOTAL    {{productListitem.subtotal | currency:'₹ ':0}}
+                                      (excl. Taxes)
+                                        <br>EMI options available during checkout
+                                        </h4>
+                                 </div>
+                              </div>
+                           </ng-container>
+                           <div class="col-md-12 col-lg-12 paddingless">
+                              <div class="col-md-12 col-lg-12 paddingless">
+                              <hr>
+                              <table cellspacing="0" class="table table-bordered">
+                                  <tbody *ngFor="let productListitem of discountPrice; let i = index;">
+                                        <tr class="cart-subtotal">
+                                           <th>ITEM SUB TOTAL</th>
+                                           <th>:</th>
+                                           <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span> {{productListitem.main_tolale_value | currency:'₹ ':0}}</span></td>
+                                        </tr>
+                                        <ng-container *ngIf="productListitem.discount" >
+                                        <tr class="cart-subtotal">
+                                            <th>DISCOUNT</th>
+                                            <th>:</th>
+                                            <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"><span>-</span> </span> {{productListitem.discount | currency:'₹ ':0}}</span></td>
+                                         </tr>
+                                        </ng-container>
+                                        <ng-container *ngIf="productListitem.coupon_code" >
+                                         <tr>
+                                            <th>APPLY COUPON</th>
+                                            <th>:</th>
+                                            <td data-title="GST"><span class="woocommerce-Price-amount amount">{{productListitem.coupon_code}}</span></td>
+                                          </tr>
+                                        </ng-container>
+                                        <tr class="tax-rate tax-rate-in-gst-1">
+                                           <th>GST</th>
+                                           <th>:</th>
+                                           <td data-title="GST"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span> {{productListitem.main_tax | currency:'₹ ':0}}</span></td>
+                                        </tr>
+                                        <tr class="order-total">
+                                           <th>TOTAL TO PAY</th>
+                                           <th>:</th>
+                                           <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span> {{productListitem.cart_amount | currency:'₹ ':0}}</span></strong> </td>
+                                        </tr>
+                                  </tbody>
+                               </table>
+                              </div>
+                           </div>
+                        </div>
+                   </div>
+                </div>
+             </div>
+          </article>
+       </main>
+    </section>
+ </div>

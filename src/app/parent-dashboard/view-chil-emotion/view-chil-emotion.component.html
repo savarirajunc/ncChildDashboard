@@ -1,0 +1,13 @@
+<div class="col-md-12 col-lg-12">
+  <ng-container *ngFor="let getValueitem of getValue;let i=index" >
+    <h4>Attempt {{i+1}}</h4>
+    <table class="table table-bordered">
+        <thead><tr>
+          <th>Child Emotional Status -
+              <ng-container *ngIf="start_end == 1" >Before Session Start</ng-container><ng-container *ngIf="start_end == 2" >After Session Completion </ng-container></th>
+          <th innerHtml="{{getValueitem.emotion}}"></th>
+        </tr>
+      </thead>
+    </table>
+  </ng-container>
+</div>

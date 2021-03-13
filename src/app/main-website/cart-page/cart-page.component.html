@@ -1,0 +1,75 @@
+<div class="container">
+  <ng-container *ngIf="filterItem === 0" >
+  <div id="emptyCart">
+    <h3>Your Cart Is Empty</h3>
+    <div class="col-md-12 col-lg-12">
+
+      <div class="col-lg-4 col-md-4"><a href="/Home"><li style="list-style: none;text-align: center" class="checkout-button button alt wc-forward">GO TO SHOP</li></a></div>
+
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="filterItem !== 0" >
+  <div id="cart">
+  <div class="col-md-12 col-lg-12 paddingless">
+    <div class="col-md-8 col-lg-8 paddingless">
+      <div class="alert alert-success"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span><span>{{top_meg}}</span></div>
+
+    </div>
+  </div>
+    <table class="table table-bordered">
+      <tr style="background: #dfdfdf">
+        <th class="col-md-8 col-lg-8">ITEMS ADDED TO YOUR BAG </th>
+        <th class="col-md-2 col-lg-2">QTY</th>
+        <th class="col-md-2 col-lg-2">SUB TOTAL<br>(excl. taxes)</th>
+      </tr>
+      <tr *ngFor="let productListitem of productList; let i = index;">
+
+        <td class="col-md-8 col-lg-8">
+          <div class="col-md-3 col-lg-3">
+            <div class="product_img" [style.background-image]="'url(' + productListitem.product_img + ')'"></div>
+          </div>
+          <div class="col-md-8 col-lg-8">
+          <h4>{{productListitem.product_name}}</h4>
+          <p>
+            <ng-container *ngFor="let gradeitem of grade" >
+              <ng-container *ngIf="productListitem.product_type == gradeitem.id" >{{gradeitem.grade_name}}</ng-container>
+            </ng-container>
+            <!-- <ng-container *ngIf="productListitem.product_type == 1" >Preschool (3 Years to 4 Years )</ng-container>
+            <ng-container *ngIf="productListitem.product_type == 2" >Pre-Kindergarten (4 Years to 5 Years)</ng-container>
+            <ng-container *ngIf="productListitem.product_type== 3" >Kindergarten (5 Years to 6 Years)</ng-container></p> -->
+            <p>Your Nidara-Children plan:  Rs. {{productListitem.subtotal | currency:'₹ ':0 }} / Year</p>
+          <p><span (click)="deleteFunction(productListitem.id)" class="remove-but">Remove from bag</span></p>
+        </div>
+        </td>
+        <td class="col-md-2 col-lg-2">{{productListitem.item}}</td>
+        <td class="col-md-2 col-lg-2">
+          <h4><span>INR</span>{{productListitem.subtotal | currency:'₹ ':0 }}</h4>
+          <p>EMI options available during checkout</p>
+        </td>
+      </tr>
+    </table>
+
+  <div class="col-md-12 col-lg-12 paddingless">
+      <div class="col-md-6">
+
+      </div>
+      <div class="col-md-12 col-sm-12 col-xs-12 paddingless">
+        <div class="col-md-6 col-sm-12 col-xs-12 paddingless">
+            <div class="col-md-8 col-sm-12 col-xs-12 paddingleftless">
+                <a href="/view-bag"><li style="list-style: none; text-align: center" class="checkout-button button alt wc-forward">VIEW YOUR BAG</li></a>
+            </div>
+        </div>
+        <div class="wc-proceed-to-checkout col-md-6 paddingless">
+          <div class="col-md-4 col-lg-4"></div>
+          <div class="col-md-8 col-sm-12 col-xs-12 paddingless">
+            <a href="/main-cart"><li style="list-style: none; text-align: center" class="checkout-button button alt wc-forward">CHECKOUT</li></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ng-container>
+</div>
+

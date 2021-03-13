@@ -1,0 +1,328 @@
+
+
+<h2>HOME ADDRESS</h2>
+<div *ngIf="_response.status" class="alert alert-success">{{_response.message}}</div>
+       <form #addressForm="ngForm" (ngSubmit)="billingAddressFormSubmit(addressForm)">
+
+          <div class="form-response">
+              <div class="row form-fields">
+
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label for="address">Address Link1</label>
+                    <input type="text" name="home_address1" #home_address1='ngModel' [(ngModel)]="formData.home_address.home_address1" required>
+
+                    <div *ngIf="home_address1.invalid" >
+                        <div *ngIf="home_address1.errors.required" class="bg-danger text-white error">
+                            Address Link1 field is required.
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label for="address">Address Link2</label>
+                    <input type="text" name="home_address2" #home_address2='ngModel' [(ngModel)]="formData.home_address.home_address2" required>
+
+                    <div *ngIf="home_address2.invalid" >
+                      <div *ngIf="home_address2.errors.required" class="bg-danger text-white error">
+                        Address Link2 field is required.
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+
+            </div>
+            <div class="row form-fields">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label for="city">Town/City</label>
+
+                    <input type="text" name="home_town_city" #home_town_city='ngModel' [(ngModel)]="formData.home_address.home_town_city" required>
+                    <div *ngIf="home_town_city.invalid" >
+                    <div *ngIf="home_town_city.errors.required" class="bg-danger text-white error">
+                      Town/City field is required.
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label for="state">State</label>
+
+                    <input type="text" name="home_state" #home_state='ngModel' [(ngModel)]="formData.home_address.home_state" required>
+                    <div *ngIf="home_state.invalid" >
+                    <div *ngIf="home_state.errors.required" class="bg-danger text-white error">
+                      State field is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row form-fields">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                      <label for="pincode">Pincode</label>
+
+                      <input type="Number" name="home_pincode" #home_pincode='ngModel' [(ngModel)]="formData.home_address.home_pincode" required>
+                      <div *ngIf="home_pincode.invalid" >
+                      <div *ngIf="home_pincode.errors.required" class="bg-danger text-white error">
+                        Pincode is required.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="form-group">
+                  <label for="country">Country</label>
+
+                  <input type="text" name="home_country" #home_country='ngModel' [(ngModel)]="formData.home_address.home_country" required>
+                  <div *ngIf="home_country.invalid" >
+                    <div *ngIf="home_country.errors.required" class="bg-danger text-white error">
+                      Country is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="billing-address-checkbox">
+                <input type="checkbox" name="is_billing_same"  [ngModel]="formData.is_billing_same == 1 ? true : formData.is_billing_same == 0 ? false : null"  (ngModelChange)="formData.is_billing_same = $event ? 1 : 0"  >
+                <label> Billing address same as Home address</label>
+              </div>
+            </div>
+<ng-template [ngIf] ="!formData.is_billing_same">
+        <h2>BILLING ADDRESS</h2>
+
+                    <div class="row form-fields">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                              <label for="address">Address Link1</label>
+
+                              <input type="text" name="billing_address1" #billing_address1='ngModel' [(ngModel)]="formData.billing_address.billing_address1" required>
+                              <div *ngIf="billing_address1.invalid" >
+                                <div *ngIf="billing_address1.errors.required" class="bg-danger text-white error">
+                                  Address Link1 is required.
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                            <div class="form-group">
+                              <label for="address">Address Link2</label>
+
+                              <input type="text" name="billing_address2" #billing_address2='ngModel' [(ngModel)]="formData.billing_address.billing_address2" required>
+                              <div *ngIf="billing_address2.invalid" >
+                                <div *ngIf="billing_address2.errors.required" class="bg-danger text-white error">
+                                  Address Link2 is required.
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+
+
+                      <div class="row form-fields">
+                          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <div class="form-group">
+                                <label for="city">Town/City</label>
+                                <input type="text" name="billing_town_city" #billing_town_city='ngModel' [(ngModel)]="formData.billing_address.billing_town_city" required>
+                                <div *ngIf="billing_town_city.invalid" >
+                                  <div *ngIf="billing_town_city.errors.required" class="bg-danger text-white error">
+                                    Town/City is required.
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                              <label for="state">State</label>
+                              <input type="text" name="billing_state" #billing_state='ngModel' [(ngModel)]="formData.billing_address.billing_state" required>
+                              <div *ngIf="billing_state.invalid" >
+                                <div *ngIf="billing_state.errors.required" class="bg-danger text-white error">
+                                  State is required.
+                                </div>
+                              </div>
+                            </div>
+                      </div>
+                    </div>
+
+                    <div class="row form-fields">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                              <label for="pincode">Pincode</label>
+                              <input type="Number" name="billing_pincode" #billing_pincode='ngModel' [(ngModel)]="formData.billing_address.billing_pincode" required>
+                              <div *ngIf="billing_pincode.invalid" >
+                                <div *ngIf="billing_pincode.errors.required" class="bg-danger text-white error">
+                                  Pincode is required.
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                          <label for="country">Country</label>
+                          <input type="text" name="billing_country" #billing_country='ngModel' [(ngModel)]="formData.billing_address.billing_country" required>
+                          <div *ngIf="billing_country.invalid" >
+                            <div *ngIf="billing_country.errors.required" class="bg-danger text-white error">
+                              Country is required.
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                    </div>
+
+
+</ng-template>
+
+
+                    <input type="submit" value="SAVE CHANGES" class="btn-save" [disabled]="!addressForm.valid">
+
+            </div>
+        </form>
+
+
+        <!-- <h2>BILLING ADDRESS</h2>
+<div *ngIf="_response.status" class="alert alert-success">{{_response.message}}</div>
+                <form #billingAddressForm="ngForm" (ngSubmit)="billingAddressFormSubmit(billingAddressForm)">
+                    <div class="form-fields bill_add_info">
+                          <div class="form-response">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+
+                                <label for="address">Address Link1</label>
+
+                                    <input type="text" name="address1" #address1="ngModel"  [(ngModel)]="formData.address1" required minlength="5" maxlength="20">
+
+                                    <div *ngIf="address1.invalid && (address1.dirty || address1.touched)">
+                                                <div *ngIf="address1.errors.required" class="bg-danger text-white error">
+                                                Address1  is required.
+                                                </div>
+                                                <div *ngIf="address1.errors.minlength" class="bg-danger text-white error">
+                                                Address1 is minimum 5
+                                                </div>
+                                                <div *ngIf="address1.errors.maximum" class="bg-danger text-white error">
+                                                Address1 is maximum 20.
+                                                </div>
+                                            </div>
+
+                                    </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                                <label for="address">Address Link2</label>
+
+                                    <input type="text" name="address2"  #address2="ngModel" [(ngModel)]="formData.address2" required minlength="5" maxlength="20">
+
+                                    <div *ngIf="address2.invalid && (address2.dirty || address2.touched)">
+                                                <div *ngIf="address2.errors.required" class="bg-danger text-white error">
+                                                Address2  is required.
+                                                </div>
+                                                <div *ngIf="address2.errors.minlength" class="bg-danger text-white error">
+                                                Address2 is minimum 5.
+                                                </div>
+                                                <div *ngIf="address2.errors.maximum" class="bg-danger text-white error">
+                                                Address2 is maximum 20.
+                                                </div>
+                                        </div>
+
+                                </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+                                <label for="city">Town/City</label>
+
+                                    <input type="text" name="town_city" #town_city="ngModel" [(ngModel)]="formData.town_city" required minlength="5" maxlength="20">
+
+                                    <div *ngIf="town_city.invalid && (town_city.dirty || town_city.touched)">
+                                                <div *ngIf="town_city.errors.required" class="bg-danger text-white error">
+                                                Town_city  is required.
+                                                </div>
+                                                <div *ngIf="town_city.errors.minlength" class="bg-danger text-white error">
+                                                Town_city is minimum 5.
+                                                </div>
+                                                <div *ngIf="town_city.errors.maximum" class="bg-danger text-white error">
+                                                Town_city is maximum 20.
+                                                </div>
+                                            </div>
+
+                                </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <label for="state">State</label>
+
+                                    <input type="text" name="state" #state="ngModel" [(ngModel)]="formData.state" required minlength="5" maxlength="20">
+
+                                    <div *ngIf="state.invalid && (state.dirty || state.touched)">
+                                                <div *ngIf="state.errors.required" class="bg-danger text-white error">
+                                                State  is required.
+                                                </div>
+                                                <div *ngIf="state.errors.minlength" class="bg-danger text-white error">
+                                                State is minimum 5.
+                                                </div>
+                                                <div *ngIf="state.errors.maximum" class="bg-danger text-white error">
+                                                State is maximum 20.
+                                                </div>
+                                            </div>
+
+                                </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+                                <label for="pincode">Pincode</label>
+
+                                    <input type="text" name="pincode" #pincode="ngModel" [(ngModel)]="formData.pincode" required pattern="[0-9]*" minlength="6" maxlength="6">
+
+                                        <div *ngIf="pincode.invalid && (pincode.dirty || pincode.touched)">
+                                                <div *ngIf="pincode.errors.required" class="bg-danger text-white error">
+                                                pincode  is required.
+                                                </div>
+                                                <div *ngIf="pincode.errors.pattern" class="bg-danger text-white error">
+                                                pincode is only digit.
+                                                </div>
+                                                <div *ngIf="pincode.errors.minlength" class="bg-danger text-white error">
+                                                pincode is minimum 6.
+                                                </div>
+                                                <div *ngIf="pincode.errors.maximum" class="bg-danger text-white error">
+                                                pincode is maximum 6.
+                                                </div>
+                                            </div>
+                               </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <label for="country">Country</label>
+
+                                    <input type="text" name="country" #country="ngModel" [(ngModel)]="formData.country" required>
+
+                                        <div *ngIf="country.invalid && (country.dirty || country.touched)">
+                                                <div *ngIf="country.errors.required" class="bg-danger text-white error">
+                                                Country  is required.
+                                                </div>
+                                                <div *ngIf="country.errors.minlength" class="bg-danger text-white error">
+                                                Country is minimum 5.
+                                                </div>
+                                                <div *ngIf="country.errors.maximum" class="bg-danger text-white error">
+                                                Country is maximum 20.
+                                                </div>
+                                            </div>
+                                </div>
+                        </div>
+                                </div>
+                        <div>
+                            <input type="submit" [disabled]="!billingAddressForm.form.valid" value="SAVE CHANGES" >
+                        </div>
+                    </div>
+                </form> -->

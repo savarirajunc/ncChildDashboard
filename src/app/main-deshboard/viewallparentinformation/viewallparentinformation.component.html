@@ -1,0 +1,45 @@
+<div class="parent-infromatiom">
+  <div class="tab-content col-md-12">
+    <div class="page-header">
+      <h3>VIEW ALL PARENT INFORMATION</h3>
+    </div>
+    <div>
+      <div  *ngFor="let parentdetails of parentinformation[currentPage] | orderBy:stort.parent">
+        <div *ngIf="parentdetails === -1" class="text-center">
+            <span class="no-details">There is no date.</span>
+        </div>
+        <div class="col-md-3" *ngIf="parentdetails !== -1">
+          <a [routerLink]="['../','details',parentdetails.id]">
+             <img src="assets/images/1.png" class="img-circle pop-image child-login"  alt="no-display">
+             <ng-template [ngIf] = "order.parent == 'first_name'" [ngIfElse] = "Lestname">
+               <h5 class="">{{parentdetails.first_name}} {{parentdetails.last_name}}</h5>
+             </ng-template>
+             <ng-template #Lestname>
+               <ng-template [ngIf] = "order.parent == 'last_name'" [ngIfElse] = "elseDiv">
+                 <h5 class="">{{parentdetails.last_name}} {{parentdetails.first_name}}</h5>
+               </ng-template>
+             </ng-template>
+             <ng-template  #elseDiv>
+                 <ng-template [ngIf] = "order.parent != 'last_name' || order.parent != 'first_name'">
+                   <h5 class="">{{parentdetails.first_name}} {{parentdetails.last_name}}</h5>
+                 </ng-template>
+             </ng-template>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<div class="text-center pagination_nav">
+  <ng-container *ngIf="currentPage >= 10">
+    <a class="pagenav" (click)="selectPageBack()">&lsaquo;&lsaquo;</a>
+  </ng-container>
+  <ng-container *ngFor="let gamedetailsitem of pageArray| slice:pageIdx*10:(pageIdx+1)*10;let i=index">
+    <a class="pagenav" (click)="setGameDetailsView(gamedetailsitem)" [ngClass]="{'active':gamedetailsitem===currentPage}">{{gamedetailsitem+1}}</a>
+  </ng-container>
+  <ng-container *ngIf="currentPage < (pageNav -1) ">
+    <a class="pagenav" (click)="selectPage()">&rsaquo;&rsaquo;</a>
+  </ng-container>
+</div>

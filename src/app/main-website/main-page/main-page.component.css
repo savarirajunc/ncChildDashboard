@@ -1,0 +1,74 @@
+#layout-banner-bg {
+  background-image: url(../../../assets/web_img/bg.png);
+}
+.alignnone {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#layout-container{
+  font-family: 'GillSansStd-Light';
+}
+#layout-container h4 {
+  font-family: 'GillSansStd-Light';
+  font-size: 18px;
+}
+.layout-banner {
+  position: relative;
+  padding: 2px;
+}
+#layout-container h2{
+  font-family: 'GillSansStd-Light';
+}
+.Parent .three_img{
+  background-image: url(../../../assets/web_img/wl.png);
+}
+.Parent .two_img {
+  background-image: url(../../../assets/web_img/two_img.png);
+}
+.banner-img {
+  background-image: url(../../../assets/web_img/1-WITHOUT-TEXT.jpg);
+}
+#layout-container button, #layout-container input[type="submit"] {
+  background-color: #333333;
+  border: 0px;
+  color: #ffffff;
+  padding: 5px 35px;
+  outline: 0px;
+  transition: 0.4s;
+  width: auto;
+}
+#layout-container button:hover, #layout-container input[type="submit"]:hover{
+  background-color: #83d0c9;
+}
+a{
+  text-decoration: none;
+}
+.col-img{
+  cursor: pointer;
+  outline: none;
+}
+
+.col-img:hover{
+  color: #83d0c9;
+}
+.home-slide {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .home-slide {
+    text-align: center;
+  }
+}
+@media (min-width: 992px) {
+  .home-slide {
+    text-align: right;
+  }
+}
+@media (min-width: 1200px) {
+  .home-slide {
+    text-align: right;
+  }
+}

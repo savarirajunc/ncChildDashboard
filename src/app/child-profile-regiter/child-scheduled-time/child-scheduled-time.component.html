@@ -1,0 +1,86 @@
+<div class="col-md-12 col-lg-12 page-header">
+  <h2>STEP 2: SET DAILY SCHEDULED NIDARA CORE SESSION TIME
+   <span class="child-tooltip">
+    <!-- <p class="tooltip-cont"><i>i</i></p> -->
+    <span class="tooltip-main" data-tip="Providing your child’s health information helps make sure that you get the right Nidara-Children experience for your child’s age and stage. If you want to change this, go to the My Settings in your dashboard. For more details, please visit our Terms of Use and Privacy Policy."><i>i</i></span>
+  </span></h2>
+  <span>Your child can access Nidara-Children daily during the scheduled time.</span>
+</div>
+<ul  class="kids-info">
+  <ng-container *ngFor="let kids of _kidsInformations; let i = index; ">
+    <ng-template [ngIf]="kids.is_default_kid == 1">
+      <ng-container *ngIf ="i == 0">
+        <li id="kids{{kids.nidara_kid_profile_id}}" class="child_active" style="color:#83D0C9" (click)="selectedKidInfo(kids,kidsTag)">CHILD {{i+1}}</li>
+      </ng-container>
+    </ng-template>
+    <ng-template [ngIf]="kids.is_default_kid == 0">
+      <li id="kids{{kids.nidara_kid_profile_id}}"  (click)="selectedKidInfo(kids,kidsTag)">CHILD {{i+1}}</li>
+    </ng-template>
+  </ng-container>
+</ul>
+
+    <div class="row tab-pane fade in active col-md-12 col-lg-12" id="dailyroutinecreate">
+      <div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+      <form name="dailySchedulerForm" #dailySchedulerForm="ngForm" (ngSubmit)="dailySchedulerFormSubmit(dailySchedulerForm)">
+        <div class="form-fields shedule_info">
+          <div class="form-response">
+            <div class="row hidden">
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <p class="week-title-1">Weekdays :</p>
+              </div>
+              <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 schedule" >
+                <ul class="scheduler_days">
+                <li *ngFor="let scheduler of schedulerDays;let i = index">
+                  <ng-template [ngIf]="scheduler.option == 1">
+                      <input type="checkbox" value="{{scheduler.option}}" name="scheduler_days_id" checked (change)="onChange(scheduler)" required/><span class="days">&nbsp;{{scheduler.day}}&nbsp;&nbsp;</span>
+
+                  </ng-template>
+                  <ng-template [ngIf]="scheduler.option == 0">
+                      <input type="checkbox" value="1" name="scheduler_days_id"  checked  (change)="onChange(scheduler)" required/><span class="days">&nbsp;{{scheduler.day}}&nbsp;&nbsp;</span>
+
+                  </ng-template>
+                </li>
+                </ul>
+              </div>
+            </div>
+            <div class="row clock-schedule">
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <p class="week-title-2">Choose Daily Session Time <span style="color:#f00">*</span></p>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12" style="margin-right:40px">
+                <span>From Time</span>
+                <timepicker [(ngModel)]="set_time" name="set_time" (ngModelChange)="changeDate($event)" [showMeridian]="ismeridian" [readonlyInput]="!isEnabled"></timepicker>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12" style="margin-right:40px">
+                <span>To Time</span>
+                <ul class="set_time_to">
+                  <li>
+                    <input type="text" name="totime" [(ngModel)]="get_time" disabled>
+                  </li>
+                  <li>:</li>
+                  <li>
+                    <input type="text" name="tominut" [(ngModel)]="get_minut" disabled>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="form-response">
+              <div class="row form-fields">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+                  <div class="form-group">
+                    <input type="submit" [disabled]="!dailySchedulerForm.form.valid" class="btn-save" value="SET TIME">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="back-but">
+        <span (click)="gobackfunction()">Or GO BACK</span>
+      </div>
+    </div>

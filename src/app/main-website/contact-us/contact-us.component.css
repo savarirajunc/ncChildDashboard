@@ -1,0 +1,152 @@
+
+button[disabled], html input[disabled] {
+    cursor: not-allowed !important;
+}
+.wd_mar > .form-fields input{
+  width: 366px !important;
+  margin-top: 4% !important;
+}
+#main-form{
+  width: 100%;
+  float: left;
+}
+#rightsidebar{
+  width: 100%;
+  float: left;
+}
+.error {
+  margin-left: 0%;
+    margin-top: 5px;
+    background-color: transparent!important;
+    font-weight: 500;
+    position: relative;
+    bottom: 0px;
+    text-align: left;
+    padding-left: 20px;
+}
+.email{
+  width: 89%;
+  margin-top: 15px;
+}
+.contactUs > div:last-child {
+  width: 100%;
+  padding: 15px;
+}
+
+span.wpcf7-form-control-wrap {
+  float: left;
+  width: 100%;
+}
+
+
+.contactUsFields2 [name="lastname"], .contactUsFields2 [name="phone_number"], #last-name .wpcf7-not-valid-tip, #phone-number .wpcf7-not-valid-tip, .contactUsFields2 [name="inquiry"], #inquiry-option .wpcf7-not-valid-tip {
+  margin-left: 0%;
+}
+
+
+@media (min-width: 768px) {
+  .home-slide {
+    text-align: center;
+  }
+  .error {
+    margin-left: 0%;
+      margin-top: 5px;
+      background-color: transparent!important;
+      font-weight: 500;
+      position: relative;
+      bottom: 0px;
+  }
+  .contactUs > div:last-child {
+    width: 100%;
+    padding: 0px;
+}
+#main-form{
+  width: 75%;
+  float: left;
+}
+#rightsidebar{
+  width: 25%;
+  float: left;
+}
+input.wpcf7-form-control.wpcf7-submit {
+  margin-right: 5%;
+}
+}
+@media (min-width: 992px) {
+  .home-slide {
+    text-align: right;
+  }
+  .error {
+    margin-left: 0%;
+      margin-top: 5px;
+      background-color: transparent!important;
+      font-weight: 500;
+      position: relative;
+      bottom: 0px;
+  }
+  .contactUs > div:last-child {
+    width: 100%;
+    padding: 0px;
+}
+#main-form{
+  width: 75%;
+  float: left;
+}
+#rightsidebar{
+  width: 25%;
+  float: left;
+}
+input.wpcf7-form-control.wpcf7-submit {
+  margin-right: 7%;
+}
+}
+@media (min-width: 1200px) {
+  .home-slide {
+    text-align: right;
+  }
+  .error {
+    margin-left: 0%;
+      margin-top: 5px;
+      background-color: transparent!important;
+      font-weight: 500;
+      position: relative;
+      bottom: 0px;
+  }
+  .contactUs > div:last-child {
+    width: 100%;
+    padding: 0px;
+}
+#main-form{
+  width: 75%;
+  float: left;
+}
+#rightsidebar{
+  width: 25%;
+  float: left;
+}
+input.wpcf7-form-control.wpcf7-submit {
+  margin-right: 7%;
+}
+}
+
+
+span.req {
+  color: red;
+  line-height: 34px;
+  display: block;
+  font-size: 11px;
+  text-align: left;
+  float: left;
+}
+
+
+.contactUsFields2 textarea {
+  width: 95%;
+  margin: 15px 0px;
+  height: 10vh;
+  min-height: 100px;
+  resize: none;
+  padding-left: 10px;
+}
+
+

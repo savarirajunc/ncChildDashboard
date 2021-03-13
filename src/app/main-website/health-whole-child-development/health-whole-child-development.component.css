@@ -1,0 +1,31 @@
+h2, .h2{
+  font-family: 'GillSansStd-Light';
+  font-size: 3em;
+}
+
+a{
+  text-decoration: none;
+}
+
+.homeContact {
+  text-align: center;
+  font-size: 10px;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
+
+.two_img {
+
+}
+.pahe-header{
+  height: 10px;
+}
+.col-img{
+  cursor: pointer;
+  outline: none;
+}
+
+.col-img:hover{
+  color: #83d0c9;
+}

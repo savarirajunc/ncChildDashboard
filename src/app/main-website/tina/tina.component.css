@@ -1,0 +1,9 @@
+@media (min-width:320px) and (max-width:767px) {
+  .txt_align{
+    text-align: center;
+    margin-bottom: 9%;
+  }
+}
+#logo-img{
+  width: 58%;
+}

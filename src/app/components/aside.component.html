@@ -1,0 +1,51 @@
+<div class="text-center announcements">
+  <p>MESSAGES</p>
+  <ng-container *ngIf="getAnnouncement; else message" >
+    <div class="massages" *ngFor="let getAnnouncementitem of getAnnouncement" >
+      <p id="link"><span class="tool-tip" style="cursor: pointer;" tooltip="{{getAnnouncementitem.messages}}" placement="right" tooltip-class="tools" show-delay="300">{{getAnnouncementitem.title}}</span></p>
+      <p id="link"><span>{{getAnnouncementitem.title_2}}</span></p>
+    </div>
+  </ng-container>
+<ng-template #message>
+  <div class="massages">
+    <p id="link"><span>You have no new messages.</span></p>
+  </div>
+</ng-template>
+<!-- <ng-container *ngIf="childepriyday === 1"  >
+    <p class="" style="color:#f00">{{errorMassesge}}</p>
+  </ng-container> -->
+</div>
+<div class="text-center trend-post">
+  <div class="nidara-guide">
+    <h2>TRENDING POSTS</h2>
+  </div>
+  <ng-container *ngFor="let childedu of getPostl; let i = index;">
+    <ul class="wpp-list">
+      <li>
+        <ng-container *ngFor="let img of img_url; let n = index;">
+          <a href="{{childedu.link}}">
+            <ng-container *ngIf = "childedu.featured_media == img.id">
+              <div class="col-md-12 paddingless">
+               <div [style.background-image]="'url(' + img.source_url + ')'"  alt="apple not show" width="160" height="120" class="post-thume-img"></div>
+              </div>
+            </ng-container>
+           </a>
+        </ng-container>
+        <div class="col-md-12 paddingless">
+          <a href="{{childedu.link}}" class="wpp-post-title" ><span innerHtml="{{childedu.title.rendered}}"></span></a>
+        </div>
+      <li>
+
+    </ul>
+
+  </ng-container>
+  <section id="text-7" class="widget widget_text">			<div class="textwidget"><section id="wpp-3" class="widget popular-posts">
+    <h3 class="widget-title">GET STARTED</h3>
+    <ul class="wpp-list">
+    <li><a href="https://www.nidarachildren.com/girl" target="_self"><img class="wpp-thumbnail wpp_cached_thumb wpp_featured" src="https://blog.nidarachildren.com/wp-content/uploads/2018/12/tab1-black-bg1.jpg" width="160" height="120"><span style="font-size: 16px;">Girl</span></a></li>
+    <li><a href="https://www.nidarachildren.com/boy" target="_self"><img class="wpp-thumbnail wpp_cached_thumb wpp_featured" src="https://blog.nidarachildren.com/wp-content/uploads/2018/12/tab-black-bg.jpg" width="160" height="120"><span style="font-size: 16px;">Boy</span></a></li>
+    </ul>
+    </section>
+    </div>
+        </section>
+</div>

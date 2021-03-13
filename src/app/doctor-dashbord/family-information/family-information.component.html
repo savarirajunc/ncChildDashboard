@@ -1,0 +1,66 @@
+<p><br></p>
+<h3>REGISTER NEW PATIENTS
+  </h3>
+<h3>ENTER CHILD DETAILS
+  </h3>
+  <!-- <ul  class="kids-info">
+      <ng-container *ngFor="let kids of _kidsInformations; let i = index; ">
+          <li id="kids{{kids.nidara_kid_profile_id}}">CHILD {{i+1}}</li>
+      </ng-container>
+    </ul> -->
+  <div class="col-md-12">
+    <ng-container *ngFor="let productitem of pageArray;let i=index">
+        <a class="pagenav" (click)="setGameDetailsView(productitem)" [ngClass]="{'active':productitem===currentPage}">CHILD {{productitem+1}}</a>
+  </ng-container>
+</div>
+  <div class="col-md-12 paddingless">
+      <!-- <div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div> -->
+    <form #familyInfomain="ngForm" [formGroup]="familyInfo" (ngSubmit)="onSubmit(familyInfomain)">
+      <br>
+      <div class="col-md-12">
+        <h4>FAMILY  INFORMATION</h4>
+        <p>Select the family members in your home</p>
+      </div>
+      <div class="col-md-12">
+        <!-- <input type="hidden" [(ngModel)]="formData.nidara_kid_profile_id" name="user_id"> -->
+        <ul class="formlist ">
+          <li><input class="form-control" type="checkbox" name="family_mother" formControlName="mother"><span>Mother</span></li>
+          <li><input class="form-control" type="checkbox" name="family_father" formControlName="father" ><span>Father</span></li>
+          <li><input class="form-control" type="checkbox" name="family_grandfather" formControlName="grandfather"><span>Grandfather</span></li>
+          <li><input class="form-control" type="checkbox" name="family_grandmother" formControlName="grandmother"><span>Grandmother</span></li>
+        </ul>
+      </div>
+      <br>
+      <div class="col-md-12 child-lang" >
+
+          <h4>CHILD LANGUAGE INFORMATION
+            </h4>
+
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-6 paddinglessleft">
+            <select class="form-control" name="Primary" id="" formControlName="primary">
+              <option value="">Primary Language *</option>
+              <option value="english">English</option>
+              <option value="hindi">Hindi</option>
+              <option value="tamil">Tamil</option>
+            </select>
+          </div>
+          <div class="col-md-6 paddinglessright">
+            <select class="form-control" name="Secondary" id="" formControlName="secondary">
+              <option value="">Secondary Language * </option>
+              <option value="english">English</option>
+              <option value="hindi">Hindi</option>
+              <option value="tamil">Tamil</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-12">
+            <div class="col-md-12 col-lg-12">
+                <input type="submit" value="SAVE AND NEXT">
+            </div>
+
+        </div>
+
+    </form>
+  </div>

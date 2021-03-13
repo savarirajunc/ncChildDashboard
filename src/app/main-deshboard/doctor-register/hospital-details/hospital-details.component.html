@@ -1,0 +1,172 @@
+<div class="col-md-12 row">
+  <p><br></p>
+  <h3>REGISTER NEW DOCTOR</h3>
+  <h4>PRIMARY HOSPITAL DETAILS</h4>
+</div>
+<div id="register-page" class="col-md-12 col-lg-12 paddingless">
+  <form id=formId [formGroup]="registerForm" (ngSubmit)="onSubmit(userReg)" #userReg="ngForm">
+  <div>
+     <div class="col-md-12 col-lg-12 paddingless">
+        <p class="form-row form-row-first">
+            <span class="col-md-12 col-lg-12 paddingless">
+           <label for="hospital_name">Hospital Name<span class="required">*</span></label>
+            </span>
+           <span class="col-md-12 col-lg-12 paddingless">
+              <label for="practicing_time"></label>
+           </span>
+           <input type="text" OnlyString="true" formControlName="hospital_name" class="input-text text-only" name="hospital_name" id="hospital_name" value="">
+           <span *ngIf="!registerForm.get('hospital_name').valid && registerForm.get('hospital_name').touched" class="bg-danger text-white error">
+              Please Enter First Name (Minimum 2 Characters)
+           </span>
+        </p>
+        <p class="form-row form-row-last">
+            <span class="col-md-12 col-lg-12 paddingless">
+              <label for="practicing_time">Practicing Time<span class="required">*</span></label>
+           </span>
+           <span class="time">
+             <span>from</span>
+           <timepicker formControlName="practicing_time" name="set_time" [showMeridian] = "ismeridian"></timepicker>
+           <span *ngIf="!registerForm.get('practicing_time').valid && registerForm.get('practicing_time').touched" class="bg-danger text-white error">
+              Please Enter practicing from time
+           </span>
+          </span>
+          <span class="time">
+              <span>to</span>
+              <timepicker formControlName="practicing_time_to" name="set_time_to" [showMeridian] = "ismeridian" ></timepicker>
+              <span *ngIf="!registerForm.get('practicing_time_to').valid && registerForm.get('practicing_time_to').touched" class="bg-danger text-white error">
+                  Please Enter practicing to time
+               </span>
+          </span>
+           <!-- <input type="time" OnlyString="true" class="input-text text-only" formControlName="practicing_time" name="practicing_time" id="practicing_time" value=""> -->
+
+        </p>
+        <div class="clear"></div>
+        <p class="form-row form-row-first">
+          <label for="reg_billing_address_1">Street Address <span class="required">*</span></label>
+          <input type="text" class="input-text" formControlName="address_1" name="billing_address_1" id="reg_billing_address_1" value="">
+          <span style="bottom: unset;" *ngIf="!registerForm.get('address_1').valid && registerForm.get('address_1').touched" class="bg-danger text-white error">
+             Please Enter Street Address
+         </span>
+       </p>
+       <p class="form-row form-row-last">
+          <label for="reg_billing_address_2">Street Address</label>
+          <input type="text" formControlName="address_2" class="input-text" name="billing_address_2" id="reg_billing_address_2" value="">
+       </p>
+       <div class="clear"></div>
+       <p class="form-row form-row-first">
+          <label for="reg_billing_city">City <span class="required">*</span></label>
+          <input type="text" OnlyString="true" formControlName="city" class="input-text text-only" name="billing_city" id="reg_billing_city" value="">
+          <!-- <span id="city" class="hidden error-column">Please Enter City</span> -->
+          <span style="bottom: unset;" *ngIf="!registerForm.get('city').valid && registerForm.get('city').touched" class="bg-danger text-white error">
+             Please Enter City
+         </span>
+       </p>
+       <p class="form-row form-row-last">
+          <label for="reg_billing_state">State <span class="required">*</span></label>
+          <!-- <input type="text" class="input-text" name="billing_state" id="reg_billing_state" value="" /> -->
+          <select formControlName="state" class="input-text" name="billing_state" id="reg_billing_state" style="height: 37px;">
+             <option value="">Select a state…</option>
+             <option value="AP">Andhra Pradesh</option>
+             <option value="AR">Arunachal Pradesh</option>
+             <option value="AS">Assam</option>
+             <option value="BR">Bihar</option>
+             <option value="CT">Chhattisgarh</option>
+             <option value="GA">Goa</option>
+             <option value="GJ">Gujarat</option>
+             <option value="HR">Haryana</option>
+             <option value="HP">Himachal Pradesh</option>
+             <option value="JK">Jammu and Kashmir</option>
+             <option value="JH">Jharkhand</option>
+             <option value="KA">Karnataka</option>
+             <option value="KL">Kerala</option>
+             <option value="MP">Madhya Pradesh</option>
+             <option value="MH">Maharashtra</option>
+             <option value="MN">Manipur</option>
+             <option value="ML">Meghalaya</option>
+             <option value="MZ">Mizoram</option>
+             <option value="NL">Nagaland</option>
+             <option value="OR">Orissa</option>
+             <option value="PB">Punjab</option>
+             <option value="RJ">Rajasthan</option>
+             <option value="SK">Sikkim</option>
+             <option value="TN">Tamil Nadu</option>
+             <option value="TS">Telangana</option>
+             <option value="TR">Tripura</option>
+             <option value="UK">Uttarakhand</option>
+             <option value="UP">Uttar Pradesh</option>
+             <option value="WB">West Bengal</option>
+             <option value="AN">Andaman and Nicobar Islands</option>
+             <option value="CH">Chandigarh</option>
+             <option value="DN">Dadra and Nagar Haveli</option>
+             <option value="DD">Daman and Diu</option>
+             <option value="DL">Delhi</option>
+             <option value="LD">Lakshadeep</option>
+             <option value="PY">Pondicherry (Puducherry)</option>
+          </select>
+          <span style="bottom: unset;" *ngIf="!registerForm.get('state').valid && registerForm.get('state').touched" class="bg-danger text-white error">
+             Please Select State
+         </span>
+       </p>
+       <div class="clear"></div>
+       <p class="form-row form-row-first">
+          <label for="reg_billing_country">Country  <span class="required">*</span></label>
+          <input type="text" formControlName="country" class="input-text" name="billing_country" id="reg_billing_country" value="">
+          <span style="bottom: unset;" *ngIf="!registerForm.get('country').valid && registerForm.get('country').touched" class="bg-danger text-white error">
+             Please Select country
+         </span>
+       </p>
+       <p class="form-row form-row-last">
+          <label for="reg_billing_postcode">Zip/Postcode <span class="required">*</span></label>
+          <input type="text" formControlName="postcode" OnlyNumber = "true" maxlength="6" class="input-text number-only" name="billing_postcode" id="reg_billing_postcode" value="">
+          <span style="bottom: unset;" *ngIf="!registerForm.get('postcode').valid && registerForm.get('postcode').touched" class="bg-danger text-white error">
+             Please give correct postcode exp("100000")
+         </span>
+       </p>
+       <div class="clear"></div>
+       <p class="form-row form-row-first">
+        <label for="reg_billing_first_name">Secretary Name <span class="required">*</span></label>
+        <input type="text" OnlyString="true" formControlName="first_name" class="input-text text-only" name="billing_first_name" id="reg_billing_first_name" value="">
+        <span *ngIf="!registerForm.get('first_name').valid && registerForm.get('first_name').touched" class="bg-danger text-white error">
+        Please Enter First Name (Minimum 2 Characters)
+        </span>
+     </p>
+     <p class="form-row form-row-last">
+        <label for="reg_email">Secretary Email address <span class="required">*</span></label>
+        <input formControlName="email" (change) = "emailChack()" type="email" class="input-text" name="email" id="reg_email" value="">
+        <span style="bottom: unset;" *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched" class="bg-danger text-white error">
+        Please enter valid email address.
+        </span>
+     </p>
+     <div class="clear"></div>
+
+     <p class="form-row form-row-first ">
+        <label for="reg_email">Secretary Mobile No <span class="required">*</span></label>
+        <!-- <label for="reg_billing_phone">Mobile Number<span class="required">*</span></label> -->
+        <input type="text" formControlName="mobile" OnlyNumber = "true" maxlength="15" class="input-text number-only" name="billing_phone" id="reg_billing_phone" value="">
+        <span style="bottom: unset;" *ngIf="!registerForm.get('mobile').valid && registerForm.get('mobile').touched" class="bg-danger text-white error">
+            Please give correct Mobile No
+        </span>
+     </p>
+     <p class="form-row form-row-last">
+        <label for="software">Any software for appointment </label>
+        <input type="text" OnlyString="true" formControlName="software" class="input-text text-only" name="software" id="software" value="">
+        <span *ngIf="!registerForm.get('software').valid && registerForm.get('software').touched" class="bg-danger text-white error">
+        Please Enter First Name (Minimum 2 Characters)
+        </span>
+    </p>
+        <div class="clear"></div>
+        <div *ngIf="_response2.status" class="{{_response2.alert}}">{{_response2.message}}</div>
+        <div class="clear"></div>
+     </div>
+     <!-- Spam Trap -->
+
+           <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 paddingless">
+              <p class="woocomerce-FormRow form-row form-row-last woocommerce-Button-2">
+                 <input type="submit" class="woocommerce-Button button" id="register-but" name="register" value="SAVE AND NEXT">
+              </p>
+           </div>
+     <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+  </div>
+  </form>
+</div>
+

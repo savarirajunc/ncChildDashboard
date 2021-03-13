@@ -1,0 +1,82 @@
+<div class="col-md-12 col-lg-12">
+  <ng-container *ngFor="let gradeDataitem of gradeData; let i=index">
+    <ng-container *ngIf="gradeDataitem.id == grade_id">
+      <h4><span routerLink="../../viewcoreframe">VIEW CORE OKAMEWOROK</span> <span> > </span> <span (click)="backClicked()">{{gradeDataitem.learning_model}}</span> <span> > </span> <span>CATEGORY CLASSIFICATION</span></h4>
+      <input type="hidden" name="" value="" [(ngModel)]="grade_id_val" (ngModelChange)="searchItem()">
+    <table class="table table-bordered">
+      <tr>
+        <h4 class="text-center">Nidara Category Classification</h4>
+      </tr>
+    </table>
+    <table class="table table-bordered">
+  <ng-container>
+
+    <thead>
+      <tr>
+        <th>
+          <tr>
+            <th>Core Education<th>
+          </tr>
+        </th>
+        <th>
+          <tr>
+            <th>Core Child Development<th>
+          </tr>
+        </th>
+        <th>
+          <tr>
+            <th>Core Interest Development<th>
+          </tr>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let standardmapviewitem of standardmapview | keys">
+      <tr>
+        <th>
+          <ng-container *ngFor="let item of standardmapview[''+standardmapviewitem]">
+            <ng-container *ngIf="item.codeId ==1">
+              <tr>
+                <ng-container *ngFor="let subjectsitem of subjects">
+                  <ng-container *ngIf="subjectsitem.id === item.subjectId">
+                    <th><a [routerLink]="['../../','standerds',gradeDataitem.id,'1',subjectsitem.id]">{{subjectsitem.subject_name}}</a></th>
+                  </ng-container>
+                </ng-container>
+              </tr>
+            </ng-container>
+          </ng-container>
+        </th>
+        <th>
+          <ng-container *ngFor="let item of standardmapview[''+standardmapviewitem]">
+            <ng-container *ngIf="item.codeId ==2">
+              <tr>
+                <ng-container *ngFor="let subjectsitem of subjects">
+                  <ng-container *ngIf="subjectsitem.id === item.subjectId">
+                    <th><a [routerLink]="['../../','standerds',gradeDataitem.id,'2',subjectsitem.id]">{{subjectsitem.subject_name}}</a></th>
+                  </ng-container>
+                </ng-container>
+              </tr>
+            </ng-container>
+          </ng-container>
+        </th>
+        <th>
+          <ng-container *ngFor="let item of standardmapview[''+standardmapviewitem]">
+            <ng-container *ngIf="item.codeId ==3">
+              <tr>
+                <ng-container *ngFor="let subjectsitem of subjects">
+                  <ng-container *ngIf="subjectsitem.id === item.subjectId">
+                    <th><a [routerLink]="['../../','standerds',gradeDataitem.id,'3',subjectsitem.id]">{{subjectsitem.subject_name}}</a></th>
+                  </ng-container>
+                </ng-container>
+              </tr>
+            </ng-container>
+          </ng-container>
+        </th>
+      </tr>
+    </ng-container>
+  </tbody>
+  </ng-container>
+  </table>
+</ng-container>
+</ng-container>
+</div>

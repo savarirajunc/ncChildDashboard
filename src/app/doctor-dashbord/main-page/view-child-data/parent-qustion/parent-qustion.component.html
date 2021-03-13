@@ -1,0 +1,283 @@
+<div class="col-md-12 col-lg-12" id="parent_answer">
+  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 paddingless">
+    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 paddingless">
+      <h4>NC HEALTHY CHILD DEVELOPMENT
+          QUESTIONNAIRE </h4>
+    </div>
+    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 paddingless">
+      <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 paddingleftlesss">
+        <select name="" id="" [(ngModel)]="viewType" (change) ="viewPageModu(viewType)">
+          <option value="1">Quick View</option>
+          <option value="2">Full View </option>
+        </select>
+      </div>
+      <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 paddingleftlesss">
+        <select name="" id="" [(ngModel)]="core_id" (change) ="coreTypeFilter(core_id)">
+          <option value="2">Core Health</option>
+          <option value="1">Core Learning</option>
+          <option value="3">Core Interes</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let x of ques; let i=index">
+    <ng-container *ngIf="viewType == '1'" >
+    <ng-container *ngIf="i < 3" >
+        <div class="col-xs-12 paddingless">
+            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 paddingless">
+             <div>
+               <p>{{x.question}}</p>
+             </div>
+           </div>
+           <div class="col-md-2 col-lg-2 col-sm-3 col-xs-3" >
+             <div class="radio-but">
+               <input type="radio" [(ngModel)]="x.answervalue" name="ques{{i}}"  value="yes" disabled><span></span>Yes
+             </div>
+           </div>
+
+            <div class="col-md-2 col-lg-2 col-sm-3 col-xs-3" >
+               <div class="radio-but">
+                   <input type="radio" [(ngModel)]="x.answervalue" name="ques{{i}}"  value="no" disabled><span></span>No
+                 </div>
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6" >
+             <div class="radio-but">
+               <input type="radio" [(ngModel)]="x.answervalue" name="ques{{i}}"  value="some_time" disabled><span></span>Sometimes
+             </div>
+           </div>
+          </div>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="viewType == '2'" >
+          <div class="col-xs-12 paddingless">
+              <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 paddingless">
+               <div class="quse-border">
+                 <p>{{x.question}}</p>
+               </div>
+             </div>
+             <div class="col-md-2 col-lg-2 col-sm-3 col-xs-3" >
+                <div class="radio-but">
+                  <input type="radio" [(ngModel)]="x.answervalue" name="ques{{i}}"  value="yes" disabled><span></span>Yes
+                </div>
+              </div>
+
+               <div class="col-md-2 col-lg-2 col-sm-3 col-xs-3" >
+                  <div class="radio-but">
+                      <input type="radio" [(ngModel)]="x.answervalue" name="ques{{i}}"  value="no" disabled><span></span>No
+                    </div>
+               </div>
+               <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6" >
+                <div class="radio-but">
+                  <input type="radio" [(ngModel)]="x.answervalue" name="ques{{i}}"  value="some_time" disabled><span></span>Sometimes
+                </div>
+              </div>
+            </div>
+
+    </ng-container>
+  </div>
+</div>
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs 12 game-result">
+  <h4>School</h4>
+    <div class="daily-development">
+        <ul class="nav nav-tabs">
+          <li ><a data-toggle="tab" class="active"  href="#cored-edu" style="font-size:18px;">Learning - Subject</a></li>
+          <li><a  data-toggle="tab" href="#child-development" style="font-size:18px;">Learning - Health</a></li>
+          <li><a data-toggle="tab" href="#interent-discovery" style="font-size:18px;">Interest Exploration</a></li>
+        </ul>
+      </div>
+  <div class="tab-content">
+      <div id="child-development" class="col-md-12 col-lg-12 col-sm-12 col-xs-12 tab-pane  fade  paddingless">
+          <ng-container *ngFor="let coreHealthitem of coreHealth" >
+            <a [routerLink]="['games',coreHealthitem.subject_id]">
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 report">
+              <div class="color" [style.background-color]="coreHealthitem.color">
+              <br>
+              <p class="result-title">{{coreHealthitem.subject}}</p>
+            </div>
+            </div>
+          </a>
+          </ng-container>
+          <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+              <div *ngIf="_response.status" ><p>{{_response.error}}</p></div>
+          </div>
+        </div>
+        <div id="cored-edu" class="col-md-12 col-lg-12 col-sm-12 col-xs-12 tab-pane fade in active  paddingless">
+            <ng-container *ngFor="let coreEducationitem of coreEducation" >
+                <a [routerLink]="['games',coreEducationitem.subject_id]">
+                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 report">
+                      <div class="color" [style.background-color]="coreEducationitem.color">
+                      <br>
+                      <p class="result-title">{{coreEducationitem.subject}}</p>
+                    </div>
+                    </div>
+                  </a>
+            </ng-container>
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div *ngIf="_response.status" ><p>{{_response.error}}</p></div>
+            </div>
+          </div>
+    <div id="interent-discovery" class="col-md-12 col-lg-12 col-sm-12 col-xs-12 tab-pane fade  paddingless">
+      <ng-container *ngFor="let coreInterstitem of coreInterst" >
+          <a [routerLink]="['games',coreInterstitem.subject_id]">
+              <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 report">
+                <div class="color" [style.background-color]="coreInterstitem.color">
+                <br>
+                <p class="result-title">{{coreInterstitem.subject}}</p>
+              </div>
+              </div>
+            </a>
+      </ng-container>
+      <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+          <div *ngIf="_response.status" ><p>{{_response.error}}</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs 12 game-result">
+<h4>Doctor</h4>
+  <div class="daily-development">
+      <ul class="nav nav-tabs">
+          <li ><a data-toggle="tab" class="active"  href="#cored-edu2" style="font-size:18px;">Learning</a></li>
+        <li><a  data-toggle="tab" href="#child-development2" style="font-size:18px;">Health</a></li>
+        <li><a data-toggle="tab" href="#interent-discovery2" style="font-size:18px;">Interest Exploration</a></li>
+      </ul>
+    </div>
+<div class="tab-content">
+      <div id="child-development2" class="col-md-12 col-lg-12 col-sm-12 col-xs-12 tab-pane paddingless">
+        <div class="scrollable">
+        <table>
+        <tr>
+            <th class="table-fixed-colume"></th>
+            <ng-container *ngFor = "let items of dataValue;">
+              <th *ngIf="items.core_type == '2'"><span class="subject-title">{{items.subject_name}}</span></th>
+            </ng-container>
+        </tr>
+        <tr *ngFor="let healthmasteritem of healthmaster" >
+          <td class="table-fixed-colume"><span class="health-title">{{healthmasteritem.heath_name}}</span></td>
+          <ng-container *ngFor = "let items of dataValue;">
+              <td *ngIf="items.core_type == '2'">
+                  <ng-container *ngFor="let coreHealthitem of coreHealthtwo" >
+                      <ng-container *ngIf="coreHealthitem.subject_id == items.id" >
+                          <ng-container *ngFor="let healthcareitem_sub of coreHealthitem.healthcare" >
+                            <ng-container *ngIf="healthcareitem_sub.health_parameter == healthmasteritem.id" >
+                              <span [routerLink] = "['health-view',coreHealthitem.subject_id,healthcareitem_sub.health_parameter]" class="title-col" [style.background-color]="healthcareitem_sub.color" [routerLink]="['games',coreHealthitem.subject_id]">
+                                <p class="result-title">
+                                <ng-container *ngIf="healthcareitem_sub.total_percentage < 70 && healthcareitem_sub.total_percentage >= 60" >
+                                  <i class="fa fa-star" aria-hidden="true"></i>
+                                </ng-container>
+                                <ng-container *ngIf="healthcareitem_sub.total_percentage < 60" >
+                                 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
+                                </ng-container>
+                                {{healthcareitem_sub.total_percentage}}  %</p>
+                              </span>
+                            </ng-container>
+                          </ng-container>
+                        </ng-container>
+                  </ng-container>
+              </td>
+          </ng-container>
+        </tr>
+        </table>
+        </div>
+      </div>
+      <div id="cored-edu2" class="col-md-12 col-lg-12 col-sm-12 col-xs-12 tab-pane fade in active  paddingless">
+          <div class="scrollable">
+              <table>
+              <tr>
+                  <th class="table-fixed-colume"></th>
+                  <ng-container *ngFor = "let items of dataValue;">
+                    <th *ngIf="items.core_type == '1'"><span class="subject-title">{{items.subject_name}}</span></th>
+                  </ng-container>
+              </tr>
+              <tr *ngFor="let healthmasteritem of healthmaster" >
+                <td class="table-fixed-colume"><span class="health-title">{{healthmasteritem.heath_name}}</span></td>
+                <ng-container *ngFor = "let items of dataValue;">
+                    <td *ngIf="items.core_type == '1'">
+                        <ng-container *ngFor="let coreEducationitem of coreEducationtwo" >
+                          <ng-container *ngIf="coreEducationitem.subject_id == items.id" >
+                            <ng-container *ngFor="let healthcareitem_sub of coreEducationitem.healthcare" >
+                              <ng-container *ngIf="healthcareitem_sub.health_parameter == healthmasteritem.id" >
+                                <span [routerLink] = "['health-view',coreEducationitem.subject_id,healthcareitem_sub.health_parameter]" class="title-col" [style.background-color]="healthcareitem_sub.color">
+                                  <p class="result-title">
+                                    <ng-container *ngIf="healthcareitem_sub.total_percentage < 70 && healthcareitem_sub.total_percentage >= 60" >
+                                      <i class="fa fa-star" aria-hidden="true"></i>
+                                    </ng-container>
+                                    <ng-container *ngIf="healthcareitem_sub.total_percentage < 60" >
+                                     <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
+                                    </ng-container>
+                                    {{healthcareitem_sub.total_percentage}}  %</p>
+                                </span>
+                              </ng-container>
+                            </ng-container>
+                          </ng-container>
+                        </ng-container>
+                    </td>
+                </ng-container>
+              </tr>
+              </table>
+              </div>
+        </div>
+  <div id="interent-discovery2" class="col-md-12 col-lg-12 col-sm-12 col-xs-12 tab-pane fade  paddingless">
+      <div class="scrollable">
+          <table>
+          <tr>
+              <th></th>
+              <ng-container *ngFor = "let items of dataValue;">
+                  <th *ngIf="items.core_type == '3'"><span class="subject-title">{{items.subject_name}}</span></th>
+              </ng-container>
+          </tr>
+          <tr *ngFor="let healthmasteritem of healthmaster" >
+            <td><span class="health-title">{{healthmasteritem.heath_name}}</span></td>
+            <ng-container *ngFor = "let items of dataValue;">
+                <td *ngIf="items.core_type == '3'">
+                  <ng-container *ngFor="let coreEducationitem of coreIntersttwo" >
+                    <ng-container *ngIf="coreEducationitem.subject_id == items.id" >
+                      <ng-container *ngFor="let healthcareitem_sub of coreEducationitem.healthcare" >
+                        <ng-container *ngIf="healthcareitem_sub.health_parameter == healthmasteritem.id" >
+                          <span [routerLink] = "['health-view',coreEducationitem.subject_id,healthcareitem_sub.health_parameter]" class="title-col" [style.background-color]="healthcareitem_sub.color">
+                            <p class="result-title">
+                              <ng-container *ngIf="healthcareitem_sub.total_percentage < 70 && healthcareitem_sub.total_percentage >= 60" >
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                              </ng-container>
+                              <ng-container *ngIf="healthcareitem_sub.total_percentage < 60" >
+                               <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
+                              </ng-container>
+                              {{healthcareitem_sub.total_percentage}}  %</p>
+                          </span>
+                        </ng-container>
+                      </ng-container>
+                    </ng-container>
+                  </ng-container>
+                </td>
+            </ng-container>
+          </tr>
+          </table>
+          </div>
+  </div>
+</div>
+</div>
+
+
+
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs 12 game-result">
+    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+        <h4>VISIT SCHEDULENC HEALTHY CHILD DEVELOPMENT
+          </h4>
+    </div>
+
+    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 paddingless">
+  <ng-container *ngFor="let visitlistitem of visitlist" >
+    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 text-center">
+      <span id="visit-list" (click)="clickEventHandler(visitlistitem.visit_no)" >
+          VISIT {{visitlistitem.visit_no}}
+      </span>
+    </div>
+
+  </ng-container>
+</div>
+  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+      <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+  </div>
+</div>
+

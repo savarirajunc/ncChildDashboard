@@ -1,0 +1,47 @@
+<div class="row tab-pane fade in">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>S/N</th>
+        <th>Grade</th>
+        <th>Core Framework</th>
+        <th>Subject</th>
+        <th>Days</th>
+        <th>Games</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let gamedetailsitem of parentGameData[currentPage];let i=index">
+            <tr>
+              <td class="word-form">{{i+(currentPage*15) + 1}}</td>
+              <td class="word-form">
+                  {{gamedetailsitem.grade_name}}
+              </td>
+              <td class="word-form" >
+                {{gamedetailsitem.core_name}}
+              </td>
+              <td class="word-form" >
+                {{gamedetailsitem.subject_name}}
+              </td>
+              <td class="word-form" >
+                {{gamedetailsitem.days}}
+              </td>
+              <td class="word-form" >
+                <a [routerLink]="['../','healthdaymapedit',gamedetailsitem.grade_id, gamedetailsitem.subject_id,gamedetailsitem.game_id]">{{gamedetailsitem.games_name}}</a>
+              </td>
+            </tr>
+      </ng-container>
+    </tbody>
+  </table>
+<div class="text-center pagination_nav">
+  <ng-container *ngIf="currentPage >= 10">
+    <a class="pagenav" (click)="selectPageBack()">&lsaquo;&lsaquo;</a>
+  </ng-container>
+  <ng-container *ngFor="let gamedetailsitem of pageArray| slice:pageIdx*10:(pageIdx+1)*10;let i=index">
+        <a class="pagenav" (click)="setGameDetailsView(gamedetailsitem)" [ngClass]="{'active':gamedetailsitem===currentPage}">{{gamedetailsitem+1}}</a>
+  </ng-container>
+  <ng-container *ngIf="currentPage < (pageNav -1) ">
+    <a class="pagenav" (click)="selectPage()">&rsaquo;&rsaquo;</a>
+  </ng-container>
+</div>
+</div>

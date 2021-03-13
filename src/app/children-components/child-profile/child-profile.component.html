@@ -1,0 +1,195 @@
+<h2>CHILD PROFILE</h2>
+<p>CHILD DETAILS <span class="child-tooltip">
+  <!-- <p class="tooltip-cont"><i>i</i></p> -->
+  <span class="tooltip-main" data-tip="Providing your child’s health information helps make sure that you get the right Nidara-Children experience for your child’s age and stage. If you want to change this, go to the My Settings in your dashboard. For more details, please visit our Terms of Use and Privacy Policy."><i>i</i></span>
+</span></p>
+<div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+<div class="tooltip"></div>
+<form #childProfileForm="ngForm" (ngSubmit)="childProfileSubmit(childProfileForm)">
+
+  <div class=" form-fields">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 kid_profile_left">
+
+
+      <span class="btn fileinput-button">
+        <i class="glyphicon glyphicon-plus"></i>
+        <span>Upload Child Photo...</span>
+
+        <input id="file" type="file" name="child_photo_file" [(ngModel)]="file" ng2FileSelect [uploader]="uploader">
+      </span>
+
+      <span>{{imagename}}</span>
+
+    </div>
+  </div>
+  <div class="form-response">
+    <div class=" form-fields ">
+
+
+
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+        <label>First Name</label>
+        <input type="text" OnlyString="true" class="captailizse" #first_name='ngModel' class="captailizse" maxlength="30" minlength="3"
+          name="first_name" [(ngModel)]="formData.first_name" required>
+
+        <div *ngIf="first_name.invalid && (first_name.dirty || first_name.touched)">
+          <div *ngIf="first_name.errors.minlength" class="bg-danger text-white error">
+            Please enter atleast 3 characters
+          </div>
+          <div *ngIf="first_name.errors.maxlength" class="bg-danger text-white error">
+            Please enter maxlength 30
+          </div>
+          <div *ngIf="first_name.errors.required" class="bg-danger text-white error">
+            Please enter a valid first name
+          </div>
+
+
+        </div>
+
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+        <label>Middle Name</label>
+
+        <input type="text" OnlyString="true" class="captailizse" name="middle_name" [(ngModel)]="formData.middle_name">
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+        <label>Last Name</label>
+        <input type="text" OnlyString="true" maxlength="30" minlength="3" class="captailizse" name="last_name" #last_name='ngModel'
+          [(ngModel)]="formData.last_name" required>
+        <div *ngIf="last_name.invalid && (last_name.dirty || last_name.touched)">
+
+          <div *ngIf="last_name.errors.minlength" class="bg-danger text-white error">
+            Please enter atleast 3 characters
+          </div>
+          <div *ngIf="last_name.errors.maxlength" class="bg-danger text-white error">
+            Please enter maxlength
+          </div>
+          <div *ngIf="last_name.errors.required" class="bg-danger text-white error">
+            Last Name field is required.
+          </div>
+
+        </div>
+
+
+
+      </div>
+    </div>
+
+
+
+    <div class=" form-fields">
+
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <label>Date Of Birth</label>
+            <ul class="dob">
+              <li><select name="dates" id="" [(ngModel)]="formData.dob_date">
+                  <option value="">DD</option>
+                  <option *ngFor="let dateitem of date" value="{{dateitem.id}}">{{dateitem.id}}</option>
+                </select></li>
+              <li><select name="months" id="" [(ngModel)]="formData.dob_month" >
+                  <option value="">MM</option>
+                  <option *ngFor="let monthitem of month" value="{{monthitem.id}}">{{monthitem.name}}</option>
+                </select></li>
+              <li><select name="years" id="" [(ngModel)]="formData.dob_years" (ngModelChange)="calculateAge()">
+                  <option value="">YYYY</option>
+                  <option *ngFor="let yearsitem of years" value="{{yearsitem.id}}" >{{yearsitem.id}}</option>
+                </select></li>
+            <div *ngIf="formData.dob_years % 4 == 0 && formData.dob_month == '2' && formData.dob_date >='30'" class="bg-danger text-white error">Please enter a valid date</div>
+            <div *ngIf="formData.dob_years % 4 != 0 && formData.dob_month == '2' && formData.dob_date >='29'" class="bg-danger text-white error">Please enter a valid date</div>
+            <div *ngIf="(formData.dob_month == '4' || formData.dob_month == '6' || formData.dob_month == '9' || formData.dob_month == '11') && formData.dob_date >30" class="bg-danger text-white error">Please enter a valid date</div>
+            </ul>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <label>Age</label>
+        <input type="text" class="form-control" name="age" [(ngModel)]="formData.age" disabled required>
+        <div *ngIf="formData.grade != 1 && formData.grade != 2 && formData.grade != 3" class="bg-danger text-white error">	Our system is not available for the age entered.</div>
+      </div>
+    </div>
+    <div class=" form-fields">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <label>Age & Stage</label>
+
+        <select class="form-control" name='grade' #grade='ngModel' [(ngModel)]="formData.grade" required placeholder="" disabled>
+          <option value="" disabled selected="selected">select</option>
+          <option *ngFor="let option of selectGrade; let i = index" value="{{option.id}}">{{option.grade_name}}</option>
+        </select>
+        <div *ngIf="grade.invalid && (grade.dirty || grade.touched)">
+          <div *ngIf="grade.errors.required" class="bg-danger text-white error">
+            Grade field is required.
+          </div>
+          <!-- error validation -->
+
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div>
+          <label>Gender</label>
+        </div>
+
+        <div class="radio-inline gender">
+          <input type="radio" class="form-control" name="gender" required disabled [(ngModel)]="formData.gender" value="female" checked>
+          <span>Girl</span>
+        </div>
+        <div class="radio-inline gender">
+          <input type="radio" class="form-control" name="gender" #gender='ngModel' disabled required [(ngModel)]="formData.gender" value="male">
+          <span>Boy</span>
+        </div>
+        <div *ngIf="gender.invalid && (gender.dirty || gender.touched)">
+            <div *ngIf="gender.errors.required" class="bg-danger text-white error">
+              Gender field is required.
+            </div>
+
+          </div>
+
+      </div>
+    </div>
+    <div class="form-fields">
+      <div class="">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="height">Height
+            <span>(cm)</span>
+          </label>
+
+          <input type="text" name="height" #height='ngModel' OnlyNumber="true" disabled [(ngModel)]="formData.height" class="form-control">
+          <div *ngIf="height.invalid && (height.dirty || height.touched)">
+
+
+            <div *ngIf="height.errors.required" class="bg-danger text-white error">
+              Height field is required.
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="weight">Weight
+            <span>(kg)</span>
+          </label>
+          <input type="text" name="weight" #weight='ngModel' OnlyNumber="true" disabled [(ngModel)]="formData.weight" class="form-control">
+          <div *ngIf="weight.invalid && (weight.dirty || weight.touched)">
+
+
+            <div *ngIf="weight.errors.required" class="bg-danger text-white error">
+              Weight field is required.
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="form-fields">
+        <div class="">
+
+        <div class="col-md-6 col-lg-6">
+          <label>Head Circumference <span>(cm)</span> <span style="color:#f00">*</span></label>
+          <input class="form-control" type="text" OnlyString="true"  #doc_circum='ngModel' name="doc_circum" [(ngModel)]="formData.doc_circum"  placeholder="To be entered by Doctor" disabled>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="form-fields">
+    <input type="submit" [disabled]="!childProfileForm.form.valid" class="btn-save" value="SAVE CHANGES">
+  </div>
+
+</form>

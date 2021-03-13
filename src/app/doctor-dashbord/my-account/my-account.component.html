@@ -1,0 +1,87 @@
+<h3>MY ACCOUNT DETAILS</h3>
+<div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+<form name="manage" #addressInfoForm="ngForm" (ngSubmit)="parentsaccountFormSubmit(addressInfoForm)">
+
+
+
+  <div class="form-fields parent_account_info">
+    <div class="form-response">
+      <div class="row">
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-fields-col">
+          <label for="name">First Name <span style="color:#f00">*</span></label>
+          <input type="text" OnlyString="true" name="father_first_name" #father_first_name='ngModel'  required  [(ngModel)]="formData.father.first_name">
+
+          <span *ngIf="father_first_name.invalid && (father_first_name.dirty || father_first_name.touched)">
+                <!-- <span *ngIf="father_first_name.errors.minlength" class="bg-danger text-white error">
+                  Please enter valid name.
+                </span> -->
+
+              <span *ngIf="father_first_name.errors.required" class="bg-danger text-white error">
+                  First Name field is required.
+                </span>
+              </span>
+
+
+
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="lastname">Last Name <span style="color:#f00">*</span></label>
+          <input type="text" OnlyString="true" name="father_last_name" #father_last_name='ngModel' required [(ngModel)]="formData.father.last_name">
+
+          <span *ngIf="father_last_name.invalid && (father_last_name.dirty || father_last_name.touched)">
+                <!-- <span *ngIf="father_last_name.errors.minlength" class="bg-danger text-white error">
+                  Please enter valid name.
+                </span> -->
+          <span *ngIf="father_last_name.errors.required" class="bg-danger text-white error">
+                  Last Name field is required.
+                </span>
+          </span>
+
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-fields-col">
+          <label for="email">Email <span style="color:#f00">*</span></label>
+          <input type="text" name="father_email" #father_email='ngModel' [(ngModel)]="formData.father.email" required>
+          <span *ngIf="father_email.invalid && (father_email.dirty || father_email.touched)">
+                <!-- <span *ngIf="father_email.errors.pattern" class="bg-danger text-white error">
+                  Please enter valid email.
+                </span> -->
+          <span *ngIf="father_email.errors.required" class="bg-danger text-white error">
+                  Email field is required.
+                </span>
+          </span>
+
+
+
+
+        </div>
+
+
+
+
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="mobile">Mobile Number <span style="color:#f00">*</span></label>
+          <input type="text" OnlyNumber="true" OnlyNumber="true" name="father_mobile" maxlength="10" #father_mobile='ngModel' required [(ngModel)]="formData.father.mobile">
+          <span *ngIf="father_mobile.invalid && (father_mobile.dirty || father_mobile.touched)">
+                <span *ngIf="mother_mobile.errors.maxlength" class="bg-danger text-white error">
+                  Please enter valid Mobile.
+                </span>
+          <span *ngIf="father_mobile.errors.required" class="bg-danger text-white error">
+                  Mobile field is required.
+                </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <input type="submit" [disabled]="!addressInfoForm.form.valid" class="btn-save" value="SAVE CHANGES">
+  </div>
+
+</form>
+

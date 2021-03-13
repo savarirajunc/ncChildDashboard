@@ -1,0 +1,92 @@
+
+<h2>DAILY ROUTINES</h2>
+<div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+<form name="dailySchedulerForm" #dailySchedulerForm="ngForm" (ngSubmit)="dailySchedulerFormSubmit(dailySchedulerForm)">
+  <div class="form-fields shedule_info">
+    <div class="form-response">
+      <div class=" hidden">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+          <p class="week-title-1">Weekdays :</p>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 schedule" >
+          <ul class="scheduler_days">
+          <li *ngFor="let scheduler of schedulerDays;let i = index">
+            <ng-template [ngIf]="scheduler.option == 1">
+                <input type="checkbox" value="{{scheduler.option}}" name="scheduler_days_id" checked (change)="onChange(scheduler)" required/><span class="days">&nbsp;{{scheduler.day}}&nbsp;&nbsp;</span>
+
+            </ng-template>
+            <ng-template [ngIf]="scheduler.option == 0">
+                <input type="checkbox" value="1" name="scheduler_days_id"  checked  (change)="onChange(scheduler)" required/><span class="days">&nbsp;{{scheduler.day}}&nbsp;&nbsp;</span>
+
+            </ng-template>
+          </li>
+          </ul>
+        </div>
+      </div>
+      <div class=" clock-schedule">
+        <div class="col-md-12 col-lg-12">
+          <div class="col-lg-3 col-lg-3">
+            <p class="week-title-1">Routine Name:</p>
+          </div>
+          <div class="col-lg-9 col-md-9">
+            <p>Nidara Daily Session</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-122">
+          <div class="col-md-12 col-lg-12">
+            <div class="col-md-6 col-lg-6">
+              <input name="set_time" [(ngModel)]="formData.choose_time" value="1" type="radio" (ngModelChange) = "checkClock()"><span>Any Time</span>
+
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <input name="set_time" [(ngModel)]="formData.choose_time" value="2" type="radio" (ngModelChange) = "checkClock()"><span>Choose Daily Session Time</span>
+            </div>
+          </div>
+          <!-- <div class="col-md-6 col-lg-6"></div> -->
+        </div>
+      <div class="clock-schedule" id="clock">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+          <p class="week-title-2">Time :</p>
+        </div>
+        <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12">
+          <span>From Time</span>
+          <timepicker [(ngModel)]="set_time" name="set_time" (ngModelChange)="changeDate($event)" [showMeridian]="ismeridian" [readonlyInput]="!isEnabled"></timepicker>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+          <span>To Time</span>
+          <table>
+          <tbody>
+            <tr>
+              <td class="form-group"> <input class="form-control text-center bs-timepicker-field" type="text" name="totime" [(ngModel)]="get_time" disabled>
+              </td><td>&nbsp;:&nbsp;</td>
+              <td class="form-group"> <input type="text" name="tominut" [(ngModel)]="get_minut" class="form-control text-center bs-timepicker-field" disabled>
+            </tr>
+          </tbody>
+        </table>
+
+        </div>
+        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+            <span style="float: left; width: 100%;">Select option <span style="color: #f00">*</span></span>
+          <select name="session_for" [(ngModel)]="session_for" id="" required>
+            <option value="1">Always</option>
+            <option value="2">Just for today</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-response">
+        <div class=" form-fields col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+            <div class="form-group">
+              <input type="submit" [disabled]="!dailySchedulerForm.form.valid" class="btn-save" value="SET TIME">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

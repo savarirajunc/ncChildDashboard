@@ -1,0 +1,16 @@
+ul.parent-list {
+  float: left;
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin-top: 50px;
+}
+h4, .h4 {
+  font-size: 18px;
+  font-family: 'GillSansStd-Light';
+  text-transform: capitalize;
+}
+
+.error-mass {
+  margin-top: 20px;
+}

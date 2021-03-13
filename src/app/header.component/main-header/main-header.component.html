@@ -1,0 +1,174 @@
+<div class="container">
+  <div class="topsection">
+     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 top-bar-left">
+        <div class="welcome-note clearfix">
+           <h4>Hello &amp; welcome !</h4>
+           <div class="tagline">Give your child the best start in life </div>
+        </div>
+     </div>
+     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 top-bar-right">
+        <div class="login-block clearfix">
+           <ul>
+              <ng-container *ngIf="loginIn == 0" >
+                <li class="signin"><a href="/Home">GET STARTED</a></li>
+                <li style="font-size: 11px;margin-top: 2px">|</li>
+                <li class="signin"><a href="/signin">Sign In</a></li>
+              </ng-container>
+              <ng-container *ngIf="loginIn == 1" >
+                  <li class="signin"><a href="/dashboard">GO TO DASHBOARD</a></li>
+                  <li style="font-size: 11px;margin-top: 2px">|</li>
+                <li class="signin"><a (click)="sing_Out()" >Sign Out</a></li>
+              </ng-container>
+              <ng-container *ngIf="loginIn == 6" >
+                  <li class="signin"><a href="/admin-dashboard">GO TO DASHBOARD</a></li>
+                  <li style="font-size: 11px;margin-top: 2px">|</li>
+                <li class="signin"><a (click)="sing_Out()" >Sign Out</a></li>
+              </ng-container>
+              <ng-container *ngIf="loginIn == 5" >
+                  <li class="signin"><a href="/doctor">GO TO DASHBOARD</a></li>
+                  <li style="font-size: 11px;margin-top: 2px">|</li>
+                <li class="signin"><a (click)="sing_Out()" >Sign Out</a></li>
+              </ng-container>
+              <ng-container *ngIf="loginIn == 3" >
+                  <li class="signin"><a href="/parents-account">MY ACCOUNT</a></li>
+                  <li style="font-size: 11px;margin-top: 2px">|</li>
+                <li class="signin"><a (click)="sing_Out()" >Sign Out</a></li>
+              </ng-container>
+              <ng-container *ngIf="loginIn == 4" >
+                  <li class="signin"><a href="/doctor/my-account">MY ACCOUNT</a></li>
+                  <li style="font-size: 11px;margin-top: 2px">|</li>
+                <li class="signin"><a (click)="sing_Out()" >Sign Out</a></li>
+              </ng-container>
+              <li><span>(<ng-container *ngIf="filterItem === 0"><span class="qyt">0</span></ng-container> </span><ng-container *ngIf="filterItem !== 0"><ng-container *ngFor="let producDataitem of producData;let i = index" ><ng-container *ngIf="i == filterItem-1"><span  class="qyt_right product-item">{{producDataitem.qty}}</span></ng-container></ng-container></ng-container><span>)</span><a  href="/view-bag"><img style="width:15px;margin-bottom:6px;" src="assets/web_img/cart-icon.png" alt=""> </a></li>
+           </ul>
+        </div>
+        <div class="search-box clearfix">
+           <form #searchForm = "ngForm" (ngSubmit)="searchItem(searchForm)" >
+              <div class="search-input"><input name="search" [(ngModel)]="formData.search"  type="text" placeholder="  Search …"></div>
+              <div class="search-btn"><button type="submit" title="Search"><i class="fa fa-search"></i></button></div>
+           </form>
+        </div>
+     </div>
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="navbar-brand">
+           <a href="/Home">
+           <img style="width:100%" class="main-logo" alt="Nidara-Children" src="assets/web_img/Logo-02.svg">
+           </a>
+        </div>
+     </div>
+  </div>
+</div>
+
+<div class="container" id="mobile">
+  <nav class="navbar navbar-default">
+     <div class="container-fluid">
+        <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar2">
+           <span class="icon-bar"></span>
+           </button>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar2">
+           <ul class="nav navbar-nav">
+             <li class="mobile-form">
+                <form #searchForm = "ngForm" (ngSubmit)="searchItem(searchForm)" >
+                    <div class="mobile-input"><input name="search" [(ngModel)]="formData.search"  type="text" placeholder="  Search …"></div>
+                    <div class="search-btn"><button type="submit" title="Search"><i class="fa fa-search"></i></button></div>
+                 </form>
+             </li>
+              <li class="dropdown">
+                 <a class="dropdown-toggle" data-toggle="dropdown" >NC Angel Wings System   <span class="glyphicon glyphicon-menu-right"></span>  <span class="glyphicon glyphicon-menu-down"></span></a>
+                 <ul class="dropdown-menu dropup" data-hover="dropdown" data-animations="fadeInDown">
+                    <div class="col-md-7 col-lg-7 dropdown-menu-list">
+                       <div class="col-md-12 col-lg-12">
+                          <li><a href="" style="color: #83d0c9;">NC Angel Wings System</a></li>
+                       </div>
+                       <div class="col-md-4 col-lg-4">
+                          <li><a class="colse-main-sub" href ="/health-whole-child-development" hrefActive="active"> Health (Whole Child Development)</a></li>
+                       </div>
+                       <div class="col-md-4 col-lg-4">
+                          <li><a class="colse-main-sub" href = "/personalized-learning" hrefActive="active" >Personalized Learning</a></li>
+                       </div>
+                       <div class="col-md-4 col-lg-4">
+                          <li><a class="colse-main-sub"  href = "/interest-exploration" hrefActive="active" >Interest Exploration</a></li>
+                       </div>
+                    </div>
+                    <div class="col-md-5 col-lg-5">
+                       <img class="ubermenu-image ubermenu-image-size-full" src="assets/web_img/10.jpg"  width="100%" height="auto" alt="48092345_l (1)">
+                    </div>
+                 </ul>
+              </li>
+              <li class=""><a class="colse-main" href = "/girl" >GIRL</a></li>
+              <li class=""><a class="colse-main" href = "/boy" >BOY</a></li>
+              <li class=""><a class="colse-main" href="/stories">STORIES</a></li>
+              <li class=""><a href="https://blog.nidarachildren.com/">NC BLOG</a></li>
+              <li class="dropdown">
+                 <a class="dropdown-toggle" data-toggle="dropdown" >OUR WORLD<span class="glyphicon glyphicon-menu-right"></span>  <span class="glyphicon glyphicon-menu-down"></span></a>
+                 <ul class="dropdown-menu" data-hover="dropdown" data-animations="fadeInDown">
+                    <div class="col-md-7 col-lg-7 dropdown-menu-list">
+                       <div class="col-md-12 col-lg-12">
+                          <li><a class="colse-main-sub" href="" style="color: #83d0c9;">Our World</a></li>
+                       </div>
+                       <div class="col-md-4 col-lg-4">
+                          <li><a class="colse-main-sub" href = "/founders-welcome" hrefActive="active" >Founders’ Welcome</a></li>
+                          <li><a class="colse-main-sub"  href = "/about-us" hrefActive="active">About Us</a></li>
+
+
+                       </div>
+                       <div class="col-md-2 col-lg-2">
+                          <li><a class="colse-main-sub"  href = "/stories" hrefActive="active">Stories</a></li>
+                       </div>
+                       <div class="col-md-4 col-lg-4">
+                          <li><a class="colse-main-sub" href = "/tina" hrefActive="active">tina</a></li>
+                       </div>
+                    </div>
+                    <div class="col-md-5 col-lg-5">
+                        <img class="ubermenu-image ubermenu-image-size-full" src="assets/web_img/11.jpg"  width="100%" height="auto"  alt="10536613_l (1)">
+                    </div>
+                 </ul>
+              </li>
+           </ul>
+           <ng-container *ngIf="parentlogin == 1" >
+            <h3 class="text-left">DASHBOARD</h3>
+           <ul class="nav navbar-nav">
+              <ng-container *ngIf="isNavBar" >
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="">MY CHILDREN <span class="glyphicon glyphicon-menu-right"></span>  <span class="glyphicon glyphicon-menu-down"></span></a>
+                  <ul class="dropdown-menu" data-hover="dropdown" data-animations="fadeInDown">
+                      <div class="col-md-7 col-lg-7 dropdown-menu-list">
+                      <li *ngFor="let kids of _kidsInformations; let i = index; " style="width: 100%;float: left;">
+                          <ng-template [ngIf]="kids.is_default_kid == 1">
+                            <a class="colse-main-sub" (click)="selectedKidInfo(kids)"
+                            >{{kids.first_name}}</a>
+                          </ng-template>
+                          <ng-template [ngIf]="kids.is_default_kid == 0">
+                              <a class="colse-main-sub" (click)="selectedKidInfo(kids)"
+                              >{{kids.first_name}}</a>
+
+                          </ng-template>
+
+                        </li>
+                      </div>
+                  </ul>
+                </li>
+                <li><a (click)="goChildGameSession()">CHILD GAME SESSION</a></li>
+                <li><a (click)="quickstart()">NC QUICK START GUIDE</a></li>
+                <li><a href="/children/profiles">CHILD PROFILE</a></li>
+                <li><a href="/daily-schedule">DAILY ROUTINES</a></li>
+                <li><a href="/children/deactive" >DEACTIVATE CHILD</a></li>
+                <li><a href="/parent-qusetion-answer" >PARENT QUESTIONNAIRE</a></li>
+              </ng-container>
+              <ng-container *ngIf="!isNavBar" >
+                  <li><a href="/parents-account">MY ACCOUNT SETTINGS</a></li>
+                  <li><a href="/changepassword">CHANGE PASSWORD</a></li>
+                  <li><a href="/account-deactive" >DEACTIVATE NIDARA</a></li>
+              </ng-container>
+           </ul>
+          </ng-container>
+
+        </div>
+     </div>
+  </nav>
+</div>
+
+
+

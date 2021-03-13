@@ -1,0 +1,51 @@
+<h2>CHILD PROFILE</h2>
+<div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+<div class="row child-friend">
+  <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+    <p>CHILD LANGUAGE INFORMATION</p>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-right">
+    <!-- <a href="" id="add-language">+Add Language</a> -->
+  </div>
+</div>
+<form #languageInfoForm="ngForm" (ngSubmit)="languageInfoSubmit(languageInfoForm)">
+  <div class="form-fields kid_language_info">
+    <div class="form-response">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="name">Primary Language spoken at home</label>
+          <select id="language" name="language" #language='ngModel' required [(ngModel)]="formData.language" >
+            <option value="" selected>select</option>
+            <option value="Tamil">Tamil</option>
+            <option value="English">English</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Urdu">Urdu</option>
+            <option value="Telugu">Telugu</option>
+          </select>
+
+          <div *ngIf="language.invalid && (language.dirty || language.touched)">
+            <div *ngIf="language.errors.required" class="bg-danger text-white error">
+              Primary Language field is required.
+            </div>
+            <!-- error validation -->
+
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="understands">Location</label>
+          <input type="text" OnlyString="true" name="location" #location='ngModel' required [(ngModel)]="formData.location" >
+          <div *ngIf="location.invalid && (location.dirty || location.touched)">
+            <div *ngIf="location.errors.required" class="bg-danger text-white error">
+              Location field is required.
+            </div>
+            <!-- error validation -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <input type="submit" [disabled]="!languageInfoForm.form.valid" class="btn-save" value="SAVE CHANGES">
+    </div>
+  </div>
+</form>

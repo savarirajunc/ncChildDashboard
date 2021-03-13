@@ -1,0 +1,45 @@
+<div class="col-md-12 col-lg-12">
+  <div *ngFor="let childinfo of childreninfo">
+    <div *ngIf="childInfo_id == childinfo.id">
+      <div class="child_Profile">
+        <div class="col-md-4 col-lg-4">
+          <img src="{{childinfo.child_photo}}" class="child-login"  alt="no-display">
+        </div>
+        <div class="col-md-8 col-lg-8">
+          <table class="table table-condensed">
+            <tr>
+              <th>Child Name</th>
+              <th>:</th>
+              <th>{{childinfo.first_name}} {{childinfo.last_name}}</th>
+            </tr>
+            <tr>
+              <th>Data Of Birth</th>
+              <th>:</th>
+              <th>{{childinfo.date_of_birth | date:'dd-MM-yyyy'}}</th>
+            </tr>
+            <tr>
+              <th>Age</th>
+              <th>:</th>
+              <th>{{childinfo.age}}</th>
+            </tr>
+            <tr>
+              <th>Gender</th>
+              <th>:</th>
+              <th>{{childinfo.gender}}</th>
+            </tr>
+            <tr>
+              <th>Class</th>
+              <th>:</th>
+              <th> <div *ngIf="childinfo.grade == 1">Preschool</div><div *ngIf="childinfo.grade == 2">Prekindergarden</div><div *ngIf="childinfo.grade == 3">Kindergarden</div></th>
+            </tr>
+            <tr>
+              <th>Created </th>
+              <th>:</th>
+              <th>{{childinfo.created_at | date:'dd-MM-yyyy'}}</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

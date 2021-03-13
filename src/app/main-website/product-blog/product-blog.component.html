@@ -1,0 +1,120 @@
+<style type="text/css">
+  .img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+      display: block;
+      max-width: 50% !important;
+      height: auto;
+      width: 50% !important;
+  }
+</style>
+<section class="section breadcrumb-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb-block clearfix" typeof="BreadcrumbList" vocab="https://schema.org/">
+          <ul>
+            <li>YOU ARE HERE:</li>
+          <!-- Breadcrumb NavXT 5.7.1 -->
+            <li class="home"><span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to Home."href="/Home" class="home"><span property="name">Home</span></a><meta property="position" content="1"></span></li>
+            <li class="current_item"><span property="itemListElement" typeof="ListItem"><span property="name">Product-Blog</span><meta property="position" content="2"></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container" id="layout-container">
+  <div class="row">
+    <div class="containe">
+    <div class="page-header">
+      <h2>SEARCH RESULTS</h2>
+    </div>
+      <ng-container *ngIf="results > 0">
+        <div>
+          <h3 style="text-transform:capitalize">Search Results For  "{{inputData}}" </h3>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="results == 0">
+        <div *ngIf="arr.length == 0">
+          <h3 style="text-transform:capitalize">Search Results For  "{{inputData}}"</h3>
+        </div>
+      </ng-container>
+
+
+      <ng-container>
+        <ul class="nav nav-tabs" style="font-size: 25px;font-weight: 500;margin-left: -3%;">
+          <li><a data-toggle="tab" href="#prod">Product</a></li>
+          <li><a class="active show" data-toggle="tab" href="#blog">Blog</a></li>
+          <li><a data-toggle="tab" href="#faq">Faqs</a></li>
+          <li><a data-toggle="tab" href="#story">Stories</a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="prod" class="tab-pane fade">
+            <ng-container *ngIf="productLength == 0">
+              <div class="col-md-12 col-lg-12">
+                  <h3 style="text-transform:uppercase"> 0 Results For  "{{inputData}}"</h3>
+              </div>
+
+            </ng-container>
+            <ng-container *ngIf="!productLength">
+                <div class="searchSection" *ngFor="let productitem of product">
+                    <ng-container *ngIf="productitem.product_type === 'boy'" >
+                        <h4 style="text-transform:capitalize"><a href="/boy">{{productitem.product_name}}</a></h4><br>
+                    </ng-container>
+                    <ng-container *ngIf="productitem.product_type === 'girl'" >
+                        <h4 style="text-transform:capitalize"><a href="/girl">{{productitem.product_name}}</a></h4><br>
+                    </ng-container>
+                      <ng-container >
+                        <div id="searchProduct" class="search-content" innerHTML = "{{productitem.product_des}}"></div>
+                      </ng-container>
+                  </div>
+            </ng-container>
+          </div>
+          <div id="blog" class="tab-pane fade  in active">
+              <ng-container *ngIf="results === 0">
+                  <div class="col-md-12 col-lg-12">
+                      <h3 style="text-transform:uppercase"> 0 Results For  "{{inputData}}"</h3>
+                  </div>
+              </ng-container>
+              <ng-container *ngIf="results">
+                <div class="searchSection" *ngFor="let ite of arr">
+                  <h4 style="text-transform:capitalize"><a href="{{ite.link}}">{{ite.slug}}</a></h4><br>
+                    <ng-container >
+                      <div class="search-content" innerHTML = "{{ite.excerpt.rendered}}"></div>
+                    </ng-container>
+                </div>
+            </ng-container>
+          </div>
+        <div id="faq" class="tab-pane fade">
+              <ng-container *ngIf="faqresults === 0">
+                  <div class="col-md-12 col-lg-12">
+                      <h3 style="text-transform:uppercase"> 0 Results For  "{{inputData}}"</h3>
+                  </div>
+              </ng-container>
+              <ng-container *ngIf="faqresults">
+                <div class="searchSection" *ngFor="let faqite of faqarr">
+                  <h4 style="text-transform:capitalize"><a href="../../faqs/{{faqite.slug}}">{{faqite.slug}}</a></h4><br>
+                    <ng-container >
+                      <div class="search-content" innerHTML = "{{faqite.excerpt.rendered}}"></div>
+                    </ng-container>
+                </div>
+            </ng-container>
+          </div>
+          <div id="story" class="tab-pane fade">
+            <ng-container *ngIf="storyresults === 0">
+                <div class="col-md-12 col-lg-12">
+                    <h3 style="text-transform:uppercase"> 0 Results For  "{{inputData}}"</h3>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="storyresults">
+              <div class="searchSection" *ngFor="let storyite of storyarr">
+                <h4 style="text-transform:capitalize"><a href="../../stories/{{storyite.slug}}">{{storyite.slug}}</a></h4><br>
+                  <ng-container >
+                    <div class="search-content" innerHTML = "{{storyite.excerpt.rendered}}"></div>
+                  </ng-container>
+              </div>
+          </ng-container>
+        </div>
+        </div>
+    </ng-container>
+    </div>
+</div>

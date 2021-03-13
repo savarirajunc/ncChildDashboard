@@ -1,0 +1,30 @@
+<p><br></p>
+<h3>REGISTER NEW PATIENTS
+  </h3>
+<h4>ENTER CHILD DETAILS
+  </h4>
+  <h4>PARENT QUESTIONNAIRE
+    </h4>
+
+  <div class="col-md-12 paddingless">
+      <ng-container *ngFor="let productitem of pageArray;let i=index">
+          <a class="pagenav" (click)="setGameDetailsView(productitem)" [ngClass]="{'active':productitem===currentPage}">CHILD {{productitem+1}}</a>
+    </ng-container>
+  </div>
+<br>
+
+<div class="col-md-12 paddingless prantqus text-center ">
+
+    <div class="col-md-12 paddingless prentqus">
+      <div class="col-md-6 paddingleft col-lg-6">
+        <button class="but" (click)="parentQus()">
+          COMPLETE NOW
+        </button>
+      </div>
+      <div class="col-md-6 col-lg-6 paddingright">
+          <button class="but" (click)="sendEmail()" >
+              EMAIL AND continue
+            </button>
+      </div>
+  </div>
+</div>

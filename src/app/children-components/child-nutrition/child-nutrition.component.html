@@ -1,0 +1,42 @@
+<h2>PRE NIDARA QUESTIONNAIRE<br> WHOLE KID DEVELOPMENT <br>NUTRITION</h2>
+<p>Select all the applies.</p>
+<div *ngIf="_response.status" class="alert alert-success">{{_response.message}}</div>
+<form #nutritionForm="ngForm" (ngSubmit)="nutritionFormSubmit(nutritionForm)">
+  <div class="form-fields nutrition_info">
+    <div class="form-response">
+
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 schedule" *ngFor="let questions of nutriselectQuestions; let i = index">
+
+          <!-- <ng-container *ngFor="let options of questions.options; let j = index"> -->
+            <ng-template [ngIf]="questions.answers.option_id != 0">
+              <input type="checkbox" name="vehicle" [value]="questions" (change)="selectOptions(questions)" checked>
+            </ng-template>
+            <ng-template [ngIf]="questions.answers.option_id == 0">
+                <input type="checkbox" name="vehicle" [value]="questions" (change)="selectOptions(questions)" >
+            </ng-template>
+
+            <!-- <ng-template [ngIf]="options.id == questions.answers.option_id">
+                        <input type="checkbox" name="vehicle" value="Bike" checked>
+                </ng-template> -->
+            <!-- <ng-template [ngIf]="options.id != questions.answers.option_id">
+                        <input type="checkbox" name="vehicle" value="Bike" >
+                </ng-template> -->
+
+          <!-- </ng-container> -->
+          <!-- <ng-container *ngFor="let options of questions.options; let j = index">
+              <ng-template [ngIf]="options.id != questions.answers.option_id">
+                <input type="checkbox" name="vehicle" value="Bike" >
+              </ng-template>
+          </ng-container> -->
+
+           <label>{{questions.name}}</label>
+        </div>
+      
+      </div>
+    </div>
+    <div>
+      <input type="submit"  [disabled]="!nutritionForm.form.valid" class="btn-save" value="EDIT">
+    </div>
+  </div>
+</form>

@@ -1,0 +1,262 @@
+h4, .h4 {
+    font-size: 18px;
+    font-family: 'GillSansStd-Light';
+    text-transform: capitalize;
+  }
+
+select#reg_billing_state {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  outline: 0;
+  line-height: normal;
+}
+.woocommerce form .form-row .required {
+  font-weight: 700;
+  border: 0!important;
+  text-decoration: none;
+  visibility: visible;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: #83D0C9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #83D0C9);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #83D0C9;
+  font-family: 'Gill Sans MT', 'Gill Sans', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial;
+  font-size: 14px;
+  border: 1px solid #83d0c9;
+}
+.error {
+  margin-left: 0;
+  margin-top: 5px;
+  background-color: transparent!important;
+  font-size: 14px;
+  float: left;
+}
+#email-val {
+  display: none;
+}
+#password-val{
+  display: none;
+}
+
+.woocommerce form .form-row {
+  padding: 3px;
+  margin: 0 0 6px;
+  height: 85px;
+}
+p.form-row.form-row-wide {
+  float: left;
+  width: 100%;
+}
+#parentTypeEorr {
+  float: left;
+  display: none;
+}
+
+
+/* tooltip */
+
+[data-tip]:after {
+  display: none;
+  content: attr(data-tip);
+  position: relative;
+  top: -70px;
+  left: 15px;
+  padding: 10px 10px;
+  background: #fff;
+  color: #333;
+  z-index: 9;
+  font-size: 12px;
+  font-weight: 100;
+  line-height: 1.5;
+  border-radius: 0px;
+  white-space: pre-wrap;
+  word-wrap: normal;
+  width: 250px;
+  border: 1px solid #ccc;
+  text-align: justify;
+}
+[data-tip]:hover:before,
+[data-tip]:hover:after {
+	display:block;
+}
+
+span.tooltip-main {
+  position: absolute;
+  float: right;
+  background: #e5e5e5 ;
+  color: #333333;
+  width: 20px;
+  height: 20px;
+  border-radius: 101%;
+  top: 6px;
+  font-size: 14px;
+  font-weight: 1000;
+  cursor: pointer;
+  border: 1px solid #999;
+  padding: 0px 6px;
+  right: 0%;
+}
+.child-tooltip {
+  position: relative;
+    left: 25px;
+    top: -40%;
+    float: left;
+    width: 100%;
+}
+
+#main-cart h3{
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: 'GillSansStd-Light';
+}
+#main-cart .head{
+  font-size: 18px;
+}
+#main-cart h4{
+  font-size: 18px;
+  text-transform: inherit;
+  font-family: 'GillSansStd-Light';
+}
+
+
+h4, .h4{
+  font-size: 18px;
+}
+.product-item{
+  width: 100%;
+  float: left;
+}
+#main-cart .cart .product-item h4{
+  font-size: 14px;
+  font-family: 'GillSansStd-Light';
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+  border: 0px solid #ddd;
+}
+.table-bordered {
+  border: 0px solid #ddd;
+  margin-top: 20px;
+}
+table {
+  border-spacing: 0;
+  border-collapse: inherit;
+}
+.woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea {
+  width: 100%;
+  margin: 0;
+  outline: 0;
+  line-height: normal;
+  border: 1px solid #ddd;
+}
+.col-xs-12{
+  padding: 0px;
+}
+.form-row-first {
+  width: 100%;
+  float: left;
+}
+.form-row-last {
+  float: right;
+  width: 100%;
+}
+p.woocomerce-FormRow.form-row {
+  float: right;
+  margin-right: 13px;
+  width: 100%;
+  margin-top: 25px;
+}
+#register-but{
+  width: 90%;
+  position: relative;
+  top: 10px;
+}
+@media (min-width: 768px) {
+  .col-xs-12{
+    padding: 0px;
+  }
+  .form-row-first {
+    width: 100%;
+    float: left;
+  }
+  .form-row-last {
+    float: right;
+    width: 100%;
+  }
+  p.woocomerce-FormRow.form-row {
+    float: right;
+    margin-right: 13px;
+    width: 100%;
+    margin-top: 25px;
+  }
+  #register-but{
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .form-row-last {
+    float: right;
+    width: 45%;
+  }
+  .form-row-first {
+    width: 45%;
+    float: left;
+  }
+  p.woocomerce-FormRow.form-row {
+    float: right;
+    margin-right: 13px;
+    width: 50%;
+    margin-top: 25px;
+  }
+  #register-but{
+
+  }
+
+}
+@media (min-width: 1200px){
+  .form-row-last {
+    float: right;
+    width: 45%;
+  }
+  .form-row-first {
+    width: 45%;
+    float: left;
+  }
+  p.woocomerce-FormRow.form-row {
+    float: right;
+    margin-right: 0px;
+    width: 45%;
+    margin-top: 25px;
+  }
+  #register-but{
+
+  }
+}
+.col-md-12, .col-lg-12{
+  float: left;
+}
+
+.top-line-1 {
+  width: 35px;
+  float: left;
+  height: 35px;
+  font-size: 20px;
+  padding: 5px 15px;
+  border-radius: 100%;
+  position: relative;
+  color: #fff;
+}
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: 100%;
+  padding: 6px;
+  font-size: 14px;
+  border-radius: 0;
+  border: 1px solid #ddd;
+  float: left;
+}

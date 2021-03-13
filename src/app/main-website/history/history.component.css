@@ -1,0 +1,30 @@
+.hist_tg{
+    text-align: center;
+    font-size: 15px;
+    text-decoration:none;
+}
+.hist_tg> a {
+  font-size: 15px;
+}
+.home-slide_1 {
+    margin: 8vh 0px;
+    text-align: right;
+    font-family: 'GillSansStd-Light';
+    font-family: 'GillSansStd-Light';
+    color: #333333;
+    font-size: 10px;
+    text-align: center;
+}
+img.about-img-thum {
+  width: 100%;
+}
+@media(min-width:320px) and (max-width:991px) {
+    .mar_tp{
+        margin-top: 6%;
+    }
+}
+@media(min-width:768px) and (max-width:991px) {
+    .mar_tp_1{
+        margin-top: 0% !important;
+    }
+}

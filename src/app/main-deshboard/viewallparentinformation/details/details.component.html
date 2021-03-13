@@ -1,0 +1,67 @@
+<div class="col-md-12 col-lg-12" *ngFor="let parent of parentInfo">
+  <div *ngIf="index"></div>
+  <div *ngIf="parent_id == parent.id">
+    <div class="col-md-12 col-lg-12">
+      <div class="col-md-4 col-lg-4">
+         <img src="assets/images/1.png" class=" child-login"  alt="no-display">
+      </div>
+      <div class="col-md-8 col-lg-8">
+        <table class="table table-condensed">
+          <tr>
+            <th>Full Name</th>
+            <th>:</th>
+            <th>{{parent.first_name}} {{parent.last_name}}</th>
+          </tr>
+          <tr>
+            <th>Parent Type</th>
+            <th>:</th>
+            <th>{{parent.parent_type}}</th>
+          </tr>
+          <tr>
+            <th>Email Id</th>
+            <th>:</th>
+            <th>{{parent.email}}</th>
+          </tr>
+          <tr>
+            <th>Occupation</th>
+            <th>:</th>
+            <th>{{parent.occupation}}</th>
+          </tr>
+          <!-- <tr>
+            <th>Occupation</th>
+            <th>:</th>
+            <th>{{parent.occupation}}</th>
+          </tr> -->
+        </table>
+      </div>
+    </div>
+    <!-- <div class="col-md-12 col-lg-12" *ngFor="let kidinfo of kidparentsmap">
+      <div *ngIf="parent_id == kidinfo.users_id">
+        <div *ngFor="let childinfo of childreninfo; let i = index">
+          <div *ngIf="kidinfo.nidara_kid_profile_id == childinfo.id">
+            <div class="col-md-3 col-lg-3">
+              <a [routerLink]="['../../','childdetails',childinfo.id]">
+               <img src="{{childinfo.child_photo}}" class="img-circle pop-image child-login"  alt="no-display">
+                <h4>{{childinfo.first_name}}</h4>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> -->
+  </div>
+
+</div>
+<div class="col-md-12 col-lg-12">
+  <div class="col-md-3 col-lg-3" *ngFor="let kidInfoListitem of kidInfoList">
+    <div *ngFor="let childinfo of childreninfo; let i = index">
+      <div *ngIf="kidInfoListitem.nidara_kid_profile_id == childinfo.id">
+        <a [routerLink]="['../../','childdetails',childinfo.id]">
+         <img src="{{childinfo.child_photo}}" class="img-circle pop-image child-login"  alt="no-display">
+          <h4>{{childinfo.first_name}}</h4>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

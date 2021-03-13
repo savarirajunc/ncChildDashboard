@@ -1,0 +1,374 @@
+#math {
+  border: solid #e5e5e5 1px;
+  width: 110px;
+  height: 90px;
+  margin-top: 5px;
+}
+.nav-tabs {
+border-bottom: 1px solid #e5e5e5 ;
+}
+.tip{margin-left:0px;font-style: normal;font-size: 10px !important;line-height: 15px;}
+
+@media only screen and (max-width: 800px) {
+.tip{margin-left:0px;width:11em;overflow-wrap: break-word;}
+}
+
+@media only screen and (max-width: 768px){
+.tip{margin-left:0px;width:11em;overflow-wrap: break-word;}
+}
+
+.pop-win a:hover{
+  text-decoration: none;
+}
+#course {
+  margin: 20px 10px;
+  font-size: 12px;
+  line-height: 1.2;
+  word-break: break-all;
+}
+.kids-info{
+  display:inline;
+}
+
+.child-photo{
+  cursor: pointer;
+  max-width:69px;
+  min-width:69px;
+  height:70px;
+  filter: grayscale(100%);
+}
+
+.child-photo-active{
+  cursor: pointer;
+  max-width:69px;
+  min-width:69px;
+  height:70px;
+  filter: none;
+}
+
+#edit{cursor: pointer;color:#333333;font-weight: normal;padding-right: 10px;}
+
+#parentQuestionModul{
+margin-top: 100px;
+width: 750px;
+border-radius: 0px;
+}
+#parentQuestionModul.modal-content{
+border-radius: 0px;
+}
+.modal-body {
+  position: relative;
+  padding: 30px 20px 30px 20px;
+}
+.gamealart{
+  float: left;
+  width: 100%;
+  padding: 10px 10px 10px 15px;
+  background-color: rgb(253,214,206);
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+.gamealart img{
+width: 40px;
+margin-right: 20px;
+margin-left: 5px;
+float: left;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 0px;
+  outline: 0;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+}
+.child_name{
+text-transform: uppercase;
+}
+.parentGame {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+h1,h2{
+width: 100%;
+float: left;
+}
+h1{
+font-size: 24px;
+text-transform: uppercase;
+}
+timepicker {
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+#timepicker table {
+  float: none;
+  margin: auto;
+}
+select{
+  width: 100%;
+  padding: 5px;
+}
+#dailyroutine{
+padding-top: 100px;
+padding-bottom: 100px;
+}
+.task {
+  padding: 35px 15px 35px 15px;
+}
+.clock-schedule {padding-left: 80px;}
+.button{
+border: 1px solid #333;
+  background: none;
+  padding: 6px 30px 6px 30px;
+  margin-top: 10px;
+}
+#dailyroutinecol{
+display: none;
+}
+#closebut{
+float: right;
+font-size: 12px;
+margin-right: 5px;
+margin-top: 0px;
+font-weight: bold;
+cursor: pointer;
+}
+.taskname{
+margin-left: 50px;
+}
+.modal-content {
+position: relative;
+border: 0px solid #3c7dcf;
+border-radius: 0;
+-webkit-box-shadow: none;
+box-shadow: none;
+background-color: #fff;
+height: auto;
+margin: 35px auto;
+float: left;
+width: 100%;
+}
+.modal-body {
+position: relative;
+top: 0;
+/* bottom: 60px; */
+width: 100%;
+font-weight: 300;
+overflow: auto;
+}
+
+.pop-image {
+width: 135px;
+height: 135px;
+padding: 15px;
+margin-top: 20px;
+}
+
+input[type='password'] {
+border: 1px solid #bbb;
+box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+font-size: 14px;
+padding: 6px;
+transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+width: 180px;
+margin: 0px;
+}
+#login-parent {
+background: #333333 none repeat scroll 0 0;
+border: medium none;
+color: #ffffff;
+font-family: "gillsanslight59465bc4d96ac";
+padding: 7px 65px;
+float: none;
+margin: 15px 0px 0px 5px;
+}
+.modal {
+position: fixed;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+z-index: 1050;
+display: none;
+overflow: hidden;
+-webkit-overflow-scrolling: touch;
+outline: 0;
+background: rgba(0,0,0,0.0);
+}
+
+.nav-tabs > li > a.active, .nav-tabs > li > a.active:hover, .nav-tabs > li > a.active:focus {
+
+cursor: default;
+background-color: #fff;
+border: 1px solid #e5e5e5 ;
+border-bottom-color: transparent;
+color:#83d0c9;
+}
+
+
+.nav-tabs > li > a {
+margin-right: 2px;
+line-height: 1.42857143;
+border: 1px solid transparent;
+border-radius: 4px 4px 0 0;
+text-transform: uppercase;
+}
+.message{
+font-size:15px;
+margin-top:12px;
+}
+
+#math {
+border: solid #e5e5e5 1px;
+width: 210px;
+height: 158px;
+margin: 20px auto;
+}
+.game_tep{
+width: 210px;
+margin: 10px auto;
+}
+
+#course {
+ margin: 35% 0px;
+font-size: 12px;
+line-height: 1.2;
+word-break: break-all;
+text-align: center;
+padding: 0px 10px;
+}
+
+.game-top{
+margin-bottom: 20px;
+}
+
+#link a{
+padding-left: 0px;
+font-weight: 500;
+text-align: center;
+font-size: 15px;
+}
+
+@media (min-width: 768px) {
+#math {
+  border: solid #e5e5e5 1px;
+  width: 110px;
+  height: 110px;
+  margin: 20px auto;
+}
+.game_tep{
+  width: 110px;
+
+  margin: 10px auto;
+}
+#link a{
+  padding-left: 35px;
+  text-align: left;
+}
+
+#course {
+   margin: 35% 0px;
+  font-size: 12px;
+  line-height: 1.2;
+  word-break: break-all;
+  text-align: center;
+  padding: 0px 10px;
+}
+#login-parent {
+background: #333333 none repeat scroll 0 0;
+border: medium none;
+color: #ffffff;
+font-family: "gillsanslight59465bc4d96ac";
+padding: 7px 65px;
+float: none;
+margin: 0px 0px 0px 0px;
+}
+}
+@media (min-width: 992px) {
+#math {
+  border: solid #e5e5e5 1px;
+  width: 110px;
+  height: 110px;
+  margin: 20px auto;
+}
+.game_tep{
+  width: 110px;
+
+  margin: 10px auto;
+}
+
+#link a{
+  padding-left: 35px;
+  text-align: left;
+}
+#course {
+   margin: 35% 0px;
+  font-size: 12px;
+  line-height: 1.2;
+  word-break: break-all;
+  text-align: center;
+  padding: 0px 10px;
+}
+#login-parent {
+background: #333333 none repeat scroll 0 0;
+border: medium none;
+color: #ffffff;
+font-family: "gillsanslight59465bc4d96ac";
+padding: 7px 65px;
+float: none;
+margin: 0px 0px 0px 0px;
+}
+}
+@media (min-width: 1200px) {
+#math {
+  border: solid #e5e5e5 1px;
+  width: 110px;
+  height: 110px;
+  margin: 20px auto;
+}
+.game_tep{
+  width: 110px;
+
+  margin: 10px auto;
+}
+
+#link a{
+  padding-left: 35px;
+  text-align: left;
+}
+#course {
+   margin: 35% 0px;
+  font-size: 12px;
+  line-height: 1.2;
+  word-break: break-all;
+  text-align: center;
+  padding: 0px 10px;
+}
+#login-parent {
+background: #333333 none repeat scroll 0 0;
+border: medium none;
+color: #ffffff;
+font-family: "gillsanslight59465bc4d96ac";
+padding: 7px 65px;
+float: none;
+margin: 0px 0px 0px 0px;
+}
+}
+
+
+.wpp-list li a {
+text-align: center !important;
+float: left;
+font-size: 16px;
+font-weight: 600;
+width: 100%!important;
+padding-left: 0px;
+text-decoration: none;
+}

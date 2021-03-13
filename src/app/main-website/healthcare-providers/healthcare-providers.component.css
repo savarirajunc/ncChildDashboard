@@ -1,0 +1,28 @@
+.home-slide p {
+    padding: 2px 5% !important;
+    font-size: 17px !important;
+}
+.form-group {
+  margin-bottom: 30px;
+}
+.error {
+  margin-left: 0;
+  margin-top: 5px;
+  background-color: transparent!important;
+  color: red;
+  text-align: left;
+}
+@media screen and (min-width: 768px){
+.contactUsFields2 [name="lastname"],
+.contactUsFields2 [name="phone_number"],
+#last-name .wpcf7-not-valid-tip,
+ #phone-number .wpcf7-not-valid-tip,
+ .contactUsFields2 [name="inquiry"], #inquiry-option
+ .wpcf7-not-valid-tip {
+    margin-left: 0% !important;
+}
+.h4, h4 {
+  font-size: 18px;
+  font-family: 'GillSansStd-Light';
+}
+}

@@ -1,0 +1,110 @@
+<div class="col-md-12 col-lg-12">
+  <div *ngFor="let gameinfos of gameinfo">
+    <div *ngIf="gameinfos.id == game_id">
+        <div class="col-md-12 col-lg-12">
+          <h3>{{gameinfos.games_name}}</h3>
+        </div>
+      <div class="col-md-12 col-lg-12">
+        <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+          <h4>Game Tagging</h4>
+      </div>
+        <form action="" #addgameForm = "ngForm" name="addgameForm" (ngSubmit) = "addGameFormSubmit(addgameForm)">
+          <div class="form-fields">
+            <div class="col-md-12 col-lg-12">
+              <div class="col-md-4 col-lg-4">
+                <label for="">Select Standard</label>
+                <select  name="standard_id" #standard_id = "ngModel" id="" [(ngModel)]="formData.standard_id">
+                  <option *ngFor="let standards of standard" value="{{standards.id}}">{{standards.standard_name}}</option>
+                </select>
+              </div>
+              <div class="col-md-4 col-lg-4">
+                <label for="">Select Indicator </label>
+                <select #indicator_id = "ngModel" name="indicator_id" id="" [(ngModel)]="formData.indicator_id">
+                  <option *ngFor="let indicators of indicator" value="{{indicators.id}}">{{indicators.indicator_name}}</option>
+                </select>
+              </div>
+              <div class="col-md-4 col-lg-4">
+                <label for="">Select Sub Indicator</label>
+                <select #indicator_id2 = "ngModel" name="indicator_id2" id="" [(ngModel)]="formData.indicator_id2">
+                    <option *ngFor="let indicators of indicator" value="{{indicators.id}}">{{indicators.indicator_name}}</option>
+                </select>
+                <div *ngIf="indicator_id2.dirty">
+                  <div *ngIf="formData.indicator_id2 == formData.indicator_id3 || formData.indicator_id == formData.indicator_id2" class="bg-danger text-white error">
+                    Indicator equal
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-fields">
+            <div class="col-md-12 col-lg-12">
+              <div class="col-md-4 col-lg-4">
+                <label for="">Select Sub Sub Indicator</label>
+                <select #indicator_id3 = "ngModel" name="indicator_id3" id="" [(ngModel)]="formData.indicator_id3">
+                    <option *ngFor="let indicators of indicator" value="{{indicators.id}}">{{indicators.indicator_name}}</option>
+                </select>
+                <div *ngIf="indicator_id3.dirty">
+                  <div *ngIf="formData.indicator_id2 == formData.indicator_id3 || formData.indicator_id == formData.indicator_id3" class="bg-danger text-white error">
+                    Indicator equal
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-fields">
+            <div class="col-md-12 col-lg-12">
+              <div class="col-md-6 col-lg-6">
+                <label for="">Question 1</label>
+                <input type="text" name="question" [(ngModel)]="formData.question">
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <label for="">Answer 1</label>
+                <input type="text" name="answer" [(ngModel)]="formData.answer">
+              </div>
+            </div>
+          </div>
+          <div class="form-fields">
+            <div class="col-md-12 col-lg-12">
+              <div class="col-md-6 col-lg-6">
+                <label for="">Question 2</label>
+                <input type="text"  name="question2" [(ngModel)]="formData.question2">
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <label for="">Answer 2</label>
+                <input type="text" name="answer2" [(ngModel)]="formData.answer2">
+              </div>
+            </div>
+          </div>
+          <div class="form-fields">
+            <div class="col-md-12 col-lg-12">
+              <div class="col-md-6 col-lg-6">
+                <label for="">Question 3</label>
+                <input type="text"  name="question3" [(ngModel)]="formData.question3">
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <label for="">Answer 3</label>
+                <input type="text" name="answer3" [(ngModel)]="formData.answer3">
+              </div>
+            </div>
+          </div>
+          <div class="form-fields">
+            <div class="col-md-12 col-lg-12">
+              <div class="col-md-6 col-lg-6">
+                <label for="">Question 4</label>
+                <input type="text"  name="question4" [(ngModel)]="formData.question4">
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <label for="">Answer 4</label>
+                <input type="text" name="answer4" [(ngModel)]="formData.answer4">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-12">
+            <div class="col-md-12 col-lg-12">
+              <input type="submit" class="btn-save" value="SAVE">
+            </div>
+          </div>
+        </form>
+</div>
+</div>
+</div>

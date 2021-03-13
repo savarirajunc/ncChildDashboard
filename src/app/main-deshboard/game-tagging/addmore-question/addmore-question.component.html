@@ -1,0 +1,104 @@
+<div class="row tab-pane fade in " id="child-development">
+  <div class="col-md-12 col-lg-12">
+    <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+      <h4>ADD MORE QUESTION</h4>
+  </div>
+  <form action="" #addgameForm = "ngForm" name="addgameForm" (ngSubmit) = "addGameFormSubmit(addgameForm)">
+    <div class="tbl-form-list clearfix">
+      <div class="form-fields">
+        <div class="col-md-12 col-lg-12">
+            <label for="">Select Game</label>
+          <select name="game_id" id="" [(ngModel)]="formData.game_id">
+              <ng-container *ngFor="let gamedetailsitem of gamedetails">
+                <option value="{{gamedetailsitem.id}}">{{gamedetailsitem.games_name}}</option>
+            </ng-container>
+          </select>
+        </div>
+      </div>
+      <div class="form-fields">
+        <div class="col-md-12 col-lg-12">
+          <div class="col-md-2 col-lg-2">
+            <label for="">Question id</label>
+            <input type="number" name="questionid" [(ngModel)]="formData.questionid">
+          </div>
+          <div class="col-md-3 col-lg-3">
+            <label for="">Question</label>
+            <input type="text" name="question" [(ngModel)]="formData.question">
+          </div>
+          <div class="col-md-3 col-lg-3">
+            <label for="">Answer</label>
+            <input type="text" name="answer" [(ngModel)]="formData.answer">
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <label for="">Answer Description(Image Name)</label>
+            <input type="text" name="answer_des" [(ngModel)]="formData.answer_des">
+          </div>
+        </div>
+      </div>
+       <div class="form-fields">
+         <div class="col-md-12 col-lg-12">
+           <div class="col-md-2 col-lg-2">
+             <label for="">Question id</label>
+             <input type="number" name="questionid" [(ngModel)]="formData.questionid2">
+           </div>
+           <div class="col-md-3 col-lg-3">
+             <label for="">Question</label>
+             <input type="text" name="question" [(ngModel)]="formData.question2">
+           </div>
+           <div class="col-md-3 col-lg-3">
+             <label for="">Answer</label>
+             <input type="text" name="answer" [(ngModel)]="formData.answer2">
+           </div>
+           <div class="col-md-4 col-lg-4">
+             <label for="">Answer Description(Image Name)</label>
+             <input type="text" name="answer_des" [(ngModel)]="formData.answer_des2">
+           </div>
+         </div>
+      </div>
+      <div class="form-fields">
+        <div class="col-md-12 col-lg-12">
+          <div class="col-md-2 col-lg-2">
+            <label for="">Question id</label>
+            <input type="number" name="questionid" [(ngModel)]="formData.questionid3">
+          </div>
+          <div class="col-md-3 col-lg-3">
+            <label for="">Question</label>
+            <input type="text" name="question" [(ngModel)]="formData.question3">
+          </div>
+          <div class="col-md-3 col-lg-3">
+            <label for="">Answer</label>
+            <input type="text" name="answer" [(ngModel)]="formData.answer3">
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <label for="">Answer Description(Image Name)</label>
+            <input type="text" name="answer_des" [(ngModel)]="formData.answer_des3">
+          </div>
+        </div>
+      </div>
+      <div class="form-fields">
+        <div class="col-md-12 col-lg-12">
+          <div class="col-md-2 col-lg-2">
+            <label for="">Question id</label>
+            <input type="number" name="questionid" [(ngModel)]="formData.questionid4">
+          </div>
+          <div class="col-md-3 col-lg-3">
+            <label for="">Question</label>
+            <input type="text" name="question" [(ngModel)]="formData.question4">
+          </div>
+          <div class="col-md-3 col-lg-3">
+            <label for="">Answer</label>
+            <input type="text" name="answer" [(ngModel)]="formData.answer4">
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <label for="">Answer Description(Image Name)</label>
+            <input type="text" name="answer_des" [(ngModel)]="formData.answer_des4">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-12">
+        <div class="col-md-12 col-lg-12">
+          <input type="submit" class="btn-save" value="SAVE">
+        </div>
+      </div>
+    </div>
+  </form>

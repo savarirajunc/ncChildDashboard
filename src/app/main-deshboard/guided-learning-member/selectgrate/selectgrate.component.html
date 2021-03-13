@@ -1,0 +1,16 @@
+<div class="col-md-12 col-lg-12">
+  <ng-container *ngFor="let guidedScheduleDayitem of guidedScheduleDay[currentPage];let i=index">
+    <div class="col-md-2 col-lg-2"><a [routerLink]="['../../','edit',guidedScheduleDayitem.day_id,guidedScheduleDayitem.grade_id]">Day - {{guidedScheduleDayitem.day_id}}</a></div>
+  </ng-container>
+</div>
+<div class="text-center pagination_nav">
+  <ng-container *ngIf="currentPage >= 10">
+    <a class="pagenav" (click)="selectPageBack()">&lsaquo;&lsaquo;</a>
+  </ng-container>
+  <ng-container *ngFor="let gamedetailsitem of pageArray| slice:pageIdx*10:(pageIdx+1)*10;let i=index">
+        <a class="pagenav" (click)="setGameDetailsView(gamedetailsitem)" [ngClass]="{'active':gamedetailsitem===currentPage}">{{gamedetailsitem+1}}</a>
+  </ng-container>
+  <ng-container *ngIf="currentPage < (pageNav -1) ">
+    <a class="pagenav" (click)="selectPage()">&rsaquo;&rsaquo;</a>
+  </ng-container>
+</div>

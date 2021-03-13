@@ -1,0 +1,160 @@
+<div class="text-center mother">
+  <img src="assets/images/1.png" class="img-circle mother-img" alt="Cinque Terre">
+</div>
+
+<ng-template [ngIf]="isNavBar">
+
+    <div class="text-center childern">
+        <p>MY CHILDREN</p>
+        <div *ngFor="let kids of _kidsInformations; let i = index; " class="kids-info">
+
+          <ng-template [ngIf]="kids.is_default_kid == 1">
+            <img src="{{kids.child_photo}}" #kidsTag id="kids{{kids.nidara_kid_profile_id}}" (click)="selectedKidInfo(kids,kidsTag)"
+              class="img-circle child-photo-active" alt="no-image" />
+            <div>
+              <ng-container *ngIf="kids.free_trial == '1'" >
+                <span style="font-size: 11px;">FREE TRIAL</span>
+              </ng-container>
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="kids.is_default_kid == 0">
+            <img src="{{kids.child_photo}}" #kidsTag id="kids{{kids.nidara_kid_profile_id}}" (click)="selectedKidInfo(kids,kidsTag)"
+              class="img-circle child-photo" alt="no-image" />
+              <div>
+                <ng-container *ngIf="kids.free_trial == '1'" >
+                  <span style="font-size: 11px;">FREE TRIAL</span>
+                </ng-container>
+              </div>
+          </ng-template>
+
+        </div>
+        <!-- <div class="kids-info">
+          <img *ngIf="isAddService" src="assets/images/add.png" (click)="addChild()" class="img-circle child-photo add-child" alt="add-child">
+
+        </div> -->
+
+        <div class="child-detail">
+
+          <ng-container *ngIf="childepriyday == 1" >
+          <div class="dropdown-tab">
+            <div class="">
+              <div *ngIf="childChueck == 0" class="dropdown-tab1">
+                <input id="tab-three" type="checkbox" name="tabs">
+                <label style="cursor: default;" for="tab-three">CHILD GAME SESSION</label>
+              </div>
+              <div *ngIf="childChueck == 1" class="dropdown-tab1">
+                  <input id="tab-three" type="checkbox" name="tabs">
+                  <label for="tab-three"><a (click)="goChildGameSession()">CHILD GAME SESSION</a></label>
+                </div>
+              <div class="dropdown-tab1">
+                <input id="tab-three" type="checkbox" name="tabs">
+                <label for="tab-three"><a (click)="quickstart()">NC QUICK START GUIDE</a></label>
+              </div>
+              <div class="dropdown-tab1">
+                <input id="tab-three" type="checkbox" name="tabs">
+                <label for="tab-three"><a (click)="goChildProfile()" routerLink="/children/{{SchoolInfoLink.PAGEURL.CHILDRENPROFILE}}">CHILD PROFILE</a></label>
+              </div>
+                  <!-- <div class="dropdown-tab1">
+                    <input id="tab-three" type="checkbox" name="tabs">
+                    <label for="tab-three"><a href="/{{SchoolInfoLink.PAGEURL.PARENTQUESTIONREPORT}}">PARENT QUESTIONNAIRE REPORT</a></label>
+                  </div>
+                  <div class="dropdown-tab1">
+                    <input id="tab-three" type="checkbox" name="tabs">
+                    <label for="tab-three"><a href="/{{SchoolInfoLink.PAGEURL.DAILYROUTINE}}">DAILY ROUTINES</a></label>
+                  </div>
+                  <div class="dropdown-tab1">
+                    <input id="tab-three" type="checkbox" name="tabs">
+                    <label for="tab-three"><a href="/{{SchoolInfoLink.PAGEURL.PARENTGAMEREPORT}}">PARENT GAME REPORT</a></label>
+                  </div> -->
+              <div class="dropdown-tab1">
+                <input id="tab-three" type="checkbox" name="tabs">
+                <label for="tab-three"  ><a routerLink="/{{SchoolInfoLink.PAGEURL.DAILYSCHEDULER}}">DAILY ROUTINES</a></label>
+              </div>
+              <div class="dropdown-tab1">
+                <input id="tab-three" type="checkbox" name="tabs">
+                <label for="tab-three"><a routerLink="/children/deactive" >DEACTIVATE CHILD</a></label>
+              </div>
+              <div class="dropdown-tab1">
+                <input id="tab-three" type="checkbox" name="tabs">
+                <label for="tab-three" id="referal"><a routerLink="/parent-qusetion-answer" >PARENT QUESTIONNAIRE</a></label>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="childepriyday == 2" >
+          <div class="dropdown-tab">
+            <div class="">
+              <div *ngIf="childChueck == 0" class="dropdown-tab1">
+                <input id="tab-three" type="checkbox" name="tabs">
+                <label style="cursor: default;" for="tab-three">CHILD GAME SESSION</label>
+              </div>
+              <div *ngIf="childChueck == 1" class="dropdown-tab1">
+                  <input id="tab-three" type="checkbox" name="tabs">
+                  <label style="cursor: default;" for="tab-three">CHILD GAME SESSION</label>
+                </div>
+              <div class="dropdown-tab1">
+                <input id="tab-three" type="checkbox" name="tabs">
+                <label style="cursor: default;" for="tab-three">NC QUICK START GUIDE</label>
+              </div>
+              <div class="dropdown-tab1">
+                <input id="tab-three" type="checkbox" name="tabs">
+                <label style="cursor: default;" for="tab-three">CHILD PROFILE</label>
+              </div>
+                  <!-- <div class="dropdown-tab1">
+                    <input id="tab-three" type="checkbox" name="tabs">
+                    <label for="tab-three"><a href="/{{SchoolInfoLink.PAGEURL.PARENTQUESTIONREPORT}}">PARENT QUESTIONNAIRE REPORT</a></label>
+                  </div>
+                  <div class="dropdown-tab1">
+                    <input id="tab-three" type="checkbox" name="tabs">
+                    <label for="tab-three"><a href="/{{SchoolInfoLink.PAGEURL.DAILYROUTINE}}">DAILY ROUTINES</a></label>
+                  </div>
+                  <div class="dropdown-tab1">
+                    <input id="tab-three" type="checkbox" name="tabs">
+                    <label for="tab-three"><a href="/{{SchoolInfoLink.PAGEURL.PARENTGAMEREPORT}}">PARENT GAME REPORT</a></label>
+                  </div> -->
+              <div class="dropdown-tab1">
+                <input id="tab-three" type="checkbox" name="tabs">
+                <label for="tab-three" style="cursor: default;"  >DAILY ROUTINES</label>
+              </div>
+              <div class="dropdown-tab1">
+                <input id="tab-three" type="checkbox" name="tabs">
+                <label style="cursor: default;" for="tab-three" id="referal">DEACTIVATE CHILD</label>
+              </div>
+              <div class="dropdown-tab1">
+                <input id="tab-three" type="checkbox" name="tabs">
+                <label for="tab-three" id="referal"><a  >PARENT QUESTIONNAIRE</a></label>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        </div>
+
+      </div>
+
+</ng-template>
+<ng-template [ngIf]="!isNavBar">
+    <div class="text-center childern">
+        <div class="child-detail">
+          <div class="dropdown-tab">
+            <input id="tab-one" type="checkbox" name="tabs">
+              <label for="tab-one"><a routerLink="/{{SchoolInfoLink.PAGEURL.PARENTSMYACCOUNT}}">MY ACCOUNT SETTINGS</a></label>
+          </div>
+          <div class="dropdown-tab">
+            <input id="tab-two" type="checkbox" name="tabs">
+            <label for="tab-two"><a routerLink="/{{SchoolInfoLink.PAGEURL.CHANGEPASSWORD}}">CHANGE PASSWORD</a></label>
+          </div>
+          <!-- <div class="dropdown-tab">
+              <input id="tab-four" type="checkbox" name="tabs">
+            <label for="tab-four"><a [routerLink]="['/',SchoolInfoLink.PAGEURL.RESIDENCEDETAIL]" >RESIDENCE DETAIL</a></label>
+          </div> -->
+          <div class="dropdown-tab">
+            <input id="tab-six" type="checkbox" name="tabs">
+            <label for="tab-six"><a [routerLink]="['/',SchoolInfoLink.PAGEURL.SUPPORT]" >SUPPORT</a></label>
+          </div>
+          <div class="dropdown-tab">
+            <input id="tab-six" type="checkbox" name="tabs">
+            <label for="tab-six" id="referal"><a [routerLink]="['/',SchoolInfoLink.PAGEURL.DEACTIVEACCOUNT]" >DEACTIVATE ACCOUNT</a></label>
+          </div>
+        </div>
+      </div>
+</ng-template>

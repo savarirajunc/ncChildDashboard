@@ -1,0 +1,81 @@
+
+<div class="container">
+    <div class="row home-slide" style="text-align:center;">
+        <h2>Nidara-Children Healthy Child Development Questionnaire</h2>
+        <div class="col-md-12 col-lg-12">
+            <ul class="topbar">
+              <li class="active">Core Health</li>
+              <li class="active">Core Learning</li>
+              <li>Core Interest</li>
+            </ul>
+          </div>
+        <div class="col-xs-12 paddingless"  *ngIf="goNextStart">
+            <div class="col-xs-12">
+              <h3 class="text-left" style="font-family: 'GillSansStd-light';text-transform: inherit">Please select the choice that most accurately reflect your thought about your child</h3>
+            </div>
+            <div class="col-md-6 col-lg-6"></div>
+            <div class="col-md-6 col-lg-6"><div *ngIf="!_response.status" class="{{_response.alert}}"><p>{{_response.message}}</p></div></div>
+
+            <form  #Quesdata= "ngForm" (ngSubmit)="onSubmit(Quesdata)">
+               <div id="que_1" class="col-xs-12 paddingless" *ngIf="!button_3 && !button_4">
+                 <div *ngFor="let x of ques[currentPage]; let i=index">
+                   <div class="col-xs-12 paddingless">
+                     <div class="col-xs-6">
+                      <div class="quse-border">
+                        <p>{{x.question}}</p>
+                      </div>
+                    </div>
+                    <div class="col-xs-2" style="font-size:19px !important;">
+                      <div class="radio-but">
+                        <input type="radio" [(ngModel)]="x.answervalue" name="ques{{i}}"  value="yes"><span>Yes</span>
+                      </div>
+                    </div>
+
+                     <div class="col-xs-2" style="font-size:19px !important;">
+                        <div class="radio-but">
+                            <input type="radio" [(ngModel)]="x.answervalue" name="ques{{i}}"  value="no"><span>No</span>
+                          </div>
+                     </div>
+                     <div class="col-xs-2" style="font-size:19px !important;">
+                      <div class="radio-but">
+                        <input type="radio" [(ngModel)]="x.answervalue" name="ques{{i}}"  value="some_time"><span>Sometimes</span>
+                      </div>
+                    </div>
+                   </div>
+                 </div>
+                 <div class="col-md-12 col-lg-12">
+                   <div class="col-lg-6"></div>
+                   <div class="col-lg-6">
+                      <div class="text-center pagination_nav">
+                          <ng-container *ngIf="currentPage >= 10">
+                            <a class="pagenav" (click)="selectPageBack()">&lsaquo;&lsaquo;</a>
+                          </ng-container>
+                          <ng-container *ngFor="let productitem of pageArray| slice:pageIdx*10:(pageIdx+1)*10;let i=index">
+                                <a class="pagenav" (click)="setGameDetailsView(productitem)" [ngClass]="{'active':productitem===currentPage}">{{productitem+1}}</a>
+                          </ng-container>
+                          <ng-container *ngIf="currentPage < (pageNav -1)">
+                            <a class="pagenav" (click)="selectPage()">&rsaquo;&rsaquo;</a>
+                          </ng-container>
+                        </div>
+                   </div>
+                 </div>
+                <div class="col-md-12 col-lg-12">
+                  <div class="col-md-6 .col-lg-6"></div>
+                  <div class="col-md-6 .col-lg-6 buttons-qus">
+                    <div class="col-md-6 addchild">
+                        <span class="btn_cls" type="submit" (click) = "goback()" >REVIEW CORE HEALTH</span>
+                    </div>
+                    <div class="col-md-6 submit">
+                        <ng-container *ngIf="currentPage == (pageNav-1)">
+                          <button class="btn_cls" type="submit" >SUBMIT AND NEXT SECTION
+                            </button>
+                        </ng-container>
+                      </div>
+                  </div>
+                </div>
+               </div>
+              </form>
+        </div>
+      </div>
+  </div>
+

@@ -1,0 +1,256 @@
+.game-header{
+    border-bottom: 1px solid #e7e7e7;
+    overflow: hidden;
+}
+.audio-setting{
+
+  float: right;
+}
+.audio-setting li {
+    float: left;
+}
+.game_iframe{
+	width:350px;
+	height:445px;
+}
+.audio-setting .img-shadow {
+    display: inline-block;
+    transition-duration: 0.3s;
+    float: left;
+    list-style: none;
+    width: 50%;
+    padding: 5px;
+}
+.audio-setting {
+    float: right;
+    padding: 0;
+}
+.audio-setting .img-shadow img {
+    max-width:60px;
+    height:60px;
+    cursor: pointer;
+    float: none;
+}
+.game-header {
+	height:99px;
+	background: #ffffff;
+}
+.game-header img {
+	height:80px;
+	margin: 10px;
+	max-width: 100%;
+}
+.row{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+@media (min-width: 768px) {
+	.audio-setting{
+
+        float: right;
+      }
+}
+@media (min-width: 992px) {
+	.audio-setting{
+
+        float: right;
+      }
+}
+@media (min-width: 1200px) {
+	.audio-setting{
+
+        float: right;
+      }
+}
+
+
+.game-title{
+    font-weight: bold;
+    font-family:"century-gothic";
+}
+h4{
+  font-family: 'GillSansStd-Light';
+}
+#nidarasession{
+  display: none;
+}
+#button-one{
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: auto;
+  height: 100%;
+  top: 0px;
+  padding-top:150px;
+}
+#wake-up{
+  display: none;
+  position: relative;
+  width: 100%;
+  margin: auto;
+  height: 100%;
+  top: 0px;
+  padding-top:150px;
+}
+#sleep{
+  display: none;
+  position: relative;
+  width: 100%;
+  margin: auto;
+  height: 100%;
+  top: 0px;
+  padding-top:150px;
+}
+#button-thiree{
+  display: none;
+  position: relative;
+  width: 100%;
+  margin: auto;
+  height: 100%;
+  top: 0px;
+  padding-top:150px;
+}
+#button-two{
+  display: none;
+  position: relative;
+  width: 100%;
+  margin: auto;
+  height: 100%;
+  top: 0px;
+  padding-top:150px;
+}
+.tinawelcome {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position: 350px 0px;
+    background-repeat: no-repeat;
+    background-size: 50%;
+}
+#tinawelcome{
+  display: none;
+}
+#tinaSleep{
+  display: none;
+}
+#tinaWakeUp{
+  display: none;
+}
+.tinawelcome {
+  position: absolute;
+  width: 100%;
+  height: 260px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#tinawelcome{
+display: none;
+}
+#mobile-dev{
+  display: block;
+  background: #fff;
+  position: absolute;
+  top:00px;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 9999999;
+}
+#main-dev{
+  display: none;
+}
+
+
+
+button.go-to-back {
+    background: #333;
+    border: 0px solid;
+    color: #fff;
+    width: 250px;
+    text-align: center;
+}
+button.go-to-back:hover{
+  background: #83c9c0;
+}
+
+.content span {
+  font-size: 18px;
+}
+.navbar-brand {
+  -webkit-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+  float: none !important;
+  text-align: center;
+  margin: auto;
+  height: 160px;
+}
+.navbar-brand {
+  text-align: left;
+  width: 150px;
+}
+
+div#center-div {
+  margin: 50px auto;
+}
+
+.content {
+  padding: 30px 50px 60px 50px;
+}
+
+
+@media (min-width: 768px) {
+.tinawelcome {
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#main-dev{
+  display: block;
+}
+#mobile-dev{
+  display: none;
+}
+}
+@media (min-width: 992px) {
+.tinawelcome {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#main-dev{
+  display: block;
+}
+#mobile-dev{
+  display: none;
+}
+}
+@media (min-width: 1200px) {
+.tinawelcome {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#main-dev{
+  display: block;
+}
+#mobile-dev{
+  display: none;
+}
+}
+.pop-image {
+  width: 150px;
+  height: 150px;
+  margin: 0px;
+  padding: 0px;
+}

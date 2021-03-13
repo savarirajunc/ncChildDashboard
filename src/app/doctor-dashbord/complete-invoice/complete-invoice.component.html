@@ -1,0 +1,81 @@
+<p><br></p>
+<h3>REVIEW OLD PATIENTS HISTORY & PAYMENTS
+  </h3>
+  <h4>INVOICE DETAILS
+    </h4>
+<ng-container *ngFor="let getInvoiceitem of getInvoice" >
+<table id="customers">
+
+	  <tr>
+
+		  <th>
+				<p>Customer`s Name {{getInvoiceitem.first_name}}  {{getInvoiceitem.last_name}} </p>
+				<p>Customer`s Address</p>
+        <p> {{getInvoiceitem.address_1}}</p>
+        <p> {{getInvoiceitem.address_2}}</p>
+        <p> {{getInvoiceitem.city}}</p>
+        <p> {{getInvoiceitem.state}}</p>
+        <p> {{getInvoiceitem.country}}</p>
+        <p> {{getInvoiceitem.post_code}}</p>
+				<p></p>
+		  </th>
+		  <!-- <th>
+				<h3>Place of Supply</h3>
+				<p></p>
+				<p>Invoice No {{getInvoiceitem.order_ids}}  </p>
+				<p>Date  {{getInvoiceitem.date}}</p>
+		  </th> -->
+    </tr>
+
+  </table>
+   <table id="customers">
+		<tr>
+		  <th>Description of Services</th>
+		  <th></th>
+		  <th>SAC Code</th>
+		  <th>Amount(Rs)</th>
+    </tr>
+    <ng-container *ngFor="let product_listitem of getInvoiceitem.product_list" >
+      <tr>
+        <td>{{product_listitem.product_name}}</td>
+        <td></td>
+        <td></td>
+        <td>{{product_listitem.product_price}}</td>
+      </tr>
+    </ng-container>
+    <tr>
+				<td>Total</td>
+				<td></td>
+				<td></td>
+				<td>{{getInvoiceitem.total_amount}}</td>
+		</tr>
+		<tr>
+				<td>Less Discount</td>
+				<td></td>
+				<td></td>
+				<td>{{getInvoiceitem.discoun_amount}} </td>
+		</tr>
+		<tr>
+				<td>Taxable Value</td>
+				<td></td>
+				<td></td>
+				<td>{{getInvoiceitem.total_amount}}</td>
+		</tr>
+		<tr>
+				<td>Add IGST </td>
+				<td></td>
+				<td>18%</td>
+				<td>{{getInvoiceitem.tax_amount}}</td>
+		</tr>
+		<tr>
+				<th>Totals </th>
+				<th></th>
+				<th></th>
+				<th>{{getInvoiceitem.cart_amount}}</th>
+		</tr>
+  </table>
+</ng-container>
+
+<div class="but-wight text-center" (click)="continue()">
+    GO BACK
+  </div>

@@ -1,0 +1,31 @@
+<div class="parent-infromatiom">
+  <div class="col-md-12">
+    <div class="col-md-12">
+      <h3 class="">View all Childrenin Information</h3>
+    </div>
+    <div>
+      <div class="col-md-12" *ngIf="order.child == 'first_name'">
+        <p>{{childreninfolength}}</p>
+      </div>
+      <div *ngFor="let childinfo of childreninfo[currentPage] | orderBy:order.child">
+        <div class="col-md-3">
+          <a [routerLink]="['../','childdetails',childinfo.id]">
+           <img src="{{childinfo.child_photo}}" class="img-circle pop-image child-login"  alt="no-display">
+            <h4>{{childinfo.first_name}}</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center pagination_nav">
+    <ng-container *ngIf="currentPage >= 10">
+      <a class="pagenav" (click)="selectPageBack()">&lsaquo;&lsaquo;</a>
+    </ng-container>
+    <ng-container *ngFor="let gamedetailsitem of pageArray| slice:pageIdx*10:(pageIdx+1)*10;let i=index">
+      <a class="pagenav" (click)="setGameDetailsView(gamedetailsitem)" [ngClass]="{'active':gamedetailsitem===currentPage}">{{gamedetailsitem+1}}</a>
+    </ng-container>
+    <ng-container *ngIf="currentPage < (pageNav -1) ">
+      <a class="pagenav" (click)="selectPage()">&rsaquo;&rsaquo;</a>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+input[type='password'],select {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    width: 60%;
+    height: 35px;
+    float: left;
+    margin-bottom: 20px;
+}
+textarea{
+  width: 60%;
+  height: 100px;
+  float: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+label{
+  width: 40%;
+  float: left;
+}
+
+.form-fields label {
+  width: 100%;
+  font-weight: normal;
+  font-size: 14px;
+  color: #808080;
+}

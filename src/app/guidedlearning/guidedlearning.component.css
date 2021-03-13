@@ -1,0 +1,39 @@
+.error {
+    margin-left: 0% !important;
+    margin-top: 5px;
+    background-color: transparent!important;
+    color: red;
+    font-weight: 600;
+    font-size: 14px !important;
+}
+input:focus, select:focus, textarea:focus {
+    border-color: none !important;
+    outline: 0;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    font-family: 'Gill Sans MT', 'Gill Sans', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial;
+    font-size: 14px;
+}
+input[type=text]:focus {
+    border-color: none !important;
+  }
+.label_sty{
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 6px;
+}
+input:focus, select:focus, textarea:focus {
+    border-color: none;
+  }
+
+  .alert-mage{
+    width: 300px;
+    float: none;
+    margin: auto;
+    font-size: 18px;
+  }
+
+  .select-section {
+    width: 500px;
+    margin: auto;
+}

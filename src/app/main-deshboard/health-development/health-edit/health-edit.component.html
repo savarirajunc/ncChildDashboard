@@ -1,0 +1,65 @@
+<form class="card bg-dark" #addgameForm = "ngForm" name="addgameForm" (ngSubmit)="onSubmit(addgameForm)">
+	<div class="card-body">
+		<ng-container *ngFor="let gethealthcoreitem of gethealthcore;let i=index">
+    <div class="form-fields">
+      <div class="col-md-12 col-lg-12">
+        <div class="col-md-6 col-lg-6">
+          <label for="">Select Grade</label>
+          <select name="grade_id" [(ngModel)]="gethealthcoreitem.grade_id" required>
+            <option *ngFor="let grades of grade" value="{{grades.id}}" >{{grades.grade_name}}</option>
+          </select >
+        </div>
+        <div class="col-md-6 col-lg-6">
+          <label for="">Select Framework Core </label>
+          <select name="framework_id" [(ngModel)]="gethealthcoreitem.framework_id">
+            		<option *ngFor="let coreframworkitem of coreframwork" value="{{coreframworkitem.id}}">{{coreframworkitem.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-12">
+        <div class="col-md-6 col-lg-6">
+          <label for="">Select Subject</label>
+          <select name="subject_id" [(ngModel)]="gethealthcoreitem.subject_id">
+            <option *ngFor="let subject of subjects" value="{{subject.id}}">{{subject.subject_name}}</option>
+          </select>
+        </div>
+        <div class="col-md-6 col-lg-6">
+          <label for="">Select Development Category</label>
+          <select name="heth_cat" [(ngModel)]="gethealthcoreitem.heth_cat">
+            <option *ngFor="let healthDevCats of healthDevCat" value="{{healthDevCats.id}}">{{healthDevCats.health_dev_cat}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+		</ng-container>
+		<div class="card mt-3">
+			<div class="card-body">
+	      <div>
+	        <ng-container *ngFor="let gethealthitem of gethealth;let i = index">
+						<div class="page">
+							<div class="form-fields">
+                <div class="form-title">
+									<h5 class="title-page">Question {{i+1}}</h5>
+								</div>
+								<input type="hidden" name="id{{i+1}}" value="" [(ngModel)]="gethealthitem.id">
+		            <div class="col-md-12 col-lg-12">
+		              <div class="col-md-6 col-lg-6">
+		                <label for="">Question id {{i+1}}</label>
+		                <input name="question_id{{i+1}}" type="text" [(ngModel)]="gethealthitem.question_id" OnlyNumber="true">
+		              </div>
+		              <div class="col-md-6 col-lg-6">
+		                <label for="">Question {{i+1}}</label>
+		                <input name="question{{i+1}}" type="text" [(ngModel)]="gethealthitem.question">
+		              </div>
+		            </div>
+		          </div>
+						</div>
+	        </ng-container>
+	      </div>
+	       <!-- <button type="button" class="btn-save" (click)="onAddQuestionanswer()">Add Question</button> -->
+    	</div>
+		</div>
+        <input #submit type="submit" class="btn-save" [disabled]="!addgameForm.form.valid" value="SAVE">
+    <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+	</div>
+</form>

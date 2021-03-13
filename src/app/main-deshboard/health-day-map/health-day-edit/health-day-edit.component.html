@@ -1,0 +1,97 @@
+
+<form class="card bg-dark" #addgameForm = "ngForm" name="addgameForm" (ngSubmit)="onSubmit(addgameForm)">
+	<div class="card-body">
+    <div class="form-fields">
+      <div class="col-md-12 col-lg-12">
+        <div class="col-md-6 col-lg-6">
+          <label for="">Select Day</label>
+          <ng-container   *ngFor="let dayss of days">
+            <ng-container *ngIf="dayss.id == day_id">
+              <span>Selected value: {{dayss.days}}</span>
+            </ng-container>
+          </ng-container>
+          <select name="days" [(ngModel)]="formData.days" required>
+            <ng-container *ngFor="let dayss of days">
+                <option value="{{dayss.id}}" >{{dayss.days}}</option>
+            </ng-container>
+          </select >
+        </div>
+      </div>
+    </div>
+    <div class="form-fields">
+      <div class="col-md-12 col-lg-12">
+        <div class="col-md-6 col-lg-6">
+          <label for="">Select Grade</label>
+          <ng-container  *ngFor="let grades of grade">
+            <ng-container *ngIf="grades.id == grade_id">
+              <span>Selected value: {{grades.grade_name}}</span>
+            </ng-container>
+          </ng-container>
+          <select name="grade_id" [(ngModel)]="formData.grade_id">
+            <option *ngFor="let grades of grade" value="{{grades.id}}" >{{grades.grade_name}}</option>
+          </select >
+        </div>
+        <div class="col-md-6 col-lg-6">
+          <label for="">Select Framework Core </label>
+					<ng-container  *ngFor="let coreframworkitem of coreframwork">
+						<ng-container *ngIf="coreframworkitem.id == core_id">
+							<span>Selected value: {{coreframworkitem.name}}</span>
+						</ng-container>
+					</ng-container>
+          <select name="framework_id" [(ngModel)]="formData.framework_id">
+            	<option *ngFor="let coreframworkitem of coreframwork" value="{{coreframworkitem.id}}">{{coreframworkitem.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-12">
+        <div class="col-md-6 col-lg-6">
+          <label for="">Select Subject</label>
+          <ng-container  *ngFor="let subject of subjects">
+            <ng-container *ngIf="subject.id == subject_id">
+              <span>Selected value: {{subject.subject_name}}</span>
+            </ng-container>
+          </ng-container>
+          <select name="subject_id" [(ngModel)]="formData.subject_id">
+            <option *ngFor="let subject of subjects" value="{{subject.id}}">{{subject.subject_name}}</option>
+          </select>
+        </div>
+        <div class="col-md-6 col-lg-6">
+          <label for="">Select Development Category</label>
+          <ng-container  *ngFor="let healthDevCats of healthDevCat">
+            <ng-container *ngIf="healthDevCats.id == heth_cat">
+              <span>Selected value: {{healthDevCats.health_dev_cat}}</span>
+            </ng-container>
+          </ng-container>
+          <select name="heth_cat" [(ngModel)]="formData.heth_cat">
+            <option *ngFor="let healthDevCats of healthDevCat" value="{{healthDevCats.id}}">{{healthDevCats.health_dev_cat}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+		<div class="card mt-3">
+			<div class="card-body">
+	      <div>
+	        <ng-container *ngFor="let gethealthitem of getDayMapQues;let i = index">
+            <div class="form-fields">
+              <div class="form-title">
+                <h5 class="title-page">Question {{i+1}}</h5>
+              </div>
+              <div class="col-md-12 col-lg-12">
+                <div class="col-md-6 col-lg-6">
+                  <label for="">Add Question</label>
+                  <input type="hidden" name="id{{i+1}}" value="" [(ngModel)]="gethealthitem.id">
+                  <select name="question{{i+1}}" [(ngModel)]="gethealthitem.question_id">
+                    <option *ngFor="let questionViewalls of questionViewall" value="{{questionViewalls.id}}">{{questionViewalls.question}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+	        </ng-container>
+	      </div>
+	       <!-- <button type="button" class="btn-save" (click)="onAddQuestionanswer()">Add Question</button> -->
+    	</div>
+		</div>
+        <input #submit type="submit" class="btn-save" [disabled]="!addgameForm.form.valid" value="SAVE">
+    <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+	</div>
+</form>

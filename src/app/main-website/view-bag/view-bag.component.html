@@ -1,0 +1,94 @@
+<div class="container">
+    <ng-container *ngIf="filterItem === 0" >
+        <div id="emptyCart">
+          <h3>YOUR bag</h3>
+          <div class="col-md-12">
+            <span class="emptybag">
+                <img class="wp-image-4059 img-responsive alignleft" style="width:25px;float: left;" src="assets/web_img/iicon.png" alt=""><span style="margin-left: 20px;">There are no items in your cart</span>
+            </span>
+            <p>
+                To add a child development product to your cart, view GIRL or BOY
+
+            </p>
+          </div>
+          <div class="col-md-12 col-lg-12">
+
+              <div class="col-lg-4 col-md-4"><a href="/Home"><li style="list-style: none;text-align: center" class="checkout-button button alt wc-forward">CONTINUE SHOPPING</li></a></div>
+
+            </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="filterItem !== 0" >
+  <div id="cart">
+  <ng-container >
+    <table class="table table-bordered">
+      <tr style="background: #dfdfdf">
+        <th class="col-md-8 col-lg-8">ITEMS ADDED TO YOUR BAG </th>
+        <th class="col-md-2 col-lg-2">QTY</th>
+        <th class="col-md-2 col-lg-2">SUB TOTAL<br>(excl. taxes)</th>
+      </tr>
+      <tr *ngFor="let productListitem of productList; let i = index;">
+
+          <td class="col-md-8 col-lg-8">
+            <div class="col-md-3 col-lg-3">
+              <div class="product_img" [style.background-image]="'url(' + productListitem.product_img + ')'"></div>
+            </div>
+            <div class="col-md-8 col-lg-8">
+            <h4>{{productListitem.product_name}}</h4>
+            <p>
+                <ng-container *ngFor="let gradeitem of grade" >
+                    <ng-container *ngIf="productListitem.product_type == gradeitem.id" >{{gradeitem.grade_name}}</ng-container>
+                  </ng-container>
+              <p>Your Nidara-Children plan:  Rs. {{productListitem.subtotal | currency:'₹ ':0}} / Year</p>
+            <p><span (click)="deleteFunction(productListitem.id)" class="remove-but">Remove from bag</span></p>
+          </div>
+          </td>
+          <td class="col-md-2 col-lg-2">{{productListitem.item}}</td>
+          <td class="col-md-2 col-lg-2">
+            <h4><span></span>{{productListitem.subtotal | currency:'₹ ':0}}</h4>
+            <p>EMI options available during checkout</p>
+          </td>
+        </tr>
+    </table>
+  </ng-container>
+  <div class="col-md-12 col-lg-12 paddingless">
+      <div class="col-md-6">
+
+      </div>
+      <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 paddingless">
+        <div class="col-md-6 col-sm-12 col-xs-12 paddingless">
+            <div class="col-md-8 col-sm-12 col-xs-12 paddingless">
+                <a href="/Home"><li style="list-style: none; text-align: center" class="checkout-button button alt wc-forward">CONTINUE SHOPPING                </li></a>
+            </div>
+        </div>
+        <div class="wc-proceed-to-checkout col-md-6 col-sm-12 col-xs-12 paddingless">
+          <div class="col-md-4 col-lg-4"></div>
+          <div class="col-md-8 col-sm-12 col-xs-12 paddingless">
+              <table cellspacing="0" class="table table-bordered">
+                  <tbody *ngFor="let productListitem of productList; let i = index;">
+                     <ng-container *ngIf="i == filterItem-1" >
+                        <tr class="cart-subtotal">
+                           <th>{{productListitem.qty}} ITEMS SUBTOTAL</th>
+                           <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>{{productListitem.totale | currency:'₹ ':0}}</span></td>
+                        </tr>
+                        <tr class="tax-rate tax-rate-in-gst-1">
+                           <th>GST</th>
+                           <td data-title="GST"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>{{productListitem.tax | currency:'₹ ':0}}</span></td>
+                        </tr>
+                        <tr class="order-total">
+                           <th>TOTAL TO PAY</th>
+                           <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>{{productListitem.main_tolale | currency:'₹ ':0}}</span></strong> </td>
+                        </tr>
+                     </ng-container>
+                  </tbody>
+               </table>
+            <a href="/main-cart"><li style="list-style: none; text-align: center" class="checkout-button button alt wc-forward">CHECKOUT</li></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ng-container>
+</div>
+

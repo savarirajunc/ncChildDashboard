@@ -1,0 +1,54 @@
+<section class="section breadcrumb-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="breadcrumb-block clearfix">
+            <ul id="nc-br">
+              <li>YOU ARE HERE:</li>
+              <ng-container *ngFor="let titleitem of title; let i=index;" >
+                <ng-container *ngIf="titleitem == 'doctor'" >
+                    <li><a routerLink="/doctor" >Home</a></li>
+                </ng-container>
+                <ng-container *ngIf="titleitem == 'view-child-details'" >
+                    <li><a (click)="clickEventHandler()"  >{{titleitem}}</a></li>
+                </ng-container>
+                <ng-container *ngIf="titleitem == 'appointment'" >
+                    <li><a (click)="clickEventHandler()"  >{{titleitem}}</a></li>
+                </ng-container>
+                <ng-container *ngIf="i !== linklength-1 && titleitem !== 'doctor' && titleitem !== 'view-child-details' && titleitem !== 'appointment'" >
+                    <li><a (click)="clickEventHandler()" >{{titleitem}}</a></li>
+                </ng-container>
+                <ng-container *ngIf="i == linklength-1" >
+                    <li><a  >{{titleitem}}</a></li>
+                </ng-container>
+              <!-- <li><a href="{{sectlink}}" >{{titleitem}}</a></li> -->
+            </ng-container>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+<div class="container">
+  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 paddingless">
+    <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+      <app-dashbord-menu></app-dashbord-menu>
+    </div>
+    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+        <div class="text-center announcements">
+            <p>MESSAGES</p>
+            <p style="font-size: 15px;">You have no new messages.</p>
+          </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+

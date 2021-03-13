@@ -1,0 +1,73 @@
+  
+      <h2>CHILD PROFILE</h2>
+      <div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+                          <div class="row child-friend">
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><p >CHILD FRIEND INFORMATION</p></div>
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right"><!--a href="#">+Add Friend</a--></div>
+                          </div>
+                          <form  #friendsInfoForm="ngForm" (ngSubmit)="friendsInfoSubmit(friendsInfoForm)">
+                              <div class="form-fields kid_friend_info">
+                              <div class="form-response">
+                                  <div class="row">
+                                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">  
+  
+                                          <label for="name">Name of Friend</label> 
+                                      
+                                          <input type="text" name="name_of_friend" #name_of_friend="ngModel"  [(ngModel)]="formData.name_of_friend" required minlength="5" maxlength="20">
+  
+                                      <span *ngIf="name_of_friend.invalid && (name_of_friend.dirty || name_of_friend.touched)">
+                                                  <span *ngIf="name_of_friend.errors.required" class="bg-danger text-white error">
+                                                  Name of friend is required.
+                                                  </span>
+                                                  <span *ngIf="name_of_friend.errors.minlength" class="bg-danger text-white error">
+                                                  Name of friend is minimum 5.
+                                                  </span>
+                                                  <span *ngIf="name_of_friend.errors.maximum" class="bg-danger text-white error">
+                                                  Name of friend is maximum 10.
+                                                  </span>
+                                              </span>
+                                          
+                                          </div> 
+                                      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                                          <div class="friend_type">
+                                  <div><label >Gender</label></div>
+                                
+                                  <div class="radio-inline gender">
+                                    <input type="radio" name="gender" #gender="ngModel" [(ngModel)]="formData.gender" value="male"  required><span>Male</span>
+                                  </div>
+                                 <div class="radio-inline gender">
+                                    <input type="radio" name="gender" #gender="ngModel"  [(ngModel)]="formData.gender" value="female" required><span>Female</span>
+                                                              </div>
+                                  </div>
+                                          </div>
+                                      </div> 
+                               
+                                 
+                                  <div class="row">
+                                      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                          <label for="friend">Friend Type</label>
+                                     
+                                          <input type="text" name="friend_type" #friend_type="ngModel"  [(ngModel)]="formData.friend_type" required minlength="5" maxlength="20">
+                                          
+                                              <span *ngIf="friend_type.invalid && (friend_type.dirty || friend_type.touched)">
+                                                  <span *ngIf="friend_type.errors.required" class="bg-danger text-white error">
+                                                  Friend type is required.
+                                                  </span>
+                                                  <span *ngIf="friend_type.errors.minlength" class="bg-danger text-white error">
+                                                  Friend type is minimum 5.
+                                                  </span>
+                                                  <span *ngIf="friend_type.errors.maximum" class="bg-danger text-white error">
+                                                  Friend type is maximum 20.
+                                                  </span>
+                                                </span>
+                                          </div> 
+                                      </div> 
+                                  </div>
+  
+                                  <div >
+                                      <input type="submit" class="btn-save" [disabled]="!friendsInfoForm.form.valid" value="SAVE CHANGES"  name="save">
+                                  </div>
+                              </div>
+                          </form>
+  
+ 

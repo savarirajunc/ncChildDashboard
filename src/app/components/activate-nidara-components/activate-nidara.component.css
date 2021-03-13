@@ -1,0 +1,58 @@
+#daily-core-session {
+    width: 100%;
+    font-weight: bold;
+}
+.nida-btn-cancel {
+    width: 100%;
+    border-radius: 0px;
+    background: #fff;
+    color: #333;
+    font-family: "gillsanslight59465bc4d96ac";
+}
+
+#active-later:hover {
+    color: #83d0c9;
+    border: 1px solid #83d0c9;
+    text-decoration: none;
+}
+#active-later {
+    background-color: #fff;
+    border: solid 1px #333;
+    box-shadow: none;
+    color: #333;
+    float: left;
+    height: auto;
+    height: auto;
+    transition: 0.4s;
+    padding: 7px 53px;
+    margin-top: 30px;
+    text-transform: uppercase;
+    float: right;
+    width: auto;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+#scheduldBtn:hover {
+    background: #83D0C9;
+    border: 1px solid #83D0C9;
+    color: #fff;
+}
+#scheduldBtn {
+    background-color: #333;
+    border: solid 1px #333;
+    box-shadow: none;
+    color: #fff;
+    float: left;
+    height: auto;
+    height: auto;
+    transition: 0.4s;
+    padding: 7px 44px;
+    margin-top: 30px;
+    text-transform: uppercase;
+    float: right;
+    width: auto;
+    box-shadow: none;
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -1,0 +1,71 @@
+
+.tab-view-menu-parent ul{
+  width: 100%;
+  border: 0px;
+  padding-left: 0px;
+  list-style: none;
+
+}
+.tab-view-menu-parent ul li{
+  float: none;
+  margin-bottom: 0px;
+  font: normal 14px GillSansStd;
+  padding: 5px 0px;
+}
+.tab-view-menu-parent .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+  border-bottom: 2px solid #83d0c9;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0pc;
+}
+.tab-view-menu-parent ul li ul.sub-menu{
+  padding-left: 20px;
+  list-style: none;
+}
+input[type="checkbox"] + span::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    margin: 0 4px 0 0;
+    border: solid 1px rgb(218, 218, 218);
+    line-height: 14px;
+    text-align: center;
+    background: #ffffff;
+}
+input[type="radio"] + span::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    margin: 0 4px 0 0;
+    border: solid 1px rgb(218, 218, 218);
+    line-height: 14px;
+    text-align: center;
+    background: #ffffff;
+}
+
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    width: 10%;
+    padding: 6px;
+    font-size: 14px;
+}
+.sort-menu {
+    list-style: none;
+}
+.col-md-3{
+  padding-left: 0px;
+}
+input[type="checkbox"]:checked + span::before {
+    font-family: FontAwesome;
+    content: "\f00c";
+    font-size: 12px;
+    padding: 0px;
+}
+input[type="radio"]:checked + span::before {
+    font-family: FontAwesome;
+    content: "\f00c";
+    font-size: 12px;
+    padding: 0px;
+}

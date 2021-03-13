@@ -1,0 +1,12 @@
+.kid_caregiver_info input[type='text']{
+    margin-bottom: 10px !important;
+}
+
+.error{
+    margin-left: 0%;
+}
+
+.amount-spent{
+    padding-right: 41%;
+    padding-top: 3%;
+}

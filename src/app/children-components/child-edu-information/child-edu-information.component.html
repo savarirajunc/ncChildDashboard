@@ -1,0 +1,73 @@
+
+
+                    <h2>PRE NIDARA QUESTIONNAIRE <br>PERSONALIZED EDUCATION</h2>
+                    <div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+                    <form #childEduForm="ngForm" (ngSubmit)="submitIntrestValue(childEduForm)">
+                        <div class="row form-fields kid_edu_info">
+                            <div class="form-response">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <label for="name">Grade</label>
+                                            <select class="form-control" id="sel1" name='grade' #grade='ngModel' [(ngModel)]="formData.grade" required>
+                                                    <!-- <option value="" selected="selected">select</option> -->
+                                                    <option *ngFor="let option of selectGradeoption; let i = index" value="{{option.id}}">{{option.grade_name}}</option>
+                                            </select>
+                                              <div *ngIf="grade.invalid" >
+                                                    <div *ngIf="grade.errors.required" class="bg-danger text-white error">
+                                                            Please Select Grade.
+                                                    </div>
+                                                </div>
+
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <label>Board of Education</label>
+                                        <select class="form-control" id="sel1" name='board_of_education' #board_of_education='ngModel' [(ngModel)]="formData.board_of_education"  required>
+                                                <!-- <option value="" selected="selected">select</option> -->
+                                                <option *ngFor="let option of selectBoardoption; let i = index" value="{{option.id}}">{{option.board_name}}</option>
+                                              </select>
+                                              <div *ngIf="board_of_education.invalid" >
+                                                    <div *ngIf="board_of_education.errors.required" class="bg-danger text-white error">
+                                                            Please select Board.
+                                                    </div>
+                                                </div>
+                                    </div>
+
+                            <div class="education">
+
+                                <label style="padding-top:15px;">Rate your child’s educational levels.</label><br>
+                                <label>Scale:1 - Poor, 2 - Good, 3 - Excellent.</label>
+
+
+
+                        <div class="row" *ngFor="let questions of eduselectQuestions; let i = index">
+                                <!-- Question Name -->
+                                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                        <label for="name">{{questions.name}}</label>
+                                    </div>
+                                <!-- Question Name end -->
+
+                                <!-- Question Options -->
+                                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule" *ngFor="let options of questions.options; let j = index">
+
+                                      <ng-template [ngIf]="options.id == questions.answers.option_id">
+                                            <input type="radio" name="perform_{{i}}" [value]="options"    (change)="selectOptions(options)" checked/> <label>{{options.option}}</label>
+
+                                      </ng-template>
+                                      <ng-template [ngIf]="options.id != questions.answers.option_id">
+                                            <input type="radio" name="perform_{{i}}"  [value]="options"   (change)="selectOptions(options)" /> <label>{{options.option}}</label>
+
+                                      </ng-template>
+                                         </div>
+
+                                <!-- Question Options end -->
+                        </div>
+
+
+                    </div>
+                            </div>
+                        <div>
+
+
+                            <input type="submit" class="btn-save" [disabled]="!childEduForm.form.valid" value="EDIT">
+                        </div>
+                            </div>
+                    </form>

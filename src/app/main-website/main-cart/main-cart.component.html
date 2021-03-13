@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="woocommerce">
+       <div class="col-md-12 col-lg-12">
+          <div class="col-md-8 col-sm-12 col-xs-12" id="main-cart">
+              <div class="col-md-12">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                     <span class="top-line"><span class="top-line-1">1</span><span class="top-line-2">2</span><span class="top-line-3">3</span></span>
+                  </div>
+                </div>
+             <div class="col-md-12 col-sm-12 col-xs-12 main-cart-page">
+                <h3 class="head">1. Your billing cycle</h3>
+                <div class="col-md-6 col-sm-12 col-xs-12 col-xs-12">
+                   <h3 id="billed"> <input type="checkbox" name="" value="" checked="" disabled=""><span> Billed Yearly</span></h3>
+                   <ng-container *ngFor="let productListitem of productList; let i = index;" >
+                      <h3 *ngIf="i == filterItem-1"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>{{productListitem.main_tolale | currency:'₹ ':0}}</span> / Year
+                      </h3>
+                   </ng-container>
+
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                   <span>
+                      <h3>For Monthly Billing</h3>
+                      <h4>EMI options available during checkout</h4>
+                      <span>
+                      </span>
+                   </span>
+                </div>
+             </div>
+             <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                </div>
+                <ng-container>
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                   <a (click)="userLink()"  class="enter-details">{{butText}}</a>
+                </div>
+                </ng-container>
+             </div>
+          </div>
+          <div class="col-md-4 col-sm-12 col-xs-12" id="new-pricing-page">
+            <div class="col-md-12 col-lg-12 text-center">
+              <h4>ORDER SUMMARY</h4>
+            </div>
+             <ng-container *ngFor="let productListitem of productList" >
+                <div class="cart">
+                   <div class="product-item">
+                      <h4 class="product-title" style="font-weight: bolder;">{{productListitem.product_name}}</h4>
+                      <h4>AGE & STAGE:
+                          <ng-container *ngFor="let gradeitem of grade" >
+                              <ng-container *ngIf="productListitem.product_type == gradeitem.id" >{{gradeitem.grade_name}}</ng-container>
+                            </ng-container>
+                          <!-- <ng-container *ngIf="productListitem.product_type == 4" >Twos (2 Years to 3 Years )</ng-container>
+                         <ng-container *ngIf="productListitem.product_type == 1" >Preschool (3 Years to 4 Years )</ng-container>
+                         <ng-container *ngIf="productListitem.product_type == 2" >Pre-Kindergarten (4 Years to 5 Years)</ng-container>
+                         <ng-container *ngIf="productListitem.product_type== 3" >Kindergarten (5 Years to 6 Years)</ng-container> -->
+                      </h4>
+                      <h4>Number of Children:{{productListitem.qty}}</h4>
+                      <div class="product-subtotal" data-title="Total">
+                         <h4>PRICE (PER YEAR) <span class="woocommerce-Price-amount amount">{{productListitem.product_price | currency:'₹ ':0}}</span></h4>
+                         <!-- <p>You’ll be charged Rs. 129{{productItem.product_price}} monthly until you cancel your subscription. Previous charges won’t be refunded when you cancel unless it’s legally required. Your payment data is encrypted and secure. All amounts shown are in INR.</p> -->
+                      </div>
+                      <h4>ITEM SUBTOTAL    {{productListitem.subtotal | currency:'₹ ':0}}
+                        (excl. Taxes)
+                          <br>EMI options available during checkout
+                          </h4>
+                   </div>
+                </div>
+             </ng-container>
+             <div class="col-md-12 col-lg-12 paddingless">
+                <div class="col-md-12 col-lg-12 paddingless">
+                <hr>
+                   <table cellspacing="0" class="table table-bordered">
+                      <tbody *ngFor="let productListitem of productList; let i = index;">
+                         <ng-container *ngIf="i == filterItem-1" >
+                            <tr class="cart-subtotal">
+                               <th>ITEM SUB TOTAL</th>
+                               <th>:</th>
+                               <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span> {{productListitem.totale | currency:'₹ ':0}}</span></td>
+                            </tr>
+                            <tr class="tax-rate tax-rate-in-gst-1">
+                               <th>GST</th>
+                               <th>:</th>
+                               <td data-title="GST"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span> {{productListitem.tax | currency:'₹ ':0}}</span></td>
+                            </tr>
+                            <tr class="order-total">
+                               <th>TOTAL TO PAY</th>
+                               <th>:</th>
+                               <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span> {{productListitem.main_tolale | currency:'₹ ':0}}</span></strong> </td>
+                            </tr>
+                         </ng-container>
+                      </tbody>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>

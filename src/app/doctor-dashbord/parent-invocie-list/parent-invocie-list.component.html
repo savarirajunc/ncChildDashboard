@@ -1,0 +1,27 @@
+
+<div class="col-md-12 row">
+  <p>
+    <br>
+  </p>
+  <h3>REVIEW OLD PATIENTS HISTORY & PAYMENTS
+    </h3>
+    <h4>Child Details</h4>
+</div>
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 paddingless">
+    <ng-container *ngFor="let kiditem of _kidsInformations;let i=index;" >
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingless" >
+        <h4>Child {{i+1}}</h4>
+        <div class="col-lg-6 col-sm-12 col-xs-12 paddingleftless">
+            <div  class="but-wight text-center" (click)="invocie()"  >
+                VIEW INVOICE DETAILS
+              </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 col-xs-12 paddingrightless">
+            <div (click)="childindo(kiditem)"  class="but-wight text-center" >
+                VIEW CHILD DETAILS
+              </div>
+        </div>
+      </div>
+
+    </ng-container>
+</div>

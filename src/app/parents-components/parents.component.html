@@ -1,0 +1,214 @@
+<h2>MY ACCOUNT DETAILS</h2>
+<div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+<form name="manage" #addressInfoForm="ngForm" (ngSubmit)="parentsaccountFormSubmit(addressInfoForm)">
+  <p>MOTHER INFORMATION</p>
+  <div class="form-fields parent_account_info">
+    <div class="form-response">
+      <div class="row">
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-fields-col">
+          <label for="name">First Name <span style="color:#f00">*</span></label>
+          <input type="text" OnlyString="true" #mother_first_name="ngModel" class="captailizse"  name="mother_first_name" required #mother_first_name='ngModel' [(ngModel)]="formData.mother.first_name">
+          <span *ngIf="mother_first_name.invalid && (mother_first_name.dirty || mother_first_name.touched)">
+            <!-- <span *ngIf="mother_first_name.errors.minlength" class="bg-danger text-white error">
+              Please enter valid name.
+            </span> -->
+
+          <span *ngIf="mother_first_name.errors.required" class="bg-danger text-white error">
+              First Name field is required.
+            </span>
+          </span>
+
+
+
+
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-fields-col">
+          <label for="lastname">Last Name <span style="color:#f00">*</span></label>
+          <input type="text" OnlyString="true" class="captailizse" name="mother_last_name" #mother_last_name='ngModel' required [(ngModel)]="formData.mother.last_name">
+
+
+          <span *ngIf="mother_last_name.invalid && (mother_last_name.dirty || mother_last_name.touched)">
+                <!-- <span *ngIf="mother_last_name.errors.minlength" class="bg-danger text-white error">
+                  Please enter valid name.
+                </span> -->
+          <span *ngIf="mother_last_name.errors.required" class="bg-danger text-white error">
+                  Last Name field is required.
+                </span>
+          </span>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-fields-col">
+          <label for="email">Email <span style="color:#f00">*</span></label>
+          <input type="text" name="mother_email" #mother_email='ngModel' [(ngModel)]="formData.mother.email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+          <span *ngIf="mother_email.invalid && (mother_email.dirty || mother_email.touched)">
+                <span *ngIf="mother_email.errors.pattern" class="bg-danger text-white error">
+                  Please enter valid email.
+                </span>
+          <span *ngIf="mother_email.errors.required" class="bg-danger text-white error">
+                  Email field is required.
+                </span>
+          </span>
+
+
+
+
+        </div>
+
+
+
+
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="mobile">Mobile Number <span style="color:#f00">*</span></label>
+          <input type="text" OnlyNumber="true" name="mother_mobile"  #mother_mobile='ngModel' required [(ngModel)]="formData.mother.mobile">
+          <span *ngIf="mother_mobile.invalid && (mother_mobile.dirty || mother_mobile.touched)">
+                <!-- <span *ngIf="mother_mobile.errors.maxlength" class="bg-danger text-white error">
+                  Please enter valid Mobile.
+                </span> -->
+          <span *ngIf="mother_mobile.errors.required" class="bg-danger text-white error">
+                  Mobile field is required.
+                </span>
+          </span>
+
+
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-fields-col">
+          <label for="state">Occupation <span style="color:#f00">*</span></label>
+          <select name="" id="" name="mother_occupation" #mother_occupation='ngModel'  required [(ngModel)]="formData.mother.occupation">
+            <option value="Employed">Employed</option>
+            <option value="Homemaker">Homemaker</option>
+          </select>
+          <span *ngIf="mother_occupation.invalid && (mother_occupation.dirty || mother_occupation.touched)">
+                <!-- <span *ngIf="mother_last_name.errors.minlength" class="bg-danger text-white error">
+                  Please enter valid Occupation.
+                </span> -->
+          <span *ngIf="mother_occupation.errors.required" class="bg-danger text-white error">
+                  Occupation field is required.
+                </span>
+          </span>
+
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="country">Company Name </label>
+          <input type="text" OnlyString="true" name="mother_company_name"  #mother_company_name='ngModel'  [(ngModel)]="formData.mother.company_name">
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>FATHER INFORMATION</p>
+
+  <div class="form-fields parent_account_info">
+    <div class="form-response">
+      <div class="row">
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-fields-col">
+          <label for="name">First Name <span style="color:#f00">*</span></label>
+          <input type="text" OnlyString="true" name="father_first_name" #father_first_name='ngModel'  required  [(ngModel)]="formData.father.first_name">
+
+          <span *ngIf="father_first_name.invalid && (father_first_name.dirty || father_first_name.touched)">
+                <!-- <span *ngIf="father_first_name.errors.minlength" class="bg-danger text-white error">
+                  Please enter valid name.
+                </span> -->
+
+              <span *ngIf="father_first_name.errors.required" class="bg-danger text-white error">
+                  First Name field is required.
+                </span>
+              </span>
+
+
+
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="lastname">Last Name <span style="color:#f00">*</span></label>
+          <input type="text" OnlyString="true" name="father_last_name" #father_last_name='ngModel' required [(ngModel)]="formData.father.last_name">
+
+          <span *ngIf="father_last_name.invalid && (father_last_name.dirty || father_last_name.touched)">
+                <!-- <span *ngIf="father_last_name.errors.minlength" class="bg-danger text-white error">
+                  Please enter valid name.
+                </span> -->
+          <span *ngIf="father_last_name.errors.required" class="bg-danger text-white error">
+                  Last Name field is required.
+                </span>
+          </span>
+
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-fields-col">
+          <label for="email">Email <span style="color:#f00">*</span></label>
+          <input type="text" name="father_email" #father_email='ngModel' [(ngModel)]="formData.father.email" required>
+          <span *ngIf="father_email.invalid && (father_email.dirty || father_email.touched)">
+                <!-- <span *ngIf="father_email.errors.pattern" class="bg-danger text-white error">
+                  Please enter valid email.
+                </span> -->
+          <span *ngIf="father_email.errors.required" class="bg-danger text-white error">
+                  Email field is required.
+                </span>
+          </span>
+
+
+
+
+        </div>
+
+
+
+
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="mobile">Mobile Number <span style="color:#f00">*</span></label>
+          <input type="text" OnlyNumber="true" OnlyNumber="true" name="father_mobile" maxlength="10" #father_mobile='ngModel' required [(ngModel)]="formData.father.mobile">
+          <span *ngIf="father_mobile.invalid && (father_mobile.dirty || father_mobile.touched)">
+                <span *ngIf="mother_mobile.errors.maxlength" class="bg-danger text-white error">
+                  Please enter valid Mobile.
+                </span>
+          <span *ngIf="father_mobile.errors.required" class="bg-danger text-white error">
+                  Mobile field is required.
+                </span>
+          </span>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-fields-col">
+          <label for="state">Occupation <span style="color:#f00">*</span></label>
+          <select name="" id="" name="father_occupation"  #father_occupation='ngModel' required [(ngModel)]="formData.father.occupation">
+            <option value="Employed">Employed</option>
+            <option value="Homemaker">Homemaker</option>
+          </select>
+          <span *ngIf="father_occupation.invalid && (father_occupation.dirty || father_occupation.touched)">
+                <!-- <span *ngIf="mother_last_name.errors.minlength" class="bg-danger text-white error">
+                  Please enter valid Occupation.
+                </span> -->
+          <span *ngIf="father_occupation.errors.required" class="bg-danger text-white error">
+                  Occupation field is required.
+                </span>
+          </span>
+
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="country">Company Name</label>
+          <input type="text" OnlyString="true" name="father_company_name"  #father_company_name='ngModel'  [(ngModel)]="formData.father.company_name">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <input type="submit" [disabled]="!addressInfoForm.form.valid" class="btn-save" value="SAVE CHANGES">
+  </div>
+
+</form>

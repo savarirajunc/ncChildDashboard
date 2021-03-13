@@ -1,0 +1,45 @@
+.page-header {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 0px solid #eee;
+}
+.button-col{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.but-wight {
+  padding: 5px;
+  border: 1px solid;
+  font-size: 18px;
+  cursor: pointer;
+  background: #fff;
+  color: #333;
+  width: 350px;
+  float: none;
+  margin: auto;
+}
+.but-black{
+  padding: 5px;
+  border: 1px solid;
+  font-size: 18px;
+  cursor: pointer;
+  background: #333;
+  color: #fff;
+  width: 350px;
+  float: none;
+  margin: auto;
+}
+.but-black:hover{
+  background: #83D0C9;
+}
+.but-wight:hover{
+  background: #83D0C9;
+  border: 1px solid #83D0C9;
+  color:#fff;
+}
+.but-wight {
+  outline: none;
+}
+.but-black{
+  outline: none;
+}

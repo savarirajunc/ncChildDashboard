@@ -1,0 +1,44 @@
+<div class="col-md-12 col-lg-12">
+  <div class="col-md-12 col-lg-12">
+      <h3>Game Tagging</h3>
+  </div>
+<form action="">
+    <div class="form-fields">
+      <div class="col-md-12 col-lg-12">
+        <div class="col-md-4 col-lg-4">
+          <label for="">Select Grade</label>
+          <select name="grade_id" id="" #grade_id = "ngModel" [(ngModel)]="fliter.grade_id">
+            <option *ngFor="let grades of grade" value="{{grades.id}}">{{grades.grade_name}}</option>
+          </select>
+        </div>
+        <div class="col-md-4 col-lg-4">
+          <label for="">Select Framework Core </label>
+          <select name="framework_id" #framework_id = "ngModel" id="" [(ngModel)]="fliter.framework_id">
+            <option *ngFor="let coreframworks of coreframwork" value="{{coreframworks.id}}">{{coreframworks.name}}</option>
+          </select>
+        </div>
+        <div class="col-md-4 col-lg-4">
+          <label for="">Select Subject</label>
+          <select  name="subject_id" #subject_id = "ngModel" id="" [(ngModel)]="fliter.subject_id">
+            <option *ngFor="let subject of subjects" value="{{subject.id}}">{{subject.subject_name}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="col-md-12 col-lg-12">
+    <div *ngFor="let gamelists of gamelist | gameFliter:fliter.grade_id:fliter.framework_id:fliter.subject_id">
+      <div *ngFor="let gameinfos of gameinfo; let i = index">
+        <div *ngIf="gamelists.game_id == gameinfos.id">
+          <a [routerLink]="['../','assingnewgamedetails',gameinfos.id]">
+            <div class="col-md-3 col-md-3 gamelist">
+              <div class="gamename">
+                <span>{{gameinfos.games_name}}</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

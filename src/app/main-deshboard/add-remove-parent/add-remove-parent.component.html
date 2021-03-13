@@ -1,0 +1,243 @@
+
+<div class="add-remove-container col-md-12">
+  <h4 class="" style="">Add and Remove Parent</h4>
+  <div class="row daily-development">
+    <ul class="nav nav-tabs">
+      <li><a data-toggle="tab"  href="#cored-edu" style="font-size:18px;">Parent details</a></li>
+      <li><a data-toggle="tab" href="#child-development" style="font-size:18px;">Add Parents</a></li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div class="row tab-pane fade in active" id="cored-edu">
+      <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>S/N</th>
+          <th>Firstname</th>
+          <th>Parent Type</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let formdeleteData of parent[currentPage]; let i = index" >
+        <tr>
+          <td>{{i+(currentPage*15) + 1}}</td>
+          <td class="word-form">{{formdeleteData.first_name}}</td>
+          <td class="word-form">{{formdeleteData.parent_type}}</td>
+          <td>{{formdeleteData.email}}</td>
+          <td>{{formdeleteData.mobile}}</td>
+          <td>
+              <input type="submit" name="but" id="delete" value="Delete" (click)="deleteParent(formdeleteData.id)">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-center pagination_nav">
+      <ng-container *ngIf="currentPage >= 10">
+        <a class="pagenav" (click)="selectPageBack()">&lsaquo;&lsaquo;</a>
+      </ng-container>
+      <ng-container *ngFor="let gamedetailsitem of pageArray| slice:pageIdx*10:(pageIdx+1)*10;let i=index">
+            <a class="pagenav" (click)="setGameDetailsView(gamedetailsitem)" [ngClass]="{'active':gamedetailsitem===currentPage}">{{gamedetailsitem+1}}</a>
+      </ng-container>
+      <ng-container *ngIf="currentPage < (pageNav -1) ">
+        <a class="pagenav" (click)="selectPage()">&rsaquo;&rsaquo;</a>
+      </ng-container>
+    </div>
+    </div>
+
+
+
+
+    <!-- Child Development -->
+    <div id="child-development" class="row tab-pane fade">
+      <section class="section inner-section signin-block">
+          <div class="row ">
+
+            <div class="col-lg-12">
+              <h3>Add New Parent</h3>
+              <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+            </div>
+
+            <div class="col-lg-8 col-md-8 col-sm-12 login-sec">
+              <h4>Account</h4>
+              <form #signUpForm="ngForm" (ngSubmit)="signUpFormSubmit(signUpForm)">
+
+                <div class="tbl-form-list clearfix">
+                  <div class="form-fields">
+                    <label>First Name <span>*</span></label>
+                    <input name="first_name" OnlyString="true" #first_name='ngModel' autofocus  class="captailizse" maxlength="30" minlength="3" type="text" [(ngModel)]="formData.first_name"
+                      required pattern="[a-zA-Z ]*">
+
+                    <!-- error validation -->
+                    <div *ngIf="first_name.invalid && (first_name.dirty || first_name.touched)">
+                      <div *ngIf="first_name.errors.minlength" class="bg-danger text-white error">
+                        Please enter atleast 3 characters
+                      </div>
+                      <div *ngIf="first_name.errors.maxlength" class="bg-danger text-white error">
+                        Please enter maxlength 30
+                      </div>
+                      <div *ngIf="first_name.errors.pattern" class="bg-danger text-white error">
+                          Please enter a valid first name
+                      </div>
+                      <div *ngIf="first_name.errors.required" class="bg-danger text-white error">
+                        Please enter a valid first name
+                      </div>
+
+
+                    </div>
+
+
+
+                  </div>
+                  <div class="form-fields">
+                    <label>Last Name <span>*</span></label>
+                    <input name="last_name" OnlyString="true" #last_name='ngModel' class="captailizse" maxlength="30" minlength="3" type="text" [(ngModel)]="formData.last_name" required pattern="[a-zA-Z ]*">
+                    <!-- error validation -->
+                    <div *ngIf="last_name.invalid && (last_name.dirty || last_name.touched)">
+                      <div *ngIf="last_name.errors.minlength" class="bg-danger text-white error">
+                        Please enter atleast 3 characters
+                      </div>
+                      <div *ngIf="last_name.errors.maxlength" class="bg-danger text-white error">
+                        Please enter maxlength
+                      </div>
+                      <div *ngIf="last_name.errors.pattern" class="bg-danger text-white error">
+                          Please enter a valid last name
+                      </div>
+                      <div *ngIf="last_name.errors.required" class="bg-danger text-white error">
+                        Please enter a valid last name
+                      </div>
+                      <!-- error validation -->
+
+                    </div>
+
+                  </div>
+                  <div class="form-fields">
+                    <label>Mobile <span>*</span></label>
+                    <input name="mobile" #mobile='ngModel' length="10" maxlength="10" OnlyNumber="true" OnlyMobile="true" type="text" class="mobile-number" minlength="10"  [(ngModel)]="formData.mobile" required>
+
+                    <!-- error validation -->
+                    <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)">
+
+                      <div *ngIf="mobile.errors.minlength" class="bg-danger text-white error">
+                        Please enter minlength
+                      </div>
+                      <div *ngIf="mobile.errors.length" class="bg-danger text-white error">
+                        Please enter maxlength
+                      </div>
+                      <div *ngIf="mobile.errors.required" class="bg-danger text-white error">
+                        Mobile field is required.
+                      </div>
+
+                    </div>
+                    <!-- error validation -->
+
+                  </div>
+                  <div class="form-fields">
+                    <label for="name">Parent <span>*</span></label>
+                    <select id="parent" name="parent_type" #parent_type='ngModel' [(ngModel)]="formData.parent_type" required>
+                      <option value="" disabled="disabled" selected="selected">-- Select --</option>
+                      <option value="father">Father</option>
+                      <option value="mother">Mother</option>
+
+                  </select>
+
+                  <div *ngIf="parent_type.invalid && (parent_type.dirty || parent_type.touched)">
+                      <!-- <div *ngIf="last_name.errors.minlength" class="bg-danger text-white error">
+                        Please enter minlength
+                      </div>
+                      <div *ngIf="parent_type.errors.v" class="bg-danger text-white error">
+                        Please enter maxlength
+                      </div> -->
+                      <div *ngIf="parent_type.errors.required" class="bg-danger text-white error">
+                        Parent field is required.
+                      </div>
+                      <!-- error validation -->
+
+                    </div>
+
+                  </div>
+                  <div class="form-fields">
+                    <label>Email <span>*</span> </label>
+                    <input name="email" type="text" #email='ngModel' [(ngModel)]="formData.email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" >
+                        <div *ngIf="email.errors.pattern" class="bg-danger text-white error">
+                          Please enter valid email.
+                        </div>
+                        <div *ngIf="email.errors.required" class="bg-danger text-white error">
+                          Email field is required.
+                        </div>
+
+
+                      </div>
+
+
+
+
+                  </div>
+                  <div class="form-fields">
+                    <label>Password <span>*</span></label>
+                    <input name="password" OnlyPassword="true" type="password" #password='ngModel' minlength="6" maxlength="15" [(ngModel)]="formData.password" required >
+
+
+                      <div *ngIf="password.invalid && (password.dirty || password.touched)" >
+                          <div *ngIf="password.errors.minlength" class="bg-danger text-white error">
+                            Please enter atleast 6 characters
+                          </div>
+                          <div *ngIf="password.errors.maxlength" class="bg-danger text-white error">
+                              Please enter valid maxlength 15
+                            </div>
+                          <div *ngIf="password.errors.required" class="bg-danger text-white error">
+                            Password field is required.
+                          </div>
+
+
+                        </div>
+                  </div>
+
+                  <div class="form-fields">
+                    <label>Confirm Password <span>*</span> </label>
+                    <input name="confirmpassword" OnlyPassword="true" type="password" minlength="6" maxlength="15" #confirmpassword='ngModel' [(ngModel)]="formData.confirmpassword" required>
+                      <div *ngIf="confirmpassword.invalid && (confirmpassword.dirty || confirmpassword.touched)" >
+                          <div *ngIf="confirmpassword.errors.minlength" class="bg-danger text-white error">
+                            Please enter atleast 6 characters
+                          </div>
+                          <div *ngIf="confirmpassword.errors.maxlength" class="bg-danger text-white error">
+                              Please enter valid maxlength 15
+                            </div>
+                          <div *ngIf="confirmpassword.errors.required" class="bg-danger text-white error">
+                            Confirm Password field is required.
+                          </div>
+
+
+                        </div>
+
+
+                          <div *ngIf="formData.confirmpassword != formData.password" class="bg-danger text-white error">
+                            Confirm Password and Password not equal
+                          </div>
+
+
+
+                  </div>
+
+
+                </div>
+                <label> </label>
+                <input type="submit" class="createbtn btn-signup" [disabled]="!signUpForm.form.valid || btndisabled || formData.confirmpassword != formData.password" value="Add New">
+
+              </form>
+
+
+
+
+            </div>
+
+
+          </div>
+        </section>
+
+    </div>
+  </div>
+</div>

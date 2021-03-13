@@ -1,0 +1,23 @@
+timepicker{
+    margin-left:10px;
+}
+select{
+    width: 100%;
+    padding: 5px;
+}
+#dailyroutine{
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.form-fields input[type="submit"], .form-fields button[type="submit"] {
+  background: #4d4d4d;
+  padding: 7px 50px;
+  font-size: 1em;
+  color: #fff;
+  font-family: 'GillSansStd-Light';
+  text-transform: uppercase;
+  float: right;
+  width: auto;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}

@@ -1,0 +1,33 @@
+<h2>PRE NIDARA QUESTIONNAIRE MEDICAL CONCERNS</h2>
+<div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+<form #medicalConcernForm="ngForm" (ngSubmit)="medicalConcernFormSubmit(medicalConcernForm)">
+  <div class="form-fields medical_info">
+    <div class="form-response">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <p>Enter any medical concerns you may have about your childs below</p>
+          <textarea name="medical_concern" #medical_concern='ngModel' minlength="3" maxlength="150" id="medical" [(ngModel)]="formData.medical_concern" required></textarea>
+
+          <div *ngIf="medical_concern.invalid && (medical_concern.dirty || medical_concern.touched)">
+
+            <div *ngIf="medical_concern.errors.minlength" class="bg-danger text-white error">
+              Please enter atleast 3 characters
+            </div>
+            <div *ngIf="medical_concern.errors.maxlength" class="bg-danger text-white error">
+              Please enter maxlength
+            </div>
+            <div *ngIf="medical_concern.errors.required" class="bg-danger text-white error">
+              Medical Concern field is required.
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div>
+      <input type="submit" [disabled]="!medicalConcernForm.form.valid" class="btn-save" value="Edit">
+    </div>
+  </div>
+
+</form>

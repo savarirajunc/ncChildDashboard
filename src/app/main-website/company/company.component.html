@@ -1,0 +1,190 @@
+<section class="section breadcrumb-section">
+  <div class="container">
+  <div class="row">
+
+  <div class="col-lg-12">
+   <div class="breadcrumb-block clearfix" typeof="BreadcrumbList" vocab="https://schema.org/">
+   <ul>
+   <li>YOU ARE HERE:</li>
+   <!-- Breadcrumb NavXT 5.7.1 -->
+ <li class="home"><span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to Home." href="/Home" class="home"><span property="name">Home</span></a><meta property="position" content="1"></span></li>
+ <li class="current_item"><span property="itemListElement" typeof="ListItem"><span property="name">Company</span><meta property="position" content="2"></span></li>
+
+     </ul>
+  </div>
+  </div>
+
+  </div>
+  </div>
+  </section>
+  <div class="Company" id="layout-container">
+    <div id="layout-banner-bg">
+      <div class="container">
+              <div class="" id="layout-banner">
+                  <div class="layout-banner">
+                    <img class="img-responsive" src="assets/web_img/2-WITHOUT-TEXT.png" alt="Company" title="Company">		<div class="banner-content"> <h3 style="text-align: center;">WELCOME TO NIDARA-CHILDREN</h3>
+    <h3 style="text-align: center;">YOUR WORK-LIFE BALANCE&nbsp; SUPPORT FOR HARDWORKING MOMS AND DADS</h3>
+    <h3 style="text-align: center;"><a class="s-explore-2" (click) = "discver()">DISCOVER</a></h3>
+     </div>
+                  </div>
+              </div>
+          </div>
+    </div>
+     <div class="container">
+    <div class="row" id="explore-frist">
+    <div class="home-slide h-slide-1 ">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-float ">
+           <div class="slide-img">
+                       <img src="assets/web_img/32122847_l.jpg" alt="">
+                    </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="slide-content">
+              <h4></h4>
+                <h2>RETAIN TALENTED WORKING MOMS AND DADS.</h2>
+                <p class="western" lang="en-US" style="text-align: center;">Make the working mothers and fathers feel happy to be at your workplace by balancing their children and their careers.</p>
+    <p class="western" lang="en-US" style="text-align: center;">Give them the gift of Nidara-Children.</p>
+                    <div class="h-link"><br>
+                <a class="s-explore" (click) = "descoverNidara()">DISCOVER NIDARA-CHILDREN</a>
+                </div>
+                  </div>
+        </div>
+    </div>
+    </div>
+    <div class="row" id="explore">
+    <div class="home-slide  h-slide-1">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12  no-float">
+           <div class="slide-img">
+                       <img src="assets/web_img/55370234_l.jpg" alt="">
+                    </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="slide-content">
+              <h4></h4>
+                <h2>HELP WORKING PARENTS BE GREAT AT PARENTHOOD AND IN THEIR CAREERS.</h2>
+                <p style="text-align: center;">Research shows that talented mothers and fathers Sometimess get overwhelmed and take a back seat with their careers. Retain great employees by offering a child development system that helps them manage their child’s overall development without losing focus on their careers.</p>
+                    <div class="h-link-button">
+                <a (click) = "pageLoardDoen () " class="go-to-get-now"><button>GET STARTED</button></a>
+                </div>
+                  </div>
+        </div>
+    </div>
+    </div>
+    <div class="row" id="">
+    <div class="home-slide  ">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12  ">
+           <div class="slide-img">
+                       <img src="assets/web_img/55370821_l.jpg" alt="">
+                    </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="slide-content">
+              <h4></h4>
+                <h2>HELP WORKING PARENTS SPEND QUALITY TIME WITH THEIR CHILDREN.</h2>
+                <p style="text-align: center;">Nidara-Children’s daily parent tips in the parent dashboards helps parents engage with their children meaningfully if they spend atleast 15 minutes a day and give them undivided attention.</p>
+                </div>
+        </div>
+    </div>
+    </div>
+
+    </div>
+    <div class="container">
+
+    </div>
+    <div class="container" id="downsection">
+        <div class="col-md-12 col-md-12 row " id="layout-two-column">
+        <div class="two_img"></div>
+        <div class="two_img_row">
+      </div>
+      </div>
+      </div>
+    <div class="container" id="form-col-section">
+          <div class="col-md-12 col-lg-12 row" id="layout-two-column">
+              <div class="text-center form-col">
+            <div class="layout-heading text-center"><h2>GIVE MY EMPLOYEES WORK-LIFE BALANCE</h2></div>
+            <form  id=formId [formGroup]="companyForm" (ngSubmit)="onSubmit(company)" #company="ngForm">
+              <div class="col-md-12 col-lg-12">
+              <div class="form-group col-md-6 col-lg-6">
+                <input class="form-control" OnlyString="true" formControlName="first_name" name="first_name" required="" type="text" placeholder="First Name *">
+                <div *ngIf="!companyForm.get('first_name').valid && companyForm.get('first_name').touched" class="bg-danger text-white error">
+                  Please Enter First Name (Minimum 2 Characters)
+                </div>
+              </div>
+              <div class="form-group col-md-6 col-lg-6">
+                <input class="form-control"  OnlyString="true" formControlName="last_name" name="last_name" required="" type="text" placeholder="Last Name *">
+                <div *ngIf="!companyForm.get('last_name').valid && companyForm.get('last_name').touched" class="bg-danger text-white error">
+                  Please Enter Last Name (Minimum 2 Characters)
+                </div>
+              </div>
+              </div>
+              <div class="col-md-12 col-lg-12">
+              <div class="form-group col-md-6 col-lg-6">
+                <input class="form-control" name="email" required="" formControlName="email" type="email" placeholder="Email Address *">
+                <div *ngIf="!companyForm.get('email').valid && companyForm.get('email').touched" class="bg-danger text-white error">
+                  Please enter valid email.
+                </div>
+              </div>
+              <div class="form-group col-md-6 col-lg-6">
+                <input class="form-control" OnlyNumber = "true" maxlength="15" formControlName="phone_number"  name="phone_number" required="" type="number" placeholder="Phone Number *">
+                <div *ngIf="!companyForm.get('phone_number').valid && companyForm.get('phone_number').touched" class="bg-danger text-white error">
+                  Mobile Number field is required.
+                </div>
+              </div>
+              </div>
+              <div class="col-md-12 col-lg-12">
+              <div class="form-group col-md-6 col-lg-6">
+                <select id="" class="form-control" formControlName="enquiry_type" name="enquiry_type" required="">
+                  <option value="">Enquiry Type *</option>
+                  <option value="Nidara for my parent employees in organization">Nidara for my parent employees in organization</option>
+                  <option value="Request for Early Child Development Workshops">Request for Early Child Development Workshops</option>
+                  <option value="Other">Other</option>
+                </select>
+                <div *ngIf="!companyForm.get('enquiry_type').valid && companyForm.get('enquiry_type').touched" class="bg-danger text-white error">
+                This field is required.
+                </div>
+              </div>
+              <div class="form-group col-md-6 col-lg-6">
+                <input class="form-control" name="company_name" formControlName="company_name" required="" type="text" placeholder="Company Name *">
+                <div *ngIf="!companyForm.get('company_name').valid && companyForm.get('company_name').touched" class="bg-danger text-white error">
+                  This field is required.
+                  </div>
+              </div>
+              </div>
+              <div class="col-md-12 col-lg-12">
+              <div class="form-group col-md-6 col-lg-6">
+                <select id="" class="form-control" formControlName="position" name="position" required="">
+                  <option value="">Position *</option>
+                  <option value="HR Manager">HR Manager</option>
+                  <option value="Other">Other</option>
+                </select>
+                <div *ngIf="!companyForm.get('position').valid && companyForm.get('position').touched" class="bg-danger text-white error">
+                  This field is required.
+                  </div>
+                <br>
+             <!-- <input class="form-control" name="position" required="" type="text" placeholder="Position *" /> -->
+</div>
+              </div>
+              <div class="col-md-12 col-lg-12">
+              <div class="form-group col-md-12 col-lg-12">
+                <textarea id="" class="form-control" formControlName="help" cols="10" name="help" rows="4" placeholder="Let us know how we can help "></textarea>
+                <div *ngIf="!companyForm.get('help').valid && companyForm.get('help').touched" class="bg-danger text-white error">
+                  This field is required.
+                  </div>
+              </div>
+              </div>
+              <div class="col-md-12 col-lg-12">
+              <div class="form-group col-md-6 col-lg-6"></div>
+              <div class="form-group col-md-6 col-lg-6">
+                <input class="go-to-get-now form-control" name="docreg" type="submit" value="SEND">
+              </div>
+              </div>
+              </form>
+          </div>
+             <!-- <div class="get-now-form" id="notify-me">
+           <div class="h-link-button">
+             <a href="/contact-us" id="go-to-pricing"><button>CONTACT US</button></a>
+             </div>
+            </div> -->
+
+    </div>
+    </div>

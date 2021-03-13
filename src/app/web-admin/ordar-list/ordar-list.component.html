@@ -1,0 +1,76 @@
+<div class=" col-md-12 col-lg-12 paddingrightless">
+  <div class="page-nav">
+    <h3>ALL Orders</h3>
+    <!-- <span class="add_new" href="add-product">Add New</span> -->
+  </div>
+  <div class="tab-pane fade in">
+    <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>S/N</th>
+        <th>User Name</th>
+        <th>Order Id</th>
+        <th>qty</th>
+        <th>Total Price</th>
+        <th>Order Status</th>
+        <th>Source</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let productitem of product[currentPage];let i=index">
+            <tr>
+              <td class="word-form">{{i+(currentPage*15) + 1}}</td>
+              <td class="word-form">
+                <ng-container *ngFor="let userinfoitem of productitem.userinfo" >
+                    {{userinfoitem.first_name}}
+                </ng-container>
+
+              </td>
+              <td class="word-form">
+                  {{productitem.order_id}}
+              </td>
+              <td class="word-form">
+                <ng-container *ngFor="let order_priceitem of productitem.order_price; let i =index" >
+                  <ng-container *ngIf="i === productLength-1" >
+                    {{order_priceitem.product_qty}}
+                  </ng-container>
+                </ng-container>
+              </td>
+              <td class="word-form" >
+                <ng-container *ngFor="let order_priceitem of  productitem.order_price" >
+                  <ng-container *ngFor="let product_detailsitem of order_priceitem.product_details" >
+                    {{product_detailsitem.totale}}
+                  </ng-container>
+
+                </ng-container>
+              </td>
+              <td class="word-form" >
+                  <ng-container *ngFor="let statusitem of productitem.status" >
+                  <span style="">{{statusitem.status}}</span>
+                </ng-container>
+                </td>
+              <td class="word-form" >
+                <span style="">{{productitem.bysource}}</span>
+              </td>
+              <td class="word-form" >
+                <span class="but" [routerLink]="['../','view-ordar',productitem.id]">View Order</span>
+              </td>
+            </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  <div class="text-center pagination_nav">
+    <ng-container *ngIf="currentPage >= 10">
+      <a class="pagenav" (click)="selectPageBack()">&lsaquo;&lsaquo;</a>
+    </ng-container>
+    <ng-container *ngFor="let productitem of pageArray| slice:pageIdx*10:(pageIdx+1)*10;let i=index">
+          <a class="pagenav" (click)="setGameDetailsView(productitem)" [ngClass]="{'active':productitem===currentPage}">{{productitem+1}}</a>
+    </ng-container>
+    <ng-container *ngIf="currentPage < (pageNav -1) ">
+      <a class="pagenav" (click)="selectPage()">&rsaquo;&rsaquo;</a>
+    </ng-container>
+  </div>
+</div>
+</div>
+

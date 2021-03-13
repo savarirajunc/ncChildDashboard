@@ -1,0 +1,72 @@
+<ng-container *ngFor="let childInfoitem of childInfo">
+    <div class="kidinfo">
+      <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+          <img class="img-circle child-photo" src="{{childInfoitem.child_photo}}" alt="">
+        </div>
+        <div class="col-md-9 col-md-9 col-sm-12 col-xs-12">
+            <div class="col-md-12 col-lg-12 name">
+              <h3>{{childInfoitem.first_name}} {{childInfoitem.last_name}}</h3>
+            </div>
+          <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 paddingless">
+              <div class="col-md-6 col-md-6 paddingless">
+                  <div class="col-md-5 col-md-5">
+                    <p>Visit  </p>
+                  </div>
+                  <div class="col-md-7 col-md-7">
+                    <p> <span>{{visit}}</span></p>
+                  </div>
+              </div>
+              <div class="col-md-6 col-md-6 paddingless">
+                  <div class="col-md-5 col-md-5">
+                      <p>Gender  </p>
+                    </div>
+                    <div class="col-md-7 col-md-7">
+                      <p> <span>{{childInfoitem.gender}}</span></p>
+                    </div>
+                  <!-- <p>Gender  <span> {{childInfoitem.gender}}</span></p> -->
+                </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" id="section-two">
+        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 paddingless">
+            <div class="col-md-5 col-md-5">
+                <p>Age  </p>
+              </div>
+              <div class="col-md-7 col-md-7 paddingless">
+                <p> <span>{{childInfoitem.age}}</span></p>
+              </div>
+          <!-- <p>Age  <span>{{childInfoitem.age}}</span></p> -->
+        </div>
+        <div class="col-md-9 col-md-9 col-sm-12 col-xs-12">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 paddingless">
+              <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 paddingless">
+                  <div class="col-md-5 col-md-5">
+                      <p>Height  </p>
+                    </div>
+                    <div class="col-md-7 col-md-7">
+                      <p> <span>{{childInfoitem.height}} CM</span></p>
+                    </div>
+                <!-- <p>Height  <span>{{childInfoitem.height}} CM</span></p> -->
+              </div>
+              <div class="col-md-6 col-md-6 col-sm-12 col-xs-12 paddingless">
+                  <div class="col-md-5 col-md-5">
+                      <p>Weight  </p>
+                    </div>
+                    <div class="col-md-7 col-md-7">
+                      <p> <span>{{childInfoitem.weight}} KG</span></p>
+                    </div>
+                <!-- <p>Weight  <span>{{childInfoitem.weight}} KG</span></p> -->
+              </div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </ng-container>
+  <ul>
+    <li><a style="text-transform:uppercase;" (click)="goBackToMainChild()" >Go Back To Main Child Profile</a></li>
+  </ul>
+  <router-outlet></router-outlet>

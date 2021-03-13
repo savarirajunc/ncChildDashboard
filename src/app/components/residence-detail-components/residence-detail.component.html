@@ -1,0 +1,38 @@
+<h2>COUNTRY OF RESIDENCE</h2>
+<div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+<form name="residence" #residenceForm="ngForm" (ngSubmit)="residenceFormSubmit(residenceForm)">
+                            <div class="form-fields residence_info">
+                                <div class="form-response">
+                               <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <label for="height">Country of Residence</label>
+
+                                    <select class="form-control" id="sel1" name='country_of_residence' #country_of_residence='ngModel' [(ngModel)]="formData.country_of_residence"  required>
+                                            <option value="" selected="selected">-Select Country-</option>
+                                            <option *ngFor="let opt of countryDetails; let i = index" value="{{opt.id}}">{{opt.country_name}}</option>
+                                        </select>
+                                        <div *ngIf="country_of_residence.invalid" >
+                                                <div *ngIf="country_of_residence.errors.required" class="bg-danger text-white error">
+                                                        Please select Residence.
+                                                </div>
+                                        </div>
+                                </div>
+                                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <label for="weight">Country of Citizenship</label>
+                                    <select class="form-control" id="sel1" name='country_of_citizenship' #country_of_citizenship='ngModel' [(ngModel)]="formData.country_of_citizenship"  required>
+                                            <option value="" selected="selected">-Select Country-</option>
+                                            <option *ngFor="let opt of countryDetails; let i = index" value="{{opt.id}}">{{opt.country_name}}</option>
+                                        </select>
+                                        <div *ngIf="country_of_citizenship.invalid" >
+                                                <div *ngIf="country_of_citizenship.errors.required" class="bg-danger text-white error">
+                                                        Please select Citizenship.
+                                                </div>
+                                        </div>
+                                </div>
+                                   </div>
+                                     </div>
+                                <div>
+                                    <input type="submit" [disabled]="!residenceForm.form.valid" class="btn-save" value="Save Changes">
+                                </div>
+                            </div>
+                        </form>

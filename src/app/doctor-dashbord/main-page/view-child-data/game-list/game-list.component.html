@@ -1,0 +1,14 @@
+<div id="child-development" class="col-md-12 col-lg-12 col-sm-12 col-xs-12   paddingless">
+  <div id="game-lest" class="col-md-12 col-lg-12 col-xs-12 col-sm-12 paddingless">
+    <ng-container *ngFor="let game_infoitem of game_info" >
+      <a [routerLink]="['../../../indgame',game_infoitem.game_id]">
+      <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 report">
+        <div class="color" [style.background-color]="game_infoitem.color">
+        <br>
+        <p class="result-title">{{game_infoitem.games_name}}</p>
+      </div>
+      </div>
+    </a>
+    </ng-container>
+  </div>
+  </div>

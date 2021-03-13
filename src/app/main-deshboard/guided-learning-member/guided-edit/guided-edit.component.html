@@ -1,0 +1,84 @@
+<div class="row tab-pane fade in " id="child-development">
+  <form action="" #guidedForm="ngForm" (ngSubmit)="guidedSubmit()">
+    <div class="tbl-form-list clearfix">
+      <ng-container *ngFor="let guidedScheduleitem of guidedSchedule;let i=index">
+      <div class="form-fields">
+        <div class="col-md-12 col-lg-12 form-col-br">
+          <div class="col-md-6 col-lg-6">
+            <label>Select Segment</label>
+            <select name="guided_learning_id" #guided_learning_id ="ngModel" id="" [(ngModel)]="guidedScheduleitem.grade_id"  required>
+              <option *ngFor="let guidedlists of guidedlist" value="{{guidedlists.id}}">{{guidedlists.learning_model}}</option>
+            </select>
+            <div *ngIf="guided_learning_id.invalid && (guided_learning_id.dirty || guided_learning_id.touched)">
+                <div *ngIf="guided_learning_id.errors.required" class="bg-danger text-white error">
+                  Primary Segment field is required.
+                </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6"><label for="">Select Day</label>
+            <select #schedule_identified="ngModel" name="schedule_identified"  [(ngModel)]="guidedScheduleitem.day_id"  required>
+                <option *ngFor="let dayitem of days" value="{{dayitem.id}}">{{dayitem.days}}</option>
+            </select>
+            <div *ngIf="schedule_identified.invalid && (schedule_identified.dirty || schedule_identified.touched)">
+                <div *ngIf="schedule_identified.errors.required" class="bg-danger text-white error">
+                    Give day is required
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-container *ngFor="let dayGamaGroupitem of guidedSchedule[i].dayGamaGroup;let n = index">
+      <div class="form-fields">
+        <div class="form-title">
+          <h5 class="title-page">Game {{n+1}}</h5>
+        </div>
+        <div class="col-md-12 col-lg-12 form-col-br">
+          <div class="col-md-6 col-lg-6">
+            <label for="">Select Core Framework Grade</label>
+            <select name="framework{{n}}" #framework = "ngModel" id="" [(ngModel)]="guidedSchedule[i].dayGamaGroup[n].framework_id" required (change)="onChange()">
+              <option *ngFor="let coreFramworks of coreframwork" value="{{coreFramworks.id}}">{{coreFramworks.name}}</option>
+            </select>
+            <div *ngIf="framework.invalid && (framework.dirty || framework.touched)">
+                <div *ngIf="framework.errors.required" class="bg-danger text-white error">
+                  Primary Core Framework Grade field is required.
+                </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6"><label for="">Select Subject</label>
+            <select name="subject{{n}}" #subject="ngModel" id="" [(ngModel)]="guidedSchedule[i].dayGamaGroup[n].subject_id" required (change)="onChange()">
+              <option *ngFor="let subject of subjects" value="{{subject.id}}">{{subject.subject_name}}</option>
+            </select>
+            <div *ngIf="subject.invalid && (subject.dirty || subject.touched)">
+              <div *ngIf="subject.errors.required" class="bg-danger text-white error">
+                  Primary Subject field is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-12 form-col-br">
+          <div class="col-md-6 col-lg-6"><label for="">Select Game</label>
+            <select name="games_tagging_id{{n}}" id="" #games_tagging_id ="ngModel" [(ngModel)]="guidedSchedule[i].dayGamaGroup[n].game_id">
+              <ng-container *ngIf="!gamelist">
+                <ng-container *ngFor="let game of guidedSchedule[i].dayGamaGroup[n].game_data;let g=index">
+                  <option value="{{game.games_id}}">{{game.games_name}}</option>
+                </ng-container>
+              </ng-container>
+              <ng-container *ngIf="gamelist">
+                <ng-container *ngFor="let game of gamelist">
+                  <option value="{{game.games_id}}">{{game.games_name}}</option>
+                </ng-container>
+              </ng-container>
+            </select>
+          </div>
+        </div>
+      </div>
+      </ng-container>
+      <button type="button" class="btn-save" (click)="addGameForm()">Add</button>
+      </ng-container>
+      <div class="col-lg-12 col-md-12">
+        <input type="submit" class="btn-save" [disabled]="!guidedForm.form.valid" value="SAVE CHANGES">
+      </div>
+      <div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+    </div>
+  </form>
+</div>

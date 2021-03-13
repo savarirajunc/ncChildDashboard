@@ -1,0 +1,14 @@
+.two_img {
+
+}
+.pahe-header{
+  height: 10px;
+}
+.col-img{
+  cursor: pointer;
+  outline: none;
+}
+
+.col-img:hover{
+  color: #83d0c9;
+}

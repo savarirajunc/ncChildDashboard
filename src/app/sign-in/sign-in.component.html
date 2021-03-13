@@ -1,0 +1,126 @@
+<section class="section breadcrumb-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb-block clearfix">
+          <ul>
+            <li>YOU ARE HERE:</li>
+            <li><a href="#">Home</a></li>
+            <li class="activepage"> Sign in</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="section inner-section signin-block">
+  <div class="container">
+    <div class="row ">
+
+      <div class="col-lg-12">
+        <h3>SIGN IN OR GET STARTED</h3>
+      </div>
+
+
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 login-sec pull-right">
+          <h4>Sign in</h4>
+
+          <div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+          <form #signInForm="ngForm" (ngSubmit)="signInFormSubmit(signInForm)">
+            <div class="tbl-form-list clearfix">
+
+              <div class="form-fields">
+                <label>Email <span>*</span></label>
+                <input name="username" #username="ngModel" class="input-textbox" type="text" [(ngModel)]="formData.username" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+
+                <div *ngIf="username.invalid && (username.dirty || username.touched)" >
+                  <div *ngIf="username.errors.pattern" class="bg-danger text-white error">
+                    Please enter valid email.
+                  </div>
+                  <div *ngIf="username.errors.required" class="bg-danger text-white error">
+                    Email field is required.
+                  </div>
+
+
+                </div>
+
+              </div>
+
+              <div class="form-fields">
+                <label>Password <span>*</span> </label>
+                <input name="password" type="password" OnlyPassword="true" class="input-textbox" #name="ngModel" [(ngModel)]="formData.password" required minlength="5" maxlength="10">
+                <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                  <div *ngIf="name.errors.required" class="bg-danger text-white error">
+                    Password field is required.
+                  </div>
+                   <!-- <div *ngIf="name.errors.minlength" class="bg-danger text-white error">
+                    Password length is minimum 5.
+                  </div>
+                   <div *ngIf="name.errors.maximum" class="bg-danger text-white error">
+                    Password length is maximum 10.
+                  </div> -->
+                </div>
+
+
+              </div>
+
+              <div class="form-fields">
+                <label>  </label> <input name="name" type="checkbox"> <span>Remember me</span>
+              </div>
+
+              <div class="form-fields">
+                <label>  </label>
+                <input name="submit" class="btn-signin" [disabled]="!signInForm.form.valid"  data-toggle="tooltip" title="Please enter details" (click)="checkValid()" value="Sign In" type="submit">
+              </div>
+
+              <div class="form-fields">
+                <label>  </label>
+                <div class="forgot-fields">
+                  <a href="/forgotpassword">Forgot your password?</a><br>
+                  <!--span class="req">* Required fields</span-->
+                </div>
+
+              </div>
+
+            </div>
+          </form>
+
+
+
+
+        </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 create-sec pull-left">
+        <div id="get-started" style="text-align: left" class="">
+          <h4>GET STARTED</h4>
+          <P>Get Nidara-Children,  and you will be able to:
+          </P>
+
+          <ul class="clearfix">
+            <li>Give a solid foundation in health, learning & interest exploration</li>
+            <li>Spend quality time with your little angel</li>
+            <li>Track and monitor your child’s development</li>
+          </ul>
+          <a id="started" class="createbtn">GET STARTED</a>
+        </div>
+        <div id="get-started2" class="girl-boy">
+          <h4>Select girl or boy</h4>
+
+          <div class="col-md-6 col-lg-6 select-img"><a href="/girl" target="_blank" ><img class="img-responsive" src="assets/web_img/Nidara-Children-Web-1.jpeg" alt=""></a></div>
+          <div class="col-md-6 col-lg-6 select-img"><a href="/boy"><img class="img-responsive" src="assets/web_img/Nidara-Children-Web-4-1-1.png" alt=""></a></div>
+
+          <!-- <div class="col-md-12 col-lg-12"><a id="started2" class="createbtn">GET STARTED</a> </div> -->
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+

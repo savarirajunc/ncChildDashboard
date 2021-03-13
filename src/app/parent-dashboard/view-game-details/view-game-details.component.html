@@ -1,0 +1,47 @@
+<div class="col-md-12 col-lg-12">
+    <h3>{{gamename}}</h3>
+  <ng-container *ngFor="let game_infoitem of gameDetails;let i=index" >
+      <h4>Attempt {{i+1}}</h4>
+      <table class="table table-bordered">
+        <thead><tr>
+          <th>Time taken to complete activity</th>
+
+          <th>{{game_infoitem.game_time}} ( seconds )</th>
+        </tr>
+        <tr>
+          <th>Total number of questions</th>
+
+          <th>{{game_infoitem.Total}}</th>
+        </tr>
+        <tr>
+          <th>Questions answered correctly</th>
+
+          <th>{{game_infoitem.answer}} </th>
+        </tr>
+        <tr>
+          <th>Questions answered incorrectly</th>
+
+          <th>{{game_infoitem.wrong}}</th>
+        </tr>
+      </thead>
+    </table>
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th>Id</th>
+          <th>Questions</th>
+          <th>Correct Answer</th>
+          <th>Child Answer</th>
+          <th>Time ( seconds )</th>
+        </tr>
+        <tr *ngFor="let game_answersitem of game_infoitem.game_answers" >
+          <th>{{game_answersitem.questions_no}}</th>
+          <th>{{game_answersitem.question}}</th>
+          <th>{{game_answersitem.game_type_value}}</th>
+          <th>{{game_answersitem.answers}}</th>
+          <th>{{game_answersitem.time}}</th>
+        </tr>
+      </tbody>
+    </table>
+    </ng-container>
+</div>

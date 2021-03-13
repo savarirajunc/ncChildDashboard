@@ -1,0 +1,325 @@
+<form action="" #addgameForm = "ngForm" name="addgameForm" (ngSubmit) = "addGameFormSubmit(addgameForm)">
+<div class="card-body">
+  <ng-container *ngFor="let getParentCoreMapValitem of getParentCoreMapVal; let i = index">
+    <div class="form-fields">
+      <div class="col-md-12 col-lg-12">
+        <div class="col-md-6 col-lg-6">
+          <label for="">Select Grade</label>
+          <select name="grade_id{{i}}" [(ngModel)]="getParentCoreMapValitem.grade_id" (change)="onChange3(getParentCoreMapValitem.grade_id)" required>
+            <option *ngFor="let grades of grade" value="{{grades.id}}" >{{grades.grade_name}}</option>
+          </select >
+        </div>
+        <div class="col-md-6 col-lg-6">
+            <label for="">Game Name</label>
+              <input type="text" name="games_name{{i}}" [(ngModel)]="getParentCoreMapValitem.games_name"  required>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-12">
+        <div class="col-md-6 col-lg-6">
+          <label for="">Add Game Path</label>
+            <textarea name="games_folder{{i}}" type="text" [(ngModel)]="getParentCoreMapValitem.games_folder"  cols="30" rows="4" required></textarea>
+        </div>
+        <div class="col-md-6 col-lg-6">
+          <label for="">Add Parent Tip</label>
+            <textarea type="text" name="daily_tips{{i}}" [(ngModel)]="getParentCoreMapValitem.daily_tips"  cols="30" rows="4" required></textarea>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <div class="card mt-3">
+			<div class="card-body">
+				<div>
+					<ng-container>
+						<div class="card bg-light mt-1" *ngFor="let getParentCoreMapStnitem of getParentCoreMapStn;let i = index">
+							<div class="page">
+								<div class="form-fields">
+									<div class="form-title">
+										<h5 class="title-page">Tagging {{i+1}}</h5>
+									</div>
+                  <input type="hidden" name="game_id{{i+1}}" value="" [(ngModel)]="getParentCoreMapStn[i].games_id">
+									<div class="col-md-12 col-lg-12">
+                    <ng-container *ngIf="getParentCoreMapStn[i].gamecoretype == 1 else undisabled">
+										  <input type="radio" name="gamecoretype{{i+1}}" [(ngModel)]="getParentCoreMapStn[i].gamecoretype" value="1" disabled><span>Primary</span>
+                    </ng-container>
+                    <ng-template #undisabled>
+                      <input type="radio" name="gamecoretype{{i+1}}" [(ngModel)]="getParentCoreMapStn[i].gamecoretype" value="1"><span>Primary</span>
+                    </ng-template>
+                    <input type="radio" name="gamecoretype{{i+1}}" [(ngModel)]="getParentCoreMapStn[i].gamecoretype" value="2"><span>Secondary</span>
+                    <input type="radio" name="gamecoretype{{i+1}}" [(ngModel)]="getParentCoreMapStn[i].gamecoretype" value="3" ><span>Interest</span>
+									</div>
+		              <div class="col-md-12 col-lg-12">
+		                <div class="col-md-6 col-lg-6">
+		                  <label for="">Select Framework Core </label>
+		                  <select name="core_name{{i+1}}" [(ngModel)]="getParentCoreMapStn[i].framework_id" (change)="onChange(getParentCoreMapStn[i].framework_id,getParentCoreMapStn[i].subject_id)">
+		                    <option *ngFor="let coreframworks of coreframwork" value="{{coreframworks.id}}" >{{coreframworks.name}}</option>
+		                  </select>
+		                </div>
+		                <div class="col-md-6 col-lg-6">
+		                  <label for="">Select Subject</label>
+		                  <select name="subject_name{{i+1}}" [(ngModel)]="getParentCoreMapStn[i].subject_id" (change)="onChange(getParentCoreMapStn[i].framework_id,getParentCoreMapStn[i].subject_id)">
+		                    <option *ngFor="let subject of subjects" value="{{subject.id}}">{{subject.subject_name}}</option>
+		                  </select>
+		                </div>
+		              </div>
+		              <div class="col-md-12 col-lg-12">
+		                <div class="col-md-6 col-lg-6">
+		                  <label for="">Select Standard</label>
+		                  <select name="standard_id{{i+1}}"  [(ngModel)]="getParentCoreMapStn[i].standard_id">
+		                    <ng-container *ngFor="let standards of standard">
+		                        <option  value="{{standards.id}}">{{standards.standard_name}}</option>
+		                    </ng-container>
+		                  </select>
+		                </div>
+		              </div>
+		              <div class="col-md-12 col-lg-12">
+										<ng-container *ngFor="let getParentCoreMapInditem of getParentCoreMapStn[i].Indicators;let n = index">
+											<ng-container>
+												<div  class="col-md-4 col-lg-4">
+                          <ng-container *ngIf="n == 0">
+	  		                  	<label for="">Select Indicator</label>
+                          </ng-container>
+                          <ng-container *ngIf="n == 1">
+	  		                  	<label for="">Select Sub Indicator</label>
+                          </ng-container>
+                          <ng-container *ngIf="n == 2">
+	  		                  	<label for="">Select Sub Sub Indicator</label>
+                          </ng-container>
+                          <ng-container *ngIf="n == 3">
+	  		                  	<label for="">Select Sub Sub Sub Indicator</label>
+                          </ng-container>
+                          <ng-container *ngIf="n <= 3">
+		  		                  <select name="indicators{{getParentCoreMapInditem.id}}{{n+1}}" [(ngModel)]="getParentCoreMapStn[i].Indicators[n].indicator_id">
+		  												<ng-container *ngFor="let indicatormapitem of indicator">
+		  		                      <option  value="{{indicatormapitem.id}}">{{indicatormapitem.indicator_name}}</option>
+		  		                    </ng-container>
+		  		                  </select>
+                          </ng-container>
+	  		                </div>
+											</ng-container>
+										</ng-container>
+                    <div class="col-md-12 col-lg-12">
+                      <ng-container>
+                        <button type="button" class="btn-save" name="button" (click) = "addfunction(i)">Add Indicators</button>
+                      </ng-container>
+                    </div>
+		              </div>
+		            </div>
+							</div>
+						</div>
+					</ng-container>
+          <button type="button" class="btn-save" (click)="onAddDepartment()">Add Tagging</button>
+				</div>
+			</div>
+    </div>
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="col-md-12 col-lg-12 paddingless">
+                <div class="col-md-4 col-lg-4 text-center paddingless">
+                  <label for="">Select game excel</label>
+                  <select [(ngModel)]="formData.files" name="file-upload" id="">
+                    <option *ngFor="let getExcelSheetitem of getExcelSheet"  value="{{getExcelSheetitem.excel_sheet}}">{{getExcelSheetitem.excel_sheet}}</option>
+                  </select>
+                    <!-- <input formControlName="files" type="file" name="file-upload" (change) = "selectFile($event)"> -->
+                </div>
+                <div class="col-md-4 col-lg-4 text-center paddingless">
+                    <!-- <span class="sub-but" (click)="import()" >IMPORT</span> -->
+                </div>
+                <div class="col-md-4 col-lg-4 text-center paddingless">
+                   <span style="float: right" class="sub-but" (click)="excalget()" >SHOW</span>
+                </div>
+              </div>
+              <div class="col-md-12 col-lg-12 paddingless">
+                  <div *ngIf="_response2.status" class="{{_response2.alert}}">{{_response2.message}}</div>
+              </div>
+
+           <div class="excal">
+          <table>
+            <tr *ngFor="let getSlideMasteritem of getSlideMaster;let i =index" >
+              <ng-container >
+                <td *ngFor="let dataitem of getSlideMaster[i].data;let n = index" >
+                  <span>{{dataitem.A}}</span>
+                  <span>{{dataitem.B}}</span>
+                  <span>{{dataitem.C}}</span>
+                  <span>{{dataitem.D}}</span>
+                  <span>{{dataitem.E}}</span>
+                  <span>{{dataitem.F}}</span>
+                  <span>{{dataitem.G}}</span>
+                  <span>{{dataitem.H}}</span>
+                  <span>{{dataitem.I}}</span>
+                  <span>{{dataitem.J}}</span>
+                  <span>{{dataitem.K}}</span>
+                  <span>{{dataitem.L}}</span>
+                  <span>{{dataitem.M}}</span>
+                  <span>{{dataitem.N}}</span>
+                  <span>{{dataitem.O}}</span>
+                  <span>{{dataitem.P}}</span>
+                  <span>{{dataitem.Q}}</span>
+                  <span>{{dataitem.R}}</span>
+                  <span>{{dataitem.S}}</span>
+                  <span>{{dataitem.T}}</span>
+                  <span>{{dataitem.U}}</span>
+                  <span>{{dataitem.V}}</span>
+                  <span>{{dataitem.W}}</span>
+                  <span>{{dataitem.X}}</span>
+                  <span>{{dataitem.Y}}</span>
+                  <span>{{dataitem.Z}}</span>
+                  <span>{{dataitem.AA}}</span>
+                  <span>{{dataitem.AB}}</span>
+                  <span>{{dataitem.AC}}</span>
+                  <span>{{dataitem.AD}}</span>
+                  <span>{{dataitem.AE}}</span>
+                  <span>{{dataitem.AF}}</span>
+                  <span>{{dataitem.AG}}</span>
+                  <span>{{dataitem.AH}}</span>
+                  <span>{{dataitem.AI}}</span>
+                  <span>{{dataitem.AJ}}</span>
+                  <span>{{dataitem.AK}}</span>
+                  <span>{{dataitem.AL}}</span>
+                  <span>{{dataitem.AM}}</span>
+                  <span>{{dataitem.AN}}</span>
+                  <span>{{dataitem.AO}}</span>
+                  <span>{{dataitem.AP}}</span>
+                  <span>{{dataitem.AQ}}</span>
+                  <span>{{dataitem.AR}}</span>
+                  <span>{{dataitem.AS}}</span>
+                  <span>{{dataitem.AT}}</span>
+                  <span>{{dataitem.AU}}</span>
+                  <span>{{dataitem.AV}}</span>
+                  <span>{{dataitem.AW}}</span>
+                  <span>{{dataitem.AX}}</span>
+                  <span>{{dataitem.AY}}</span>
+                  <span>{{dataitem.AZ}}</span>
+                </td>
+              </ng-container>
+            </tr>
+          </table>
+        </div>
+        </div>
+      </div>
+    <div class="card mt-3">
+			<div class="card-body">
+        <ng-container *ngFor="let gamesQuestionansweritem of gamesQuestionanswer; let i = index">
+          <div class="form-fields">
+              <div class="form-title">
+									<h5 class="title-page">Question {{i+1}}</h5>
+								</div>
+            <input type="hidden" name="game_id" value="" [(ngModel)]="gamesQuestionanswer[i].game_id">
+            <div class="col-md-12 col-lg-12">
+              <div class="col-md-2 col-lg-2">
+                <label for="">Question id</label>
+                <input type="text"  name="questionid{{i+1}}"  [(ngModel)]="gamesQuestionanswer[i].question_id">
+              </div>
+              <div class="col-md-3 col-lg-3">
+                <label for="">Question</label>
+                <input type="text" name="question{{i+1}}"  [(ngModel)]="gamesQuestionanswer[i].question">
+              </div>
+              <div class="col-md-3 col-lg-3">
+                <label for="">Answer</label>
+                <input type="text" name="answer{{i+1}}"  [(ngModel)]="gamesQuestionanswer[i].answer">
+              </div>
+              <div class="col-md-4 col-lg-4">
+                <label for="">Answer Description {{i+1}} (Image Name)</label>
+                <input type="text" name="answer_des{{i+1}}"  [(ngModel)]="gamesQuestionanswer[i].answer_des" >
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12">
+              <div class="col-md-3 col-lg-3">
+                <label for="">Game Type</label>
+                <select name="game_type{{i+1}}" id="" [(ngModel)]="gamesQuestionanswer[i].game_type">
+                  <option value="1">Count</option>
+                  <!-- <option value="2">Time</option> -->
+                  <option value="3">Yes/No</option>
+                </select>
+              </div>
+              <div class="col-md-3 col-lg-3">
+                <label for="">Game Value</label>
+                <input type="text" name="game_type_value{{i+1}}"  [(ngModel)]="gamesQuestionanswer[i].game_type_value">
+              </div>
+            </div>
+            <!-- <ng-container>
+              <div class="card bg-light mt-1" *ngFor="let question_mapitem of gamesQuestionanswer[i].question_map;let n = index">
+                <div class="page">
+                  <div class="">
+                    <div class="form-title">
+                      <h5 class="title-page">Tagging {{i+1}}</h5>
+                    </div>
+                    <input type="hidden" name="Tagging{{n+1}}" [(ngModel)]="gamesQuestionanswer[i].question_map[n].tagging">
+                    <div class="col-md-6 col-lg-6">
+                      <label for="">Select weightage</label>
+                      <select name="weightage{{n+1}}" [(ngModel)]="gamesQuestionanswer[i].question_map[n].question_wight">
+                        <option *ngFor="let weightageitem of weightage" value="{{weightageitem.valu}}">{{weightageitem.valu}}</option>
+                      </select>
+                    </div>
+                    <div class="col-md-12 col-lg-12">
+                      <div class="col-md-6 col-lg-6">
+                        <label for="">Select Framework Core </label>
+                        <select name="core_name{{n+1}}" [(ngModel)]="gamesQuestionanswer[i].question_map[n].framework_id" (change)="onChange()">
+                          <option *ngFor="let coreframworks of coreframwork" value="{{coreframworks.id}}" >{{coreframworks.name}}</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6 col-lg-6">
+                        <label for="">Select Subject</label>
+                        <select name="subject_name{{n+1}}" [(ngModel)]="gamesQuestionanswer[i].question_map[n].subject_id" (change)="onChange()">
+                          <option *ngFor="let subject of subjects" value="{{subject.id}}">{{subject.subject_name}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-12 col-lg-12">
+                      <div class="col-md-6 col-lg-6">
+                        <label for="">Select Standard</label>
+                        <select name="standard_id{{n+1}}"  [(ngModel)]="gamesQuestionanswer[i].question_map[n].standard_id">
+                          <ng-container *ngFor="let standards of standard">
+                              <option  value="{{standards.id}}">{{standards.standard_name}}</option>
+                          </ng-container>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-12 col-lg-12">
+                      <ng-container *ngFor="let indicatorsitem of gamesQuestionanswer[i].question_map[n].indicators;let ni = index">
+                        <ng-container>
+                          <div  class="col-md-4 col-lg-4">
+                            <ng-container *ngIf="ni == 0">
+                              <label for="">Select Indicator</label>
+                            </ng-container>
+                            <ng-container *ngIf="ni == 1">
+                              <label for="">Select Sub Indicator</label>
+                            </ng-container>
+                            <ng-container *ngIf="ni == 2">
+                              <label for="">Select Sub Sub Indicator</label>
+                            </ng-container>
+                            <ng-container *ngIf="ni == 3">
+                              <label for="">Select Sub Sub Sub Indicator</label>
+                            </ng-container>
+                            <ng-container *ngIf="ni <= 3">
+                              <select name="indicators{{indicatorsitem.id}}{{ni+1}}" [(ngModel)]="gamesQuestionanswer[i].question_map[n].indicators[ni].indicator_id">
+                                <ng-container *ngFor="let indicatormapitem of indicator">
+                                  <option  value="{{indicatormapitem.id}}">{{indicatormapitem.indicator_name}}</option>
+                                </ng-container>
+                              </select>
+                            </ng-container>
+                          </div>
+                        </ng-container>
+                      </ng-container>
+                      <div class="col-md-12 col-lg-12">
+                        <ng-container>
+                          <button type="button" class="btn-save" name="button" (click) = "addfunction2(i,n)">Add Indicators</button>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container> -->
+            <!-- <button type="button" class="btn-save" name="button" (click) = "addtagging(i)">Add Tagging</button> -->
+          </div>
+        </ng-container>
+        <button type="button" class="btn-save" (click)="onAddQuestionanswer()">Add Question</button>
+      </div>
+    </div>
+      <div class="col-md-12 col-lg-12 paddingless">
+          <!-- <input type="button" class="btn-save" #submit >SAVE</button> -->
+        <input #submit type="submit" class="btn-save" value="SAVE">
+      </div>
+    <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+  </div>
+</form>

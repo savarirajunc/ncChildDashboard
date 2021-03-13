@@ -1,0 +1,92 @@
+<!-- <div class="col-md-12 row">
+    <p><br></p>
+
+    <h4>Announcement</h4>
+  </div>
+  <div id="register-page-form" class="col-md-12 col-lg-12 paddingless">
+  <table class="table table-bordered">
+    <th>
+      <tr>
+        <th>TITLE</th>
+        <th>START DATE</th>
+        <th>END DATE</th>
+        <TH>ANNOUNCEMENT</TH>
+      </tr>
+    </th>
+
+      <tr>
+        <td>{{value.title}}</td>
+        <td>{{value.startdate}}</td>
+        <td>{{value.Enddate}}</td>
+        <td>{{value.announce}}</td>
+      </tr>
+      <tr>
+        <td>{{value.title}}</td>
+        <td>{{value.startdate}}</td>
+        <td>{{value.Enddate}}</td>
+        <td>{{value.announce}}</td>
+      </tr>
+    </table>
+</div> -->
+
+<!--
+<p><br></p>
+<div>
+    <table  class="table table-bordered" >
+        <th>
+          <tr>
+            <th *ngFor="let head of headElements" >{{head}} </th>
+          </tr>
+        </th>
+
+          <tr  *ngFor="let el of elements" >
+            <td>{{el.title}}</td>
+            <td>{{el.startDate}}</td>
+            <td>{{el.endDate}}</td>
+            <td>{{el.announcement}}</td>
+          </tr>
+
+      </table> -->
+<p><br></p>
+   <h3>Announcement</h3>
+<div>
+      <table id="customers">
+          <tr>
+              <th *ngFor="let head of headElements" >{{head}} </th>
+          </tr>
+          <tr  *ngFor="let el of elements" >
+              <td>{{el.title}}</td>
+              <td>{{el.start_date}}</td>
+              <td>{{el.end_date}}</td>
+              <td>{{el.messages}}</td>
+              <td><a [routerLink]="['edit-announcement',el.id]">Edit</a></td>
+            </tr>
+        </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

@@ -1,0 +1,79 @@
+<div class="col-md-12 row">
+  <p><br></p>
+  <h3>REGISTER NEW DOCTOR</h3>
+  <h4>DOCTOR LIST</h4>
+</div>
+
+
+
+<div class="row tab-pane fade in">
+  <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>S/N</th>
+      <th>Doctor Name</th>
+      <th>Doctor Code</th>
+      <th>Moblie Nummber</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let gamedetailsitem of gameData[currentPage];let i=index">
+      <ng-container *ngIf="gamedetailsitem.status == '4'" >
+          <tr style="color: #ddd;">
+              <td class="word-form">{{i+(currentPage*15) + 1}}</td>
+              <td class="word-form">
+                  {{gamedetailsitem.first_name}}
+              </td>
+              <td class="word-form" >
+                {{gamedetailsitem.doctor_code}}
+              </td>
+              <td class="word-form" >
+                {{gamedetailsitem.mobile}}
+              </td>
+              <td class="word-form" >
+                <span >EDIT</span><span>  </span><span class="deactived2" >DEACTIVATE</span>
+              </td>
+
+              <!-- <td class="word-form" >
+                <a [routerLink]="['../','gameDataView',gamedetailsitem.game_id]">{{gamedetailsitem.games_name}}</a>
+              </td> -->
+            </tr>
+      </ng-container>
+      <ng-container *ngIf="gamedetailsitem.status !== '4'">
+          <tr>
+              <td class="word-form">{{i+(currentPage*15) + 1}}</td>
+              <td class="word-form">
+                  {{gamedetailsitem.first_name}}
+              </td>
+              <td class="word-form" >
+                {{gamedetailsitem.doctor_code}}
+              </td>
+              <td class="word-form" >
+                {{gamedetailsitem.mobile}}
+              </td>
+              <td class="word-form" >
+                <span class="edit" [routerLink]="['/admin-dashboard/doctor-registration/users-edit/',gamedetailsitem.id]">EDIT</span><span>  </span><span class="deactived" (click)="deactived(gamedetailsitem)" >DEACTIVATE</span>
+              </td>
+
+              <!-- <td class="word-form" >
+                <a [routerLink]="['../','gameDataView',gamedetailsitem.game_id]">{{gamedetailsitem.games_name}}</a>
+              </td> -->
+            </tr>
+      </ng-container>
+
+    </ng-container>
+  </tbody>
+</table>
+<div class="text-center pagination_nav">
+  <ng-container *ngIf="currentPage >= 10">
+    <a class="pagenav" (click)="selectPageBack()">&lsaquo;&lsaquo;</a>
+  </ng-container>
+  <ng-container *ngFor="let gamedetailsitem of pageArray| slice:pageIdx*10:(pageIdx+1)*10;let i=index">
+        <a class="pagenav" (click)="setGameDetailsView(gamedetailsitem)" [ngClass]="{'active':gamedetailsitem===currentPage}">{{gamedetailsitem+1}}</a>
+  </ng-container>
+  <ng-container *ngIf="currentPage < (pageNav -1) ">
+    <a class="pagenav" (click)="selectPage()">&rsaquo;&rsaquo;</a>
+  </ng-container>
+</div>
+</div>

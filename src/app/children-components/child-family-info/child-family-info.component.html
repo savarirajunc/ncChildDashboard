@@ -1,0 +1,27 @@
+ <h2>CHILD PROFILE</h2>
+  <div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+                        <p>FAMILY INFORMATION</p>
+                        <p>Select the Family members in your home</p> 
+                        <form  #familyInfoForm="ngForm" (ngSubmit)="familyInfoSubmit(familyInfoForm)">
+                            <div class="row form-fields kid_family_info">
+                                <div class="family_info">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 family">    
+                               <input type="checkbox" name="mother" value="mother"  [(ngModel)]="formData.mother"> <span>Mother</span> 
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 family">    
+                               <input type="checkbox" name="father" value="father"   [(ngModel)]="formData.father"><span>Father</span> 
+                            </div>  
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 family">    
+                               <input type="checkbox" name="grandmother" value="grandmother" [(ngModel)]="formData.grandmother"><span>Grand Mother</span> 
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 family">    
+                               <input type="checkbox" name="grandfather" value="grandfather" [(ngModel)]="formData.grandfather"><span>Grand Father</span> 
+                            </div>
+                             </div>
+                        </div>
+                            <div>
+                                        <input type="submit" class="btn-save" [disabled]="!familyInfoForm.form.valid"  value="Save Changes">
+                                    </div>
+                            </div>
+                        </form>   

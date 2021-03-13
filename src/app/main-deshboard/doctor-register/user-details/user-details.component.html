@@ -1,0 +1,106 @@
+<div class="col-md-12 row">
+  <p><br></p>
+  <h3>REGISTER NEW DOCTOR</h3>
+  <h4>DOCTOR DETAILS</h4>
+</div>
+<div id="register-page" class="col-md-12 col-lg-12 paddingless">
+  <form id=formId [formGroup]="registerForm" (ngSubmit)="onSubmit(userReg)" #userReg="ngForm">
+  <div>
+     <div class="col-md-12 col-lg-12 paddingless">
+        <p class="form-row form-row-first">
+           <label for="reg_billing_first_name">First name <span class="required">*</span></label>
+           <input type="text" OnlyString="true" formControlName="first_name" class="input-text text-only" name="billing_first_name" id="reg_billing_first_name" value="">
+           <span *ngIf="!registerForm.get('first_name').valid && registerForm.get('first_name').touched" class="bg-danger text-white error">
+           Please Enter First Name (Minimum 2 Characters)
+           </span>
+        </p>
+        <p class="form-row form-row-last">
+           <label for="reg_billing_last_name">Last name <span class="required">*</span></label>
+           <input type="text" OnlyString="true" class="input-text text-only" formControlName="last_name" name="billing_last_name" id="reg_billing_last_name" value="">
+           <span *ngIf="!registerForm.get('last_name').valid && registerForm.get('last_name').touched" class="bg-danger text-white error">
+           Please Enter Last Name
+           </span>
+        </p>
+        <div class="clear"></div>
+        <p class="form-row form-row-first">
+          <label for="registration_number">Registration Number <span class="required">*</span></label>
+          <input formControlName="registration_number" OnlyNumber = "true"  type="text" class="input-text" name="registration_number" id="registration_number" value="">
+          <span style="bottom: unset;" *ngIf="!registerForm.get('registration_number').valid && registerForm.get('registration_number').touched" class="bg-danger text-white error">
+          Please enter Registration Number.
+          </span>
+       </p>
+       <p class="form-row form-row-last">
+          <label for="qualification">Qualification <span class="required">*</span></label>
+          <input type="text" formControlName="qualification" class="input-text" name="qualification" id="qualification" value="">
+          <span style="bottom: unset;" *ngIf="(!registerForm.get('qualification').valid && registerForm.get('qualification').touched) || emailvalue == 0" class="bg-danger text-white error">
+          Please enter Qualification.
+          </span>
+          <span id="email-val" class="bg-danger text-white error">
+          </span>
+       </p>
+       <div class="clear"></div>
+       <p class="form-row form-row-first">
+        <label for="reg_billing_phone">Mobile Number<span class="required">*</span></label>
+        <input type="text" formControlName="mobile" OnlyNumber = "true" maxlength="10" class="input-text number-only" name="billing_phone" id="reg_billing_phone" value="">
+        <span style="bottom: unset;" *ngIf="!registerForm.get('mobile').valid && registerForm.get('mobile').touched" class="bg-danger text-white error">
+            Please give correct mobile number
+        </span>
+     </p>
+     <p class="form-row form-row-last">
+      <label for="re_mobile">Re-enter Mobile Number<span class="required">*</span></label>
+      <input type="text" formControlName="re_mobile" (change) = "mobileChack()"  OnlyNumber = "true" maxlength="10" class="input-text number-only" name="re_mobile" id="re_mobile" value="">
+      <span style="bottom: unset;" *ngIf="(!registerForm.get('re_mobile').valid && registerForm.get('re_mobile').touched) || mobilevalue == 0" class="bg-danger text-white error">
+          Please enter a matching mobile number
+      </span>
+     </p>
+     <div class="clear"></div>
+        <p class="form-row form-row-first">
+           <label for="reg_email">Email address <span class="required">*</span></label>
+           <input formControlName="email" (change) = "emailChack()" type="email" class="input-text" name="email" id="reg_email" value="">
+           <span style="bottom: unset;" *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched" class="bg-danger text-white error">
+           Please enter valid email address.
+           </span>
+        </p>
+        <p class="form-row form-row-last">
+           <label for="reg_email2">Confirm Email address <span class="required">*</span></label>
+           <input type="email" formControlName="re_enter_email" (change) = "emailChack()" class="input-text" name="email2" id="reg_email2" value="">
+           <span style="bottom: unset;" *ngIf="(!registerForm.get('re_enter_email').valid && registerForm.get('re_enter_email').touched) || emailvalue == 0" class="bg-danger text-white error">
+           Please enter a matching email address.
+           </span>
+           <span id="email-val" class="bg-danger text-white error">
+           </span>
+        </p>
+        <div class="clear"></div>
+        <p class="form-row form-row-first">
+           <label for="reg_password">Password <span class="required">*</span></label>
+           <input type="password" formControlName="password" (change) = "passwordChack()" class="input-text" name="password" id="reg_password">
+           <span style="bottom: unset;" *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched" class="bg-danger text-white error">
+           Please enter password. (Minimum 6 Characters)
+           </span>
+        </p>
+        <p class="form-row form-row-last">
+           <label for="reg_password2">Confirm Password <span class="required">*</span></label>
+           <input type="password" formControlName="confirmpassword" (change) = "passwordChack()" class="input-text" name="password2" id="reg_password2">
+           <span style="bottom: unset;" *ngIf="(!registerForm.get('confirmpassword').valid && registerForm.get('confirmpassword').touched) || error == 0" class="bg-danger text-white error">
+              Please enter a matching password
+           </span>
+           <span id="password-val" class="bg-danger text-white error">Please enter a matching password</span>
+        </p>
+        <div class="clear"></div>
+        <div *ngIf="_response2.status" class="{{_response2.alert}}">{{_response2.message}}</div>
+        <div class="clear"></div>
+     </div>
+     <!-- Spam Trap -->
+
+           <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 paddingless">
+              <p class="woocomerce-FormRow form-row form-row-last woocommerce-Button-2">
+                 <input type="submit" class="woocommerce-Button button" id="register-but" name="register" value="SAVE AND NEXT">
+              </p>
+           </div>
+     <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+  </div>
+  </form>
+</div>
+
+
+<!-- <button (click)="movePage()" >Move To Next Page</button> -->

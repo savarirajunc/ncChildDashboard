@@ -1,0 +1,137 @@
+<h2>SCHOOL INFORMATION</h2>
+<div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+<form #schoolInfoForm="ngForm" (ngSubmit)="schoolInfoFormSubmit(schoolInfoForm)">
+  <div class="form-fields  school_info">
+    <div class="form-response">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+          <label for="name">School Name</label>
+
+          <input type="text" OnlyString="true" class="captailizse" maxlength="40" minlength="3" #school_name='ngModel' name="school_name"
+            [(ngModel)]="formData.school_name" required>
+          <div *ngIf="school_name.invalid && (school_name.dirty || school_name.touched)">
+
+            <div *ngIf="school_name.errors.minlength" class="bg-danger text-white error">
+              Please enter atleast 3 characters
+            </div>
+            <div *ngIf="school_name.errors.maxlength" class="bg-danger text-white error">
+              Please enter maxlength
+            </div>
+            <div *ngIf="school_name.errors.required" class="bg-danger text-white error">
+              School Name field is required.
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="relation">School Type</label>
+
+          <input type="text" name="school_type" OnlyString="true" class="captailizse" maxlength="20" minlength="3" #school_type='ngModel'
+            [(ngModel)]="formData.school_type" required>
+          <div *ngIf="school_type.invalid && (school_type.dirty || school_type.touched)">
+
+            <div *ngIf="school_type.errors.minlength" class="bg-danger text-white error">
+              Please enter atleast 3 characters
+            </div>
+            <div *ngIf="school_type.errors.maxlength" class="bg-danger text-white error">
+              Please enter maxlength
+            </div>
+            <div *ngIf="school_type.errors.required" class="bg-danger text-white error">
+              School Type field is required.
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+          <label for="name">Address Link2</label>
+
+          <input type="text" OnlyString="true" class="captailizse" #address2='ngModel' maxlength="50" minlength="3" name="address2"
+            [(ngModel)]="formData.address2">
+          <!-- <div *ngIf="address2.invalid && (address2.dirty || address2.touched)">
+
+            <div *ngIf="address2.errors.minlength" class="bg-danger text-white error">
+              Please enter atleast 3 characters
+            </div>
+            <div *ngIf="address2.errors.maxlength" class="bg-danger text-white error">
+              Please enter maxlength
+            </div>
+            <div *ngIf="address2.errors.required" class="bg-danger text-white error">
+              Address field is required.
+            </div>
+
+          </div> -->
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="relation">Town/City</label>
+
+          <input type="text" OnlyString="true" class="captailizse" maxlength="10" minlength="3" #town_city='ngModel' name="town_city"
+            class="captailizse" [(ngModel)]="formData.town_city" required>
+          <div *ngIf="town_city.invalid && (town_city.dirty || town_city.touched)">
+
+            <div *ngIf="town_city.errors.minlength" class="bg-danger text-white error">
+              Please enter atleast 3 characters
+            </div>
+            <div *ngIf="town_city.errors.maxlength" class="bg-danger text-white error">
+              Please enter maxlength
+            </div>
+            <div *ngIf="town_city.errors.required" class="bg-danger text-white error">
+              Town/City field is required.
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+          <label for="name">State</label>
+
+          <input type="text" OnlyStringNoSpace="true" class="captailizse" maxlength="20" minlength="3" name="state" #state='ngModel'
+            [(ngModel)]="formData.state" required>
+          <div *ngIf="state.invalid && (state.dirty || state.touched)">
+
+            <div *ngIf="state.errors.minlength" class="bg-danger text-white error">
+              Please enter atleast 3 characters
+            </div>
+            <div *ngIf="state.errors.maxlength" class="bg-danger text-white error">
+              Please enter maxlength
+            </div>
+            <div *ngIf="state.errors.required" class="bg-danger text-white error">
+              State field is required.
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="relation">Country</label>
+
+          <input type="text" OnlyStringNoSpace="true" class="captailizse"  maxlength="20" minlength="3" name="country" #country='ngModel' 
+          [(ngModel)]="formData.country" required>
+          <div *ngIf="country.invalid && (country.dirty || country.touched)">
+
+            <div *ngIf="country.errors.minlength" class="bg-danger text-white error">
+              Please enter atleast 3 characters
+            </div>
+            <div *ngIf="country.errors.maxlength" class="bg-danger text-white error">
+              Please enter maxlength
+            </div>
+            <div *ngIf="country.errors.required" class="bg-danger text-white error">
+              Country field is required.
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <input type="submit" class="btn-save" [disabled]="!schoolInfoForm.form.valid" value="SAVE CHANGES">
+    </div>
+  </div>
+</form>

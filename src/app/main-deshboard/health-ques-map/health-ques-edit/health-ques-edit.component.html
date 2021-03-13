@@ -1,0 +1,124 @@
+<form class="card bg-dark" #addgameForm = "ngForm" name="addgameForm"  (ngSubmit)="onSubmit(addgameForm)">
+	<div class="card-body">
+    <ng-container *ngFor="let getParentCoreMapValitem of getParentCoreMapVal; let i = index">
+      <div class="form-fields">
+        <div class="col-md-12 col-lg-12">
+          <div class="col-md-6 col-lg-6">
+            <label for="">Select Grade</label>
+            <select name="grade_id" [(ngModel)]="getParentCoreMapValitem.grade_id" (change)="onChange()" required>
+              <option *ngFor="let grades of grade" value="{{grades.id}}" >{{grades.grade_name}}</option>
+            </select >
+          </div>
+          <div class="col-md-6 col-lg-6">
+	            <label for="">Add parent game question</label>
+								<input type="hidden" name="game_id" value="" [(ngModel)]="getParentCoreMapValitem.game_id">
+	              <input type="text" name="games_name" [(ngModel)]="getParentCoreMapValitem.games_name"  required>
+          </div>
+        </div>
+      </div>
+			<div class="form-fields">
+				<div class="col-md-12 col-lg-12 form-col-br">
+					<div class="col-md-6 col-lg-6"><label for="">Select Day</label>
+						<select  name="schedule_identified" [(ngModel)]="getParentCoreMapValitem.day_id"   required>
+								<option *ngFor="let dayitem of days" value="{{dayitem.id}}">{{dayitem.days}}</option>
+						</select>
+
+					</div>
+					<div class="col-md-6 col-lg-6"></div>
+				</div>
+			</div>
+    </ng-container>
+		<div class="card mt-3">
+			<div class="card-body">
+				<div>
+					<ng-container>
+						<div class="card bg-light mt-1" *ngFor="let getParentCoreMapStnitem of getParentCoreMapStn;let i = index">
+							<div class="page">
+								<div class="form-fields">
+									<div class="form-title">
+										<h5 class="title-page">Tagging {{i+1}}</h5>
+									</div>
+									<div class="col-md-12 col-lg-12">
+										<input type="radio" name="gamecoretype{{i+1}}" [(ngModel)]="getParentCoreMapStnitem.gamecoretype" value="1" disabled><span>Primary</span>
+										<input type="radio" name="gamecoretype{{i+1}}" [(ngModel)]="getParentCoreMapStnitem.gamecoretype" value="2" disabled><span>Secondary</span>
+									</div>
+		              <div class="col-md-12 col-lg-12">
+		                <div class="col-md-6 col-lg-6">
+		                  <label for="">Select Framework Core </label>
+		                  <select name="core_name{{i+1}}" [(ngModel)]="getParentCoreMapStnitem.framework_id" (change)="onChange()">
+		                    <option *ngFor="let coreframworks of coreframwork" value="{{coreframworks.id}}" >{{coreframworks.name}}</option>
+		                  </select>
+		                </div>
+		                <div class="col-md-6 col-lg-6">
+		                  <label for="">Select Subject</label>
+		                  <select name="subject_name{{i+1}}" [(ngModel)]="getParentCoreMapStnitem.subject_id" (change)="onChange()">
+		                    <option *ngFor="let subject of subjects" value="{{subject.id}}">{{subject.subject_name}}</option>
+		                  </select>
+		                </div>
+		              </div>
+		              <div class="col-md-12 col-lg-12">
+		                <div class="col-md-6 col-lg-6">
+		                  <label for="">Select Standard</label>
+		                  <select name="standard_id{{i+1}}"  [(ngModel)]="getParentCoreMapStnitem.standard_id">
+		                    <ng-container *ngFor="let standards of standard">
+		                        <option  value="{{standards.id}}">{{standards.standard_name}}</option>
+		                    </ng-container>
+		                  </select>
+		                </div>
+		              </div>
+		              <div class="col-md-12 col-lg-12">
+										<ng-container *ngFor="let getParentCoreMapInditem of getParentCoreMapStnitem.game;let n = index">
+											<ng-container>
+												<div  class="col-md-4 col-lg-4">
+	  		                  	<label for="">Select Indicator</label>
+
+		  		                  <select name="indicators{{getParentCoreMapInditem.id}}" [(ngModel)]="getParentCoreMapInditem.indicator_id">
+		  												<ng-container *ngFor="let indicatormapitem of indicator">
+		  		                      <option  value="{{indicatormapitem.id}}">{{indicatormapitem.indicator_name}}</option>
+		  		                    </ng-container>
+		  		                  </select>
+	  		                </div>
+											</ng-container>
+											<!-- <ng-container *ngIf="n == 1" >
+												<div  class="col-md-4 col-lg-4">
+	  		                  	<label for="">Select Sub Indicator</label>
+		  		                  <select name="indicators{{n+1}}" [(ngModel)]="getParentCoreMapInditem.indicator_id">
+		  												<ng-container *ngFor="let indicatormapitem of indicator">
+		  		                      <option  value="{{indicatormapitem.id}}">{{indicatormapitem.indicator_name}}</option>
+		  		                    </ng-container>
+		  		                  </select>
+	  		                </div>
+											</ng-container>
+											<ng-container *ngIf="n == 2">
+												<div  class="col-md-4 col-lg-4">
+	  		                  	<label for="">Select Sub Sub Indicator</label>
+		  		                  <select name="indicators{{n+1}}" [(ngModel)]="getParentCoreMapInditem.indicator_id">
+		  												<ng-container *ngFor="let indicatormapitem of indicator">
+		  		                      <option  value="{{indicatormapitem.id}}">{{indicatormapitem.indicator_name}}</option>
+		  		                    </ng-container>
+		  		                  </select>
+	  		                </div>
+											</ng-container>
+											<ng-container *ngIf="n == 3">
+												<div  class="col-md-4 col-lg-4">
+	  		                  	<label for="">Select Sub Sub sub Indicator</label>
+		  		                  <select name="indicators{{n+1}}" [(ngModel)]="getParentCoreMapInditem.indicator_id">
+		  												<ng-container *ngFor="let indicatormapitem of indicator">
+		  		                      <option  value="{{indicatormapitem.id}}">{{indicatormapitem.indicator_name}}</option>
+		  		                    </ng-container>
+		  		                  </select>
+	  		                </div>
+											</ng-container> -->
+										</ng-container>
+		              </div>
+		            </div>
+							</div>
+						</div>
+					</ng-container>
+				</div>
+			</div>
+		</div>
+        <input #submit type="submit" class="btn-save" [disabled]="!addgameForm.form.valid" value="SAVE">
+    <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+	</div>
+</form>

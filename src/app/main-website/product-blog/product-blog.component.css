@@ -1,0 +1,54 @@
+/* #exTab1 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+/* remove border radius for the tab */
+
+/* #exTab1 .nav-pills > li > a {
+  border-radius: 0;
+} */
+#searchContent > p > img {
+  width:150px;
+}
+img{
+  width: 150px;
+}
+.nav-tabs li a {
+  border-radius: 0px !important;
+  border: 1px solid #e3e3e3;
+  display: block;
+  line-height: 41px;
+  padding: 0 16px;
+  height: 41px;
+  font-weight: 600;
+  font-size: 14px;
+  background: #f9f9f9;
+  margin: 0 4px;
+  color: #a1a1a1;
+  letter-spacing: 0.5px
+}
+.nav-tabs li a.active.show {
+  background: #fff !important;
+  border-bottom: 1px solid #fff !important;
+  color: #333 !important;
+}
+.searchSection{
+  border-bottom: 1px solid #dfdfdf;
+  padding: 20px;
+  float: left;
+}
+.search-content #layout-container p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+#searchProduct{
+  float: left;
+}
+#searchProduct .col-md-12 {
+  display: none;
+}
+#searchProduct .col-md-12:first-child {
+  display: block;
+  float: left;
+}

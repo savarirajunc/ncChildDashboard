@@ -1,0 +1,61 @@
+<form class="card bg-dark" #addguided = "ngForm" name="addguided" [formGroup]="guidedForm" (ngSubmit)="onSubmit(addguided)">
+  <div class="card-body">
+    <div class="form-fields">
+      <div class="col-md-12 col-lg-12">
+        <div class="col-md-6 col-lg-6">
+          <label for="">Select Grade</label>
+          <select formControlName="grade_id" required>
+            <option *ngFor="let grades of grade" value="{{grades.id}}" >{{grades.grade_name}}</option>
+          </select >
+        </div>
+        <div class="col-md-6 col-lg-6">
+          <label for="">Select Days</label>
+          <select formControlName="day_id">
+            <option ><input type="text" name="" value="" formControlName="day_id"></option>
+						<option *ngFor="let dayitem of days" value="{{dayitem.id}}">{{dayitem.days}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+		<div class="card mt-3">
+			<div class="card-body">
+	      <div formArrayName="dayGamaGroup">
+	        <ng-container *ngFor="let dayGameGroupControl of getGameGroup().controls; let i=index" [formGroup]="dayGameGroupControl">
+						<div class="page">
+							<div class="form-fields">
+								<div class="form-title">
+									<h5 class="title-page">Game {{i+1}}</h5>
+								</div>
+                <div class="col-md-12 col-lg-12">
+                  <div class="col-md-6 col-lg-6">
+                    <label for="">Select Framework Core </label>
+                    <select formControlName="framework_id" (change)="onChange()">
+          						<ng-container *ngFor="let coreframworks of coreframwork">
+                      		<option  value="{{coreframworks.id}}" >{{coreframworks.name}}</option>
+          						</ng-container>
+                    </select>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                    <label for="">Select Subject</label>
+                    <select formControlName="subject_id" (change)="onChange()">
+                      <option *ngFor="let subject of subjects" value="{{subject.id}}">{{subject.subject_name}}</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                    <label for="">Select Game</label>
+                    <select formControlName="game_id">
+                      <option *ngFor="let gamelistitem of gamelist" value="{{gamelistitem.games_id}}">{{gamelistitem.games_name}}</option>
+                    </select>
+                  </div>
+                </div>
+		          </div>
+						</div>
+	        </ng-container>
+	      </div>
+	       <button type="button" class="btn-save" (click)="addGameGroup()">Add</button>
+    	</div>
+		</div>
+        <input #submit type="submit" class="btn-save" [disabled]="!addguided.form.valid" value="SAVE">
+    <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+	</div>
+</form>

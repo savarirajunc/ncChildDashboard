@@ -1,0 +1,41 @@
+h4, .h4 {
+  font-size: 18px;
+  font-family: 'GillSansStd-Light';
+  text-transform: capitalize;
+}
+
+.pagination_nav {
+  margin-bottom: 20px;
+  user-select: none;
+}
+.pagenav.active {
+text-decoration: none;
+color:#83D0C9;
+}
+.pagenav{
+font-family: 'GillSansStd';
+font-size: 15px !important;
+color: #333333;
+padding: 3px 5px;
+margin: 2px;
+}
+.pagenav:hover{
+text-decoration: none;
+color:#83D0C9;
+}
+.deactived{
+  cursor: pointer;
+  margin-left: 10px;
+}
+.deactived:hover{
+  color:#83D0C9;
+}
+.edit{
+  cursor: pointer;
+}
+.edit:hover{
+  color:#83D0C9;
+}
+.deactived2{
+  margin-left: 10px;
+}

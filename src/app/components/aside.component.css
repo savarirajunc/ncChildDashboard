@@ -1,0 +1,157 @@
+
+.modalContent__content {
+    padding: 10px 30px !important;
+}
+.blog .blogHomeFilters label {
+    font-family: 'GillSansStd';
+    font-size: 13px;
+    display: flex;
+}
+.blog-page h3 {
+    text-align: left;
+    padding: 0px;
+    line-height: 20px;
+}
+.popular-posts .wpp-list img {
+    margin: 0 0 10px 0;
+    height: auto;
+    width: 93%;
+}
+.form-control:focus {
+    border-color: #83D0C9;
+}
+
+.boxzilla-center-container .boxzilla {
+    padding: 0px;
+}
+.btn-default.focus, .btn-default:focus {
+    color: #83D0C9;
+    background-color: #fff;
+    border-color: #83D0C9;
+    font-family: 'GillSansStd';
+    font-size: 14px;
+    border: 1px solid;
+}
+
+.btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover {
+    color: #83D0C9;
+    background-color: #fff;
+    border-color: #83D0C9;
+	border: 1px solid;
+}
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+    outline: 0px -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+#popup .form-group {
+    margin-bottom: 20px;
+}
+p.go-to-get-now:hover {
+    color: #83d0c9;
+    cursor: pointer;
+}
+.wpp-list,.wpp-list li a,.wpp-list li smal,.moreOnCategory small a{font-family: 'GillSansStd-Light'; color: #333333;}
+.blog .top{margin: 0px 0 42px 0 !important; }
+.wpp-list li {
+    margin: 15px 15px 15px 15px;
+}
+.wpp-list li {
+    overflow: hidden;
+    float: none;
+    clear: both;
+    width:210px;
+    margin: auto;
+}
+ul.wpp-list {
+  padding: 0;
+  width: 100%;
+}
+.wpp-list li a {
+  text-align: center !important;
+  float: left;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%!important;
+  padding-left: 0px;
+  text-decoration: none;
+}
+
+.wpp-list li a:hover{
+    text-decoration: none;
+}
+
+.wpp-list img {
+    margin: 0 0 10px 0;
+    height: auto;
+    width: 93%;
+}
+
+.post-thume-img {
+    height: 158px;
+    width: 210px;
+    background-position: center;
+    background-size: cover;
+    margin:10px auto;
+}
+.nidara-guide h2 {
+    font-size: 18px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    padding: 10px 10px 10px 10px;
+}
+#link {
+  padding-left: 0px;
+  font-weight: 500;
+  text-align: center ;
+  font-size: 15px;
+}
+
+@media (min-width: 768px) {
+   #link {
+    padding-left:35px;
+    text-align: left;
+  }
+}
+
+@media (min-width: 992px) {
+   #link {
+    padding-left:35px;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1200px) {
+   #link {
+    padding-left:35px;
+    text-align: left;
+  }
+}
+
+[data-tip]:after {
+  display: none;
+    content: attr(data-tip);
+    position: relative;
+    top: auto;
+    left: 0;
+    padding: 10px 10px;
+    background: #fff;
+    color: #333;
+    z-index: 9;
+    font-size: 10px;
+    font-weight: 100;
+    line-height: 1.5;
+    border-radius: 0px;
+    white-space: pre-wrap;
+    word-wrap: normal;
+    width: auto;
+    border: 1px solid #ccc;
+}
+[data-tip]:hover:before,
+[data-tip]:hover:after {
+	display:block;
+}
+
+.tool-tip:hover{
+  color:#83D0C9;
+}

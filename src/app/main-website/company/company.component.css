@@ -1,0 +1,11 @@
+.Company .form-col {
+  width: 100%;
+  margin: auto;
+}
+.error {
+  margin-left: 0%;
+  margin-top: 5px;
+  background-color: transparent !important;
+  color: #cc4749;
+  text-align: left;
+}

@@ -1,0 +1,162 @@
+<div class="container" id="layout-container">
+  <div class="row" style="font-family:GillSansStd-light !important;">
+    <div class="col-xs-12  home-slide">
+      <h2>ENROLLMENT PROCESS</h2>
+      <div class="col-xs-12">
+         <span class="top-line"><span class="top-line-1">1</span><span class="top-line-2">2</span><span class="top-line-3">3</span></span>
+      </div>
+      <div class="col-xs-12">
+        <h2>STEP 1.  YOUR PERSONAL DETAILS</h2>
+      </div>
+    </div>
+    <div class="col-xs-12" style="margin-top:-3%;">
+      <div class="col-xs-12">
+        <form #healthprovidForm= "ngForm" [formGroup]="healthForm"  (ngSubmit)="addhealthform(healthprovidForm)"  class="wpcf7-form" novalidate="novalidate">
+        <div class="col-md-12" style="padding:0">
+          <div class="rowleft">
+            <div class="col-xs-12" id="job">
+              <span class="wpcf7-form-control-wrap job">
+                <select (change)="jobchange()"  style="width:100%;" required name="job" formControlName = "job" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                  <option *ngFor="let jobitem of JobTitle"  value="{{jobitem.value}}">{{jobitem.value}}</option>
+               </select>
+              </span>
+              <div *ngIf="!healthForm.get('job').valid && healthForm.get('job').touched" class="bg-danger text-white error">
+                 This field is required.
+               </div>
+               <div class="bg-danger text-white error">{{errorMsg}}</div>
+            </div>
+          </div>
+          <div class="rowright">
+            <div class="col-xs-12" id="regNo">
+              <span class="wpcf7-form-control-wrap regNo">
+                 <input type="text"  style="width:100%"  required OnlyNumber="true" formControlName="regNo" name="regNo" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Registration Number *" />
+              </span>
+               <div class="col-xs-12" *ngIf="!healthForm.get('regNo').valid && healthForm.get('regNo').touched" class="bg-danger text-white error">
+                Please Enter Register No
+               </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12" style="padding:0">
+          <div class="rowleft">
+            <div class="col-xs-12" id="firstname">
+              <span class="wpcf7-form-control-wrap firstname">
+                 <input type="text" style="width:100%;" required OnlyString="true" formControlName="firstname"   name="firstname" value="" size="41" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="First Name *" />
+              </span>
+               <div class="col-xs-12" *ngIf="!healthForm.get('firstname').valid && healthForm.get('firstname').touched" class="bg-danger text-white error">
+                Please Enter First Name (Minimum 2 Characters)
+               </div>
+            </div>
+          </div>
+          <div class="rowright">
+            <div class="col-xs-12" id="lastname">
+              <span class="wpcf7-form-control-wrap lastname">
+                 <input type="text" style="width:100%;" required OnlyString="true" formControlName="lastname"   name="lastname" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Last Name *" />
+              </span>
+               <div class="col-xs-12" *ngIf="!healthForm.get('lastname').valid && healthForm.get('lastname').touched" class="bg-danger text-white error">
+                Please Enter First Name (Minimum 2 Characters)
+               </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12" style="padding:0">
+          <div class="rowleft">
+            <div class="col-xs-12" id="email">
+              <span class="wpcf7-form-control-wrap email">
+                <input class="form-control" style="width:100%;" formControlName = "email"   name="email" required type="email" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required email" placeholder="Email Address *" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+              </span>
+              <div class="col-xs-12" style="bottom: unset;" *ngIf="!healthForm.get('email').valid && healthForm.get('email').touched" class="bg-danger text-white error">
+                  Please enter valid email.
+              </div>
+            </div>
+          </div>
+          <div class="rowright">
+            <div class="col-xs-12" id="phone_number">
+              <span class="wpcf7-form-control-wrap phone_number">
+                <input required type="text"  style="width:100%" formControlName = "phone_number" OnlyNumber = "true" maxlength="15"  name="phone_number"  class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Phone Number *" /></span>
+              <div  *ngIf="!healthForm.get('phone_number').valid && healthForm.get('phone_number').touched" class="bg-danger text-white error">
+                 Mobile Number field is required.
+             </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12" style="padding:0">
+            <div class="rowleft">
+              <div class="col-xs-12" id="enquiry">
+                <span class="wpcf7-form-control-wrap enquiry">
+                  <select (change)="enquirychange()"  style="width:100%;" required name="enquiry" formControlName = "enquiry" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                    <option *ngFor="let enquiryitem of Enquiry"  value="{{enquiryitem.value}}">{{enquiryitem.value}}</option>
+                 </select>
+                </span>
+                <div  *ngIf="!healthForm.get('enquiry').valid && healthForm.get('enquiry').touched" class="bg-danger text-white error">
+                   This field is required.
+               </div>
+               <div class="bg-danger text-white error">{{errorMsg}}</div>
+              </div>
+            </div>
+            <div class="rowright">
+              <div class="col-xs-12" id="best_time">
+                <span class="wpcf7-form-control-wrap best_time">
+                  <select (change)="best_timechange()"  style="width:100%;" required name="best_time" formControlName = "best_time" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                    <option *ngFor="let best_timeitem of BestTiming"  value="{{best_timeitem.value}}">{{best_timeitem.value}}</option>
+                 </select>
+                </span>
+                <div  *ngIf="!healthForm.get('best_time').valid && healthForm.get('best_time').touched" class="bg-danger text-white error">
+                   This field is required.
+               </div>
+               <div class="bg-danger text-white error">{{errorMsg}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12" id="institute">
+            <span class="wpcf7-form-control-wrap institute">
+              <select (change)="institutechange()"  style="width:100%;" required name="institute" formControlName = "institute" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                <option *ngFor="let instituteitem of DescisionMaker"  value="{{instituteitem.value}}">{{instituteitem.value}}</option>
+             </select>
+            </span>
+            <div  *ngIf="!healthForm.get('institute').valid && healthForm.get('institute').touched" class="bg-danger text-white error">
+               This field is required.
+           </div>
+           <div class="bg-danger text-white error">{{errorMsg}}</div>
+          </div>
+          <div class="col-xs-12" id="client">
+            <span class="wpcf7-form-control-wrap client">
+              <select (change)="clientchange()"  style="width:100%;" required name="client" formControlName = "client" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                <option *ngFor="let clientitem of NidaraClient"  value="{{clientitem.value}}">{{clientitem.value}}</option>
+             </select>
+            </span>
+            <div  *ngIf="!healthForm.get('client').valid && healthForm.get('client').touched" class="bg-danger text-white error">
+               This field is required.
+           </div>
+           <div class="bg-danger text-white error">{{errorMsg}}</div>
+          </div>
+          <div class="col-sm-12" id="issues">
+             <span class="wpcf7-form-control-wrap issues">
+               <textarea style="width:100%;height:70px" name="issues" formControlName ="issues"  cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="What types of issues in your practice are you looking to address with Nidara-Children?  *"></textarea></span>
+             <div *ngIf="!healthForm.get('issues').valid && healthForm.get('issues').touched" class="bg-danger text-white error">
+                  Please Enter First Name (Minimum 2 Characters)
+             </div>
+          </div>
+          <div class="col-sm-12" id="nidara">
+          <span class="wpcf7-form-control-wrap nidara">
+            <textarea style="width:100%;height:70px" name="nidara" formControlName ="nidara"  cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="How did you hear about Nidara-Children? *"></textarea></span>
+          <div *ngIf="!healthForm.get('nidara').valid && healthForm.get('nidara').touched" class="bg-danger text-white error">
+              Please Enter First Name (Minimum 2 Characters)
+          </div>
+          </div>
+          <div class="col-xs-6" style=float:right>
+          <button class="submit-but" type=submit>NEXT</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <div>
+  <form action="">
+    <input type="text" name="hi" value="" [(ngModel)]="hi">
+  </form>
+</div> -->

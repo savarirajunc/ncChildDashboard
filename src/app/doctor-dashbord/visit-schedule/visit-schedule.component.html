@@ -1,0 +1,81 @@
+<p><br></p>
+<h3>REGISTER NEW PATIENTS
+  </h3>
+<h4>ENTER NC HEALTHY CHILD DEVELOPMENT SCHEDULE
+
+  </h4>
+
+  <div class="col-md-12 paddingless">
+      <ng-container *ngFor="let productitem of pageArray;let i=index">
+          <a class="pagenav" (click)="setGameDetailsView(productitem)" [ngClass]="{'active':productitem===currentPage}">CHILD {{productitem+1}}</a>
+    </ng-container>
+  </div>
+    <form id=product #prouduct="ngForm" [formGroup]="visitForm" (ngSubmit)="onSubmit(prouduct)" #refForm="ngForm">
+        <div class="page-header"></div>
+
+        <div formArrayName ="visitDetails">
+        <ng-container>
+        <div class="form-group" *ngFor="let getProductFormControl of getProductForm().controls;let i=index"  [formGroup] = "getProductFormControl">
+          <div class="col-md-12 col-lg-12 paddingless">
+          <div class="col-lg-3 col-md-3 paddingleft">
+              <label style="visibility: hidden;">`<span style="color:#f00"></span> </label>
+              <ng-container *ngIf="i == 0;else elseDiv" >
+                  <input class="form-control" type="text" value="Visit {{i+1}}" disabled>
+              </ng-container>
+              <ng-template #elseDiv>
+                  <input class="form-control" type="text" value="Visit {{i+1}}" disabled>
+              </ng-template>
+
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 paddingless">
+                <label> Enter the date <span style="color:#f00">*</span> </label>
+                    <ul class="dob">
+                      <li><select name="dates" id="" formControlName="date" (change) ="monthval()" required>
+                          <option value="">DD</option>
+                          <option *ngFor="let dateitem of date"  value="{{dateitem.id}}">{{dateitem.id}}</option>
+                        </select></li>
+                      <li><select name="months" id="" formControlName="month" (change) ="monthval()" required>
+                          <option value="">MM</option>
+                          <option *ngFor="let monthitem of month" value="{{monthitem.id}}">{{monthitem.name}}</option>
+                        </select></li>
+                      <li><select name="years" id="" formControlName="year" (change) ="monthval()"  required>
+                          <option value="">YYYY</option>
+                          <option *ngFor="let yearsitem of years" value="{{yearsitem.id}}" >{{yearsitem.id}}</option>
+                        </select></li>
+                    <div id="date_erorr{{i}}" style="display: none" class="bg-danger text-white error">Please enter a valid date</div>
+                    <div *ngIf="formData.dob_years % 4 != 0 && formData.dob_month == '2' && formData.dob_date >='29'" class="bg-danger text-white error">Please enter a valid date</div>
+                    <div *ngIf="(formData.dob_month == '4' || formData.dob_month == '6' || formData.dob_month == '9' || formData.dob_month == '11') && formData.dob_date >30" class="bg-danger text-white error">Please enter a valid date</div>
+                    </ul>
+              </div>
+              <div class="col-md-3 col-lg-3" style="padding-right: 0px">
+                  <label>Time<span style="color:#f00">*</span> </label>
+                  <ul class="time">
+
+                      <li><select name="dates" id="" formControlName="hours" required>
+                          <option value="">HH</option>
+                          <option *ngFor="let hoursitem of hours" value="{{hoursitem.id}}" >{{hoursitem.id}}</option>
+                        </select></li>
+                      <li><select name="months" id="" formControlName="minutes" required>
+                          <option value="">MM</option>
+                          <option *ngFor="let minutesitem of minutes" value="{{minutesitem.id}}">{{minutesitem.id}}</option>
+                        </select></li>
+                    </ul>
+              </div>
+
+            </div>
+        </div>
+        </ng-container>
+      </div>
+      <ng-container *ngIf="!prouduct.form.valid; else addDiv" >
+          <span style="cursor: no-drop;" class="but-add" >Add</span>
+      </ng-container>
+      <ng-template #addDiv>
+          <span class="but-add"  (click)="addFiled()">Add</span>
+      </ng-template>
+
+        <div class="col-lg-12 col-md-12">
+            <input type="submit" class="btn-save" [disabled]="!prouduct.form.valid" value="SAVE CHANGES">
+        </div>
+        <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+      </form>
+

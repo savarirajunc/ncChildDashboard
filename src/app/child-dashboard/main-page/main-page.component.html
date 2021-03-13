@@ -1,0 +1,55 @@
+<div id="main-dev" [ngStyle]="{'background-image': 'url(' + backroundDayOrder + ')'}">
+  <div class="col-md-12">
+    <ng-container *ngIf="!getChildinfo" >
+        <!-- <div id="send-form" class="text-center">
+          <label for="">Enter School Id</label>
+            <input class="school-" type="text" name="school_id" >
+            <span>Submit</span>
+          </div> -->
+    </ng-container>
+    <ng-container>
+      <ng-container *ngFor="let getChildinfoitem of getChildinfo" >
+        <div id="button-one" class="text-center">
+          <img src="{{getChildinfoitem.child_photo}}" class="img-circle pop-image child-login"  (click)="checkattendance(getChildinfoitem.id)"/>
+          <h4>{{getChildinfoitem.first_name}}</h4>
+          <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+        </div>
+      </ng-container>
+    </ng-container>
+
+  </div>
+</div>
+<!--
+<div id="main-dev">
+<div class="col-md-12">
+  <div id="button-one" class="text-center">
+    <img src="assets/images/mainplay.png" style="width:220px" (click)="finalAudio()"/>
+  </div>
+  <div id="button-two" class="text-center">
+    <img src="assets/images/mainplay.png" style="width:220px" (click)="lateAudio()"/>
+  </div>
+  <div id="button-thiree" class="text-center">
+    <img src="assets/images/mainplay.png" style="width:220px" (click)="waitAudio()"/>
+  </div>
+  <div id="sleep" class="text-center">
+    <img src="assets/images/mainplay.png" style="width:220px" (click)="sleepAudio()"/>
+  </div>
+  <div id="wake-up" class="text-center">
+    <img src="assets/images/mainplay.png" style="width:220px" (click)="wakeUpAudio()"/>
+  </div>
+
+</div>
+<div id="tinawelcome">
+  <div class="tinawelcome" style="background-image:url('/assets/images/tinawelcom.gif')">
+</div>
+</div>
+<div id="tinaSleep">
+  <div class="tinawelcome" style="background-image:url('/assets/images/sleep.png')">
+</div>
+</div>
+<div id="tinaWakeUp">
+  <div class="tinawelcome" style="background-image:url('/assets/images/wake_up.gif')">
+</div>
+</div>
+</div> -->
+

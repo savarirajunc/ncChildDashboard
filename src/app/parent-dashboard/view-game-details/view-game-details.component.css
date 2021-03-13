@@ -1,0 +1,11 @@
+th {
+  width: auto;
+  padding: 8px;
+}
+table.table-bordered {
+  width: 100%;
+}
+td {
+  width: auto;
+  padding: 8px;
+}

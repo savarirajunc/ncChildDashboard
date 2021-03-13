@@ -1,0 +1,336 @@
+<div>
+  <h2>PRE NIDARA QUESTIONNAIRE <br> DAILY ROUTINES</h2>
+  <p>Rate your child’s current daily routine habits below.</p>
+</div>
+<div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+
+        <form #dailyRoutine="ngForm" (ngSubmit)="dailyRoutineFormSubmit(dailyRoutine)">
+  <div class="form-fields daily-routine">
+
+    <div class="row" *ngFor="let questions of dailyQuestionaries; let i = index">
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+        <label for="name">{{questions.name}}</label></div>
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule" *ngFor="let options of questions.options; let j = index">
+
+        <ng-template [ngIf]="options.id == questions.answers.option_id">
+
+          <input type="radio" name="perform_{{i}}" [value]="options" required   (change)="selectOptions(options)" checked/> <label>{{options.option}}</label>
+        </ng-template>
+        <ng-template [ngIf]="options.id != questions.answers.option_id">
+
+          <input type="radio" name="perform_{{i}}"  [value]="options" required  (change)="selectOptions(options)" /> <label>{{options.option}}</label>
+        </ng-template>
+      </div>
+      <!-- <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="good" /> <label>2 - Good</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="excellent" />  <label>3 - Excellent</label>
+                            </div> -->
+    </div>
+    <!-- <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <label for="name">Brush teeth</label></div>
+                               <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="poor" />   <label>1 - Poor</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="good" /> <label>2 - Good</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="excellent" />  <label>3 - Excellent</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <label for="name">Eat meals on their own</label></div>
+                               <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="poor" />   <label>1 - Poor</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="good" /> <label>2 - Good</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="excellent" />  <label>3 - Excellent</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <label for="name">Follow times</label></div>
+                               <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="poor" />   <label>1 - Poor</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="good" /> <label>2 - Good</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="excellent" />  <label>3 - Excellent</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <label for="name">Eats nutritious foods</label></div>
+                              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="poor" />   <label>1 - Poor</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="good" /> <label>2 - Good</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="excellent" />  <label>3 - Excellent</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <label for="name">Reads before bedtime</label></div>
+                               <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="poor" />   <label>1 - Poor</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="good" /> <label>2 - Good</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="excellent" />  <label>3 - Excellent</label>
+                            </div>
+                        </div>
+                       <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <label for="name">Falls asleep at night on time</label></div>
+                              <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="poor" />   <label>1 - Poor</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="good" /> <label >2 - Good</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                                <input type="radio" name="perform" value="excellent" />  <label>3 - Excellent</label>
+                            </div>
+                        </div> -->
+
+    <div>
+
+      <input type="submit" [disabled]="!dailyRoutine.form.valid" class="btn-save" value="Save Changes">
+    </div>
+  </div>
+</form>
+<div id="dailyroutine">
+  <div class="row daily-development">
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab"  href="#dailyroutinecreate" style="color:#333333;font-size:18px;">Create Task</a></li>
+      <li><a data-toggle="tab" href="#dailyroutineupdate" style="color:#333333;font-size:18px;">Update Task</a></li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div class="row tab-pane fade in active col-md-12 col-lg-12" id="dailyroutinecreate">
+      <div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+      <form name="dailySchedulerForm" #dailySchedulerForm="ngForm" (ngSubmit)="dailySchedulerFormSubmit(dailySchedulerForm)">
+        <div class="form-fields shedule_info">
+          <div class="form-response">
+            <div class="row clock-schedule">
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <label>Name</label>
+              </div>
+              <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                <label>Nidara Daily Routine Task Creation</label>
+              </div>
+
+            </div>
+            <div class="row clock-schedule">
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <label>Time</label>
+              </div>
+              <div class="col-lg-3 col-md-2 col-sm-3 col-xs-12" style="margin-right:40px">
+
+                <timepicker [(ngModel)]="set_time" name="set_time" [showMeridian]="ismeridian" [readonlyInput]="!isEnabled"></timepicker>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <label>Task</label>
+              </div>
+              <div class="col-md-4 col-lg-4">
+                <label>Add other Task</label>
+                <select name="task" id="" [(ngModel)]="formData.task_name">
+                  <option value="Wake Up">Wake Up</option>
+                  <option value="Brush Teeth">Brush Teeth</option>
+                  <option value="Eat Breakfast">Eat Breakfast</option>
+                  <option value="Eat Lunch">Eat Lunch</option>
+                  <option value="Nap">Nap</option>
+                  <option value="Play">Play</option>
+                  <option value="Read a story">Read a story</option>
+                  <option value="Bedtime">Bedtime</option>
+                </select>
+            </div>
+            <div class="col-md-4 col-lg-4">
+              <label>Add other Task</label>
+              <input type="text" name="" value="">
+            </div>
+          </div>
+            <div class="row">
+
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <label>Reminder</label>
+              </div>
+              <ng-template></ng-template>
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                <input type="radio" name="time" value="15_min_before" name="reminder" #reminder='ngModel' [(ngModel)]="formData.reminder"  required/> <label>15 mins before</label>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                <input type="radio" name="time" value="30_min_before" name="reminder" #reminder='ngModel' [(ngModel)]="formData.reminder"  required/> <label>30 mins before</label>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                <input type="radio" name="time" checked value="1_hour_before" name="reminder" #reminder='ngModel' [(ngModel)]="formData.reminder"   required/> <label>1 hour before</label>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-md-3 col-lg-3  col-sm-12 col-xs-12"></div>
+              <div class="col-md-3 col-lg-3  col-sm-12 col-xs-12">
+                <input type="radio" name="repeat" value="Repeat" #repeat = "ngModel" [(ngModel)]="formData.repeatday"><label>Repeat</label>
+              </div>
+              <div class="col-md-3 col-lg-3  col-sm-12 col-xs-12">
+                  <input type="radio" name="repeat" value="Daily" #repeat = "ngModel" [(ngModel)]="formData.repeatday"><label>Daily</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
+              <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 schedule" >
+
+                <label *ngFor="let scheduler of schedulerDays;let i = index">
+                  <ng-template [ngIf]="scheduler.option == 1">
+                      <input type="checkbox" value="{{scheduler.option}}" name="scheduler_days_id" checked (change)="onChange(scheduler)" required/><span>&nbsp;{{scheduler.day}}&nbsp;&nbsp;</span>
+
+                  </ng-template>
+                  <ng-template [ngIf]="scheduler.option == 0">
+                      <input type="checkbox" value="{{scheduler.option}}" name="scheduler_days_id"  (change)="onChange(scheduler)" required/><span>&nbsp;{{scheduler.day}}&nbsp;&nbsp;</span>
+
+                  </ng-template>
+                </label>
+
+              </div>
+            </div>
+            <div class="form-response">
+              <div class="row form-fields">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                  <!-- <div class="form-group">
+                                              <a _ngcontent-c2="" href="/parents/childprofile" ng-reflect-router-link="/parents/childprofile" href="#/parents/childprofile" id='active-later'>go back step 1</a>
+                                        </div>  https://stackoverflow.com/questions/34164413/how-to-apply-filters-to-ngfor -->
+                  <!--<input type="submit" value="SAVE CHANGES" >-->
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                  
+                  <div class="form-group">
+                    <input type="submit" [disabled]="!dailySchedulerForm.form.valid" class="btn-save" value="SAVE">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Daily Routine Task Updation -->
+
+    <div class="row tab-pane fade in  col-md-12 col-lg-12" id="dailyroutineupdate">
+      <div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+      <form name="dailyroutineForm" #dailyroutineForm="ngForm" (ngSubmit)="dailySchedulerFormUpdataSubmit(dailyroutineForm)">
+        <div class="form-fields shedule_info">
+          <div class="form-response">
+            <div class="row clock-schedule">
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <label>Name</label>
+              </div>
+              <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                <label>Nidara Daily Routine Task Updation</label>
+              </div>
+
+            </div>
+            <div class="row clock-schedule">
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <label>Time</label>
+              </div>
+              <div class="col-lg-3 col-md-2 col-sm-3 col-xs-12" style="margin-right:40px">
+
+                <timepicker [(ngModel)]="set_time" name="set_time" [showMeridian]="ismeridian" [readonlyInput]="!isEnabled"></timepicker>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <label>Select Task</label>
+              </div>
+
+              <div class="col-md-9 col-lg-9">
+                <label *ngFor="let taskIds of taskId;let i = index">
+                    <ng-template [ngIf]="taskIds.nidara_kid_profile_id === kid_profile_id">
+                      <input type="radio" #taskid="ngModel" name="taslid" value="{{taskIds.id}}" [(ngModel)]="formData.task_id"><span>&nbsp;{{taskIds.task_name}}&nbsp;</span>
+                    </ng-template>
+                </label>
+            </div>
+          </div>
+            <div class="row">
+
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <label>Reminder</label>
+              </div>
+              <ng-template></ng-template>
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                <input type="radio" name="time" value="15_min_before" name="reminder" #reminder='ngModel' [(ngModel)]="formData.reminder"  required/> <label>15 mins before</label>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                <input type="radio" name="time" value="30_min_before" name="reminder" #reminder='ngModel' [(ngModel)]="formData.reminder"  required/> <label>30 mins before</label>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                <input type="radio" name="time" checked value="1_hour_before" name="reminder" #reminder='ngModel' [(ngModel)]="formData.reminder"   required/> <label>1 hour before</label>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-md-3 col-lg-3  col-sm-12 col-xs-12"></div>
+              <div class="col-md-3 col-lg-3  col-sm-12 col-xs-12">
+                <input type="radio" name="repeat" value="Repeat" #repeat = "ngModel" [(ngModel)]="formData.repeatday"><label>Repeat</label>
+              </div>
+              <div class="col-md-3 col-lg-3  col-sm-12 col-xs-12">
+                  <input type="radio" name="repeat" value="Daily" #repeat = "ngModel" [(ngModel)]="formData.repeatday"><label>Daily</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
+              <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 schedule" >
+
+                <label *ngFor="let scheduler of schedulerDays;let i = index">
+                  <ng-template [ngIf]="scheduler.option == 1">
+                      <input type="checkbox" value="{{scheduler.option}}" name="scheduler_days_id" checked (change)="onChange(scheduler)" required/><span>&nbsp;{{scheduler.day}}&nbsp;&nbsp;</span>
+
+                  </ng-template>
+                  <ng-template [ngIf]="scheduler.option == 0">
+                      <input type="checkbox" value="{{scheduler.option}}" name="scheduler_days_id"  (change)="onChange(scheduler)" required/><span>&nbsp;{{scheduler.day}}&nbsp;&nbsp;</span>
+
+                  </ng-template>
+                </label>
+
+              </div>
+            </div>
+            <div class="form-response">
+              <div class="row form-fields">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                  <!-- <div class="form-group">
+                                              <a _ngcontent-c2="" href="/parents/childprofile" ng-reflect-router-link="/parents/childprofile" href="#/parents/childprofile" id='active-later'>go back step 1</a>
+                                        </div>  https://stackoverflow.com/questions/34164413/how-to-apply-filters-to-ngfor -->
+                  <!--<input type="submit" value="SAVE CHANGES" >-->
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <input type="submit" [disabled]="!dailyroutineForm.form.valid" class="btn-save" value="SAVE">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

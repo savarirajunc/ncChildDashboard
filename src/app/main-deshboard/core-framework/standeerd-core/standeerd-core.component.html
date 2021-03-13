@@ -1,0 +1,79 @@
+<div class="col-md-12 col-lg-12">
+  <ng-container *ngFor="let grade_valitem of grade_val">
+  <ng-container *ngIf="grade_valitem.id == grade_id">
+  <ng-container *ngFor="let subjectsitem of subjects">
+    <ng-container *ngIf="subjectsitem.id == subject_id">
+      <h4><span routerLink="../../viewcoreframe">VIEW CORE OKAMEWOROK</span> <span> > </span> <span (click)="backClicked()">{{grade_valitem.learning_model}}</span> <span> > </span> <span (click)="backClicked()">CATEGORY CLASSIFICATION</span> <span> > </span> <span (click)="backClicked()">{{subjectsitem.subject_name}}</span></h4>
+    </ng-container>
+  </ng-container>
+  </ng-container>
+</ng-container>
+</div>
+    <!-- <table *ngFor="let standardMapitem of standardMap[0]" class="table-bordered">
+      <tr class="standard">
+        <th class="col-md-12 col-lg-12"><h4>{{standardMapitem.standard_name}}</h4><th>
+      </tr>
+      <tr >
+        <table class="table-bordered">
+          <tr class="standard">
+            <th class="indicator">Indicators</th>
+            <th class="indicator">Sub Indicators</th>
+            <th class="indicator">Sub - Sub - Indicator</th>
+            <th class="indicator">Sub Sub Sub Indicator</th>
+          </tr>
+          <tr class="col-md-12 col-lg-12">
+            <ng-container *ngFor="let Indicatorsitem of standardMapitem.Indicators;let i=index">
+              <td class="indicator">
+                <ng-container *ngIf="i == 0">{{Indicatorsitem.indicator_name}}</ng-container>
+              </td>
+              <td class="indicator">
+                <ng-container *ngIf="i == 1">{{Indicatorsitem.indicator_name}}</ng-container>
+              </td>
+              <td class="indicator">
+                <ng-container *ngIf="i == 2">{{Indicatorsitem.indicator_name}}</ng-container>
+              </td>
+              <td class="indicator">
+                <ng-container *ngIf="i == 3">{{Indicatorsitem.indicator_name}}</ng-container>
+              </td>
+            </ng-container>
+          </tr>
+        </table>
+      </tr>
+    </table> -->
+  <ng-container *ngFor="let gamedetailsitem of standardMap[currentPage]; let i = index">
+    <div class="col-md-12 paddingless">
+      <!-- <span>{{gamedetailsitem.standard_id}}</span> -->
+      <ng-container *ngFor="let gamedetailsitemitem of gamedetailsitem[i-1]">{{gamedetailsitemitem.standard_name}}</ng-container>
+      <h4>{{gamedetailsitem.standard_name}}</h4>
+      <div class="col-md-12 paddingless">
+        <div class="col-md-3 paddinglessborder">
+          <h5>Indicator</h5>
+        </div>
+        <div class="col-md-3 paddinglessborder">
+          <h5>Sub Indicator</h5>
+        </div>
+        <div class="col-md-3 paddinglessborder">
+          <h5>Sub Sub Indicator</h5>
+        </div>
+        <div class="col-md-3 paddinglessborder">
+          <h5>Sub Sub Sub Indicator</h5>
+        </div>
+      </div>
+      <div class="col-md-12 paddingless">
+        <div class="col-md-3 paddinglessborder ind-col" *ngFor="let Indicatoritem of gamedetailsitem.Indicators;let n=index">
+          {{Indicatoritem.indicator_name}}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <div class="text-center pagination_nav">
+    <ng-container *ngIf="currentPage >= 10">
+      <a class="pagenav" (click)="selectPageBack()">&lsaquo;&lsaquo;</a>
+    </ng-container>
+    <ng-container *ngFor="let gamedetailsitem of pageArray| slice:pageIdx*10:(pageIdx+1)*10;let i=index">
+          <a class="pagenav" (click)="setGameDetailsView(gamedetailsitem)" [ngClass]="{'active':gamedetailsitem===currentPage}">{{gamedetailsitem+1}}</a>
+    </ng-container>
+    <ng-container *ngIf="currentPage < (pageNav -1) ">
+      <a class="pagenav" (click)="selectPage()">&rsaquo;&rsaquo;</a>
+    </ng-container>
+  </div>

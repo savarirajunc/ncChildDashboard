@@ -1,0 +1,187 @@
+<section class="section breadcrumb-section" >
+  <div class="container">
+     <div class="row">
+        <div class="col-lg-12">
+           <div class="breadcrumb-block clearfix" typeof="BreadcrumbList" vocab="https://schema.org/">
+              <ul>
+                 <li>YOU ARE HERE:</li>
+                 <!-- Breadcrumb NavXT 5.7.1 -->
+                 <li class="home">
+                    <span property="itemListElement" typeof="ListItem">
+                       <a property="item" typeof="WebPage" title="Go to Home."href="/Home" class="home"><span property="name">Home</span></a>
+                       <meta property="position" content="1">
+                    </span>
+                 </li>
+                 <li class="current_item">
+                    <span property="itemListElement" typeof="ListItem">
+                       <span property="name">Contact Us</span>
+                       <meta property="position" content="2">
+                    </span>
+                 </li>
+              </ul>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>
+<div class="container" id="contact-us-page">
+  <div class="homeSlides" style="margin: 20px 0px;">
+     <div>
+        <img src="assets/web_img/bannerContact.jpg" alt="Contact Us" />
+     </div>
+     <div>
+        <div class="extraPadding" style="margin-top:15%;"></div>
+        <h1 style="text-align:left;padding-left:15%">Contact Us</h1>
+        <p style="text-align: left; padding-left: 15%;">For any queries regarding Nidara,
+           reach out to us.
+        </p>
+     </div>
+  </div>
+  <br/>
+  <div class="product-details">
+     <div class="row" id="layout-two-column">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+           <div class="layout-heading text-left">
+              <h2>OUR OPERATING HOURS ARE:
+              </h2>
+           </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+           <div class="layout-content-single-tow-column">
+              <p>Monday to Friday 10am - 6pm Indian Standard Time.</p>
+              <p>We are closed on public holidays.
+              </p>
+           </div>
+        </div>
+     </div>
+  </div>
+  <div class="contactUs">
+     <div id="main-form">
+        <div role="form" class="wpcf7" id="wpcf7-f130-p25-o1" lang="en-US" dir="ltr">
+           <div class="screen-reader-response"></div>
+           <form  #formdata= "ngForm" [formGroup]="contactForm" (ngSubmit)="addUser(formdata)" class="wpcf7-form" novalidate="novalidate">
+           <h2>WE'RE HERE TO HELP</h2>
+           <p>Please submit your query and a Nidara representative will get in touch with you.</p>
+           <div class="form-fields contactUsFields2">
+              <div class="row">
+                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="col-sm-6">
+                       <span class="wpcf7-form-control-wrap firstname">
+                          <input type="text" required OnlyString="true" formControlName="firstname"   name="firstname" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="First Name *" />
+                          <div *ngIf="!contactForm.get('firstname').valid && contactForm.get('firstname').touched" class="bg-danger text-white error">
+                             Please Enter First Name (Minimum 2 Characters)
+                          </div>
+                       </span>
+                    </div>
+                    <div class="col-sm-6" id="last-name">
+                       <span class="wpcf7-form-control-wrap lastname">
+                          <input required type="text" formControlName = "lastname" OnlyString="true"  name="lastname" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Last Name *" />
+                          <div  *ngIf="!contactForm.get('lastname').valid && contactForm.get('lastname').touched" class="bg-danger text-white error">
+                             Please Enter Last Name (Minimum 2 Characters)
+                          </div>
+                       </span>
+                    </div>
+                 </div>
+                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="col-sm-6">
+                       <span class="wpcf7-form-control-wrap user_email">
+                          <input class="form-control"  formControlName = "username"   name="email" required type="email" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required email" placeholder="Email Address *" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                          <div style="bottom: unset;" *ngIf="!contactForm.get('username').valid && contactForm.get('username').touched" class="bg-danger text-white error">
+                             Please enter valid email.
+                          </div>
+                       </span>
+                    </div>
+                    <div class="col-sm-6" id="phone-number">
+                       <span class="wpcf7-form-control-wrap phone_number">
+                          <input required type="text" formControlName = "phone_number" OnlyNumber = "true" maxlength="15"  name="phone_number"  class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Mobile Number *" />
+                          <div  *ngIf="!contactForm.get('phone_number').valid && contactForm.get('phone_number').touched" class="bg-danger text-white error">
+                             Mobile Number field is required.
+                          </div>
+                       </span>
+                    </div>
+                 </div>
+                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="col-sm-6" id="audience-type">
+                       <span class="wpcf7-form-control-wrap audiencetype">
+                          <select required name="audiencetype" formControlName = "audiencetype" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                             <option *ngFor="let audiencetypeitem of audiencetype"  value="{{audiencetypeitem.value}}">{{audiencetypeitem.value}}</option>
+                          </select>
+                          <div *ngIf="!contactForm.get('audiencetype').valid && contactForm.get('audiencetype').touched" class="bg-danger text-white error">
+                             This field is required.
+                          </div>
+                       </span>
+                    </div>
+                    <div class="col-sm-6" id="inquiry-option">
+                       <span class="wpcf7-form-control-wrap inquiry">
+                          <select placeholder = "What is your inquiry about? *" required name="inquiry" formControlName ="inquiry"  class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                             <option *ngFor="let inquiryitem of inquirymain" value={{inquiryitem.value}} >{{inquiryitem.value}}</option>
+                          </select>
+                          <div  *ngIf="!contactForm.get('inquiry').valid && contactForm.get('inquiry').touched" class="bg-danger text-white error">
+                             This field is required.
+                          </div>
+                       </span>
+                    </div>
+                 </div>
+                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                       <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 paddingless">
+                          <span class="wpcf7-form-control-wrap message">
+                             <textarea name="message" formControlName ="message"  cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Let us know how we can help *"></textarea>
+                             <div *ngIf="!contactForm.get('message').valid && contactForm.get('message').touched" class="bg-danger text-white error">
+                                This field is required.
+                             </div>
+                          </span>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="col-sm-12">
+                    <span class="req" style="margin-top:-10px;color:#333; margin-bottom:25px;">&nbsp;* Required fields</span>
+                 </div>
+                 <div class="col-sm-6" id="contact-send">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                       <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                          <input class="btn" type="submit"  class="wpcf7-form-control wpcf7-submit" />
+                       </div>
+                    </div>
+                    <!-- <a href = "../notification-thank" hrefActive="active"> -->
+                    <!-- </a> -->
+                 </div>
+                 <div class="col-sm-6" id="formMessage">
+                    <div class="formMessage" style="margin-top:10px;">Thank you for your inquiry. We will get in touch with your shortly.</div>
+                 </div>
+              </div>
+           </div>
+           <div class="wpcf7-response-output wpcf7-display-none"></div>
+           </form>
+        </div>
+     </div>
+     <div id="rightsidebar">
+        <div class="helpCenter">
+           <a href="faqs">
+              <h3>Help Center</h3>
+              <hr/>
+              <p>View our FAQs
+              </p>
+           </a>
+        </div>
+     </div>
+  </div>
+  <div class="product-details">
+     <div class="row" id="layout-two-column">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+           <div class="layout-heading text-left">
+              <h2>OUR LOCATION</h2>
+           </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+           <div class="layout-content-single-tow-column">
+              <p>Nidara Children Private Limited</p>
+              <p>Level 5, Prestige Palladium Bayan</p>
+              <p>No : 129 - 140, Greams Road</p>
+              <p>Chennai – 600006, India.</p>
+              <p>India +91 44 4654 9242</p>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>

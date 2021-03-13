@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <script lang="text/javascript">
+    function exitClick()
+    {
+      window.history.go(-1); 
+      return false;
+    }
+	window.oncontextmenu = function () {
+	 return false;
+	}
+	var audio = new Audio();
+	function volumeClick(){
+	var b=document.getElementById("iframeid").contentWindow.replayaudio;
+		
+		console.log("This is from yellowbutton   " + b);
+		audio.pause();
+		audio.src = b;
+		audio.load();
+		audio.play();
+		return false;
+	}
+	
+    </script>
+        <link href="css/bootstrap.css" rel="stylesheet" />
+		<link href="css/responsive.css" rel="stylesheet" />
+        <div class="game-header ">
+                <div class="row ">
+                 
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <a (click)="logoClick()">        
+                          <img src="assets/logo.jpg" >
+                      </a>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+              
+                    <div class="audio-div">
+                      <ul class="audio-setting">
+                        <li class="img-shadow"><a><img src="assets/volume-active-icon.png" id="header-audio-btn" onClick="volumeClick()" (mouseover)='volumeHover()' (mouseout)='volumeOut()'></a></li>
+              
+                        <li class="img-shadow"><a ><img src="assets/close-icon.png"  id="exit-btn" onClick="exitClick()" (mouseover)='exitHover()' (mouseout)='exitOut()'></a></li>
+                      </ul>
+                    </div>
+                 
+                  </div>
+                
+                </div>
+              </div>
+              <hr style="height:1px;color:darkgray;background-color:darkgray;">
+<!-- 
+<script type="text/javascript" src="js/phaser.min.js"></script>
+<script type="text/javascript" src="js/nextslide.js"></script>
+<script type="text/javascript" src="js/color.js"></script>
+<script type="text/javascript" src="js/shoot.js"></script>
+<script type="text/javascript" src="js/select.js"></script>
+<script type="text/javascript" src="js/trace.js"></script>
+<script type="text/javascript" src="js/intro.js"></script>
+<script type="text/javascript" src="js/variables.js"></script>
+-->
+
+		<div align="center"> 
+			<iframe src="game.html" id="iframeid" class="game_iframe" scrolling="no" style="border:none;"></iframe>
+		</div>
+</head>
+<body>
+        
+              
+</body>
+</html>

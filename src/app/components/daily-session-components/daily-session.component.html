@@ -1,0 +1,101 @@
+
+
+                    <h2>DAILY SESSION</h2>
+                    <!-- <div *ngIf="_response.status" class="alert alert-success">{{_response.message}}</div> -->
+                    <form name="dailySchedulerForm" #dailySchedulerForm="ngForm" (ngSubmit)="dailySchedulerFormSubmit(dailySchedulerForm)">
+                      <div class="form-fields shedule_info">
+                        <div class="form-response">
+                          <div class="row clock-schedule">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                              <label>Name</label>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                              <label>Nidara Daily Session</label>
+                            </div>
+                            <!--<div class="col-lg-1 col-md-1 col-sm-2 col-xs-2 add-task">
+                                                        <a href="">+</a>
+                                                    </div>-->
+                          </div>
+                          <div class="row clock-schedule">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                              <label>Time</label>
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                              <label>From</label>
+                            </div>
+                            <div class="col-lg-3 col-md-2 col-sm-3 col-xs-12" style="margin-right:40px">
+                              <!--  <div class="input-group clockpicker">
+                                <input type="text" class="form-control" (change)="onClock()" name="from_time" required>
+                                <span class="input-group-addon">
+                                                                    <span class="glyphicon glyphicon-time" ></span>
+                                </span>
+
+                              </div>-->
+                              <timepicker [(ngModel)]="from_time" name="from_time" [showMeridian]="ismeridian" [readonlyInput]="!isEnabled"></timepicker>
+                            </div>
+                            <div class="col-lg-1 col-md-2 col-sm-1 col-xs-12" style="margin-right:-40px">
+                              <label>To</label>
+                            </div>
+                            <div class="col-lg-3 col-md-2 col-sm-3 col-xs-12">
+                              <timepicker [(ngModel)]="to_time" name="to_time" [showMeridian]="ismeridian" [readonlyInput]="!isEnabled"></timepicker>
+                              <!-- <div class="input-group clockpicker1">
+                                <input type="text" class="form-control" value="09:30" name="to_time" required>
+                                <span class="input-group-addon">
+                                                                    <span class="glyphicon glyphicon-time"></span>
+                                </span>
+                              </div> -->
+                            </div>
+                          </div>
+                          <!-- <div class="row">
+
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                              <label>Reminder</label>
+                            </div>
+                            <ng-template></ng-template>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                              <input type="radio" name="time" value="15_min_before" name="reminder" #reminder='ngModel' [(ngModel)]="formData.reminder"  required/> <label>15 mins before</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                              <input type="radio" name="time" value="30_min_before" name="reminder" #reminder='ngModel' [(ngModel)]="formData.reminder"  required/> <label>30 mins before</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">
+                              <input type="radio" name="time" checked value="1_hour_before" name="reminder" #reminder='ngModel' [(ngModel)]="formData.reminder"   required/> <label>1 hour before</label>
+                            </div>
+
+                          </div> -->
+
+                          <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
+                            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 schedule" >
+
+                              <label *ngFor="let scheduler of schedulerDays;let i = index">
+                                <ng-template [ngIf]="scheduler.option == 1">
+                                    <input type="checkbox" value="{{scheduler.option}}" name="scheduler_days_id" checked (change)="onChange(scheduler)" required/><span>&nbsp;{{scheduler.day}}&nbsp;&nbsp;</span>
+
+                                </ng-template>
+                                <ng-template [ngIf]="scheduler.option == 0">
+                                    <input type="checkbox" value="{{scheduler.option}}" name="scheduler_days_id"  (change)="onChange(scheduler)" required/><span>&nbsp;{{scheduler.day}}&nbsp;&nbsp;</span>
+
+                                </ng-template>
+                              </label>
+
+                            </div>
+                          </div>
+                          <div class="form-response">
+                            <div class="row form-fields">
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <!-- <div class="form-group">
+                                                            <a _ngcontent-c2="" href="/parents/childprofile" ng-reflect-router-link="/parents/childprofile" href="#/parents/childprofile" id='active-later'>go back step 1</a>
+                                                      </div>  https://stackoverflow.com/questions/34164413/how-to-apply-filters-to-ngfor -->
+                                <!--<input type="submit" value="SAVE CHANGES" >-->
+                              </div>
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                  <input type="submit" class="btn-save" [disabled]="!dailySchedulerForm.form.valid" value="set time">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>

@@ -1,0 +1,546 @@
+<div class="row">
+  <p style="font-size:14px;">{{currentDate}}</p>
+  <!-- <div class="col-md-12 col-lg-12" id="dailyroutinecol">
+    <span class="gamealart"><img src="assets/images/warningtriangle.png" ><span>{{time_get}}</span><span class="taskname"> <ng-container *ngIf="task_name === 'nidarachildrensession'">Nidara-Children Session</ng-container><span><a style="color:#333" href="#parentgame"></a></span></span><span id="closebut" (click) = "closefun()">X</span></span>
+  </div> -->
+  <h1><span class="child_name">{{childName}}</span> DAILY DEVELOPMENT</h1>
+  <h5><span>{{month}}</span> - <span>{{week}}</span></h5>
+  <ng-container *ngIf="childChueck === 0" >
+  <div class="col-md-12 col-lg-12" id="parentgameclick">
+    <span class="gamealart"><img src="assets/images/warningtriangle.png" ><span>Please activate a free adjustment period or paid premium version of our NC child development system.</span></span>
+  </div>
+
+</ng-container>
+
+<ng-container *ngIf="childepriyday === 2" >
+    <div class="col-md-12 col-lg-12" id="parentgameclick">
+      <span class="gamealart"><span>You Nidara-Children access has expired. Please renew to continue developing your child.
+        </span></span>
+    </div>
+
+  </ng-container>
+</div>
+
+
+<div class="row daily-development">
+  <ul class="nav nav-tabs">
+    <li><a class="active" data-toggle="tab" href="#child-development" style="font-size:18px;">Health</a></li>
+    <li ><a data-toggle="tab"  href="#cored-edu" style="font-size:18px;">Learning</a></li>
+    <li><a data-toggle="tab" href="#interent-discovery" style="font-size:18px;">Interest Exploration</a></li>
+  </ul>
+</div>
+<div class="tab-content">
+    <ng-container *ngIf="childepriyday === 1" >
+
+  <div id="child-development" class="row tab-pane fade in active">
+
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 game-top text-center">
+      <ng-container *ngIf="startlength == 0;else startDev" >
+        <span>
+          <div class="studies" id="math" style="border-color:#eee">
+            <p id="course">Before start game</p>
+          </div>
+          <div  class="text-center game_tep"><i class="tip">Emotion</i></div>
+        </span>
+    </ng-container>
+    <ng-template #startDev>
+        <ng-container *ngFor="let startitem of start" >
+      <a  [routerLink]="['./','viewchildemotion',startitem.start_end]">
+        <div class="studies" id="math" [style.border-color]="startitem.color">
+          <p id="course">Before start game</p>
+        </div>
+      </a>
+      </ng-container>
+      <div  class="text-center game_tep"><i class="tip">Emotion</i></div>
+    </ng-template>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 game-top text-center">
+      <ng-container *ngIf="endlength == 0;else endDev" >
+        <span>
+          <div class="studies" id="math"  style="border-color:#eee">
+            <p id="course">After end the game</p>
+          </div>
+        </span>
+        <div  class="text-center game_tep"><i class="tip">Emotion</i></div>
+    </ng-container>
+    <ng-template #endDev>
+      <ng-container *ngFor="let enditem of end" >
+        <a  [routerLink]="['./','viewchildemotion',enditem.start_end]">
+          <div class="studies" id="math" [style.border-color]="enditem.color">
+            <p id="course">After end the game</p>
+          </div>
+        </a>
+      </ng-container>
+      <div  class="text-center game_tep"><i class="tip">Emotion</i></div>
+    </ng-template>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 game-top text-center" *ngFor="let childedu of childEducation; let i = index;">
+      <ng-container *ngIf="childedu.daily_tips == 'Milestone activity not completed' || childedu.daily_tips == 'Game not Completed';else gameClick" >
+        <span>
+          <div class="studies" id="math" [style.border-color]="childedu.grade_color">
+            <p id="course">{{childedu.games_name}}</p>
+          </div>
+        </span>
+    </ng-container>
+    <ng-template #gameClick>
+      <a [routerLink]="['./','viewGamedetails',childedu.id]">
+        <div class="studies" id="math" [style.border-color]="childedu.grade_color">
+          <p id="course">{{childedu.games_name}}</p>
+        </div>
+      </a>
+    </ng-template>
+        <div  class="text-center game_tep"><i class="tip">{{childedu.daily_tips}}</i></div>
+        <ng-container *ngFor="let game_playingitem of childedu.game_playing" >
+            <i class="tip"> <span style="text-transform: uppercase">Game Frequency: </span> {{game_playingitem.id}}</i>
+        </ng-container>
+    </div>
+  </div>
+
+  <!-- core edu -->
+  <div class="row tab-pane fade " id="cored-edu">
+
+
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 game-top text-center" *ngFor="let coreedu of coreEducation; let i = index;">
+      <ng-container *ngIf="coreedu.daily_tips == 'Milestone activity not completed' || coreedu.daily_tips == 'Game not Completed';else gameClick2" >
+        <span>
+          <div class="studies" id="math" [style.border-color]="coreedu.grade_color">
+            <p id="course">{{coreedu.games_name}}</p>
+          </div>
+        </span>
+      </ng-container>
+      <ng-template #gameClick2>
+        <a [routerLink]="['./','viewGamedetails',coreedu.id]">
+          <div class="studies" id="math" [style.border-color]="coreedu.grade_color">
+            <p id="course">{{coreedu.games_name}}</p>
+          </div>
+        </a>
+      </ng-template>
+      <div  class="text-center game_tep"><i class="tip">{{coreedu.daily_tips}}</i></div>
+      <ng-container *ngFor="let game_playingitem of coreedu.game_playing" >
+          <i class="tip"> <span style="text-transform: uppercase">Game Frequency: </span> {{game_playingitem.id}}</i>
+        </ng-container>
+    </div>
+
+  </div>
+
+
+
+
+  <!-- Child Development -->
+
+
+  <div class="row tab-pane fade" id="interent-discovery">
+
+
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 game-top text-center" *ngFor="let coreInt of coreInterestDiscovery; let i = index;">
+          <ng-container *ngIf="coreInt.daily_tips == 'Milestone activity not completed' || coreInt.daily_tips == 'Game not Completed';else gameClick3" >
+            <span>
+              <div class="studies" id="math" [style.border-color]="coreInt.grade_color">
+                <p  id="course">{{coreInt.games_name}}</p>
+              </div>
+            </span>
+          </ng-container>
+          <ng-template #gameClick3>
+            <a [routerLink]="['./','viewGamedetails',coreInt.id]">
+              <div class="studies" id="math" [style.border-color]="coreInt.grade_color">
+                <p  id="course">{{coreInt.games_name}}</p>
+              </div>
+            </a>
+          </ng-template>
+            <div  class="text-center game_tep"><i class="tip">{{coreInt.daily_tips}}</i></div>
+            <ng-container *ngFor="let game_playingitem of coreInt.game_playing" >
+                <i class="tip"> <span style="text-transform: uppercase">Game Frequency: </span> {{game_playingitem.id}}</i>
+              </ng-container>
+        </div>
+
+      </div>
+
+</ng-container>
+</div>
+
+<!-- <div class="col-md-12 col-lg-12 parentGame" >
+  <div class="row">
+    <!-- Current Date-
+    <h1>PARENT GAME</h1>
+  </div>
+
+  <div class="row daily-development">
+    <ul class="nav nav-tabs">
+      <li  class="active"><a data-toggle="tab" href="#child-development2" style="font-size:18px;">Health</a></li>
+      <li><a data-toggle="tab"  href="#cored-edu2" style="font-size:18px;">Learning</a></li>
+      <li><a data-toggle="tab" href="#interent-discovery2" style="font-size:18px;">Interest Exploration</a></li>
+    </ul>
+  </div>
+  <div class="tab-content" id="parentgame">
+
+    <!-- core edu -
+    <div class="row tab-pane fade " id="cored-edu2">
+
+  <form #parentGameForm="ngForm" (ngSubmit)="parentGameCoreFromSubmit(parentGameForm)">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" *ngFor="let parentGameitem of gamecoreEducation; let i = index;">
+        <h4>HELP YOUR CHILD DO THIS</h4>
+        <div class="formfild col-md-12 col-lg-12">
+          <div class="col-md-12 col-lg-12 text-center">
+            <h5>{{parentGameitem.games_name}}</h5>
+          </div>
+          <div class="col-md-12 col-lg-12 text-center">
+            <h5>CAN YOUR CHILD COMPLETE THIS ACTIVITY?</h5>
+          </div>
+          <div class="col-md-12 col-lg-12">
+            <div class="col-lg-4 col-md-4"></div>
+            <div class="col-lg-4 col-md-4">
+              <input type="hidden" name="question_id" value="" [(ngModel)]="parentGameitem.game_id" >
+              <div class="col-md-6 col-lg-6 text-center">
+                <input type="radio" name="parentgame{{i}}" value="1" [(ngModel)]="parentGameitem.answervalue" required>Yes
+              </div>
+              <div class="col-md-6 col-lg-6 text-center">
+                <input type="radio" name="parentgame{{i}}" value="0" [(ngModel)]="parentGameitem.answervalue" required>No
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4"></div>
+          </div>
+        </div>
+        <!-- <div style="text-align:left;" class="text-justify"><i class="tip">{{coreedu.daily_tips}}</i></div> -
+      </div>
+      <input type="submit" name="" [disabled]="!parentGameForm.form.valid" value="SAVE">
+      <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+    </form>
+
+    </div>
+
+
+
+
+    <!-- Child Development -
+    <div id="child-development2" class="row tab-pane fade in active">
+
+    <form #parentGameForm="ngForm" (ngSubmit)="parentGameHealthFromSubmit(parentGameForm)">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " *ngFor="let childeduitem of gamechildEducation; let i = index;">
+          <h3>{{childeduitem.subject_name}}</h3>
+        <h4>HELP YOUR CHILD DO THIS</h4>
+        <div class="formfild col-md-12 col-lg-12">
+          <div class="col-md-12 col-lg-12">
+            <h5>{{childeduitem.games_name}}</h5>
+          </div>
+          <div class="col-md-6 col-lg-6">
+            <h5>CAN YOUR CHILD COMPLETE THIS ACTIVITY?</h5>
+          </div>
+          <div class="col-md-6 col-lg-6">
+              <input type="hidden" name="question_id" value="" [(ngModel)]="childeduitem.game_id" >
+              <div class="col-md-6 col-lg-6 text-center">
+                <input type="radio" name="parentgame{{i}}" value="1" [(ngModel)]="childeduitem.answervalue" required>Yes
+              </div>
+              <div class="col-md-6 col-lg-6 text-center">
+                <input type="radio" name="parentgame{{i}}" value="0" [(ngModel)]="childeduitem.answervalue" required>No
+              </div>
+          </div>
+        </div>
+        </div>
+        <input type="submit" name="" [disabled]="!parentGameForm.form.valid" value="SAVE">
+        <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+      </form>
+          <!-- <div style="text-align:left;" class="text-justify"><i class="tip">{{childedu.daily_tips}}</i></div> -
+      </div>
+
+    <div class="row tab-pane fade" id="interent-discovery2">
+
+
+      <form #parentGameForm="ngForm" (ngSubmit)="parentGameIntFromSubmit(parentGameForm)">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " *ngFor="let interenttem of gamecoreInterestDiscovery; let i = index;">
+            <h3>{{interenttem.subject_name}}</h3>
+          <h4>HELP YOUR CHILD DO THIS</h4>
+          <div class="formfild col-md-12 col-lg-12">
+            <div class="col-md-12 col-lg-12">
+              <h5>{{interenttem.games_name}}</h5>
+            </div>
+            <div class="col-md-6 col-lg-6">
+              <h5>CAN YOUR CHILD COMPLETE THIS ACTIVITY?</h5>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <input type="hidden" name="question_id" value="" [(ngModel)]="interenttem.game_id" >
+                <div class="col-md-6 col-lg-6 text-center">
+                  <input type="radio" name="parentgame{{i}}" value="1" [(ngModel)]="interenttem.answervalue" required>Yes
+                </div>
+                <div class="col-md-6 col-lg-6 text-center">
+                  <input type="radio" name="parentgame{{i}}" value="0" [(ngModel)]="interenttem.answervalue" required>No
+                </div>
+            </div>
+          </div>
+          </div>
+          <input type="submit" name="" [disabled]="!parentGameForm.form.valid" value="SAVE">
+          <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+        </form>
+
+        </div>
+
+
+  </div>
+
+</div> -->
+<!-- <div class="col-md-12 col-lg-12" id="parentgame">
+  <span><h3>PARENT GAME</h3></span>
+  <form #parentGameForm="ngForm" (ngSubmit)="parentGameFromSubmit(parentGameForm)">
+    <ng-container *ngFor="let parentGameitem of parentGame;let i =index">
+      <h3>{{parentGameitem.subject_name}}</h3>
+      <h4>HELP YOUR CHILD DO THIS</h4>
+      <div class="formfild col-md-12 col-lg-12">
+        <div class="col-md-12 col-lg-12 text-center">
+          <h5>{{parentGameitem.games_name}}</h5>
+        </div>
+        <div class="col-md-12 col-lg-12 text-center">
+          <h5>CAN YOUR CHILD COMPLETE THIS ACTIVITY?</h5>
+        </div>
+        <div class="col-md-12 col-lg-12">
+          <div class="col-lg-4 col-md-4"></div>
+          <div class="col-lg-4 col-md-4">
+            <input type="hidden" name="question_id" value="" [(ngModel)]="parentGameitem.game_id" >
+            <div class="col-md-6 col-lg-6 text-center">
+              <input type="radio" name="parentgame{{i}}" value="1" [(ngModel)]="parentGameitem.answervalue" required>Yes
+            </div>
+            <div class="col-md-6 col-lg-6 text-center">
+              <input type="radio" name="parentgame{{i}}" value="0" [(ngModel)]="parentGameitem.answervalue" required>No
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4"></div>
+        </div>
+      </div>
+
+    </ng-container>
+      <input type="submit" name="" [disabled]="!parentGameForm.form.valid" value="SAVE">
+      <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+  </form>
+</div> -->
+<!-- <div class="row today-task">
+  <span><h1>TODAY'S SCHEDULED DAILY ROUTINES</h1></span>
+</div>
+<div class="row task-time" id="session">
+  <p>{{scheduleTask}}</p>
+  <p>{{taks}}</p>
+</div> -->
+
+
+
+<!-- /.modal -->
+<div bsModal #parentModal="bs-modal" class="modal fade bs-example-modal-lg" id="bsmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  data-backdrop="boolean" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="pop-win">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+              <span *ngFor="let childImage of childImages; let i = index" >
+
+              <!--  Child profile image  -->
+
+              <a (click)="goToChildPage(childImage)" >
+            <img src="{{childImage.child_photo}}" class="img-circle pop-image child-login"  alt="no-display">
+            </a>
+
+            </span>
+               <ng-template [ngIf]="addchildImage">
+                  <a href="/children/profiles" >
+                <img src="assets/images/add.png" class="img-circle pop-image child-login"  alt="no-display">
+              </a></ng-template>
+              <!-- Parent profile Image  -->
+<!-- // Changed to circle              <img src="{{parent_image}}" class="pop-image" id="parent-login" alt="no-display">   -->
+              <img src="{{parent_image}}" class="img-circle pop-image" id="parent-login" alt="no-display">
+              <div class="col-md-12" *ngIf = "!expriyday.status"><p class="message"  innerHtml="{{expriyday.message}}"></p></div>
+
+              <div class="text-center" id="parent-account">
+
+                <form #popupFrom="ngForm" (ngSubmit)="popupFromSubmit(popupFrom)">
+                  <input type="password" name="password" #password="ngModel" minlength="5" maxlength="10" [(ngModel)]="formData.password" required
+                    placeholder="Enter your Password *">
+
+
+                  <input type="submit" class="btn-forgot" [disabled]="!popupFrom.form.valid" name="login" value="sign in" id="login-parent">
+                  <br><span *ngIf="password.invalid && (password.dirty || password.touched)">
+
+
+                  <span *ngIf="password.errors.required" class="bg-danger text-white error">Required Password.</span>
+                  <!-- <span *ngIf="password.hasError('minlength')" class="bg-danger text-white error">Minimum length 5.</span>
+                  <span *ngIf="password.errors.maximum" class="bg-danger text-white error">Minimum length 10.</span> -->
+                  </span>
+                  <span class="bg-danger text-white error">{{_loginstatus}}</span>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- /.modal -->
+
+<!-- <div bsModal #dailyRoutineModel="bs-modal" class="modal fade bs-example-modal-lg" id="" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  data-backdrop="boolean" aria-hidden="true">
+  <div class="modal-dialog" id="parentQuestionModul" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="pop-win">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+              <h3 class="text-center">DAILY ROUTINES</h3>
+              <div *ngFor="let kids of childInfo; let i = index; " class="kids-info">
+
+                <ng-template [ngIf]="kids.is_default_kid == 1">
+                  <img src="{{kids.child_photo}}" #kidsTag id="Parentkids{{kids.nidara_kid_profile_id}}" (click)="selectedParentKidInfo(kids,kidsTag)"
+                    class="img-circle child-photo-active" alt="no-image" />
+                </ng-template>
+                <ng-template [ngIf]="kids.is_default_kid == 0">
+                  <img src="{{kids.child_photo}}" #kidsTag id="Parentkids{{kids.nidara_kid_profile_id}}" (click)="selectedParentKidInfo(kids,kidsTag)"
+                    class="img-circle child-photo" alt="no-image" />
+                </ng-template>
+              </div>
+
+
+                <!-- Daily Routine Task Updation
+
+              <div>
+                <div class="tab-pane col-md-12 col-lg-12" id="dailyroutineupdate">
+                  <div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+                  <form name="dailyroutineForm" #dailyroutineForm="ngForm" (ngSubmit)="dailySchedulerFormSubmit(dailyroutineForm)">
+                    <div class="form-fields shedule_info">
+                      <div class="form-response">
+                        <div class="col-lg-12 col-md-12 clock-schedule">
+                          <div class="col-md-6 col-lg-6 task">
+                            <select name="task" id="" [(ngModel)]="formData.task_name" [disabled]="!formdisbled">
+                              <option value="">Select Daily Routine</option>
+                              <option value="nidarachildrensession"> Nidara-Children Session</option>
+                            </select>
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+                            <timepicker [(ngModel)]="set_time" name="set_time" [showMeridian]="ismeridian" [readonlyInput]="!isEnabled" id="timepicker"> </timepicker>
+                          </div>
+                        </div>
+
+
+
+                        <div class="col-lg-12 col-md-12">
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 schedule" >
+
+                            <label *ngFor="let scheduler of schedulerDays;let i = index">
+                              <ng-template [ngIf]="scheduler.option == 1">
+                                  <input type="checkbox" value="{{scheduler.option}}" name="scheduler_days_id" checked (change)="onChange(scheduler)" required [disabled]="!formdisbled"/><span>&nbsp;{{scheduler.day}}&nbsp;&nbsp;</span>
+
+                              </ng-template>
+                              <ng-template [ngIf]="scheduler.option == 0">
+                                  <input type="checkbox" value="{{scheduler.option}}" name="scheduler_days_id"  (change)="onChange(scheduler)" required [disabled]="!formdisbled"/><span>&nbsp;{{scheduler.day}}&nbsp;&nbsp;</span>
+
+                              </ng-template>
+                            </label>
+
+                          </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+                              <button class="button"[disabled]="dailyroutin_status == 1" type="button" name="button" (click) = "dailyroutine()" >GO TO SESSION NOW</button>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <ng-container *ngIf="!formdisbled">
+                                <div class="form-group">
+                                  <button type="button" name="button" class="button btn-save" (click) = "formDisbled()" id="setbut">SET DAILY ROUTINE SCHEDULE</button>
+                                </div>
+                              </ng-container>
+                              <ng-container *ngIf="formdisbled">
+                                <input type="submit" [disabled]="!dailyroutineForm.form.valid" class="btn-save" value="SAVE" id="savebut">
+                              </ng-container>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- /.modal
+<div bsModal #parentQuesModel="bs-modal" class="modal fade bs-example-modal-lg hidden" id="" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  data-backdrop="boolean" aria-hidden="true">
+  <div class="modal-dialog" id="parentQuestionModul" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="pop-win">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+              <h3 class="text-center">PARENT QUESTIONNAIRE</h3>
+              <div *ngFor="let kids of childInfo; let i = index; " class="kids-info">
+
+                <ng-template [ngIf]="kids.is_default_kid == 1">
+                  <img src="{{kids.child_photo}}" #kidsTag id="Parentkids{{kids.nidara_kid_profile_id}}" (click)="selectedParentKidInfo(kids,kidsTag)"
+                    class="img-circle child-photo-active" alt="no-image" />
+                </ng-template>
+                <ng-template [ngIf]="kids.is_default_kid == 0">
+                  <img src="{{kids.child_photo}}" #kidsTag id="Parentkids{{kids.nidara_kid_profile_id}}" (click)="selectedParentKidInfo(kids,kidsTag)"
+                    class="img-circle child-photo" alt="no-image" />
+                </ng-template>
+
+              </div>
+              <div class="text-center">
+                <h4>Please select the child.</h4>
+                <div class="col-md-12 col-lg-12" id="parentquestionar">
+                  <div class="col-md-12 col-lg-12">
+                    <div class="col-md-3 ">
+                      <h5>Rating Key</h5>
+                    </div>
+                    <div class="col-md-3 ">
+                      <h5>3 - Child  meets the physical development expectation(s)</h5>
+                    </div>
+                    <div class="col-md-3 ">
+                      <h5>2 - Child  inconsistently meets the physical development expectation(s) </h5>
+                    </div>
+                    <div class="col-md-3 ">
+                      <h5>1 - Child  seldom meets the physical development expectation(s) </h5>
+                    </div>
+                  </div>
+                  <form #parentQuestionForm="ngForm" (ngSubmit)="parentQuestionFromSubmit(parentQuestionForm)">
+                    <ng-container *ngFor="let parentQuestionitem of parentQuestion;let i =index">
+                      <div class="formfild col-md-12 col-lg-12">
+                        <div class="col-md-3 col-lg-3">
+                          <h5>{{parentQuestionitem.question}}</h5>
+                        </div>
+                        <input type="hidden" name="question_id" value="" [(ngModel)]="parentQuestionitem.id" >
+                        <div class="col-md-3 col-lg-3">
+                          <input type="radio" name="parentquesans{{i}}" value="1" [(ngModel)]="parentQuestionitem.answervalue" required>1
+                        </div>
+                        <div class="col-md-3 col-lg-3">
+                          <input type="radio" name="parentquesans{{i}}" value="2" [(ngModel)]="parentQuestionitem.answervalue" required>2
+                        </div>
+                        <div class="col-md-3 col-lg-3">
+                          <input type="radio" name="parentquesans{{i}}" value="3" [(ngModel)]="parentQuestionitem.answervalue" required>3
+                        </div>
+                      </div>
+
+                    </ng-container>
+                      <input type="submit" name="" [disabled]="!parentQuestionForm.form.valid" value="SAVE">
+                      <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+                  </form>
+                </div>
+                <div class="col-md-12 col-lg-12" id="closeparentgame">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> -->
+<!-- /.modal -->

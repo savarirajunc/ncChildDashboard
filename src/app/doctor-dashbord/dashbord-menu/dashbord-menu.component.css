@@ -1,0 +1,37 @@
+.kids-info{
+  display:inline;
+}
+
+.child-photo{
+  cursor: pointer;
+  max-width:69px;
+  min-width:69px;
+  height:70px;
+  filter: grayscale(100%);
+}
+
+.child-photo-active{
+  cursor: pointer;
+  max-width:69px;
+  min-width:69px;
+  height:70px;
+  filter: none;
+}
+
+#edit{cursor: pointer;color:#333333;font-weight: normal;padding-right: 10px;}
+
+.dropdown-tab label {
+  position: relative;
+  display: block;
+  line-height: 2;
+  cursor: pointer;
+  color: #333333;
+  margin-bottom: 0px;
+  text-align: left;
+  padding: 8px 5px;
+  font-weight: normal;
+  border-bottom: solid #e5e5e5 1px;
+}
+.dropdown-tab label a:hover{
+  color:#83d0c9;
+}

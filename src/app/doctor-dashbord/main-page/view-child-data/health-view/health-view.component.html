@@ -1,0 +1,29 @@
+<div id="child-development" class="col-md-12 col-lg-12 col-sm-12 col-xs-12   paddingless">
+  <div id="game-lest" class="col-md-12 col-lg-12 col-xs-12 col-sm-12 paddingless">
+    <ng-container *ngFor="let getGameValueitem of getGameValue" >
+      <div>
+        <h3>{{getGameValueitem.games_name}}</h3>
+        <h4>DATE : {{getGameValueitem.created_at | date}}</h4>
+
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Question</th>
+                    <th>Selected answer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let game_answersitem of getGameValueitem.game_data" >
+                    <td>
+                      {{game_answersitem.question}}
+                    </td>
+                    <td [style.background-color]="game_answersitem.color">
+                      {{game_answersitem.getanswer}}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+      </div>
+    </ng-container>
+  </div>
+</div>

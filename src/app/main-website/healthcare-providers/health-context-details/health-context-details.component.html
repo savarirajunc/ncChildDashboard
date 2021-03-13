@@ -1,0 +1,49 @@
+<div class="container" id="layout-container">
+  <div class="row" style="font-family:GillSansStd-light !important;">
+    <div class="col-xs-12  home-slide">
+      <h2>ENROLLMENT PROCESS</h2>
+      <div class="col-xs-12">
+         <span class="top-line"><span class="top-line-1">1</span><span class="top-line-2">2</span><span class="top-line-3">3</span></span>
+      </div>
+      <div class="col-xs-12">
+        <h2>STEP 3.  YOUR CONTEXT DETAILS</h2>
+      </div>
+    </div>
+    <div class="col-xs-12" style="margin-top:-4%;">
+      <form #healthcontForm= "ngForm" [formGroup]="health_context_Form"  (ngSubmit)="addhealthcontextform(healthcontForm)"  class="wpcf7-form" novalidate="novalidate" >
+        <div class="col-xs-12" style="padding:0">
+          <div class="col-xs-12" id="services">
+             <span class="wpcf7-form-control-wrap services">
+               <textarea style="width:100%;height:70px" name="services" formControlName ="services"  cols="40" rows="40" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="What types of services in your practice are you looking to address with Nidara-Children?  *"></textarea></span>
+             <div *ngIf="!health_context_Form.get('services').valid && health_context_Form.get('services').touched" class="bg-danger text-white error">
+                  Please Enter First Name (Minimum 2 Characters)
+             </div>
+          </div>
+        </div>
+        <div class="col-xs-12" id="practice" style="margin-bottom:4%;">
+          <span class="wpcf7-form-control-wrap practice">
+            <select (change)="practicechange()"  style="width:100%;" required name="practice" formControlName = "practice" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+              <option *ngFor="let practiceitem of practices"  value="{{practiceitem.value}}">{{practiceitem.value}}</option>
+           </select>
+          </span>
+          <div  *ngIf="!health_context_Form.get('practice').valid && health_context_Form.get('practice').touched" class="bg-danger text-white error">
+             This field is required.
+         </div>
+          <div class="bg-danger text-white error">{{errorMsg}}</div>
+        </div>
+        <div class="col-xs-12" style="margin-top:4%;z-index:2">
+          <div class="upload-btn-wrapper">
+            <ul class="file-upload">
+              <li class="file-text"><span > Please Attach your CV  </span></li>
+              <li> <input formControlName="file" id="file-upload" type="file" (change)="selectFile($event)"></li>
+            </ul>
+          </div>
+        </div>
+        <button class="btn_sbt" type=submit style="float:right;width:30%;">SUBMIT</button>
+      </form>
+      <div class="col-xs-12 col-md-11 paddig" style="text-align: right;">
+        <button class="gbck" (click)='gobackVal()'>Go back</button>
+      </div>
+    </div>
+  </div>
+</div>

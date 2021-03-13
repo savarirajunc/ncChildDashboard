@@ -1,0 +1,13 @@
+.home-slide {
+  text-align: center !important;
+}
+.but{
+outline: none;
+cursor: pointer;
+}
+.but:hover{
+color: #83d0c9;
+}
+.line-spase{
+  width: 10px;
+}

@@ -1,0 +1,83 @@
+<div class="col-md-12 col-lg-12 paddingless">
+  <p style="font-size:14px;">{{currentDate}}</p>
+
+  <h2><span class="child_name">{{childName}}</span></h2><h2> NC HEALTHY CHILD DEVELOPMENT
+    QUESTIONNAIRE REPORT</h2>
+</div>
+
+<div class="col-md-12 col-lg-12" id="parent_answer">
+  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 paddingless">
+    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 paddingless">
+      <h4>NC HEALTHY CHILD DEVELOPMENT
+          QUESTIONNAIRE </h4>
+    </div>
+    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 paddingless">
+      <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 paddingleftlesss">
+        <select name="" id="" [(ngModel)]="viewType" (change) ="viewPageModu(viewType)">
+          <option value="1">Quick View</option>
+          <option value="2">Full View </option>
+        </select>
+      </div>
+      <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 paddingleftlesss">
+        <select name="" id="" [(ngModel)]="core_id" (change) ="coreTypeFilter(core_id)">
+          <option value="2">Core Health</option>
+          <option value="1">Core Learning</option>
+          <option value="3">Core Interes</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let x of ques; let i=index">
+    <ng-container *ngIf="viewType == '1'" >
+    <ng-container *ngIf="i < 3" >
+        <div class="col-xs-12 paddingless">
+            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 paddingless">
+             <div>
+               <p>{{x.question}}</p>
+             </div>
+           </div>
+           <div class="col-md-2 col-lg-2 col-sm-3 col-xs-3" >
+             <div class="radio-but">
+               <input type="radio" [(ngModel)]="x.answervalue" name="ques{{i}}"  value="yes" disabled><span></span>Yes
+             </div>
+           </div>
+
+            <div class="col-md-2 col-lg-2 col-sm-3 col-xs-3" >
+               <div class="radio-but">
+                   <input type="radio" [(ngModel)]="x.answervalue" name="ques{{i}}"  value="no" disabled><span></span>No
+                 </div>
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6" >
+             <div class="radio-but">
+               <input type="radio" [(ngModel)]="x.answervalue" name="ques{{i}}"  value="some_time" disabled><span></span>Sometimes
+             </div>
+           </div>
+          </div>
+    </ng-container>
+    </ng-container>
+    <ng-container *ngIf="viewType == '2'" >
+          <div class="col-xs-12 paddingless">
+              <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 paddingless">
+               <div>
+                 <p>{{x.question}}</p>
+               </div>
+             </div>
+             <div class="col-md-2 col-lg-2 col-sm-3 col-xs-3" >
+                <div class="radio-but">
+                  <input type="radio" [(ngModel)]="x.answervalue" name="ques{{i}}"  value="yes" disabled><span></span>Yes
+                </div>
+              </div>
+               <div class="col-md-2 col-lg-2 col-sm-3 col-xs-3" >
+                  <div class="radio-but">
+                      <input type="radio" [(ngModel)]="x.answervalue" name="ques{{i}}"  value="no" disabled><span></span>No
+                    </div>
+               </div>
+               <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6" >
+                <div class="radio-but">
+                  <input type="radio" [(ngModel)]="x.answervalue" name="ques{{i}}"  value="some_time" disabled><span></span>Sometimes
+                </div>
+              </div>
+            </div>
+      </ng-container>
+  </div>
+</div>

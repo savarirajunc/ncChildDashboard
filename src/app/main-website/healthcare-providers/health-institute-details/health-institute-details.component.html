@@ -1,0 +1,118 @@
+<div class="container" id="layout-container">
+  <div class="row" style="font-family:GillSansStd-light !important;">
+    <div class="col-xs-12  home-slide">
+      <h2>ENROLLMENT PROCESS</h2>
+      <div class="col-xs-12">
+         <span class="top-line"><span class="top-line-1">1</span><span class="top-line-2">2</span><span class="top-line-3">3</span></span>
+      </div>
+      <div class="col-xs-12">
+        <h2>STEP 2.  YOUR INSTITUITION DETAILS</h2>
+      </div>
+    </div>
+    <div class="col-xs-12" style="margin-top:-4%;">
+      <form  #healthinstForm= "ngForm" [formGroup]="healthinstituteForm"  (ngSubmit)="addhealthinstform(healthinstForm)"  class="wpcf7-form" novalidate="novalidate" >
+        <div class="col-xs-12">
+          <div class="col-xs-12" id="nameInst">
+            <span class="wpcf7-form-control-wrap nameInst">
+               <input style="width:100%;" type="text" required OnlyString="true" formControlName="nameInst"   name="nameInst" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Name of Institution*" />
+            </span>
+             <div class="col-xs-12" *ngIf="!healthinstituteForm.get('nameInst').valid && healthinstituteForm.get('nameInst').touched" class="bg-danger text-white error">
+              Please Enter Institute Name (Minimum 2 Characters)
+             </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="rowleft">
+            <div class="col-xs-12" id="address">
+              <span class="wpcf7-form-control-wrap address">
+                 <input style="width:100%;" type="text"  formControlName="address"   name="address" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Address 1*" />
+              </span>
+               <div class="col-xs-12" *ngIf="!healthinstituteForm.get('address').valid && healthinstituteForm.get('address').touched" class="bg-danger text-white error">
+                Please Enter Address (Minimum 2 Characters)
+               </div>
+            </div>
+          </div>
+          <div class="rowright">
+            <div class="col-xs-12" id="address_1">
+              <span class="wpcf7-form-control-wrap address_1">
+                 <input style="width:100%;" type="text" formControlName="address_1"   name="address_1" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="address_1" />
+              </span>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="rowleft">
+            <div class="col-xs-12" id="city">
+              <span class="wpcf7-form-control-wrap city">
+                 <input style="width:100%;" type="text" required OnlyString="true" formControlName="city"   name="city" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="City*" />
+              </span>
+               <div class="col-xs-12" *ngIf="!healthinstituteForm.get('city').valid && healthinstituteForm.get('city').touched" class="bg-danger text-white error">
+                Please Enter City Name (Minimum 2 Characters)
+               </div>
+            </div>
+          </div>
+          <div class="rowright">
+            <div class="col-xs-12" id="country">
+              <span class="wpcf7-form-control-wrap country">
+                 <input style="width:100%;" type="text" required OnlyString="true" formControlName="country"   name="country" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="country*" />
+              </span>
+               <div class="col-xs-12" *ngIf="!healthinstituteForm.get('country').valid && healthinstituteForm.get('country').touched" class="bg-danger text-white error">
+                Please Enter country Name (Minimum 2 Characters)
+               </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="rowleft">
+            <div class="col-xs-12" id="teleNo">
+              <span class="wpcf7-form-control-wrap teleNo">
+                 <input style="width:100%;" type="text" required OnlyNumber="true" formControlName="teleNo"  name="teleNo" size="40"  class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Telephone Number*" />
+              </span>
+               <div class="col-xs-12" *ngIf="!healthinstituteForm.get('teleNo').valid && healthinstituteForm.get('teleNo').touched" class="bg-danger text-white error">
+                Please Enter Telephone Number
+               </div>
+            </div>
+          </div>
+          <div class="rowright">
+            <div class="col-xs-12" id="email">
+              <span class="wpcf7-form-control-wrap email">
+                <input style="width:100%;" class="form-control"  formControlName = "Instemail"  size="40"  name="email" required type="email" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required email" placeholder="Email Address *" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+              </span>
+              <div class="col-xs-12" style="bottom: unset;" *ngIf="!healthinstituteForm.get('Instemail').valid && healthinstituteForm.get('Instemail').touched" class="bg-danger text-white error">
+                  Please enter valid email.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="rowleft">
+            <div class="col-xs-12" id="website">
+              <span class="wpcf7-form-control-wrap website">
+                 <input style="width:100%;" type="text" required  formControlName="website"   name="website" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="website*" />
+              </span>
+               <div class="col-xs-12" *ngIf="!healthinstituteForm.get('website').valid && healthinstituteForm.get('website').touched" class="bg-danger text-white error">
+                Please Enter website
+               </div>
+            </div>
+          </div>
+          <div class="rowright">
+            <div class="col-xs-12" id="fax">
+              <span class="wpcf7-form-control-wrap fax">
+                 <input style="width:100%;" type="text" required OnlyNumber="true" formControlName="fax"   name="fax" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Fax Number*" />
+              </span>
+               <div class="col-xs-12" *ngIf="!healthinstituteForm.get('fax').valid && healthinstituteForm.get('fax').touched" class="bg-danger text-white error">
+                Please Enter Fax Number
+               </div>
+            </div>
+          </div>
+          <button class="submit-but" type=submit>NEXT</button>
+          <div class="col-xs-12" >
+              <button class="gbck"  (click)='goback()'>Go back</button>
+            </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

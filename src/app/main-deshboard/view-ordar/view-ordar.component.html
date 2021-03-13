@@ -1,0 +1,76 @@
+<div class="col-md-12">
+  <ng-container *ngFor="let ordersitem of orders" >
+    <div class="col-md-12 col-lg-12">
+      <div class="col-md-12 col-lg-12">
+
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <h3>User Info</h3>
+        <h4>Name : {{ordersitem.first_name}} {{ordersitem.last_name}}</h4>
+        <h4>Email : {{ordersitem.email}}</h4>
+        <h4>Mobil No : {{ordersitem.mobile}}</h4>
+      </div>
+      <div class="col-md-6 col-lg-6 text-right">
+          <h3>Order info</h3>
+          <h4>Order Id: {{ordersitem.order_id}}</h4>
+          <h4>Order Status: {{ordersitem.status}}</h4>
+
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-12">
+      <div class="col-md-12 col-lg-12">
+      <h3>Product Details:</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>S/N</th>
+            <th></th>
+            <th>PRODUCT DETAILS</th>
+            <th>QTY</th>
+            <th>PRICE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>1</th>
+            <th><img src="{{ordersitem.product_img}}" style="width:150px"></th>
+            <th><h4>{{ordersitem.product_name}}</h4><p>
+              <ng-container *ngIf="ordersitem.product_type == 1" >Preschool (3 Years to 4 Years )</ng-container>
+              <ng-container *ngIf="ordersitem.product_type == 2" >Pre-Kindergarten (4 Years to 5 Years)</ng-container>
+              <ng-container *ngIf="ordersitem.product_type == 3" >Kindergarten (5 Years to 6 Years)</ng-container>
+            </p></th>
+            <th>1</th>
+            <th>{{ordersitem.product_price}}</th>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-12">
+      <div class="col-lg-12 col-md-12">
+        <div class="col-lg-8 col-md-8">
+
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <h3>Total Price</h3>
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th>QTY Price</th>
+                <th>{{ordersitem.product_price}}</th>
+              </tr>
+              <tr>
+                <th>GST</th>
+                <th>18 %</th>
+              </tr>
+              <tr>
+                <th>Total</th>
+                <th>{{ordersitem.total}}</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

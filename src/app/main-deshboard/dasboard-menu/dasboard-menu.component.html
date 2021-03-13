@@ -1,0 +1,405 @@
+
+<ul class="dashboard-menu">
+  <a routerLink="dashboardhome" routerLinkActive="active"><li data-toggle="collapse" data-parent="#accordion" href="#collapse">DASHBOARD HOME</li></a>
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="collapsed">
+        <li>PARENT<span class="icon"></span></li> </a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="panel-group" id="accordion2">
+          <div class="panel panel-default">
+            <a data-toggle="collapse" data-parent="#accordion2" href="#collapse4"><li routerLink="addandremove"  routerLinkActive="active">Add and Remove </li></a>
+            <div id="collapse4" class="panel-collapse collapse ">
+            </div>
+          </div>
+          <div class="panel panel-default">
+              <form action="">
+            <a data-toggle="collapse" data-parent="#accordion2" href="#collapse5">  <li routerLink="viewparentinformation" routerLinkActive="active"> View All Parent Information</li></a>
+            <ul id="collapse5" class="drop-list panel-collapse collapse">
+
+                <div class="col-md-12 col-lg-12 form-filde">
+                  <label>Name wise</label>
+                  <ul>
+                    <li>
+                      <input type="radio" name="first_name"  value="first_name" (change)="searchit($event,'parent','first_name')"><span >First Name</span>
+                    </li>
+                    <li routerLink="viewparentinformation" routerLinkActive="active">
+                      <input type="radio" name="first_name"  value="last_name" (change)="searchit($event,'parent','last_name')"><span >Last Name</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-12 col-lg-12 form-filde">
+                  <label>Region wise</label>
+                  <ul>
+                    <li routerLink="viewparentinformation" routerLinkActive="active">
+                        <label>Select Country</label>
+                      <select name="Country"  (change)="searchItem(true,'Country',$event.currentTarget.value)" class="form-filde-col-12">
+                        <option>Select Country</option>
+                        <option  *ngFor="let country of countryinfo" value="{{country.id}}">{{country.name}}</option>
+
+                      </select>
+                    </li>
+                    <li routerLink="viewparentinformation" routerLinkActive="active">
+                    <label>Select States</label>
+                      <select name="states"  (change)="searchItem(true,'states',$event.currentTarget.value)" class="form-filde-col-12">
+                        <option>Select States</option>
+                        <option *ngFor="let state of states | Address:order.Country" value="{{state.id}}">{{state.name}}</option>
+                      </select>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-12 col-lg-12 form-filde">
+                  <label>Date wise</label>
+                  <div class="form-filde-col-12">
+                    <label class="form-sub-col-3">From :</label>
+                    <input routerLink="viewparentinformation" routerLinkActive="active" class="form-sub-col-9" type="date" max="{{order.todate | date:'yyyy-MM-dd h:mm:ss'}}" max="{{today | date:'yyyy-MM-dd  h:mm:ss'}}" name="from"  (change)="searchItem(true,'fromdate',$event.currentTarget.value)">
+                  </div>
+                  <div class="form-filde-col-12">
+                    <label class="form-sub-col-3">To</label>
+                    <input routerLink="viewparentinformation" routerLinkActive="active" class="form-sub-col-9" type="date" min="{{order.fromdate | date:'yyyy-MM-dd h:mm:ss'}}"  max="{{today | date:'yyyy-MM-dd  h:mm:ss'}}"  name="To"  (change)="searchItem(true,'todate',$event.currentTarget.value)">
+                  </div>
+                </div>
+                <div class="col-md-12 col-lg-12 form-filde">
+                  <label>User type wise</label>
+                    <ul>
+                      <li class="form-filde-col-12" routerLink="viewparentinformation" routerLinkActive="active">
+                        <input type="radio" name="usertype"  value="parent" (change)="searchItem($event,'usertype','parent')"><span >Parents</span>
+                      </li>
+                      <li class="form-filde-col-12" routerLink="viewparentinformation" routerLinkActive="active">
+                        <input type="radio" name="usertype"  value="caretaker" (change)="searchItem($event,'usertype','caretaker');"><span >Caretaker</span>
+                      </li>
+                    </ul>
+                </div>
+                <div class="col-md-12 col-lg-12 form-filde">
+                  <label>Occupation wise</label>
+                  <ul>
+                    <li routerLink="viewparentinformation" routerLinkActive="active">
+                      <input type="radio" name="emoloyed" value="Emoloyed" (change)="searchItem($event,'emoloyed','Emoloyed')"><span >Emoloyed</span>
+                    </li>
+                    <li routerLink="viewparentinformation" routerLinkActive="active">
+                      <input type="radio" name="emoloyed" value="Home_Maker" (change)="searchItem($event,'emoloyed','Home_Maker')"><span >Home Maker</span>
+                    </li>
+                  </ul>
+                </div>
+                <!-- <div class="col-md-12 col-lg-12 form-filde">
+                  <label routerLink="companywise" routerLinkActive="active" ><span >Company wise</span></label>
+                </div> -->
+                <div class="col-md-12 col-lg-12 form-filde">
+                  <label>Parent Type</label>
+                    <ul>
+                      <li class="form-filde-col-12"  routerLink="viewparentinformation" routerLinkActive="active">
+                        <input type="radio" name="parent_type"  value="mother"  (change)="searchItem($event,'parent_type','mother')"><span>Mother</span>
+                      </li>
+                      <li class="form-filde-col-12"  routerLink="viewparentinformation" routerLinkActive="active">
+                        <input type="radio" name="parent_type"  value="father"  (change)="searchItem($event,'parent_type','father')"><span >Father</span>
+                      </li>
+                    </ul>
+                </div>
+
+            </ul>
+          </form>
+          </div>
+          <div class="panel panel-default">
+            <a data-toggle="collapse" data-parent="#accordion2" href="#collapse20"><li routerLink="companywise"  routerLinkActive="active">Company Wise </li></a>
+            <div id="collapse20" class="panel-collapse collapse ">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="collapsed">
+      <li>CHILDREN<span class="icon"></span></li></a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse">
+      <div class="panel-group" id="accordion3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          <a data-toggle="collapse" data-parent="#accordion3" href="#collapse7">  <li routerLink="viewchildreninformation" routerLinkActive="active" >View All Children Information</li></a>
+      </div>
+      <div id="collapse7" class="panel-collapse collapse">
+        <ul class="drop-list">
+          <form action="">
+            <div class="col-md-12 col-lg-12 form-filde">
+              <input type="checkbox" name="first_name"  value="first_name" (change)="searchItem($event,'child','first_name')"><span >Number Of children</span>
+            </div>
+
+            <div class="col-md-12 col-lg-12 form-filde">
+              <label>Child</label>
+                <ul>
+                  <li class="form-filde-col-12">
+                    <input type="radio" name="gender"  value="female"  (change)="searchItem($event,'gender','female')" ><span >Girl</span>
+                  </li>
+                  <li class="form-filde-col-12">
+                    <input type="radio" name="gender"  value="male"  (change)="searchItem($event,'gender','male')"><span >Boy</span>
+                  </li>
+                </ul>
+            </div>
+            <div class="col-md-12 col-lg-12 form-filde">
+              <label>Class Wise</label>
+                <ul>
+                  <li class="form-filde-col-12">
+                    <input type="radio" name="grade"  value="1" (change)="searchItem($event,'grade','1')"><span >Preschool</span>
+                  </li>
+                  <li class="form-filde-col-12">
+                    <input type="radio" name="grade"  value="2"  (change)="searchItem($event,'grade','2')"><span >Prekindergarden</span>
+                  </li>
+                  <li class="form-filde-col-12">
+                    <input type="radio" name="grade"  value="3" (change)="searchItem($event,'grade','3')"><span >Kindergarden</span>
+                  </li>
+                </ul>
+            </div>
+          </form>
+        </ul>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          <a data-toggle="collapse" data-parent="#accordion3" href="#collapse8"><li routerLink="childschoolwise" routerLinkActive="active">Child School Wise View</li></a>
+      </div>
+      <div id="collapse8" class="panel-collapse collapse">
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          <a data-toggle="collapse" data-parent="#accordion3" href="#collapse9"><li  routerLink="ChildEducationPerformance" routerLinkActive="active">Child Education Performance</li></a>
+      </div>
+      <div id="collapse9" class="panel-collapse collapse">
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#accordion3" href="#collapse10"><li routerLink="childDevelopmen" routerLinkActive="active" >Child Developmen </li></a>
+    </div>
+    <div id="collapse10" class="panel-collapse collapse">
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#accordion3" href="#collapse11"><li routerLink="sortchildcoreInterest" routerLinkActive="active">Sort child's Core Interest</li></a>
+    </div>
+    <div id="collapse11" class="panel-collapse collapse">
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+  <a data-toggle="collapse" data-parent="#accordion" href="#collapse"><li  routerLink="guidedlearningmember" routerLinkActive="active">GUIDED LEARNING </li></a>
+  <a routerLink="coreframework" routerLinkActive="active"><li  data-toggle="collapse" data-parent="#accordion" href="#collapse">CORE FRAMEWORK</li></a>
+   <!-- <a routerLink="healthdevelopment" routerLinkActive="active"><li  data-toggle="collapse" data-parent="#accordion" href="#collapse">HEALTH DEVELOPMENT</li></a>  -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse18" class="collapsed">
+        <li>PARENT QUESTIONNAIRE<span class="icon"></span></li></a>
+      </h4>
+    </div>
+    <div id="collapse18" class="panel-collapse collapse">
+      <div class="panel-body">
+        <a routerLink="healthdevelopment" routerLinkActive="active"><li>Add New Parent Questionnaire</li></a>
+        <a routerLink="healthdaymap" routerLinkActive="active"><li>Parent Questionnaire Scheduler</li></a>
+    </div>
+    </div>
+  </div>
+  <a routerLink="gradingreporting" routerLinkActive="active"><li  data-toggle="collapse" data-parent="#accordion" href="#collapse">GRADING & REPORTING</li></a>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="collapsed">
+        <li>GAMES<span class="icon"></span></li></a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="panel-body">
+        <a routerLink="gametagging" routerLinkActive="active"><li>Add New Game and Tagging</li></a>
+        <!--  <a routerLink="assingnewgame" routerLinkActive="active"><li>Exiting Game Tagging</li></a>    -->
+        <a routerLink="healthquesmap" routerLinkActive="active"><li>Add New Parent Game</li></a>
+        <a routerLink="parentgameguidedlearing" routerLinkActive="active"><li>Parent Game scheduler</li></a>
+
+    </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+<div class="panel-heading">
+  <h4 class="panel-title">
+    <a data-toggle="collapse" data-parent="#accordion" href="#doctorregistration" class="collapsed">
+      <li>Doctor Registration  <span class="icon"></span></li>
+    </a>
+  </h4>
+</div>
+<div id="doctorregistration" class="panel-collapse collapse">
+  <div class="panel-body">
+    <a routerLink="doctor-registration/" routerLinkActive="active"><li>ViewRegister</li></a>
+    <a routerLink="doctor-registration/doctor-register" routerLinkActive="active"><li>Register New User</li></a>
+    <!-- <a routerLink="doctor-registration/Hospital-details" routerLinkActive="active"><li>HospitalDetails</li></a>
+    <a routerLink="doctor-registration/clicnic-details" routerLinkActive="active"><li>ClinicDetails</li></a> -->
+  </div>
+</div>
+ </div>
+ <div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" data-parent="#accordion" href="#announcement" class="collapsed">
+        <li>Announcement  <span class="icon"></span></li>
+      </a>
+    </h4>
+  </div>
+  <div id="announcement" class="panel-collapse collapse">
+    <div class="panel-body">
+      <a routerLink="announcement/" routerLinkActive="active"><li>View Announcement</li></a>
+      <a routerLink="announcement/add-new-announcement" routerLinkActive="active"><li>Add new announcement</li></a>
+      <!-- <a routerLink="doctor-registration/Hospital-details" routerLinkActive="active"><li>HospitalDetails</li></a>
+      <a routerLink="doctor-registration/clicnic-details" routerLinkActive="active"><li>ClinicDetails</li></a> -->
+    </div>
+  </div>
+   </div>
+
+
+  <ng-container *ngIf="menucount == 0" >
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-product" class="collapsed">
+        <li>PRODUCTS <span class="icon"></span></li></a>
+      </h4>
+    </div>
+    <div id="collapse-product" class="panel-collapse collapse">
+      <div class="panel-body">
+        <a routerLink="add-product"><li>ADD NEW PRODUCTS</li></a>
+        <a routerLink="view-product" ><li>VIEW PRODUCTS</li></a>
+    </div>
+    </div>
+    <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse-coupons" class="collapsed">
+          <li>COUPONS <span class="icon"></span></li></a>
+        </h4>
+      </div>
+
+
+      <div id="collapse-coupons" class="panel-collapse collapse">
+        <div class="panel-body">
+          <a routerLink="add-new-coupon"><li>ADD NEW COUPON</li></a>
+          <a routerLink="view-coupons"><li>VIEW COUPONS</li></a>
+      </div>
+    </div>
+   <a routerLink="Orders"><li>ORDERS</li></a>
+  </div>
+</ng-container>
+</div>
+
+</ul>
+<div class="bfh-datepicker" data-min="01/15/2013" data-max="today" data-close="false">
+</div>
+<div id="collapse" class="panel-collapse collapse"></div>
+    <!-- <div class="text-center childern">
+        <div class="child-detail">
+
+
+          <div class="dropdown-tab">
+            <input id="tab-three" type="checkbox" name="tabs">
+
+            <label for="tab-three"><a>DASHBOARD HOME</a></label>
+            <input id="tab-one" type="checkbox" name="tabs">
+            <label for="tab-one"  routerLink="viewparentinformation" routerLinkActive="active">PARENTS<span><img src="assets/images/down_arrow.jpg" align="right" style="padding-top:5px;"></span></label>
+            <div class="tab-content-menu">
+              <div class="dropdown-tab1">
+                <input id="tab-three" type="checkbox" name="tabs">
+                <label for="tab-three"><a  routerLink="addandremove"  routerLinkActive="active">ADD AND REMOVE PARENT</a></label>
+              </div>
+                <!-- <div class="dropdown-tab1">
+                    <input id="tab-three" type="checkbox" name="tabs">
+                    <label for="tab-three"><a routerLink="/{{SchoolInfoLink.PAGEURL.PHYSICALINFO}}">PHYSCIAL INFO</a></label>
+                  </div> --
+              <div class="dropdown-tab1">
+                <input id="tab-four" type="checkbox" name="tabs">
+                <label for="tab-four">PRE NIDARA QUESTIONNAIRE<span><img src="assets/images/down_arrow.jpg" align="right" style="padding-top:10px;"></span></label>
+                <div class="tab-content-menu">
+                  <ul class="drop-list">
+                    <form action="">
+                      <div class="col-md-12 col-lg-12 form-filde">
+                        <input type="checkbox" name="first_name"  value="first_name" (change)="searchItem($event,'parent','first_name')"><span >Name wise</span>
+                      </div>
+                      <div class="col-md-12 col-lg-12 form-filde">
+                        <label>Region wise</label>
+                        <ul>
+                          <li>
+                              <label>Select Country</label>
+                            <select name="Country" id="" (change)="searchItem(true,'Country',$event.currentTarget.value)" class="form-filde-col-12">
+                              <option value="">Select Country</option>
+                              <option  *ngFor="let country of countryinfo" value="{{country.id}}">{{country.country_name}}</option>
+
+                            </select>
+                          </li>
+                          <li>
+                              <label>Select States</label>
+                            <select name="states" id="" (change)="searchItem(true,'states',$event.currentTarget.value)" class="form-filde-col-12">
+                              <option value="">Select States</option>
+                              <option *ngFor="let state of states" value="{{state.state_id}}">{{state.state_name}}</option>
+
+                            </select>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-md-12 col-lg-12 form-filde">
+                        <label>Date wise</label>
+                        <div class="form-filde-col-12">
+                          <label class="form-sub-col-3">From :</label>
+                          <input class="form-sub-col-9" type="date" name="from"  (change)="searchItem(true,'fromdate',$event.currentTarget.value)">
+                        </div>
+                        <div class="form-filde-col-12">
+                          <label class="form-sub-col-3">To</label>
+                          <input class="form-sub-col-9" type="date" name="To"  (change)="searchItem(true,'todate',$event.currentTarget.value)">
+                        </div>
+                      </div>
+                      <div class="col-md-12 col-lg-12 form-filde">
+                        <label>User type wise</label>
+                          <ul>
+                            <li class="form-filde-col-12">
+                              <input type="checkbox" name="usertype"  value="parent" (change)="searchItem($event,'usertype_parent','parent')"><span >Parents</span>
+                            </li>
+                            <li class="form-filde-col-12">
+                              <input type="checkbox" name="usertype"  value="caretaker" (change)="searchItem($event,'usertype_caretaker','caretaker');"><span >Caretaker</span>
+                            </li>
+                          </ul>
+                      </div>
+                      <div class="col-md-12 col-lg-12 form-filde">
+                        <input type="checkbox" name="region" value="occupation" (change)="searchItem($event,'parent','occupation')"><span >Occupation wise</span>
+                      </div>
+                      <div class="col-md-12 col-lg-12 form-filde">
+                        <input type="checkbox" name="region"  value="company_name" (change)="searchItem($event,'parent','company_name')"><span >Company wise</span>
+                      </div>
+                      <div class="col-md-12 col-lg-12 form-filde">
+                        <label>Parent Type</label>
+                          <ul>
+                            <li class="form-filde-col-12">
+                              <input type="checkbox" name="usertype"  value="father"  (change)="searchItem($event,'male','father')"><span >Father</span>
+                            </li>
+                            <li class="form-filde-col-12">
+                              <input type="checkbox" name="usertype"  value="mother"  (change)="searchItem($event,'female','mother')"><span >Mother</span>
+                            </li>
+                          </ul>
+                      </div>
+                    </form>
+                  </ul>
+                </div>
+              </div>
+              <div class="dropdown-tab1">
+                <input id="tab-three" type="checkbox" name="tabs">
+                <label for="tab-three" id="referal" ><a routerLink="/{{SchoolInfoLink.PAGEURL.DAILYSCHEDULER}}">DAILY SCHEDULER</a></label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> -->

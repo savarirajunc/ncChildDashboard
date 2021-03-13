@@ -1,0 +1,200 @@
+<div class="row tab-pane fade in " id="child-development">
+  <form action="" #gradingForm = "ngForm" (ngSubmit) = "gradingFormSubmit(gradingForm)">
+    <div class="tbl-form-list clearfix">
+      <ng-container *ngFor="let coreValueitem of coreValue; let i = index">
+        <div class="col-md-12 col-lg-12 form-panel">
+          <h4>Grading Reporting {{i+1}}</h4>
+        <div class="form-fields">
+          <div class="col-md-12 col-lg-12">
+            <div class="col-md-6 col-lg-6">
+              <label for="">Select Grading & Reporting Framework Grade</label>
+              <select #gr_framwork_id ="ngModel" name="gr_framwork_id{{i+1}}" id="" [(ngModel)]="coreValueitem.gr_framwork_id" disabled required>
+                <option *ngFor="let grframes of grframe" value="{{grframes.id}}">{{grframes.framework_name}}</option>
+              </select>
+              <div *ngIf="gr_framwork_id.invalid && (gr_framwork_id.dirty || gr_framwork_id.touched)" >
+                <div *ngIf="gr_framwork_id.errors.required" class="bg-danger text-white error">
+                    Primary Grading & Reporting Framework Grade field is required.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+              <label for="">Select  Grading & Reporting Framework Type</label>
+              <select #gr_type_id ="ngModel" name="gr_type_id{{i+1}}" id="" [(ngModel)]="coreValueitem.gr_type_id" disabled required>
+                <option *ngFor="let coreFramworks of coreframwork" value="{{coreFramworks.id}}">{{coreFramworks.name}}</option>
+              </select>
+              <div *ngIf="grtype.invalid && (grtype.dirty || grtype.touched)" >
+                <div *ngIf="grtype.errors.required" class="bg-danger text-white error">
+                    Primary G&R  Type field is required.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-12">
+            <div class="col-md-6 col-lg-6">
+              <label for="">
+                Select Grading & Reporting Subject in helth
+              </label>
+              <select #coreFrameSubject = "ngModel" [disabled]="coreValueitem.gr_type_id != 2" name="coreFrameSubject{{i+1}}" id="" [(ngModel)]="coreValueitem.subject_id" required>
+                <option *ngFor="let subject of subjects" value="{{subject.id}}">{{subject.subject_name}}</option>
+              </select>
+              <div *ngIf="coreFrameSubject.invalid && (coreFrameSubject.dirty || coreFrameSubject.touched)">
+                <div *ngIf="coreFrameSubject.errors.required" class="bg-danger text-white error">
+                    Primary Core  Subject is required.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+              <label for="">
+                Select Grading & Reporting Type
+              </label>
+              <select #gr_frame_type = "ngModel"  name="gr_frame_type{{i+1}}" id="" [(ngModel)]="coreValueitem.gr_frame_type" disabled required>
+                <option *ngFor="let grframetypes of grframetype" value="{{grframetypes.id}}">{{grframetypes.type_name}}</option>
+              </select>
+              <div *ngIf="gr_frame_type.invalid && (gr_frame_type.dirty || gr_frame_type.touched)">
+                <div *ngIf="gr_frame_type.errors.required" class="bg-danger text-white error">
+                    Primary Core  Subject is required.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-fields">
+          <div class="col-md-12 col-lg-12">
+            <div class="col-md-4 col-lg-4">
+              <label for=""> ADD GRADE</label>
+            </div>
+            <div class="col-md-8 col-lg-8">
+              <input #grgrade ="ngModel" name ="grgrade{{i+1}}" type="text" [(ngModel)]="coreValueitem.add_grade" required>
+              <div *ngIf="grgrade.invalid && (grgrade.dirty || grgrade.touched)" >
+                <div *ngIf="grgrade.errors.required" class="bg-danger text-white error">
+                    Give the value this field is required.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-fields">
+          <div class="col-md-12 col-lg-12">
+            <div class="col-md-4 col-lg-4">
+              <label for="">ADD GRADE RANGE</label>
+            </div>
+            <div class="col-md-4 col-lg-4">
+              <div class="col-md-4 col-lg-4">
+                <label for="">Minimum</label>
+              </div>
+              <div class="col-md-8">
+                <input #add_grade_range_min ="ngModel" name="add_grade_range_min{{i+1}}" type="number" min="0" max="100" [(ngModel)]="coreValueitem.add_grade_range_min" required>
+                <div *ngIf="add_grade_range_min.invalid && (add_grade_range_min.dirty || add_grade_range_min.touched)" >
+                  <div *ngIf="add_grade_range_min.errors.required" class="bg-danger text-white error">
+                      Give the value this field is required.
+                  </div>
+                  <div *ngIf="add_grade_range_min.errors.max" class="bg-danger text-white error">
+                      Give the value this field is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-lg-4">
+              <div class="col-md-4 col-lg-4">
+                <label for="">Maximum</label>
+              </div>
+              <div class="col-md-8">
+                <input #add_grade_range_max ="ngModel" name="add_grade_range_max{{i+1}}" type="number" min="0" max="100" [(ngModel)]="coreValueitem.add_grade_range_max" required>
+                <div *ngIf="add_grade_range_max.invalid && (add_grade_range_max.dirty || add_grade_range_max.touched)" >
+                  <div *ngIf="add_grade_range_max.errors.required" class="bg-danger text-white error">
+                      Give the value this field is required.
+                  </div>
+                  <div *ngIf="add_grade_range_max.errors.max" class="bg-danger text-white error">
+                      Give the value this field is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-fields">
+          <div class="col-md-12 col-lg-12">
+            <div class="col-md-4 col-lg-4">
+              <label for=""> ADD COLORS</label>
+            </div>
+            <div class="col-md-8 col-lg-8">
+              <input #grcolors ="ngModel" name="grcolors{{i+1}}" type="text" [(ngModel)]="coreValueitem.add_color" [style.border-color]="coreValueitem.add_color" [style.background-color]="coreValueitem.add_color" required>
+              <div *ngIf="grcolors.invalid && (grcolors.dirty || grcolors.touched)" >
+                <div *ngIf="grcolors.errors.required" class="bg-danger text-white error">
+                    Give the value this field is required.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-fields">
+          <div class="col-md-12 col-lg-12">
+            <div class="col-md-4 col-lg-4">
+              <label for="">ADD PROFICIENCY LEVELS</label>
+            </div>
+            <div class="col-md-8 col-lg-8">
+              <input #grproficieny ="ngModel" name="grproficieny{{i+1}}"   type="text" [(ngModel)]="coreValueitem.add_proficiency_level">
+              <div *ngIf="grproficieny.invalid && (grproficieny.dirty || grproficieny.touched)" >
+                <div *ngIf="grproficieny.errors.required" class="bg-danger text-white error">
+                    Give the value this field is required.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-fields">
+          <div class="col-md-12 col-lg-12">
+            <div class="col-md-4 col-lg-4">
+              <label for="">ADD DEFINITION</label>
+            </div>
+            <div class="col-md-8 col-lg-8">
+              <textarea #grdefinition ="ngModel" name="grdefinition{{i+1}}" type="text" [(ngModel)]="coreValueitem.add_definition" required rows="3" cols="10"></textarea>
+              <div *ngIf="grdefinition.invalid && (grdefinition.dirty || grdefinition.touched)" >
+                <div *ngIf="grdefinition.errors.required" class="bg-danger text-white error">
+                    Give the value this field is required.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-fields">
+          <div class="col-md-12 col-lg-12">
+            <div class="col-md-4 col-lg-4">
+              <label for="">ADD WHAT DOES IT MEAN FOR PARENTS</label>
+            </div>
+            <div class="col-md-8 col-lg-8">
+              <textarea #grdoesparent ="ngModel" name="grdoesparent{{i+1}}" type="text" [(ngModel)]="coreValueitem.add_does_id_mean" required rows="3" cols="80"></textarea>
+              <div *ngIf="grdoesparent.invalid && (grdoesparent.dirty || grdoesparent.touched)" >
+                <div *ngIf="grdoesparent.errors.required" class="bg-danger text-white error">
+                    Give the value this field is required.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-fields">
+          <div class="col-md-12 col-lg-12">
+            <div class="col-md-4 col-lg-4">
+              <label for="">ADD NIDARA RECOMMENDATIONS</label>
+            </div>
+            <div class="col-md-8 col-lg-8">
+              <textarea #grnidara = "ngModel" name="ngModel{{i+1}}" type="text" [(ngModel)]="coreValueitem.add_nidara_recommendation" required rows="3" cols="80"></textarea>
+              <div *ngIf="grnidara.invalid && (grnidara.dirty || grnidara.touched)" >
+                <div *ngIf="grnidara.errors.required" class="bg-danger text-white error">
+                    Give the value this field is required.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </ng-container>
+      <div class="col-lg-12 col-md-12">
+        <input type="submit" class="btn-save"  [disabled]="!gradingForm.form.valid" value="SAVE CHANGES">
+      </div>
+    </div>
+  </form>
+  <div class="col-md-12 col-lg-12">
+      <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+  </div>
+</div>

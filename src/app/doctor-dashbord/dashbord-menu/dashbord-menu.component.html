@@ -1,0 +1,45 @@
+<div class="text-center mother">
+    <img src="assets/images/profile-photo.jpg" class="img-circle mother-img" alt="Cinque Terre">
+  </div>
+
+
+      <div class="text-center childern">
+
+          <div class="child-detail">
+
+            <ng-container *ngIf="pagenave == 0" >
+            <div class="dropdown-tab">
+              <div class="">
+                  <div class="dropdown-tab1">
+                      <input id="tab-three" type="checkbox" name="tabs">
+                      <label for="tab-three"><a routerLink="/doctor/parent-list">REGISTER NEW PATIENTS </a></label>
+                  </div>
+                  <div class="dropdown-tab1">
+                    <input id="tab-three" type="checkbox" name="tabs">
+                    <label for="tab-three"><a routerLink="/doctor/old-parent-history">REVIEW OLD PATIENTS HISTORY & PAYMENTS </a></label>
+                  </div>
+                  <div class="dropdown-tab1">
+                    <input id="tab-three" type="checkbox" name="tabs">
+                    <label for="tab-three"><a routerLink="/doctor/nc-health-awareness">NC HEALTHY CHILD DEVELOPMENT AWARENESS GUIDE</a></label>
+                  </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="pagenave == 1" >
+              <div class="dropdown-tab">
+                <div class="">
+                    <div class="dropdown-tab1">
+                        <input id="tab-three" type="checkbox" name="tabs">
+                        <label for="tab-three"><a routerLink="my-account"  >MY ACCOUNT </a></label>
+                      </div>
+                      <div class="dropdown-tab1">
+                          <input id="tab-three" type="checkbox" name="tabs">
+                          <label for="tab-three"><a routerLink="change-password" >CHANGE PASSWORD </a></label>
+                        </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+
+        </div>
+

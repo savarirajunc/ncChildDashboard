@@ -1,0 +1,70 @@
+.cloose{
+  background: #f00;
+  color: #fff;
+  font-size: 12px;
+  position: absolute;
+  width: 20px;
+  text-align: center;
+  left: 2px;
+  height: 20px;
+  border-radius: 100%;
+  top: 30px;
+  cursor: pointer;
+  padding-top: 2px;
+}
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  border-right: 0px;
+  border-left: 0px;
+  border-top: 0px;
+}
+#cart{
+  display: none;
+}
+#emptyCart{
+  display: block;
+}
+.product_img{
+  background-position: center;
+  height: 120px;
+  width:120px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+span.remove-but {
+  cursor: pointer;
+  font-weight: bold;
+  float: left;
+}
+
+li.checkout-button.button.alt.wc-forward {
+  border: 1px solid #999;
+  padding: 10px;
+  font-size: 18px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.cart-top-mge {
+  padding: 15px;
+  background: #ebe9eb;
+  font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+span.glyphicon {
+  padding-right: 15px;
+}
+
+h4, .h4 {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'GillSansStd-Light';
+}
+.emptybag {
+  width: 100%;
+    float: left;
+    background: #e5e5e5 ;
+    padding: 10px;
+}

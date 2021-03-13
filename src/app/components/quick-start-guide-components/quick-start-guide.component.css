@@ -1,0 +1,60 @@
+/*--Parent Page---*/
+#start-guide {
+    text-align: center;
+    font-size: 40px;
+    width: 100%;
+  }
+  .steps img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  #quickStart{
+    height: auto;
+    background-color: #333333;
+    border: 0px;
+    transition: 0.4s;
+    padding: 7px 80px;
+    color: #fff;
+    margin-top: 30px;
+    text-transform: uppercase;
+    float: right;
+    width: auto;
+    box-shadow: none;
+  }
+  #quickStart:hover{
+  background: #83d0c9;
+  box-shadow: none;
+  text-decoration: none;
+}
+.video {
+    position: fixed;
+    z-index: 9999;
+    top: 0px;
+    width: 100%;
+    left: 0px;
+    text-align: center;
+    background: #000;
+    height: 100%;
+}
+video{
+  width: 68%;
+}
+
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: 1;
+    background: #83d0c9;
+    padding: 20px;
+}
+.close:hover{
+  color: #fff;
+  opacity: 1;
+}

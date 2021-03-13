@@ -1,0 +1,28 @@
+.error {
+  margin-left: 0px;
+}
+
+.form-fields-col {
+  margin-bottom: 20px;
+}
+
+
+select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    width: 100%;
+    height: 35px;
+}
+
+input.btn-save {
+  background: #333;
+  color: #fff;
+  padding: 5px 30px;
+  float: right;
+  outline: none;
+  font-size: 15px;
+}
+.btn-save:hover{
+  background: #83d0c9;
+}

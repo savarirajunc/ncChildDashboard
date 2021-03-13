@@ -1,0 +1,63 @@
+<div class="col-md-12 row">
+    <p><br></p>
+
+    <h4>Announcement</h4>
+  </div>
+  <div id="register-page-form" class="col-md-12 col-lg-12 paddingless">
+    <form id=formId [formGroup]="registerFormpage" (ngSubmit)="onSubmit(userReg)" #userReg="ngForm">
+    <div>
+       <div class="col-md-12 col-lg-12 paddingless">
+          <p class="form-row ">
+             <label for="reg_billing_first_name">Title <span class="required">*</span></label>
+            </p>
+             <p>
+             <input type="text"  formControlName="title" class="input-text text-only" name="billing_first_name" id="reg_billing_first_name" value="">
+             <span *ngIf="!registerFormpage.get('title').valid && registerFormpage.get('title').touched" class="bg-danger text-white error">
+             Please Enter Title
+             </span>
+            <div class="clear"></div>
+          <p><br></p>
+
+
+          <p class="form-row form-row-first">
+            <label for="start_date">Start Date <span class="required">*</span></label>
+            <input formControlName="start_date"   type="date" class="input-text" name="registration_number" id="registration_number" value="">
+            <span  *ngIf="!registerFormpage.get('start_date').valid && registerFormpage.get('start_date').touched" class="bg-danger text-white error">
+            Please enter Start Date
+            </span>
+         </p>
+         <p class="form-row form-row-last">
+            <label for="End_date">End Date <span class="required">*</span></label>
+            <input type="date" formControlName="end_date" class="input-text" name="qualification" id="qualification" value="">
+            <span style="bottom: unset;" *ngIf="(!registerFormpage.get('end_date').valid && registerFormpage.get('end_date').touched) " class="bg-danger text-white error">
+            Please enter End Date.
+            </span>
+            <span id="email-val" class="bg-danger text-white error">
+            </span>
+         </p>
+         <div class="clear"></div>
+         <p><br></p>
+         <p class="form-row form-row-first">
+          <label for="reg_billing_phone">Announcement<span class="required">*</span></label>
+         </p>
+         <p>
+          <textarea type="text" formControlName="messages" row="5" class="input-text number-only" name="billing_phone" id="reg_billing_phone" value=""></textarea>
+          <span style="bottom: unset;" *ngIf="!registerFormpage.get('messages').valid && registerFormpage.get('messages').touched" class="bg-danger text-white error">
+              Please give Announcement
+          </span>
+       </p>
+
+
+        </div>
+             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 paddingless">
+                <p class="woocomerce-FormRow form-row form-row-last woocommerce-Button-2">
+                   <input type="submit"    class="woocommerce-Button button" id="register-but" name="register" value="SAVE">
+                </p>
+             </div>
+       <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+    </div>
+    </form>
+
+  </div>
+
+

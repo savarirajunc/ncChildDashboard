@@ -1,0 +1,153 @@
+input[type='password'],select {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    width: 100%;
+    height: 35px;
+    float: left;
+    margin-bottom: 20px;
+}
+textarea{
+  width: 100%;
+  height: 100px;
+  float: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+label{
+  width: 100%;
+  float: left;
+}
+
+input[type='password'][_ngcontent-c9], select[_ngcontent-c9] {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    width: 100%;
+    height: 35px;
+    float: left;
+    margin-bottom: 20px;
+}
+.form-control:focus {
+    border-color: #83D0C9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #83D0C9);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #83D0C9;
+    font-family: 'Gill Sans MT', 'Gill Sans', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial;
+    font-size: 14px;
+}
+
+
+.form-fields input[type="submit"], .form-fields button[type="submit"] {
+  background: #4d4d4d;
+  padding: 7px 30px;
+  font-size: 1em;
+  color: #fff;
+  font-family: 'GillSansStd-Light';
+  text-transform: uppercase;
+  float: right;
+  width: auto;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  width: 100%;
+}
+.form-fields input[type="submit"]:hover, .form-fields button[type="submit"]:hover{
+  background: #83c9c0;
+}
+
+
+@media (min-width: 768px) {
+  label{
+    width: 100%;
+    float: left;
+  }
+
+  input[type='password'][_ngcontent-c9], select[_ngcontent-c9] {
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      width: 100%;
+      height: 35px;
+      float: left;
+      margin-bottom: 20px;
+  }
+  input[type='password'],select {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    width: 100%;
+    height: 35px;
+    float: left;
+    margin-bottom: 20px;
+}
+textarea{
+  width: 100%;
+  height: 100px;
+  float: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+  }
+  @media (min-width: 992px) {
+    label{
+      width: 40%;
+      float: left;
+    }
+    input[type='password'][_ngcontent-c9], select[_ngcontent-c9] {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        width: 60%;
+        height: 35px;
+        float: left;
+        margin-bottom: 20px;
+    }
+    input[type='password'],select {
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      width: 60%;
+      height: 35px;
+      float: left;
+      margin-bottom: 20px;
+  }
+  textarea{
+    width: 60%;
+    height: 100px;
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  }
+  @media (min-width: 1200px) {
+    label{
+      width: 40%;
+      float: left;
+    }
+    input[type='password'][_ngcontent-c9], select[_ngcontent-c9] {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        width: 60%;
+        height: 35px;
+        float: left;
+        margin-bottom: 20px;
+    }
+    input[type='password'],select {
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      width: 60%;
+      height: 35px;
+      float: left;
+      margin-bottom: 20px;
+  }
+  textarea{
+    width: 60%;
+    height: 100px;
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  }

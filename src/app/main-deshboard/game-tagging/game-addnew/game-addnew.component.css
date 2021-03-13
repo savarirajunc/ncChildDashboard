@@ -1,0 +1,132 @@
+input[type="text"],input[type="date"], button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: 100%;
+  padding: 6px;
+  font-size: 14px;
+}
+input[type="date"]:focus {
+  border-color: #83D0C9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #83D0C9);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #83D0C9;
+  font-family: 'Gill Sans MT', 'Gill Sans', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial;
+  font-size: 14px;
+  border: 1px solid #ccc;
+}
+.form-fields {
+  width: 100%;
+  float: left;
+  border: 1px solid #ccc;
+}
+.form-fields label {
+  width: 100%;
+  font-weight: normal;
+  font-size: 14px;
+  color: #808080;
+}
+input[type="checkbox"]:checked + span::before {
+  font-family: FontAwesome;
+  content: "\f00c";
+  font-size: 12px;
+  padding: 0px;
+}
+input[type="radio"]:checked + span::before {
+  font-family: FontAwesome;
+  content: "\f00c";
+  font-size: 12px;
+  padding: 0px;
+}
+.form-fields .col-md-12.col-lg-12 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.form-fields{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+h5.title-page {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.card-body {
+  width: 100%;
+  float: left;
+  position: relative;
+}
+.card.mt-3 {
+  width: 100%;
+  float: left;
+}
+.page{
+width: 100%;
+float: left;
+position: relative;
+}
+button.btn-save,input.btn-save {
+height: auto;
+background-color: #333333;
+border: 0px;
+-webkit-transition: 0.4s;
+transition: 0.4s;
+padding: 7px 10px;
+color: #fff;
+margin-top: 10px;
+text-transform: uppercase;
+float: right;
+width: 200px;
+-webkit-box-shadow: none;
+box-shadow: none;
+margin-bottom: 10px;
+}
+button.btn-save:hover,input.btn-save:hover{
+transition: 0.4s;
+background-color: #83D0C9;
+}
+.form-title {
+  padding-left: 15px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:first-child {
+  background-color: #eee;
+  text-transform: capitalize
+}
+
+.excal{
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: auto;
+}
+
+span.sub-but {
+  width: 121px;
+  padding: 7px 30px;
+  color: #fff;
+  background: #333;
+  float: left;
+  cursor: pointer;
+}
+
+span.sub-but:hover{
+  background: #83D0C9;
+
+}
+
+#game-form{
+  display: block;
+}
+#question-form{
+  display: none;
+}

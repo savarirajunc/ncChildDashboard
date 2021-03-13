@@ -1,0 +1,66 @@
+<h2>PAYMENT INFORMATION test</h2>
+<p>CURRENT SUBSCRIPTION STATUS</p>           
+<div *ngIf="_response.status" class="alert alert-success">{{_response.message}}</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Child Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Cancel Subscription</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let payments of paymentsInformations;let i = index">
+      <td>{{payments.kid_name}}</td>
+      <td>{{payments.description}}</td>
+      <td>{{payments.status}}</td>
+      <td><button type="button" (click)="cancelSub(payments)" class="btn btn-default">Cancel</button></td>
+    </tr>
+    <!-- <tr>
+      <td>Child 2-  Rahul  Singh</td>
+      <td>Nidara Preschool Essentials Rs. XX / Month</td>
+      <td>Active</td>
+      <td><button type="button" class="btn btn-default">Cancel</button></td>
+   </tr> -->
+  </tbody>
+</table>
+
+
+
+<h3>BILLING HISTORY</h3>
+<div class="row" id="payment-history">
+  <div class="form-group">
+  <label for="name" class="col-lg-1 col-md-1 col-sm-1 col-xs-12">FROM</label>
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-8">
+        <input class="form-control" name="name" id="name" type="text">
+    </div>
+   <label for="name" class="col-lg-1 col-md-1 col-sm-1 col-xs-12">TO</label>
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-8">
+        <input class="form-control" name="name" id="name" type="text">
+    </div>   
+</div>  
+  </div>         
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let products of productsInformations;let i = index">
+      <td>{{products.date_created}}</td>
+     
+      <td><ng-container *ngFor="let product of products.products;let j=index">
+         {{j+1}}. {{product.name}}, 
+
+      </ng-container></td>
+     
+      <td>{{products.status}}</td>
+      <td>Rs.{{products.total}}</td>
+    </tr>
+  </tbody>
+</table>

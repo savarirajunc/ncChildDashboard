@@ -1,0 +1,197 @@
+
+<div class="container">
+  <div class="col-xs-12 home-slide" style="text-align:center;">
+    <h2>Nidara-Children Healthy Child Development Questionnaire</h2>
+    <div class="col-md-12 col-lg-12">
+      <ul class="topbar">
+        <li class="active">Information</li>
+        <li>Parent Questionnaire</li>
+        <li>Nidara</li>
+      </ul>
+    </div>
+    <form #formdata= "ngForm" [formGroup]="questForm"  (ngSubmit)="addchild(formdata)"  class="wpcf7-form" novalidate="novalidate">
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>PARENT INFORMATION</h2>
+        </div>
+        <div class="col-md-12 col-lg-12">
+          <div class="col-sm-6">
+            <label class="label_sty">First Name <span style="color:#f00">*</span></label>
+          <span class="wpcf7-form-control-wrap firstname">
+              <input type="text" required OnlyString="true" formControlName="firstname"   name="firstname" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="First Name *" />
+              <div class="col-xs-12" *ngIf="!questForm.get('firstname').valid && questForm.get('firstname').touched" class="bg-danger text-white error">
+              Please Enter First Name (Minimum 2 Characters)
+              </div>
+            </span>
+          </div>
+
+          <div class="col-sm-6" id="last-name">
+            <label class="label_sty">Last Name <span style="color:#f00">*</span></label>
+            <span class="wpcf7-form-control-wrap lastname"><input required type="text" formControlName = "lastname" OnlyString="true"  name="lastname" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Last Name *" />
+              <div class="col-xs-12"  *ngIf="!questForm.get('lastname').valid && questForm.get('lastname').touched" class="bg-danger text-white error">
+                Please Enter Last Name (Minimum 2 Characters)
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-12">
+         <div class="col-sm-6">
+           <label class="label_sty">Email <span style="color:#f00">*</span></label>
+            <span class="wpcf7-form-control-wrap email">
+              <input class="form-control"  formControlName = "email"   name="email" required type="email" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required email" placeholder="Email Address *" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+
+            <div class="col-xs-12" style="bottom: unset;" *ngIf="!questForm.get('email').valid && questForm.get('email').touched" class="bg-danger text-white error">
+                Please enter valid email.
+            </div>
+          </span>
+          </div>
+          <div class="col-sm-6" id="CaregiverType">
+            <label class="label_sty">Caregiver Type <span style="color:#f00">*</span></label>
+            <span class="wpcf7-form-control-wrap CaregiverType">
+              <select  required name="CaregiverType" formControlName = "CaregiverType" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                  <option *ngFor="let care of caregiverType"  value="{{care.value}}">{{care.value}}</option>
+              </select>
+              <div  class="col-xs-12" *ngIf="!questForm.get('CaregiverType').valid && questForm.get('CaregiverType').touched" class="bg-danger text-white error">
+                This field is required.
+            </div>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row chi_brd">
+        <div class="col-xs-12" style="margin-top:3%;">
+          <h2>CHILD INFORMATION</h2>
+        </div>
+        <div class="container">
+          <div class="col-xs-12">
+            <!-- <ul class="nav nav-tabs">
+              <li><a data-toggle="tab" href="#child_1"><h3>CHILD </h3></a></li>
+            </ul> -->
+          </div>
+          <div class="tab-content">
+            <div id="child_1" class="tab-pane fade in active">
+              <div class="row">
+                <div class="col-md-12 col-lg-12">
+                  <div class="col-sm-6">
+                    <label class="label_sty">Child Firstname <span style="color:#f00">*</span></label>
+                    <span class="wpcf7-form-control-wrap child-firstname">
+                      <input type="text" required OnlyString="true" formControlName="childfirstname"   name="childlastname" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Child First Name *" />
+                      <div *ngIf="!questForm.get('childfirstname').valid && questForm.get('childfirstname').touched" class="bg-danger text-white error">
+                      Please Enter Child First Name (Minimum 2 Characters)
+                      </div>
+                    </span>
+                  </div>
+                  <div class="col-sm-6" id="child-last-name">
+                    <label class="label_sty">Child Lastname <span style="color:#f00">*</span></label>
+                    <span class="wpcf7-form-control-wrap childlastname">
+                      <input required type="text" formControlName = "childlastname" OnlyString="true"  name="childlastname" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Child Last Name *" />
+                      <div  *ngIf="!questForm.get('childlastname').valid && questForm.get('childlastname').touched" class="bg-danger text-white error">
+                        Please Enter Child Last Name (Minimum 2 Characters)
+                      </div>
+                    </span>
+                  </div>
+                </div>
+                <div class="col-md-12 col-lg-12">
+                 <div class="col-sm-6" id="gender">
+                   <label class="label_sty">Gender <span style="color:#f00">*</span></label>
+                   <span class="wpcf7-form-control-wrap gender">
+                     <select required name="gender" placeholder="Select Gender" formControlName = "gender" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                       <option value="">Select Gender</option>
+                       <option value="Girl">Girl</option>
+                       <option value="Boy">Boy</option>
+                    </select>
+
+                    <div *ngIf="!questForm.get('gender').valid && questForm.get('gender').touched" class="bg-danger text-white error">
+                      This field is required.
+                    </div>
+                    </span>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="label_sty">Enter Birth Date <span style="color:#f00">*</span></label>
+                      <span class="wpcf7-form-control-wrap dob" id="dob">
+                        <ul class="dob">
+                          <li><select required name="dates" id="dob_date" formControlName = "dob_date" (change)="datefun()">
+                            <option value="">DD</option>
+                            <option *ngFor="let dateitem of date" value="{{dateitem.id}}">{{dateitem.id}}</option>
+                           </select></li>
+                          <li><select required name="months" id="dob_month" formControlName = "dob_month" (change)="datefun()">
+                            <option value="">MM</option>
+                            <option *ngFor="let monthitem of month" value="{{monthitem.id}}">{{monthitem.name}}</option>
+                            </select></li>
+                          <li><select required name="years" id="dob_years" formControlName = "dob_years" (change)="datefun()">
+                            <option value="">YYYY</option>
+                            <option *ngFor="let yearsitem of years" value="{{yearsitem.id}}" >{{yearsitem.id}}</option>
+                            </select></li>
+                        </ul>
+                      <div class="bg-danger text-white error">{{errorMsg}}</div>
+
+                    </span>
+
+                  </div>
+                </div>
+                <div class="col-md-12 col-lg-12">
+                 <div class="col-sm-6" id="Grade">
+                    <label class="label_sty">Age & Grade <span style="color:#f00">*</span></label>
+                    <span class="wpcf7-form-control-wrap Grade">
+                      <select  required name="Grade" formControlName = "Grade" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false">
+                        <option value="">-- Please Choose an Option --	</option>
+                        <option value="1">Preschool (3 Years to 4 Years )</option>
+                        <option value="2">Pre-Kindergarten (4 Years to 5 Years)</option>
+                        <option value="3">Kindergarten (5 Years to 6 Years)</option>
+                        <option value="4">Twos (2 Years to 3 Years)</option>
+                     </select>
+
+                    <div  *ngIf="!questForm.get('Grade').valid && questForm.get('Grade').touched" class="bg-danger text-white error">
+                       This field is required.
+                   </div>
+                  </span>
+                 </div>
+                 <div class="col-sm-6" id="Height">
+                     <label class="label_sty">Enter Height (cm) <span style="color:#f00">*</span></label>
+                   <span class="wpcf7-form-control-wrap Height"><input required type="text" formControlName = "Height" OnlyNumber = "true"  name="Height" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Height *" />
+                    <div  *ngIf="!questForm.get('Height').valid && questForm.get('Height').touched" class="bg-danger text-white error">
+                      Please Enter Child Height
+                    </div>
+                  </span>
+                 </div>
+                </div>
+                <div class="col-md-12 col-lg-12">
+                  <div class="col-sm-6" id="Weight" >
+                      <label class="label_sty"> Enter Weight (kg) <span style="color:#f00">*</span></label>
+                    <span class="wpcf7-form-control-wrap Weight"><input required type="text" formControlName = "Weight" OnlyNumber = "true"  name="Weight" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Weight *" />
+                      <div  *ngIf="!questForm.get('Weight').valid && questForm.get('Weight').touched" class="bg-danger text-white error">
+                        Please Enter Child Weight
+                      </div>
+                    </span>
+                  </div>
+                  <div class="col-sm-6" id="DoctorName">
+                      <label class="label_sty" >Your Doctor Child’s Name<span style="color:#f00">*</span></label>
+                    <span class="wpcf7-form-control-wrap DoctorName"><input required type="text" formControlName = "DoctorName" OnlyString="true"  name="DoctorName" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="DoctorName *" />
+                      <div *ngIf="!questForm.get('DoctorName').valid && questForm.get('DoctorName').touched" class="bg-danger text-white error">
+                        Please Enter Child Doctor Name (Minimum 2 Characters)
+                      </div>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-12">
+          <div class="col-md-6 col-lg-6" id="checkboxValue">
+            <input (change)="newFunction($event)" type="checkbox"> <span> Subscribe to Nidara-children Newsletter
+
+            </span>
+
+
+          </div>
+          <div class="col-xs-6">
+              <button id="next-but"  type="submit" >Next</button>
+            </div>
+        </div>
+
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

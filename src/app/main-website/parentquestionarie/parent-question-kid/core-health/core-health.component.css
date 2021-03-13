@@ -1,0 +1,231 @@
+.fnt_style{
+  text-align: center;
+  margin-top: 17%;
+  color: white;
+  line-height: 44px;
+  font-family: GillSansStd-Light !important;
+}
+.str_sty{
+  margin-top: 25%;
+  margin-left: 20%;
+  border: 2.5px solid white
+}
+.strt_fnt_St{
+  margin-top: 7px;
+  margin-bottom: 8px;
+  font-size: 21px;
+  cursor:pointer;
+}
+.label_sty{
+  font-weight: 500;
+  font-size: 17px;
+  padding-left: -8px;
+  padding-right: 11px;
+}
+.carGiv_ty{
+  position: absolute;
+  left: 32%;
+  width: 49.5%;
+}
+.chi_brd{
+  margin-top: 3%;
+  border-top: .2px solid lightgray;
+}
+.nav-tabs > li > a{
+  border: 1px solid transparent !important;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+  color: #4f8dbbd4;
+  border: 0;
+}
+.nav-tabs {
+    border-bottom: 0;
+}
+.inp_rad{
+  padding: 49px;
+  font-size: 2.5em;
+}
+.inp_rad_sty{
+  width: 4%;
+  left: 39%;
+
+}
+input[type="radio"] + span::before {
+  content: "";
+  width: 25px ;
+  height: 25px ;
+  margin: 0 4px 0 0;
+  border: solid 1px rgb(218, 218, 218);
+  line-height: 14px;
+  text-align: center;
+  border-radius: 5%;
+  background: #ffffff;
+  border-radius: 100%;
+}
+
+input[type="radio"] + span, input[type="radio"] + span::before {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+
+input[type="radio"]:checked + span::before
+{
+  border: solid 1px #83D0C9;
+}
+
+input[type="radio"]:checked + span::after {
+  content: "";
+  width: 10px;
+  height: 11px;
+  border: solid 6px #83D0C9;
+  position: absolute;
+  left: 6.4px;
+  top: 6.5px;
+  border-radius: 100%;
+}
+input[type="radio"]:focus {
+    border: 0px;
+    outline: none;
+    box-shadow: 0px 0px #fff;
+}
+
+input[type="radio"], input[type="checkbox"]{
+  opacity: 0 !important;
+  width:4.5%;
+}
+input[type="radio"]{
+    position: absolute;
+    top: -8px;
+    width: 20px;
+}
+.radio-but {
+  width: 100%;
+    margin: 8px auto;
+    position: relative;
+}
+
+.no_inpt{
+  margin-left: -24px;
+  width: 16px;
+}
+.np_ipt_fnt{
+  font-size: 2.2em;
+}
+.pad_tp_25{
+  padding-top: 25%;
+}
+ul.dob {
+list-style: none;
+padding: 0px;
+width: 100%;
+float: left;
+margin-top: -5%;
+margin-left: 35%;
+margin-bottom: 5px;
+}
+.form-group {
+    margin-bottom: 25px;
+}
+.redDiv{
+   background-color:red;
+   height:200px;
+   /* width: 30%; */
+}
+.greenDiv{
+   background-color:green;
+   height:200px;
+    /* width: 30%; */
+}
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 6px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+.error {
+    margin-left: 0 !important;
+     margin-top: 0  !important;
+    background-color: transparent!important;
+    color: red;
+    font-weight: 600;
+    font-size: 13px !important;
+}
+input[type="file"][_ngcontent-c6]:focus, input[type="radio"][_ngcontent-c6]:focus, input[type="checkbox"][_ngcontent-c6]:focus {
+  outline: none;
+  border: 0px;
+  box-shadow: 0px 0px 0px 0px;
+}
+.btn_cls {
+  float: right;
+  padding: 10px 25px;
+  margin: 0px;
+  margin: 5px 4%;
+  background-color: #333333;
+  border: 0px;
+  color: #ffffff;
+  outline: 0px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+.btn_cls:hover{
+  background: #83d0c9
+}
+
+.home-slide {
+    margin: 0px 0px;
+    text-align: right;
+    /* font-family: 'GillSansStd-Light'; */
+    font-family: 'GillSansStd-Light';
+    color: #333333;
+    font-size: 10px;
+}
+.addchild {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0px;
+}
+.submit {
+  padding: 0px;
+  margin-top: 10px;
+
+}
+.buttons-qus {
+    padding: 0px;
+}
+input[type="radio"] + span::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    margin: 0 4px 0 0;
+    border: solid 0px rgb(218, 218, 218);
+    line-height: 14px;
+    text-align: center;
+    border-radius: 5%;
+    background: #ffffff;
+}
+.quse-border {
+  border: 1px solid #ddd;
+  margin: 5px;
+  text-align: left;
+  width: 80%;
+  float: left;
+  padding: 0px 15px;
+}
+
+.alert {
+  padding: 0px;
+  margin-bottom: 10px;
+  border: 1px solid transparent;
+  border-radius: 0px;
+}

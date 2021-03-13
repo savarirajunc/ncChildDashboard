@@ -1,0 +1,78 @@
+<div id="layout-container" >
+  <div class="col-xs-12 home-slide" style="text-align:center;">
+    <h2>Set Guided Learning</h2>
+    <form #learnformdata= "ngForm" [formGroup]="guidedForm"  (ngSubmit)="addlearnform(learnformdata)"  class="wpcf7-form" novalidate="novalidate">
+      <div class="row">
+        <div class="col-xs-12" id="id" style="margin-bottom:2%;">
+          <label class="label_sty" style="padding-left:16px;">ID <span style="color:#f00">*</span></label>
+          <span class="wpcf7-form-control-wrap id">
+             <input type="text" required OnlyNumber="true" formControlName="id"   name="id" value="" size="41" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Please Enter ID *" />
+          </span>
+           <div class="col-xs-12" *ngIf="!guidedForm.get('id').valid && guidedForm.get('id').touched" class="bg-danger text-white error">
+            Please Enter ID
+           </div>
+        </div>
+        <div class="col-xs-12" id="day">
+          <div class="select-section">
+          <div class="col-md-4 col-lg-4">
+            <label class="label_sty">Month <span style="color:#f00">*</span></label>
+            <span class="wpcf7-form-control-wrap day">
+              <select formControlName="month" name="" id="">
+                <option *ngFor="let monthitem of month"  value="{{monthitem.value}}">{{monthitem.value}}</option>
+              </select>
+               <!-- <input type="text" required OnlyNumber="true" formControlName="day"   name="day" value="" size="41" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Please Enter Day*" /> -->
+            </span>
+             <div class="col-xs-12" *ngIf="!guidedForm.get('month').valid && guidedForm.get('month').touched" class="bg-danger text-white error">
+                Please select month
+             </div>
+            </div>
+            <div class="col-md-4 col-lg-4">
+             <label class="label_sty">Week <span style="color:#f00">*</span></label>
+             <span class="wpcf7-form-control-wrap day">
+                <select formControlName="week" name="" id="">
+                  <option *ngFor="let monthitem of week"  value="{{monthitem.value}}">{{monthitem.value}}</option>
+                </select>
+                <!-- <input type="text" required OnlyNumber="true" formControlName="day"   name="day" value="" size="41" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Please Enter Day*" /> -->
+             </span>
+              <div class="col-xs-12" *ngIf="!guidedForm.get('week').valid && guidedForm.get('week').touched" class="bg-danger text-white error">
+                 Please select week
+              </div>
+            </div>
+            <div class="col-md-4 col-lg-4">
+          <label class="label_sty">DAY <span style="color:#f00">*</span></label>
+          <span class="wpcf7-form-control-wrap day">
+              <select formControlName="day" name="" id="">
+                  <option *ngFor="let monthitem of day"  value="{{monthitem.value}}">{{monthitem.value}}</option>
+                </select>
+             <!-- <input type="text" required OnlyNumber="true" formControlName="day"   name="day" value="" size="41" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Please Enter Day*" /> -->
+          </span>
+           <div class="col-xs-12" *ngIf="!guidedForm.get('day').valid && guidedForm.get('day').touched" class="bg-danger text-white error">
+              Please select day
+           </div>
+          </div>
+          </div>
+        </div>
+        <!-- <div class="col-sm-12" >
+         <span class="wpcf7-form-control-wrap id">
+            <input type="text" required OnlyNumber="true" formControlName="id"   name="id" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Enter ID *" /></span>
+            <div class="col-xs-12" *ngIf="!guidedForm.get('id').valid && guidedForm.get('id').touched" class="bg-danger text-white error">
+             Please Enter ID
+            </div>
+         </div>
+         <div class="col-sm-12" id="day">
+           <span class="wpcf7-form-control-wrap day"><input required type="text" formControlName = "day"  name="day" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Enter Day *" /></span>
+            <div class="col-xs-12" style="margin-left: 10%;" *ngIf="!guidedForm.get('day').valid && guidedForm.get('day').touched" class="bg-danger text-white error">
+              Please Enter Day
+            </div>
+         </div> -->
+      </div>
+      <div class="col-xs-12">
+        <button type="submit" >submit</button>
+        <div class="alert-mage">
+          <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

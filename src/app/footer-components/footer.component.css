@@ -1,0 +1,25 @@
+#footer-block-first .socialicons li a.ins, .blogRightPanel  .socialicons li a.ins, #global-footer  .socialicons li a.ins{
+  background-image: url(./../../assets/web_img/instagram-mint.png) ;
+}
+#footer-block-first .socialicons li a.twt, .blogRightPanel  .socialicons li a.twt,#global-footer  .socialicons li a.twt {
+  background-image: url(./../../assets/web_img/twitter-mint.png);
+}
+#footer-block-first .socialicons li a.pin, .blogRightPanel  .socialicons li a.pin,#global-footer  .socialicons li a.pin {
+  background-image: url(./../../assets/web_img/pinterest-mint.png);
+}
+#footer-block-first .socialicons li a.fb, .blogRightPanel  .socialicons li a.fb,#global-footer  .socialicons li a.fb {
+  background-image: url(./../../assets/web_img/facebook-mint.png);
+}
+#footer-block-first .socialicons li a.email, .blogRightPanel  .socialicons li a.email,#global-footer  .socialicons li a.email {
+  background-image: url(./../../assets/web_img/mail-mint.png);
+}
+/* #footer-block-first .socialicons li a.youtube, .blogRightPanel  .socialicons li a.youtube,#global-footer  .socialicons li a.youtube {
+  background-image: url(../images/youtube.png);
+} */
+
+input, select, textarea, input:focus {
+  font-size: 11px;
+}
+.post-notes, .post-notes a, input, select, textarea {
+  font-family: 'GillSansStd';
+}

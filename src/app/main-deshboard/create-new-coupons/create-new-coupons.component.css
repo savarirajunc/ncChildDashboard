@@ -1,0 +1,164 @@
+.page-header{
+  border: 0px;
+}
+.page-header {
+  padding-bottom: 9px;
+  margin: 10px 0 10px;
+}
+#upload-img{
+      width: 100%;
+    height: 200px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+input[type="text"],input[type="date"], button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    width: 100%;
+    padding: 6px;
+    font-size: 14px;
+}
+input[type="date"]:focus {
+    border-color: #83D0C9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #83D0C9);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #83D0C9;
+    font-family: 'Gill Sans MT', 'Gill Sans', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial;
+    font-size: 14px;
+    border: 1px solid #ccc;
+}
+.form-fields {
+    width: 100%;
+    padding-bottom: 20px;
+    float: left;
+    padding-top: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.form-fields label {
+    width: 100%;
+    font-weight: normal;
+    font-size: 14px;
+    color: #808080;
+}
+input.btn-save {
+    background: #333;
+    color: #fff;
+    border: 0px;
+    float: right;
+    width: 200px;
+    margin-top: 40px;
+}
+span.btn {
+    float: right;
+    width: 30%;
+    border-radius: 0px;
+    background: #333;
+    color: #fff;
+}
+.form-group {
+  margin-bottom: 10px;
+  width: 100%;
+  float: left;
+}
+.but-add{
+  float: right;
+  width: 100px;
+  border-radius: 0px;
+  background: #333;
+  color: #fff;
+  margin-right: 15px;
+  border:0px;
+  outline: none;
+}
+.but-add:hover{
+  background: #83D0C9;
+  color: #fff;
+}
+button.btn:hover{
+  background: #83D0C9;
+  color: #fff;
+}
+input.btn-save:hover{
+  background: #83D0C9;
+  color: #fff;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #83D0C9;
+  outline: 0;
+  -webkit-box-shadow: inset ( 0 1px 1px rgba(0,0,0,.075),0 0 8px #83D0C9 );
+  /* box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #83D0C9; */
+  font-family: 'Gill Sans MT', 'Gill Sans', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial;
+  font-size: 14px;
+  border: 1px solid #999;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ top: 9px;
+left: 9px;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: white;
+}
+input[type="radio"] {
+  opacity: 1;
+  position: absolute;
+  z-index: 999;
+}

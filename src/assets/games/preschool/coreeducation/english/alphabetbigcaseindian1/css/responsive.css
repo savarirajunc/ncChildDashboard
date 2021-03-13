@@ -1,0 +1,466 @@
+.game_iframe{
+	width:350px;
+	height:445px;
+}
+.audio-setting .img-shadow {
+    display: inline-block;
+    transition-duration: 0.3s;
+    float: left;
+    list-style: none;
+    width: 50%;
+    padding: 5px;
+}
+.audio-setting {
+    float: right;
+    padding: 0;
+}
+.audio-setting .img-shadow img {
+    max-width:60px;
+    height:60px;
+    cursor: pointer;
+    float: none;
+}
+
+.game-header img {
+	height:80px;
+	margin: 10px;
+	max-width: 100%;
+}
+.row{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+  .game_iframe {
+		width: 750px;
+		height: 350px;
+		margin: auto;
+	}
+	.game-header {
+		background: #ffffff;
+		position:absolute;
+		height:100%;
+		top:0px;
+		width:150px;
+	}
+	hr{
+		display:none;
+	}
+	.col-sm-6{
+		width:100%;
+		float:left;
+	}
+	.audio-setting {
+		float: left;
+		padding: 0;
+		margin-top: 50px;
+	}
+	.audio-setting .img-shadow {
+		display: inline-block;
+		transition-duration: 0.3s;
+		float: left;
+		list-style: none;
+		width: 100%;
+		padding: 5px;
+	}
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+  .game_iframe {
+		width: 750px;
+		height: 350px;
+		margin: auto;
+	}
+	.game-header {
+		background: #ffffff;
+		position:absolute;
+		height:100%;
+		top:0px;
+		width:150px;
+	}
+	hr{
+		display:none;
+	}
+	.col-sm-6{
+		width:100%;
+		float:left;
+	}
+	.audio-setting {
+		float: left;
+		padding: 0;
+		margin-top: 50px;
+	}
+	.audio-setting .img-shadow {
+		display: inline-block;
+		transition-duration: 0.3s;
+		float: left;
+		list-style: none;
+		width: 50%;
+		padding: 5px;
+	}
+}
+
+
+/* @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait) and (-webkit-min-device-pixel-ratio: 2){
+  .game_iframe {
+		width: 750px;
+		height: 350px;
+		margin: auto;
+	}
+	.game-header {
+		background: #ffffff;
+		position:absolute;
+		height:100%;
+		top:0px;
+		width:150px;
+	}
+	hr{
+		display:none;
+	}
+	.col-sm-6{
+		width:100%;
+		float:left;
+	}
+	.audio-setting {
+		float: left;
+		padding: 0;
+		margin-top: 50px;
+	}
+	.audio-setting .img-shadow {
+		display: inline-block;
+		transition-duration: 0.3s;
+		float: left;
+		list-style: none;
+		width: 100%;
+		padding: 5px;
+	}
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:landscape) and (-webkit-min-device-pixel-ratio: 2){
+  .game_iframe {
+		width: 750px;
+		height: 350px;
+		margin: auto;
+	}
+	.game-header {
+		background: #ffffff;
+		position:absolute;
+		height:100%;
+		top:0px;
+		width:150px;
+	}
+	hr{
+		display:none;
+	}
+	.col-sm-6{
+		width:100%;
+		float:left;
+	}
+	.audio-setting {
+		float: left;
+		padding: 0;
+		margin-top: 50px;
+	}
+	.audio-setting .img-shadow {
+		display: inline-block;
+		transition-duration: 0.3s;
+		float: left;
+		list-style: none;
+		width: 100%;
+		padding: 5px;
+	}
+}
+
+
+@media only screen and (min-device-height: 600px) and (max-device-width: 1024px) and (orientation:portrait) {
+  .game_iframe {
+		width: 750px;
+		height: 350px;
+		margin: auto;
+	}
+	.game-header {
+		background: #ffffff;
+		position:absolute;
+		height:100%;
+		top:0px;
+		width:150px;
+	}
+	hr{
+		display:none;
+	}
+	.col-sm-6{
+		width:100%;
+		float:left;
+	}
+	.audio-setting {
+		float: left;
+		padding: 0;
+		margin-top: 50px;
+	}
+	.audio-setting .img-shadow {
+		display: inline-block;
+		transition-duration: 0.3s;
+		float: left;
+		list-style: none;
+		width: 50%;
+		padding: 5px;
+	}
+}
+
+@media only screen and (min-device-height: 661px) and (max-device-width: 980px) and (orientation:landscape) {
+  .game_iframe {
+		width: 750px;
+		height: 350px;
+		margin: auto;
+	}
+	.game-header {
+		background: #ffffff;
+		position:absolute;
+		height:100%;
+		top:0px;
+		width:150px;
+	}
+	hr{
+		display:none;
+	}
+	.col-sm-6{
+		width:100%;
+		float:left;
+	}
+	.audio-setting {
+		float: left;
+		padding: 0;
+		margin-top: 50px;
+	}
+	.audio-setting .img-shadow {
+		display: inline-block;
+		transition-duration: 0.3s;
+		float: left;
+		list-style: none;
+		width: 50%;
+		padding: 5px;
+	}
+}
+@media only screen and (min-device-height: 600px) and (max-device-width: 1024px) and (orientation:landscape) {
+  .game_iframe {
+		width: 750px;
+		height: 350px;
+		margin: auto;
+	}
+	.game-header {
+		background: #ffffff;
+		position:absolute;
+		height:100%;
+		top:0px;
+		width:150px;
+	}
+	hr{
+		display:none;
+	}
+	.col-sm-6{
+		width:100%;
+		float:left;
+	}
+	.audio-setting {
+		float: left;
+		padding: 0;
+		margin-top: 50px;
+	}
+	.audio-setting .img-shadow {
+		display: inline-block;
+		transition-duration: 0.3s;
+		float: left;
+		list-style: none;
+		width: 100%;
+		padding: 5px;
+	}
+} */
+
+ @media only screen and (min-width: 320px) {
+
+      /* Small screen, non-retina */
+
+    }
+
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: 2)      and (min-width: 320px),
+    only screen and (   min--moz-device-pixel-ratio: 2)      and (min-width: 320px),
+    only screen and (     -o-min-device-pixel-ratio: 2/1)    and (min-width: 320px),
+    only screen and (        min-device-pixel-ratio: 2)      and (min-width: 320px),
+    only screen and (                min-resolution: 192dpi) and (min-width: 320px),
+    only screen and (                min-resolution: 2dppx)  and (min-width: 320px) { 
+
+      /* Small screen, retina, stuff to override above media query */
+
+    }
+
+    @media only screen and (min-width: 700px) {
+
+      .game_iframe {
+		width: 750px;
+		height: 350px;
+		margin: auto;
+	}
+	.game-header {
+		background: #ffffff;
+		position:absolute;
+		height:100%;
+		top:0px;
+		width:150px;
+	}
+	hr{
+		display:none;
+	}
+	.col-sm-6{
+		width:100%;
+		float:left;
+	}
+	.audio-setting {
+		float: left;
+		padding: 0;
+		margin-top: 50px;
+	}
+	.audio-setting .img-shadow {
+		display: inline-block;
+		transition-duration: 0.3s;
+		float: left;
+		list-style: none;
+		width: 100%;
+		padding: 5px;
+	}
+
+    }
+
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: 2)      and (min-width: 700px),
+    only screen and (   min--moz-device-pixel-ratio: 2)      and (min-width: 700px),
+    only screen and (     -o-min-device-pixel-ratio: 2/1)    and (min-width: 700px),
+    only screen and (        min-device-pixel-ratio: 2)      and (min-width: 700px),
+    only screen and (                min-resolution: 192dpi) and (min-width: 700px),
+    only screen and (                min-resolution: 2dppx)  and (min-width: 700px) { 
+
+      .game_iframe {
+		width: 750px;
+		height:445px;
+		margin: auto;
+	}
+	.game-header {
+		height: 99px;
+		background: #ffffff;
+		width: 100%;
+		float: left;
+	}
+	hr{
+		display:block;
+		margin-top: 100px;
+		margin-bottom: 20px;
+		border: 0;
+		border-top: 1px solid #eee;
+	}
+	.col-sm-6{
+		width:50%;
+		float:left;
+	}
+	.audio-setting {
+		float: right;
+		padding: 0;
+		margin-top: 0px;
+	}
+	.audio-setting .img-shadow {
+		display: inline-block;
+		transition-duration: 0.3s;
+		float: left;
+		list-style: none;
+		width: 50%;
+		padding: 5px;
+	}
+
+    }
+
+    @media only screen and (min-width: 1300px) {
+
+     .game_iframe {
+		width: 750px;
+		height:445px;
+		margin: auto;
+	}
+	.game-header {
+		height: 99px;
+		background: #ffffff;
+		width: 100%;
+		float: left;
+	}
+	hr{
+		display:block;
+		margin-top: 100px;
+		margin-bottom: 20px;
+		border: 0;
+		border-top: 1px solid #eee;
+	}
+	.col-sm-6{
+		width:50%;
+		float:left;
+	}
+	.audio-setting {
+		float: right;
+		padding: 0;
+		margin-top: 0px;
+	}
+	.audio-setting .img-shadow {
+		display: inline-block;
+		transition-duration: 0.3s;
+		float: left;
+		list-style: none;
+		width: 50%;
+		padding: 5px;
+	}
+
+    }
+
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: 2)      and (min-width: 1300px),
+    only screen and (   min--moz-device-pixel-ratio: 2)      and (min-width: 1300px),
+    only screen and (     -o-min-device-pixel-ratio: 2/1)    and (min-width: 1300px),
+    only screen and (        min-device-pixel-ratio: 2)      and (min-width: 1300px),
+    only screen and (                min-resolution: 192dpi) and (min-width: 1300px),
+    only screen and (                min-resolution: 2dppx)  and (min-width: 1300px) { 
+
+    .game_iframe {
+		width: 750px;
+		height:445px;
+		margin: auto;
+	}
+	.game-header {
+		height: 99px;
+		background: #ffffff;
+		width: 100%;
+		float: left;
+	}
+	hr{
+		display:block;
+		margin-top: 100px;
+		margin-bottom: 20px;
+		border: 0;
+		border-top: 1px solid #eee;
+	}
+	.col-sm-6{
+		width:50%;
+		float:left;
+	}
+	.audio-setting {
+		float: right;
+		padding: 0;
+		margin-top: 0px;
+	}
+	.audio-setting .img-shadow {
+		display: inline-block;
+		transition-duration: 0.3s;
+		float: left;
+		list-style: none;
+		width: 50%;
+		padding: 5px;
+	}
+	
+
+    }

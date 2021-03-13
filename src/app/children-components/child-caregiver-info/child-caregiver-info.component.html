@@ -1,0 +1,80 @@
+<h2>CHILD PROFILE</h2>
+<div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+<div class="row child-friend">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <p>Caregiver Information</p>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
+    <!--a href="#">+Add Caregiver</a-->
+  </div>
+</div>
+<form #caregiverInfoForm="ngForm" (ngSubmit)="caregiverInfoSubmit(caregiverInfoForm)">
+  <div class="form-fields kid_caregiver_info">
+    <div class="form-response">
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+          <label for="name">Name</label>
+
+          <input type="text" #name='ngModel' OnlyString="true" class="captailizse" maxlength="30" minlength="3" name="name" [(ngModel)]="formData.name"
+            required>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)">
+
+            <div *ngIf="name.errors.minlength" class="bg-danger text-white error">
+              Please enter atleast 3 characters
+            </div>
+            <div *ngIf="name.errors.maxlength" class="bg-danger text-white error">
+              Please enter maxlength
+            </div>
+            <div *ngIf="name.errors.required" class="bg-danger text-white error">
+              Name field is required.
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="relation">Relationship to kid</label>
+
+          <input type="text" #relationship_to_child='ngModel' OnlyString="true" class="captailizse" maxlength="10" minlength="3" name="relationship_to_child"
+            [(ngModel)]="formData.relationship_to_child" required>
+          <div *ngIf="relationship_to_child.invalid && (relationship_to_child.dirty || relationship_to_child.touched)">
+
+            <div *ngIf="relationship_to_child.errors.minlength" class="bg-danger text-white error">
+              Please enter atleast 3 characters
+            </div>
+            <div *ngIf="relationship_to_child.errors.maxlength" class="bg-danger text-white error">
+              Please enter maxlength
+            </div>
+            <div *ngIf="relationship_to_child.errors.required" class="bg-danger text-white error">
+              Relationship field is required.
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="time">Amount of time spent with kid</label>
+
+          <input type="number" class="amount-spent" OnlyNumber="true" name="amount_of_time_spent_with_child" #amount_of_time_spent_with_child='ngModel'
+            [(ngModel)]="formData.amount_of_time_spent_with_child" required>
+          <div *ngIf="amount_of_time_spent_with_child.invalid && (amount_of_time_spent_with_child.dirty || amount_of_time_spent_with_child.touched)">
+
+
+            <div *ngIf="amount_of_time_spent_with_child.errors.required" class="bg-danger text-white error">
+              Amount of time field is required.
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div>
+      <input type="submit" [disabled]="!caregiverInfoForm.form.valid" class="btn-save" value="SAVE CHANGES">
+    </div>
+  </div>
+</form>

@@ -1,0 +1,68 @@
+<div class=" col-md-12 col-lg-12 paddingrightless">
+  <div class="page-nav">
+    <h3>ALL COUPON</h3>
+    <!-- <span class="add_new" href="add-product">Add New</span> -->
+  </div>
+  <div class="tab-pane fade in">
+    <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>S/N</th>
+        <th>Coupon Name</th>
+        <th>Coupon Code</th>
+        <th>Coupon Usage Limit</th>
+        <th>Coupon Start Date</th>
+        <th>Coupon End Date</th>
+        <th>Discount Option</th>
+        <th>Coupons Value</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let productitem of product[currentPage];let i=index">
+            <tr>
+              <td class="word-form">{{i+(currentPage*15) + 1}}</td>
+              <td class="word-form">
+                  {{productitem.discount_coupon_name}}
+              </td>
+              <td class="word-form">
+                  {{productitem.coupon_code}}
+              </td>
+              <td class="word-form">
+                <ng-container *ngIf="productitem.discount_limit == 0" >Unlimited usage</ng-container>
+                <ng-container *ngIf="productitem.discount_limit > 0" >{{productitem.discount_limit}}</ng-container>
+
+              </td>
+              <td class="word-form" >
+                  <span style="">{{productitem.discount_valid}}</span>
+                </td>
+              <td class="word-form" >
+                <span style="">{{productitem.discount_valid_end}}</span>
+              </td>
+              <td class="word-form" >
+                <span style="">{{productitem.discount_type}}</span>
+              </td>
+              <td class="word-form" >
+                <span style="">{{productitem.discount_value}}</span>
+              </td>
+              <td class="word-form" >
+                <span class="but" [routerLink]="['../','edit-coupons',productitem.id]">Edit</span> /  <span class="but-delete" (click) = "deleteProduct(productitem.id)">Delete</span>
+              </td>
+            </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  <div class="text-center pagination_nav">
+    <ng-container *ngIf="currentPage >= 10">
+      <a class="pagenav" (click)="selectPageBack()">&lsaquo;&lsaquo;</a>
+    </ng-container>
+    <ng-container *ngFor="let productitem of pageArray| slice:pageIdx*10:(pageIdx+1)*10;let i=index">
+          <a class="pagenav" (click)="setGameDetailsView(productitem)" [ngClass]="{'active':productitem===currentPage}">{{productitem+1}}</a>
+    </ng-container>
+    <ng-container *ngIf="currentPage < (pageNav -1) ">
+      <a class="pagenav" (click)="selectPage()">&rsaquo;&rsaquo;</a>
+    </ng-container>
+  </div>
+  <div *ngIf="_response.status" class="{{_response.alert}}">{{_response.message}}</div>
+</div>
+</div>

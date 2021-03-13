@@ -1,0 +1,60 @@
+<h2>PRE NIDARA QUESTIONIARE WHOLE CHILD DEVELOPMENT-INTEREST DEVELOPMENT</h2>
+<p>Rate your child's interest areas below</p>
+<div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+<form #interestDeveForm="ngForm" (ngSubmit)="interestDeveFormSubmit(interestDeveForm)">
+  <div class="form-fields intrest_dev">
+    <div class="form-response">
+      <div class="row" *ngFor="let questions of dailyQuestionaries; let i = index">
+        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 schedule ">
+          <label for="name">{{questions.name}}</label></div>
+        <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12 schedule" *ngFor="let options of questions.options; let j = index">
+          <ng-template [ngIf]="options.id == questions.answers.option_id">
+
+            <input type="radio" name="perform_{{i}}" [value]="options" (change)="selectOptions(options)" checked/> <label>{{options.option}}</label>
+          </ng-template>
+          <ng-template [ngIf]="options.id != questions.answers.option_id">
+
+            <input type="radio" name="perform_{{i}}" [value]="options" (change)="selectOptions(options)" /> <label>{{options.option}}</label>
+          </ng-template>
+        </div>
+        <!-- <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">    
+                                <input type="radio" name="perform" value="good" /> <label>2 - Good</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">    
+                                <input type="radio" name="perform" value="excellent" />  <label>3 - Excellent</label>
+                            </div> -->
+      </div>
+      <!-- <div class="row">
+                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 schedule">
+                                        <label for="name">Mathematical & Logical Domain
+Gives the child the power to calculate and solve problems using logic and reasoning</label></div>
+                              <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 ">    
+                                <input type="radio" name="perform" value="poor" /> <label>1-Poor</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">    
+                                <input type="radio" name="perform" value="good" /> <label>2 - Good</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">    
+                                <input type="radio" name="perform" value="excellent" />  <label>3 - Excellent</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 schedule">
+                                        <label for="name">Visual and Spatial Domain
+Helps visualize things and understand spaces and directions</label></div>
+                              <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 schedule">    
+                                <input type="radio" name="perform" value="poor" />   <label>1 - Poor</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">    
+                                <input type="radio" name="perform" value="good" /> <label>2 - Good</label>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 schedule">    
+                                <input type="radio" name="perform" value="excellent" />  <label>3 - Excellent</label>
+                            </div>
+                        </div> -->
+      <div>
+        <input type="submit" [disabled]="!interestDeveForm.form.valid" class="btn-save" value="EDIT">
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,38 @@
+<div class="col-md-12 col-lg-12 page-header">
+  <h2>STEP 3: ACTIVATE NIDARA.
+   <span class="child-tooltip">
+    <!-- <p class="tooltip-cont"><i>i</i></p> -->
+    <span class="tooltip-main" data-tip="Providing your child’s health information helps make sure that you get the right Nidara-Children experience for your child’s age and stage. If you want to change this, go to the My Settings in your dashboard. For more details, please visit our Terms of Use and Privacy Policy."><i>i</i></span>
+  </span></h2>
+  <span>Great.  Let’s start!</span>
+</div>
+<ul  class="kids-info">
+
+<li *ngFor="let kids of _kidsInformations; let i = index; " id="kids{{kids.nidara_kid_profile_id}}" (click)="selectedKidInfo(kids,kidsTag)">CHILD {{i+1}}</li>
+</ul>
+
+
+<div class="col-md-12 col-lg-12">
+  <div class="col-md-12 col-lg-12 page-header text-center">
+
+  </div>
+  <div class="col-md-12 col-lg-12 text-center">
+
+  </div>
+  <div class="col-md-12 col-lg-12 button-col">
+    <div class="col-md-3 col-lg-3"></div>
+    <div class="col-md-6 col-lg-6 text-center">
+      <div class="but-black" (click) = "startSession()">
+        START AT SCHEDULED TIME
+      </div>
+      <div class="back-but">
+        <span (click)="gobackfunction()">Or GO BACK</span>
+      </div>
+    </div>
+    <div class="col-md-3 col-lg-3"></div>
+  </div>
+
+  <div class="col-md-12 col-lg-12 page-header text-center">
+
+  </div>
+</div>

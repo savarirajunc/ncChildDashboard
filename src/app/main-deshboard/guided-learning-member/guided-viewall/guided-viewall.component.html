@@ -1,0 +1,15 @@
+
+<!-- <ul>
+  <li routerLinkActive="active"><a [routerLink]="['../','select',1]">Pre school</a></li>
+  <li routerLinkActive="active"><a [routerLink]="['../','select',1]"></a></li>
+  <li routerLinkActive="active"><a [routerLink]="['../','select',1]"></a></li>
+</ul> -->
+<div class="col-md-12 col-lg-12 row tab-pane fade in active" id="cored-edu">
+ <div class="col-md-12">
+   <ng-container>
+    <ul class="nav sub-nav">
+      <li *ngFor="let guidedlistitem of guidedlist"><a [routerLink]="['../','select',guidedlistitem.id]"><span>{{guidedlistitem.learning_model}}</span></a></li>
+    </ul>
+  </ng-container>
+ </div>
+</div>

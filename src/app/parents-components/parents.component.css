@@ -1,0 +1,39 @@
+.error {
+  margin-left: 0px;
+}
+
+.form-fields-col {
+  margin-bottom: 20px;
+}
+
+
+select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    width: 100%;
+    height: 35px;
+}
+
+.form-fields label {
+  width: 100%;
+  font-weight: normal;
+  font-size: 14px;
+  color: #808080;
+}
+input.btn-save {
+  padding: 7px 15px;
+  float: right;
+  background: #333;
+  color: #fff;
+  border: 0px;
+}
+input.btn-save:hover{
+  background: #83d0c9;
+}
+
+.dashboard-middle p {
+  font-size: 14px !important;
+  font-family: 'GillSansStd-Light';
+  margin-bottom: 14px !important;
+}

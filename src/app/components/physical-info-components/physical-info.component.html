@@ -1,0 +1,47 @@
+<h2 style="margin-top:0px;">
+
+  PRE NIDARA QUESTIONIARE
+  <br>WHOLE CHILD DEVELOPMENT
+  <br>PHYSICAL DEVELOPMENT</h2>
+<div *ngIf="_response.status" [ngClass]="_response.alert">{{_response.message}}</div>
+
+<form #physicalInfoForm="ngForm" (ngSubmit)="physicalInfoSubmit(physicalInfoForm)">
+  <div class="form-fields kid_physical_info">
+    <div class="form-response">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="height">Height
+            <span>(cm)</span>
+          </label>
+
+          <input type="text" name="height" #height='ngModel' OnlyNumber="true" [(ngModel)]="formData.height" required>
+          <div *ngIf="height.invalid && (height.dirty || height.touched)">
+
+
+            <div *ngIf="height.errors.required" class="bg-danger text-white error">
+              Height field is required.
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <label for="weight">Weight
+            <span>(kg)</span>
+          </label>
+          <input type="text" name="weight" #weight='ngModel' OnlyNumber="true" [(ngModel)]="formData.weight" required>
+          <div *ngIf="weight.invalid && (weight.dirty || weight.touched)">
+
+
+            <div *ngIf="weight.errors.required" class="bg-danger text-white error">
+              Weight field is required.
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <input type="submit" class="btn-save" [disabled]="!physicalInfoForm.form.valid" value="Save Changes">
+    </div>
+  </div>
+</form>

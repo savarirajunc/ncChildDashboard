@@ -1,0 +1,63 @@
+<div class="col-md-12 col-lg-12 col-xs-12 col-sm-12 paddingless">
+
+
+  <div id="child-development" class="col-md-12 col-lg-12 col-sm-12 col-xs-12   paddingless">
+      <form id=formId  #refForm="ngForm">
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+            <h4>DATE</h4>
+            <select name="date" id="" (change)="getGameDetails()"  [(ngModel)]="formData.dates">
+                <ng-container *ngFor="let detesitem of detes" >
+                  <option value="{{detesitem.created_at}}">{{detesitem.created_at | date}}</option>
+                </ng-container>
+            </select>
+
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+            <h4>CORE TYPE</h4>
+            <select name="core_fream" id="" disabled  [(ngModel)]="formData.framework_id">
+                <ng-container *ngFor="let coreitem of core" >
+                  <option value="{{coreitem.id}}">{{coreitem.name}}</option>
+                </ng-container>
+            </select>
+          </div>
+          <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+            <h4>CORE SUBJECT </h4>
+              <select name="subject" id="" disabled [(ngModel)]="formData.subject_id">
+                <ng-container *ngFor="let subjectitem of subject" >
+
+                      <option value="{{subjectitem.id}}">{{subjectitem.subject_name}}</option>
+
+                </ng-container>
+              </select>
+            </div>
+      </form>
+    </div>
+  <div id="child-development" class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+  <h3>{{game_name}}</h3>
+  <ng-container *ngFor="let game_infoitem of game_info" >
+    <h4>DATE : {{game_infoitem.created_at | date}}</h4>
+    <h4>Time taken to complete activity: {{game_infoitem.game_time}} ( seconds )</h4>
+    <h4>Total number of questions : {{game_infoitem.Total}}</h4>
+    <h4>Questions answered correctly : {{game_infoitem.answer}} </h4>
+    <h4>Questions answered incorrectly : {{game_infoitem.wrong}}</h4>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>Selected answer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let game_answersitem of game_infoitem.game_answers" >
+        <td>
+          {{game_answersitem.question}}
+        </td>
+        <td>
+          {{game_answersitem.answers}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </ng-container>
+  </div>
+  </div>

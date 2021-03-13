@@ -1,0 +1,9 @@
+#paymentFrame{
+  width:100%;
+  float: left;
+  height: 800px;
+}
+body.iframe {
+  margin: 0 !important;
+  width: 800px;
+}
