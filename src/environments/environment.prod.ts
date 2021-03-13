@@ -47,10 +47,10 @@ export const environment = {
 
 
 
-  SERVERURL: 'http://apischool.nidarachildren.com/',
-  SCHOOLSERVICEURL: 'http://apischool.nidarachildren.com/',
-  AUTHSERVERURL: 'http://apischool.nidarachildren.com/',
-  WEBAPISERVICE: 'http://apischool.nidarachildren.com/',
+  SERVERURL: 'https://apischool.nidarachildren.com',
+  SCHOOLSERVICEURL: 'https://apischool.nidarachildren.com',
+  AUTHSERVERURL: 'https://apischool.nidarachildren.com',
+  WEBAPISERVICE: 'https://apischool.nidarachildren.com',
 
   // SERVERURL_WP: 'http://www.nidarachildren.com',
   BETASERVICEURL: 'https://apischool.nidarachildren.com',
@@ -58,7 +58,7 @@ export const environment = {
   SERVERPORT_WP: '',
 
   MAINURL: 'https://school.nidarachildren.com/',
-  GAMEURL: 'http://games.nidarachildren.com/',
+  GAMEURL: 'https://apigameapp.nidarachildren.com/',
   GAMEURL1: 'https://s3.ap-south-1.amazonaws.com',
 
   environment_type: 'application',
@@ -66,8 +66,8 @@ export const environment = {
   ACCESSCODE: 'AVNU80FI50BN71UNNB',
   WORKINGCODE: '213FB527383D5D86A1FFF21D0672CF58',
   MERCHENTID: '137775',
-  REDIRECT_URL: 'http://apischool.nidarachildren.com/ncproduct/paymentresponsive',
-  CANCEL_URL: 'http://apischool.nidarachildren.com/ncproduct/paymentresponsive',
+  REDIRECT_URL: 'https://apischool.nidarachildren.comncproduct/paymentresponsive',
+  CANCEL_URL: 'https://apischool.nidarachildren.comncproduct/paymentresponsive',
 
 
 
