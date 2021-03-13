@@ -18,6 +18,7 @@ export class GamePlayComponent implements OnInit {
   public gameListing:any={};
   public gameUrl:SafeResourceUrl;
   public obj;
+  public backroundDayOrder;
   constructor(private activatedRoute:ActivatedRoute, private childrenService:ChildrenService, public domSanitizer:DomSanitizer, private router:Router) {
 
    }
@@ -45,6 +46,7 @@ export class GamePlayComponent implements OnInit {
     // this.gameUrl = 'http://localhost:4200/assets/games/tina/preschool/dinosaurs1/index.html';
     this.obj = { gameId: "12345", nidara_kid_profile_id: '30', city: "New York" };
     this.iframe.nativeElement.contentWindow.postMessage({key:'storage', method:"set", data: this.obj}, '*');
+    this.backroundDayOrder = localStorage.getItem('today_bg');
   }
 
 logoClick(){

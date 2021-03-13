@@ -1,6 +1,6 @@
 
 <div class="">
-  <div id="nidarasession">
+  <div id="nidarasession" [ngStyle]="{'background-image': 'url(' + backroundDayOrder + ')'}">
 
         <!-- <iframe style="overflow:scroll;" class="game_iframe"  marginheight="1" marginwidth="1" name="cboxmain" id="cboxmain" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true"  allow="autoplay" sandbox="allow-same-origin allow-scripts"></iframe> -->
         <iframe #gameFrame allow="autoplay" [src]="gameUrl" id="gameplayframe" class="game_iframe" scrolling="no" style="border:none;"></iframe>

@@ -298,3 +298,347 @@ display: block;
 margin: auto;
 }
 
+
+
+
+#fiximg-2 img {
+  width: 50%;
+}
+
+#fiximg-2 img {
+  width: 50%;
+}
+.game-title {
+  font-weight: bold;
+  font-family: 'GillSansStd-Light';
+}
+#nidarasession-main{
+  display: block;
+}
+.tinawelcome {
+    position: absolute;
+    width: 100%;
+    height:350px;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+#tinawelcome{
+  display: none;
+}
+
+.tina{
+  text-align: center;
+}
+
+.gamelisting .game-ply-btn {
+  position: absolute;
+  bottom: 20%;
+  right: 40px;
+  z-index: 99;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.tina img {
+  width: 50%;
+  height: auto;
+}
+
+
+.carousel-control .icon-prev {
+  width: 90px;
+  height: 159px;
+  margin-top: -100px;
+  background-image: url(https://cdnncschoolapplication.azureedge.net/assets/games/general/arrow-left.png);
+  background-repeat: no-repeat;
+  font-size: 65px;
+}
+#nidarasession-main{
+  display: none;
+}
+
+.game-block {
+  padding: 0px 0px 0px;
+}
+
+#mobile {
+  display: block;
+}
+
+.game-img-holder {
+  height: 250px;
+  position: relative;
+}
+
+#mobile .carousel-control {
+  position: absolute;
+  top: 100%;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, 0);
+  filter: alpha(opacity=50);
+  opacity: .7;
+  cursor: pointer;
+  float: left;
+  height: 0px;
+}
+
+ul{
+  list-style: none;
+  padding:0px; 
+  width: 160px;
+  float: none;
+}
+
+.prev{
+  width: 80px;
+  height: 80px;
+  margin-top: 0;
+  background-image: url(https://cdnncschoolapplication.azureedge.net/assets/games/general/left.png);
+  background-repeat: no-repeat;
+  font-size: 65px;
+  float: left;
+  background-size: contain;
+  background-position: right;
+} 
+.next {
+  width: 80px;
+  height: 80px;
+  margin-top: 0px;
+  background-image: url(https://cdnncschoolapplication.azureedge.net/assets/games/general/right.png);
+  background-repeat: no-repeat;
+  font-size: 65px;
+  float: right;
+  background-size: contain;
+  background-position: left;
+}
+
+.full-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.game-img-holder.clearfix {
+  height: 170px;
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+
+
+@media (min-width: 768px) {
+    .tinawelcome {
+    position: absolute;
+    width: 100%;
+    height:350px;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.game-block {
+  padding: 0px 0px 0px;
+}
+#mobile {
+  display: block;
+}
+#nidarasession-main{
+  display: none;
+}
+.carousel-control .icon-prev {
+  width: 90px;
+  height: 159px;
+  margin-top: -100px;
+  background-image: url(https://cdnncschoolapplication.azureedge.net/assets/games/general/arrow-left.png);
+  background-repeat: no-repeat;
+  font-size: 65px;
+}
+
+.tina img {
+  width: 75%;
+  height: auto;
+ 
+}
+
+.carousel-control {
+  position: absolute;
+  top: 100%;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, 0);
+  filter: alpha(opacity=50);
+  opacity: .7;
+  cursor: pointer;
+  float: left;
+  height: 0px;
+}
+
+.full-screen {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.game-img-holder.clearfix {
+  height: 170px;
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+}
+@media (min-width: 992px) {
+    .tinawelcome {
+    position: absolute;
+    width: 100%;
+    height:350px;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.game-block {
+  padding: 50px 0px 60px;
+}
+#mobile {
+  display: none;
+}
+#nidarasession-main{
+  display: block;
+}
+.tina img {
+  width: 100%;
+  height: auto;
+}
+.carousel-control .icon-prev {
+  width: 90px;
+  height: 159px;
+  margin-top: -100px;
+  background-image: url(https://cdnncschoolapplication.azureedge.net/assets/games/general/arrow-left.png);
+  background-repeat: no-repeat;
+  font-size: 65px;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 0%;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, 0);
+  filter: alpha(opacity=50);
+  opacity: .7;
+  cursor: pointer;
+  float: left;
+  height: 0px;
+}
+.full-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.game-img-holder.clearfix {
+  height: 250px;
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+}
+@media (min-width: 1200px) {
+    .tinawelcome {
+    position: absolute;
+    width: 100%;
+    height:350px;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.game-block {
+  padding: 50px 0px 60px;
+}
+#nidarasession-main{
+  display: block;
+}
+#mobile {
+  display: none;
+}
+.tina img {
+  width: 100%;
+  height: auto;
+}
+.carousel-control .icon-prev {
+  width: 90px;
+  height: 159px;
+  margin-top: -100px;
+  background-image: url(https://cdnncschoolapplication.azureedge.net/assets/games/general/arrow-left.png);
+  background-repeat: no-repeat;
+  font-size: 65px;
+}
+.carousel-control {
+  position: absolute;
+  top: 0%;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, 0);
+  filter: alpha(opacity=50);
+  opacity: .7;
+  cursor: pointer;
+  float: left;
+  height: 0px;
+}
+.full-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  
+}
+
+.game-img-holder.clearfix {
+  height: 250px;
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+}
+
+#fiximg-1{
+  display: block;
+}
+#fiximg-2{
+  display: block;
+}
+
+#disable img:hover{
+  cursor: not-allowed;
+}
