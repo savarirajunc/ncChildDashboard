@@ -55,7 +55,7 @@ export class MainPageComponent implements OnInit {
       localStorage.setItem('grade_id',res.grade_id);
       localStorage.setItem('session_id',res.session_id);
       localStorage.setItem('session',res.session);
-      localStorage.setItem('selectedKid',res.data[0].ncs_id);
+      localStorage.setItem('selectedKid',res.data[0].id);
       this.childrenService.getGameDayListInfo({'gender':res.data[0].gender,'grade_id':res.class_id ,'day_id':1}).subscribe(response => {
         this.gameSlides = response.games;
         if(response.gender === 'male') {
