@@ -58,7 +58,7 @@ export const environment = {
   SERVERPORT_WP: '',
 
   MAINURL: 'https://school.nidarachildren.com/',
-  GAMEURL: 'https://schoolgame.nidarachildren.com/',
+  GAMEURL: 'https://newschoolgame.nidarachildren.com/',
   GAMEURL1: 'https://s3.ap-south-1.amazonaws.com',
 
   environment_type: 'application',
