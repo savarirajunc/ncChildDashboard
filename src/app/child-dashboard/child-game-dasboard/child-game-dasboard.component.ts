@@ -192,7 +192,7 @@
             this.gifDayOrder = '<img src="assets/games/tina/gif/' + response.gif + '">';
             this.gifDayOrder2 = '<img src="assets/games/tina/img/' +  response.img +'">';
             this.imgDayOrder = 'assets/games/tina/img/' + response.img;
-            this.gameThumbs = CONSTANTS.PAGEURL_MAIN.GAMEURL+'assets/games/tina/';
+            this.gameThumbs = CONSTANTS.PAGEURL_MAIN.GAMEURL+'tina/';
             this.audioClickPlayback.src = GAMEDASHBOARDAUDIO.WELCOMEAUDIO.TINA;
           if(localStorage.getItem('child-dashboar') == '1'){
             $('#fiximg-1').css('display', 'none');
@@ -261,7 +261,7 @@
     localStorage.setItem(key, game_id);
     let url;
     if (gender === 'tina') {
-      url = CONSTANTS.PAGEURL_MAIN.GAMEURL+'assets/game_common_files/index.html?'+localStorage.getItem('gameId')+'&'+localStorage.getItem('selectedKid')+'&'+POSTURL.SERVICEURL+'&'+CONSTANTS.PAGEURL_MAIN.GAMEURL+'assets/games/tina/' + game_url + 'game.html'+'&'+localStorage.getItem('school_id')+'&'+localStorage.getItem('grade_id');
+      url = CONSTANTS.PAGEURL_MAIN.GAMEURL+'assets/game_common_files/index.html?'+localStorage.getItem('gameId')+'&'+localStorage.getItem('selectedKid')+'&'+POSTURL.SERVICEURL+'&'+CONSTANTS.PAGEURL_MAIN.GAMEURL+'tina/' + game_url + 'game.html'+'&'+localStorage.getItem('school_id')+'&'+localStorage.getItem('grade_id');
      // url = game_url + 'index.html';
    } else if (gender === 'rahul') {
       url = CONSTANTS.PAGEURL_MAIN.GAMEURL+'assets/game_common_files/index.html?'+localStorage.getItem('gameId')+'&'+localStorage.getItem('selectedKid')+'&'+POSTURL.SERVICEURL+'&'+CONSTANTS.PAGEURL_MAIN.GAMEURL+'assets/games/rahul/' + game_url + 'game.html';
@@ -301,7 +301,7 @@
       $('#fiximg-2').css('display', 'block');
        if (gender === 'tina') {
        //url = 'assets/games/tina/' + game_url + 'index.html';
-       this.audioHoverPlayback.src = CONSTANTS.PAGEURL_MAIN.GAMEURL+'assets/games/tina/' + folder + 'game_audio/audio.mp3';
+       this.audioHoverPlayback.src = CONSTANTS.PAGEURL_MAIN.GAMEURL+'tina/' + folder + 'game_audio/audio.mp3';
       // url = game_url + 'index.html';
     } else if (gender === 'rahul') {
       // url = 'assets/games/rahul/' + game_url + 'index.html';
@@ -320,7 +320,7 @@
     $('#fiximg-2').css('display', 'block');
       if (gender === 'tina') {
         //url = 'assets/games/tina/' + game_url + 'index.html';
-        this.audioHoverPlayback.src = CONSTANTS.PAGEURL_MAIN.GAMEURL+'assets/games/tina/' + folder + 'game_audio/audio.mp3';
+        this.audioHoverPlayback.src = CONSTANTS.PAGEURL_MAIN.GAMEURL+'tina/' + folder + 'game_audio/audio.mp3';
        // url = game_url + 'index.html';
      } else if (gender === 'rahul') {
        // url = 'assets/games/rahul/' + game_url + 'index.html';
