@@ -89,7 +89,7 @@ export class MainPageComponent implements OnInit {
         this._response['message'] = res.message;
         this._response['alert'] = 'alert alert-success',
         sessionStorage.setItem('todaysession', 'start');
-        localStorage.setItem('session', '0');
+       //  localStorage.setItem('session', '0');
         localStorage.setItem('ipaddress',this.ip);
        // this.router.navigate(['/children-dashboard',this.schoolId,this.ip,'child-game-session']);
         window.open('/children-dashboard/' + this.schoolId + '/' + this.ip + '/child-game-session','_self');
