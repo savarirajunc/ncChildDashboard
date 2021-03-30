@@ -257,11 +257,12 @@
     }
 
   playClick(game_url, game_id, gender) {
+     let ip = localStorage.getItem('ipaddress');
     const key = 'gameId';
     localStorage.setItem(key, game_id);
     let url;
     if (gender === 'tina') {
-      url = CONSTANTS.PAGEURL_MAIN.GAMEURL+'assets/game_common_files/index.html?'+localStorage.getItem('gameId')+'&'+localStorage.getItem('selectedKid')+'&'+POSTURL.SERVICEURL+'&'+CONSTANTS.PAGEURL_MAIN.GAMEURL+'tina/' + game_url + 'game.html'+'&'+localStorage.getItem('school_id')+'&'+localStorage.getItem('grade_id');
+      url = CONSTANTS.PAGEURL_MAIN.GAMEURL+'assets/game_common_files/index.html?'+localStorage.getItem('gameId')+'&'+localStorage.getItem('selectedKid')+'&'+POSTURL.SERVICEURL+'&'+CONSTANTS.PAGEURL_MAIN.GAMEURL+'tina/' + game_url + 'game.html'+'&'+localStorage.getItem('school_id')+'&'+localStorage.getItem('grade_id')+'&'+localStorage.getItem('session_id')+'&'+this.childCheck;
      // url = game_url + 'index.html';
    } else if (gender === 'rahul') {
       url = CONSTANTS.PAGEURL_MAIN.GAMEURL+'assets/game_common_files/index.html?'+localStorage.getItem('gameId')+'&'+localStorage.getItem('selectedKid')+'&'+POSTURL.SERVICEURL+'&'+CONSTANTS.PAGEURL_MAIN.GAMEURL+'assets/games/rahul/' + game_url + 'game.html';
@@ -273,8 +274,8 @@
     // this.childrenService.getGameUrl({'game_url': url}).subscribe(response => {
     //  console.log(response);
       localStorage.setItem('game_url',url);
-      const main_url = '/children-dashboard/'+localStorage.getItem('schoolId')+'/child-game-paly/';
-      this.router.navigate([main_url]);
+      const main_url = '/children-dashboard/'+localStorage.getItem('schoolId')+ '/' + ip + '/child-game-paly/';
+      window.open(main_url,'_self')
     //});
     this.audioClickPlayback.pause();
     this.audioHoverPlayback.pause();

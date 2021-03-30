@@ -128,7 +128,7 @@ ul{
 }
 
 .game-img-holder.clearfix {
-  height: 170px;
+  height: auto;
     position: relative;
     float: left;
     width: 100%;
@@ -199,7 +199,7 @@ ul{
 }
 
 .game-img-holder.clearfix {
-  height: 170px;
+  height: auto;
     position: relative;
     float: left;
     width: 100%;
@@ -262,7 +262,7 @@ ul{
 }
 
 .game-img-holder.clearfix {
-  height: 250px;
+  height: auto;
     position: relative;
     float: left;
     width: 100%;
@@ -325,7 +325,7 @@ ul{
 }
 
 .game-img-holder.clearfix {
-  height: 250px;
+  height: auto;
     position: relative;
     float: left;
     width: 100%;
